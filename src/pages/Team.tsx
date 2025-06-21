@@ -1,0 +1,92 @@
+import React, { useEffect } from 'react';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
+import TeamMemberCard from '@/components/ui/TeamMemberCard';
+import { motion } from 'framer-motion';
+
+const Team: React.FC = () => {
+  useEffect(() => {
+    document.title = 'Our Team - CYNERZA';
+  }, []);
+
+  const founders = [
+  {
+    name: 'Aditya Sahoo',
+    role: 'Founder',
+    imageUrl: '/Teams/Aditya.jpg',
+    bio: 'Visionary leader and tech enthusiast, passionate about building transformative AI products.'
+  },
+  {
+    name: 'Ashutosh Rath',
+    role: 'Founder',
+    imageUrl: '/Teams/Asutosh.jpg',
+    bio: 'Creative problem solver with a knack for innovation and a love for elegant code.'
+  },
+  {
+    name: 'Biswajit Rath',
+    role: 'Founder',
+    imageUrl: '/Teams/Biswajit.jpg',
+    bio: 'Expert in scalable systems and passionate about building seamless user experiences.'
+  },
+  {
+    name: 'Haraprasad Hota',
+    role: 'Founder',
+    imageUrl: '/Teams/Haraprasad.jpg',
+    bio: 'AI researcher and full-stack developer, driven to push the boundaries of technology.'
+  },
+  {
+    name: 'Satyaprakash Nayak',
+    role: 'Founder',
+    imageUrl: '/Teams/Satya.jpg',
+    bio: 'Strategic thinker and product architect, dedicated to delivering impactful solutions.'
+  },
+];
+
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      
+      <main className="flex-grow pt-8">
+        <section className="py-8">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
+                Meet the <span className="gradient-text">Team</span> Behind CYNERZA
+              </h2>
+              <p className="text-xl text-gray-600">
+                We're a passionate group of engineers, researchers, and designers dedicated to revolutionizing development with AI.
+              </p>
+            </div>
+            
+            <div className="mb-16">
+  <h2 className="text-2xl font-bold mb-8 border-b pb-4 text-center">Founders</h2>
+  <div className="flex flex-row justify-center items-stretch gap-8 overflow-x-auto pb-4">
+    {founders.map((member, index) => (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+      >
+        <TeamMemberCard
+          name={member.name}
+          role={member.role}
+          imageUrl={member.imageUrl}
+          bio={member.bio}
+        />
+      </motion.div>
+    ))}
+  </div>
+</div>
+          </div>
+        </section>
+      </main>
+      
+      <Footer />
+    </div>
+  );
+};
+
+export default Team;
