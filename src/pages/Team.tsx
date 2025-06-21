@@ -61,7 +61,7 @@ const Team: React.FC = () => {
             
             <div className="mb-16">
   <h2 className="text-2xl font-bold mb-8 border-b pb-4 text-center">Founders</h2>
-  <div className="flex flex-row justify-center items-stretch gap-8 overflow-x-auto pb-4">
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center items-stretch pb-4">
     {founders.map((member, index) => (
       <motion.div
         key={index}
@@ -69,6 +69,7 @@ const Team: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
+        className="w-full flex justify-center"
       >
         <TeamMemberCard
           name={member.name}
