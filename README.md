@@ -1,73 +1,127 @@
-# Welcome to your Lovable project
+# CYNERZA - Modern Web Interface
 
-## Project info
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub stars](https://img.shields.io/github/stars/CYNERZA/CYNERZA-WEB?style=social)](https://github.com/CYNERZA/CYNERZA-WEB/stargazers)
+[![Docker Pulls](https://img.shields.io/docker/pulls/cynerza/web)](https://hub.docker.com/r/cynerza/web)
 
-**URL**: https://lovable.dev/projects/99b0f38e-7da0-4f57-8020-50cfc7596911
+<p align="center">
+  <img src="public/logo.png" alt="CYNERZA Logo" width="200"/>
+</p>
 
-## How can I edit this code?
+CYNERZA is a modern web application built with React, TypeScript, and Tailwind CSS, featuring a responsive design and beautiful UI components. This project serves as the official web interface for CYNERZA's AI tools and services.
 
-There are several ways of editing your application.
+## ✨ Features
 
-**Use Lovable**
+- 🎨 **Modern UI/UX** with responsive design
+- 🚀 **Blazing Fast** performance with Vite
+- 🎯 **Type Safety** with TypeScript
+- 🎨 **Beautiful Components** with shadcn/ui and Tailwind CSS
+- 🌙 **Dark Mode** support
+- 🐳 **Docker** containerization for easy deployment
+- 🔄 **CI/CD** ready with GitHub Actions
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/99b0f38e-7da0-4f57-8020-50cfc7596911) and start prompting.
+## 🚀 Quick Start
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js 18+ and npm 9+
+- Git
+- Docker (optional)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Local Development
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/CYNERZA/CYNERZA-WEB.git
+   cd CYNERZA-WEB
+   ```
 
-Follow these steps:
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Building for Production
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+npm run build
 ```
 
-**Edit a file directly in GitHub**
+## 🐳 Docker Deployment
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Build the Docker Image
 
-**Use GitHub Codespaces**
+```bash
+docker build -t cynerza-web .
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Run the Container
 
-## What technologies are used for this project?
+```bash
+docker run -d --restart unless-stopped -p 7070:7070 --name cynerza-app cynerza-web
+```
 
-This project is built with:
+The application will be available at [http://localhost:7070](http://localhost:7070)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🛠️ Tech Stack
 
-## How can I deploy this project?
+- **Frontend Framework**: React 18
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Build Tool**: Vite
+- **State Management**: React Query
+- **Form Handling**: React Hook Form
+- **Animation**: Framer Motion
+- **Icons**: Lucide React
+- **Containerization**: Docker
 
-Simply open [Lovable](https://lovable.dev/projects/99b0f38e-7da0-4f57-8020-50cfc7596911) and click on Share -> Publish.
+## 📂 Project Structure
 
-## Can I connect a custom domain to my Lovable project?
+```
+/src
+  /components      # Reusable UI components
+  /hooks          # Custom React hooks
+  /lib            # Utility functions and configurations
+  /pages          # Application pages
+  /styles         # Global styles and Tailwind config
+  /types          # TypeScript type definitions
+  /utils          # Helper functions
+```
 
-Yes, you can!
+## 🤝 Contributing
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Contributions are welcome! Please follow these steps:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [shadcn/ui](https://ui.shadcn.com/) for the beautiful component library
+- [Tailwind CSS](https://tailwindcss.com/) for utility-first CSS
+- [Vite](https://vitejs.dev/) for the build tooling
+- [Framer Motion](https://www.framer.com/motion/) for animations
+
+## 🌐 Live Demo
+
+Check out the live demo at [https://cynerza.com](https://cynerza.com)
+
+---
+
+<p align="center">
+  Made with ❤️ by <a href="https://github.com/CYNERZA">CYNERZA Team</a>
+</p>
