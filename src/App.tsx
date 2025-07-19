@@ -4,10 +4,10 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PageLayout from "@/components/layout/PageLayout";
 import Index from "./pages/Index";
 import AiTools from "./pages/AiTools";
 import Team from "./pages/Team";
-import Blog from "./pages/Blog";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -21,13 +21,36 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/ai-tools" element={<AiTools />} />
-          <Route path="/team" element={<Team />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={
+            <PageLayout noPadding>
+              <Index />
+            </PageLayout>
+          } />
+          <Route path="/ai-tools" element={
+            <PageLayout>
+              <AiTools />
+            </PageLayout>
+          } />
+          <Route path="/team" element={
+            <PageLayout>
+              <Team />
+            </PageLayout>
+          } />
+          <Route path="/about" element={
+            <PageLayout>
+              <About />
+            </PageLayout>
+          } />
+          <Route path="/contact" element={
+            <PageLayout>
+              <Contact />
+            </PageLayout>
+          } />
+          <Route path="*" element={
+            <PageLayout>
+              <NotFound />
+            </PageLayout>
+          } />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

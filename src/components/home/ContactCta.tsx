@@ -22,9 +22,11 @@ const ContactCta: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button className="bg-cynerza-purple hover:bg-cynerza-purple/90 text-white px-8 py-6 rounded-full text-lg">
-              Get Started Free
-            </Button>
+            <a href="https://tools.cynerza.com" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-cynerza-purple hover:bg-cynerza-purple/90 text-white px-8 py-6 rounded-full text-lg">
+                Get Started Free
+              </Button>
+            </a>
             <Link to="/contact">
               <Button variant="outline" className="border-cynerza-purple text-cynerza-purple hover:bg-cynerza-purple/5 px-8 py-6 rounded-full text-lg">
                 Contact Sales

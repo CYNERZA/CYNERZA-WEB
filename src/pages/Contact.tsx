@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
 import { Mail, Phone, MapPin } from 'lucide-react';
@@ -28,7 +26,7 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
+    
     setTimeout(() => {
       toast({
         title: "Message Sent",
@@ -66,10 +64,8 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
-      
-      <main className="flex-grow pt-8">
+    <div className="w-full">
+      <section className="py-16 md:py-24">
         <section className="py-8">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center mb-16">
@@ -213,9 +209,7 @@ const Contact: React.FC = () => {
             </div>
           </div>
         </section>
-      </main>
-      
-      <Footer />
+      </section>
     </div>
   );
 };

@@ -1,74 +1,81 @@
 import React, { useEffect, useRef } from 'react';
 import FeatureCard from '@/components/ui/FeatureCard';
-import { Code, Zap, Globe, Users, Sparkles, LayoutDashboard } from 'lucide-react';
+import { Code, Zap, Globe, Users, Sparkles, LayoutDashboard, Server, BarChart3 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Fade } from "react-awesome-reveal";
+import { ArrowRight } from 'lucide-react';
 
 const FeaturesSection: React.FC = () => {
-  // No longer need useRef for IntersectionObserver as framer-motion handles it
-  // const featuresRef = useRef<HTMLDivElement>(null);
   
-  // No longer need useEffect for IntersectionObserver as framer-motion handles it
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (entry.isIntersecting) {
-  //           const elements = entry.target.querySelectorAll('.feature-item');
-  //           elements.forEach((el, index) => {
-  //             setTimeout(() => {
-  //               (el as HTMLElement).classList.add('animate-fade-in-up');
-  //               (el as HTMLElement).style.opacity = '1';
-  //             }, index * 150);
-  //           });
-  //         }
-  //       });
-  //     },
-  //     { threshold: 0.1 }
-  //   );
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
-  //   if (featuresRef.current) {
-  //     observer.observe(featuresRef.current);
-  //   }
+  
+  
+  
 
-  //   return () => {
-  //     if (featuresRef.current) {
-  //       observer.unobserve(featuresRef.current);
-  //     }
-  //   };
-  // }, []);
+  
+  
+  
+  
+  
+  
 
   const features = [
     {
-      title: 'Smart Code Generation',
-      description: 'Generate high-quality code snippets and entire components with AI assistance.',
-      icon: <Code className="w-6 h-6" />
+      title: 'Unified AI Ecosystem',
+      description: 'One platform for web, mobile, automation, and AI — no more juggling between disconnected services.',
+      icon: <Globe className="w-6 h-6" />,
+      gradient: 'from-blue-500 to-cyan-500'
     },
     {
-      title: 'Blazing Fast Performance',
-      description: 'Optimize your applications for speed with intelligent performance suggestions.',
-      icon: <Zap className="w-6 h-6" />
+      title: 'Customizable Workflows',
+      description: 'Low-code to full-code flexibility with drag-and-drop automation and custom scripting.',
+      icon: <LayoutDashboard className="w-6 h-6" />,
+      gradient: 'from-purple-500 to-pink-500'
     },
     {
-      title: 'Global Deployment',
-      description: 'Deploy your applications to any cloud provider with one-click solutions.',
-      icon: <Globe className="w-6 h-6" />
+      title: 'Enterprise-Grade APIs',
+      description: 'Comprehensive REST & GraphQL APIs with SDKs for Python, Node.js, and Flutter.',
+      icon: <Code className="w-6 h-6" />,
+      gradient: 'from-amber-500 to-orange-500'
     },
     {
-      title: 'Team Collaboration',
-      description: 'Work together seamlessly with real-time collaboration and version control.',
-      icon: <Users className="w-6 h-6" />
+      title: 'AI-Powered Automation',
+      description: 'Intelligent process automation with RPA, chatbots, and IoT integration capabilities.',
+      icon: <Zap className="w-6 h-6" />,
+      gradient: 'from-emerald-500 to-teal-500'
     },
     {
-      title: 'AI-Powered Insights',
-      description: 'Get intelligent insights and suggestions to improve your codebase.',
-      icon: <Sparkles className="w-6 h-6" />
+      title: 'Scalable Infrastructure',
+      description: 'Cloud-native architecture that grows with your business, from startup to enterprise.',
+      icon: <Server className="w-6 h-6" />,
+      gradient: 'from-violet-500 to-indigo-500'
     },
     {
-      title: 'Intuitive Dashboard',
-      description: 'Monitor and manage all your projects from a beautiful, informative dashboard.',
-      icon: <LayoutDashboard className="w-6 h-6" />
-    }
+      title: 'Data-Driven Insights',
+      description: 'Real-time analytics and AI-powered recommendations for smarter decisions.',
+      icon: <BarChart3 className="w-6 h-6" />,
+      gradient: 'from-rose-500 to-pink-500'
+    },
   ];
 
   return (
@@ -76,13 +83,13 @@ const FeaturesSection: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <Fade direction="up" triggerOnce>
-            <h2 className="section-heading">
-              <span className="gradient-text">Powerful Features</span> For Modern Developers
+            <h2 className="section-heading text-center mb-12">
+              Why CYNERZA?
             </h2>
           </Fade>
           <Fade direction="up" triggerOnce delay={200}>
-            <p className="text-lg text-gray-600">
-              Unlock the full potential of your development workflow with our cutting-edge tools and features.
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-16 text-center">
+              We're not just another tech company. CYNERZA is your strategic partner in digital transformation, combining cutting-edge AI with enterprise-grade solutions to drive real business impact.
             </p>
           </Fade>
         </div>

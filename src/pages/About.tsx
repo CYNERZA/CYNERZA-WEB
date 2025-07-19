@@ -1,11 +1,8 @@
 import React, { useEffect } from 'react';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import ParticleBackground from '@/components/ui/ParticleBackground';
 import { motion } from 'framer-motion';
-import { Animate } from 'react-move';
 
 const About: React.FC = () => {
   useEffect(() => {
@@ -43,12 +40,10 @@ const About: React.FC = () => {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <ParticleBackground className="opacity-50" />
-      
-      <main className="flex-grow pt-8 relative z-10">
-        {/* Hero Section */}
+    <div className="w-full relative">
+      <ParticleBackground className="opacity-30" />
+      <div className="relative z-10">
+        {}
         <section className="py-8">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center mb-16">
@@ -91,7 +86,7 @@ const About: React.FC = () => {
           </div>
         </section>
         
-        {/* Stats */}
+        {}
         <section className="py-8">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -100,45 +95,26 @@ const About: React.FC = () => {
                   key={index}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.5 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="p-6 rounded-2xl glass-effect purple-glow"
                 >
-                  <Animate
-                    start={{
-                      opacity: 0,
-                      y: 20,
-                      value: 0
-                    }}
-                    update={{
-                      opacity: [1],
-                      y: [0],
-                      value: [stat.value],
-                      timing: { duration: 1000, delay: index * 200, ease: 'easeOutQuad' }
-                    }}
-                  >
-                    {({ opacity, y, value }) => (
-                      <div style={{ opacity, transform: `translateY(${y}px)` }}>
-                        <div className="text-4xl font-bold gradient-text mb-2">
-                          {Math.round(value).toLocaleString()}{stat.display.includes('+') ? '+' : ''}
-                        </div>
-                        <div className="text-gray-600">{stat.label}</div>
-                      </div>
-                    )}
-                  </Animate>
+                  <div className="text-4xl font-bold text-cynerza-purple dark:text-cynerza-purple-light mb-2">
+                    {stat.display}
+                  </div>
+                  <div className="text-gray-600 dark:text-gray-300">
+                    {stat.label}
+                  </div>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
         
-        {/* Timeline */}
+        {}
         <section className="py-16 bg-cynerza-gray-light">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold font-heading mb-12 text-center">Our Journey</h2>
             
             <div className="relative">
-              {/* Vertical Line */}
+              {}
               <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-cynerza-purple/20"></div>
               
               {timeline.map((item, index) => (
@@ -168,7 +144,7 @@ const About: React.FC = () => {
           </div>
         </section>
         
-        {/* CTA */}
+        {}
         <section className="py-8">
           <div className="container mx-auto px-4 max-w-4xl">
             <div className="glass-effect rounded-3xl p-8 md:p-12 text-center">
@@ -181,9 +157,11 @@ const About: React.FC = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Button className="bg-cynerza-purple hover:bg-cynerza-purple/90 text-white">
-                  Get Started Free
-                </Button>
+                <a href="https://tools.cynerza.com" target="_blank" rel="noopener noreferrer">
+                  <Button className="bg-cynerza-purple hover:bg-cynerza-purple/90 text-white">
+                    Get Started Free
+                  </Button>
+                </a>
                 <Link to="/careers">
                   <Button variant="outline" className="border-cynerza-purple text-cynerza-purple hover:bg-cynerza-purple/5">
                     View Career Opportunities
@@ -193,9 +171,7 @@ const About: React.FC = () => {
             </div>
           </div>
         </section>
-      </main>
-      
-      <Footer />
+      </div>
     </div>
   );
 };

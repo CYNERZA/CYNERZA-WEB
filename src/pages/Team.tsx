@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
 import TeamMemberCard from '@/components/ui/TeamMemberCard';
 import { motion } from 'framer-motion';
 
@@ -44,10 +42,8 @@ const Team: React.FC = () => {
 
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
-      
-      <main className="flex-grow pt-8">
+    <div className="w-full">
+      <section className="py-16 md:py-24">
         <section className="py-8">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center mb-16">
@@ -83,9 +79,7 @@ const Team: React.FC = () => {
 </div>
           </div>
         </section>
-      </main>
-      
-      <Footer />
+      </section>
     </div>
   );
 };

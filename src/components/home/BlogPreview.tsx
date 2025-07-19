@@ -5,33 +5,33 @@ import BlogCard from '@/components/ui/BlogCard';
 import { motion } from 'framer-motion';
 
 const BlogPreview: React.FC = () => {
-  // No longer need useRef for IntersectionObserver as framer-motion handles it
-  // const blogRef = useRef<HTMLDivElement>(null);
+  
+  
 
-  // No longer need useEffect for IntersectionObserver as framer-motion handles it
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (entry.isIntersecting) {
-  //           entry.target.classList.add('animate-fade-in');
-  //           observer.unobserve(entry.target); // Stop observing once animation is triggered
-  //         }
-  //       });
-  //     },
-  //     { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
-  //   );
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
-  //   if (blogRef.current) {
-  //     observer.observe(blogRef.current);
-  //   }
+  
+  
+  
 
-  //   return () => {
-  //     if (blogRef.current) {
-  //       observer.unobserve(blogRef.current);
-  //     }
-  //   };
-  // }, []);
+  
+  
+  
+  
+  
+  
 
   const blogPosts = [
     {
@@ -71,7 +71,7 @@ const BlogPreview: React.FC = () => {
         </div>
 
         <div 
-          // ref={blogRef} // No longer needed
+          
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {blogPosts.map((post, index) => (
@@ -89,7 +89,7 @@ const BlogPreview: React.FC = () => {
                 date={post.date}
                 author={post.author}
                 slug={post.slug}
-                // className="animate-fade-in" // No longer needed
+                
               />
             </motion.div>
           ))}

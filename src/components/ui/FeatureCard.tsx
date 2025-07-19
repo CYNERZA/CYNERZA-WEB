@@ -15,24 +15,24 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   icon,
   className
 }) => {
-  // const [isHovered, setIsHovered] = useState(false); // No longer needed
+  
   
   return (
     <motion.div
       className={cn(
         "relative rounded-2xl p-6 transition-all duration-300 ease-in-out",
-        "bg-white/50 shadow", // Default shadow
+        "bg-white/50 shadow", 
         className
       )}
       whileHover={{
         scale: 1.05,
         boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-        backgroundColor: "rgba(155, 135, 245, 0.1)" // cynerza-purple/10
+        backgroundColor: "rgba(155, 135, 245, 0.1)" 
       }}
       whileTap={{ scale: 0.98 }}
       transition={{ duration: 0.2 }}
-      // onMouseEnter={() => setIsHovered(true)} // No longer needed
-      // onMouseLeave={() => setIsHovered(false)} // No longer needed
+      
+      
     >
       <div className={`
         flex items-center justify-center w-14 h-14 mb-4 rounded-lg
