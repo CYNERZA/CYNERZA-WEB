@@ -47,7 +47,7 @@ const About: React.FC = () => {
         <section className="py-2">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center mb-16">
-              <h1 className="text-4xl md:text-5xl font-bold font-heading mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold font-heading mb-6 gradient-text">
                 About <span className="gradient-text">CYNERZA</span>
               </h1>
               <p className="text-xl text-gray-600">

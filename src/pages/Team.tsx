@@ -47,7 +47,7 @@ const Team: React.FC = () => {
         <section className="py-1">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-center mb-5 gradient-text">
                 Meet the <span className="gradient-text">Team</span> Behind CYNERZA
               </h2>
               <p className="text-xl text-gray-600">
@@ -57,7 +57,7 @@ const Team: React.FC = () => {
 
             <div className="mb-16">
               {/* Founders */}
-              <h2 className="text-2xl font-bold mb-8 border-b pb-4 text-center">Founders</h2>
+              <h2 className="text-2xl font-bold mb-8 border-b pb-4 text-center gradient-text">Founders</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center items-stretch pb-4">
                 {founders.map((member, index) => (
                   <motion.div
@@ -78,7 +78,7 @@ const Team: React.FC = () => {
                 ))}
               </div>
               {/*Members */}
-              <h2 className="text-2xl font-bold mb-8 border-b pb-4 text-center mt-12">Memeber</h2>
+              <h2 className="text-2xl font-bold mb-8 border-b pb-4 text-center mt-12 gradient-text">Memebers</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center items-stretch pb-4">
                 {founders.map((member, index) => (
                   <motion.div

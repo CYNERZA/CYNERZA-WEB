@@ -69,7 +69,7 @@ const Contact: React.FC = () => {
         <section className="py-0">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center mb-16">
-              <h1 className="text-4xl md:text-5xl font-bold font-heading mb-4">
+              <h1 className="text-4xl md:text-5xl font-bold font-heading mb-4 gradient-text">
                 Get in <span className="gradient-text">Touch</span>
               </h1>
               <p className="text-xl text-gray-600">
