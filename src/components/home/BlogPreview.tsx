@@ -6,33 +6,6 @@ import { motion } from 'framer-motion';
 
 const BlogPreview: React.FC = () => {
   
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-
   const blogPosts = [
     {
       title: 'The Future of AI in Software Development',

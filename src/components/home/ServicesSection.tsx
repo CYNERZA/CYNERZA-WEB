@@ -1,9 +1,6 @@
 import React from 'react';
-import { Code, Globe, Layers, Smartphone, Server, FileText, Link } from 'lucide-react';
+import { Globe, Layers, Smartphone, Server, FileText } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { Button } from '../ui/button';
-
-
 
 
 const ServicesSection: React.FC = () => {

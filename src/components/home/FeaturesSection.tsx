@@ -7,38 +7,6 @@ import { ArrowRight } from 'lucide-react';
 
 const FeaturesSection: React.FC = () => {
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-
   const features = [
     {
       title: 'Unified AI Ecosystem',

@@ -245,7 +245,7 @@ const AiTools: React.FC = () => {
           </section>
 
           {}
-          <section className="py-10 bg-gradient-to-r from-cynerza-purple/5 to-cynerza-blue/5 dark:from-cynerza-purple/10 dark:to-cynerza-blue/10">
+          <section className="py-16 bg-gradient-to-r from-cynerza-purple/5 to-cynerza-blue/5 dark:from-cynerza-purple/10 dark:to-cynerza-blue/10">
             <div className="container mx-auto px-4 text-center">
               <motion.div 
                 className="max-w-3xl mx-auto"
