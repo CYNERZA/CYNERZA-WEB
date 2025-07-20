@@ -113,8 +113,8 @@ const AiTools: React.FC = () => {
     <div className="w-full relative">
       <ParticleBackground />
       <div className="relative z-10">
-        <main className="flex-grow pt-16 pb-12 relative z-10">
-          <section className="py-12 md:py-20">
+        <main className="flex-grow pt-0 pb-12 relative z-10">
+          <section className="py-1">
             <div className="container mx-auto px-4">
               <motion.div 
                 className="max-w-4xl mx-auto text-center mb-16"

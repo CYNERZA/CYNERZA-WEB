@@ -44,7 +44,7 @@ const About: React.FC = () => {
       <ParticleBackground className="opacity-30" />
       <div className="relative z-10">
         {}
-        <section className="py-8">
+        <section className="py-2">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center mb-16">
               <h1 className="text-4xl md:text-5xl font-bold font-heading mb-6">

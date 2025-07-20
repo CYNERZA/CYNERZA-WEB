@@ -65,8 +65,8 @@ const Contact: React.FC = () => {
 
   return (
     <div className="w-full">
-      <section className="py-16 md:py-24">
-        <section className="py-8">
+      <section className="py-2">
+        <section className="py-0">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center mb-16">
               <h1 className="text-4xl md:text-5xl font-bold font-heading mb-4">
