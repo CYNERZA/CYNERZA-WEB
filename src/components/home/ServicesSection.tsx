@@ -1,41 +1,12 @@
 import React from 'react';
-import { Code, Globe, Layers, Smartphone, Server, FileText } from 'lucide-react';
+import { Code, Globe, Layers, Smartphone, Server, FileText, Link } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Button } from '../ui/button';
 
 
 
 
 const ServicesSection: React.FC = () => {
-  
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
   
 
   const services = [
@@ -152,17 +123,20 @@ const ServicesSection: React.FC = () => {
         </div>
         
         <motion.div 
-          className="mt-16 text-center"
+          className="mt-14 text-center "
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <a 
+          <a
             href="https://tools.cynerza.com" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cynerza-purple to-cynerza-blue text-white text-lg font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cynerza-purple/30 hover:-translate-y-0.5"
+            className="inline-flex items-center px-8 py-8 bg-gradient-to-r  from-cynerza-purple
+             to-cynerza-blue text-white text-lg font-semibold rounded-xl transition-all duration-300 
+             hover:shadow-lg hover:shadow-cynerza-purple/30 hover:-translate-y-0.5
+             bg-cynerza-purple hover:bg-cynerza-purple/90 h-12 "
           >
             <span>Explore All Services</span>
             <svg className="w-5 h-5 ml-2 -mr-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -170,6 +144,8 @@ const ServicesSection: React.FC = () => {
             </svg>
           </a>
         </motion.div>
+    
+
       </div>
     </section>
   );

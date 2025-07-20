@@ -244,7 +244,7 @@ const AiToolsPreview: React.FC = () => {
         </div>
 
         <motion.div 
-          className="mt-16 text-center"
+          className="mt-14 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
@@ -254,7 +254,9 @@ const AiToolsPreview: React.FC = () => {
             <div className="absolute -inset-0.5 bg-gradient-to-r from-cynerza-purple to-cynerza-blue rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
             <Link 
               to="/ai-tools"
-              className="relative flex items-center px-8 py-4 bg-gradient-to-r from-cynerza-purple to-cynerza-blue text-white text-lg font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-cynerza-purple/30"
+              className="relative flex items-center px-8 py-8 bg-gradient-to-r from-cynerza-purple to-cynerza-blue text-white text-lg font-semibold rounded-xl transition-all
+               duration-200 hover:shadow-lg hover:shadow-cynerza-purple/30
+               bg-cynerza-purple hover:bg-cynerza-purple/90 h-12 "
             >
               <span>Explore All AI Tools</span>
               <svg className="w-5 h-5 ml-2 -mr-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
