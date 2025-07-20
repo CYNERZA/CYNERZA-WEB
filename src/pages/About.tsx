@@ -87,7 +87,7 @@ const About: React.FC = () => {
         </section>
         
         {}
-        <section className="py-8">
+        <section className="py-4">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               {stats.map((stat, index) => (
