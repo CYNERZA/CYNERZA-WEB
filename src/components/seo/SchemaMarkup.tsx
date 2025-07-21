@@ -11,7 +11,7 @@ export const AIToolSchema = () => {
     "offers": {
       "@type": "Offer",
       "price": "0",
-      "priceCurrency": "USD"
+      "priceCurrency": "INR"
     },
     "potentialAction": {
       "@type": "UseAction",
