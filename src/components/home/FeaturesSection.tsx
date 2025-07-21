@@ -47,16 +47,16 @@ const FeaturesSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-cynerza-gray-light" id="features">
+    <section className="py-8 bg-cynerza-gray-light" id="features">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <Fade direction="up" triggerOnce>
-            <h2 className="section-heading text-center mb-12">
+            <h2 className="section-heading text-center mb-4">
               Why CYNERZA?
             </h2>
           </Fade>
           <Fade direction="up" triggerOnce delay={200}>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-16 text-center">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-4 text-center">
               We're not just another tech company. CYNERZA is your strategic partner in digital transformation, combining cutting-edge AI with enterprise-grade solutions to drive real business impact.
             </p>
           </Fade>

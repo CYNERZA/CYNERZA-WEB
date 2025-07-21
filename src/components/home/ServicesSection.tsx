@@ -49,7 +49,7 @@ const ServicesSection: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center max-w-4xl mx-auto mb-20">
+        <div className="text-center max-w-4xl mx-auto mb-8">
           <motion.div
             className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-cynerza-purple/5 dark:bg-cynerza-purple/10 border border-cynerza-purple/10 dark:border-cynerza-purple/20 text-cynerza-purple dark:text-cynerza-purple-light text-sm font-medium mb-6"
             initial={{ opacity: 0, y: 20 }}
@@ -120,7 +120,7 @@ const ServicesSection: React.FC = () => {
         </div>
 
         <motion.div
-          className="mt-14 text-center"
+          className="mt-5 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}

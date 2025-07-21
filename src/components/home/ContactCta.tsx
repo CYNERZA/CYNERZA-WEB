@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 const ContactCta: React.FC = () => {
   return (
-    <section className="py-8 relative overflow-hidden">
+    <section className="relative overflow-hidden p-0 mb-4">
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-cynerza-purple-light/30 to-cynerza-purple/20"></div>
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_left,rgba(155,135,245,0.15),transparent_50%)]"></div>
@@ -13,7 +13,7 @@ const ContactCta: React.FC = () => {
       
       <div className="container mx-auto px-4 max-w-4xl relative">
         <div className="glass-effect rounded-3xl p-8 md:p-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4 gradient-text">
             Ready to <span className="gradient-text">Transform</span> Your Development?
           </h2>
           
