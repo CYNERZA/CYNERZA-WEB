@@ -1,7 +1,9 @@
 import React, { ReactNode } from 'react';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { cn } from '@/lib/utils';
+import { AIToolSchema, WebsiteSchema } from '../seo/SchemaMarkup';
 
 interface PageLayoutProps {
   children: ReactNode;
@@ -17,8 +19,16 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   noFooter = false
 }) => {
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-gray-950">
-      <Navbar />
+    <HelmetProvider>
+      <div className="min-h-screen flex flex-col bg-white dark:bg-gray-950">
+        <Helmet>
+          <title>Cynerza - AI Tools & Solutions</title>
+          <meta name="description" content="Experience powerful AI tools with Cynerza. Try now for free!" />
+          <link rel="canonical" href="https://cynerza.com" />
+        </Helmet>
+        <AIToolSchema />
+        <WebsiteSchema />
+        <Navbar />
       <main 
         className={cn(
           'flex-1 w-full',
@@ -30,8 +40,9 @@ const PageLayout: React.FC<PageLayoutProps> = ({
           {children}
         </div>
       </main>
-      {!noFooter && <Footer />}
-    </div>
+        {!noFooter && <Footer />}
+      </div>
+    </HelmetProvider>
   );
 };
 
