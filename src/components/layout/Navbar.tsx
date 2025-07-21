@@ -45,11 +45,12 @@ const Navbar: React.FC = () => {
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
           >
-            <Zap className={`h-6 w-6 ${
+            {/* <Zap className={`h-6 w-6 ${
               isScrolled 
                 ? 'text-cynerza-purple dark:text-cynerza-purple-light' 
                 : 'text-cynerza-purple dark:text-cynerza-purple-light'
-            }`} />
+            }`} /> */}
+            <img src="../../../logo.png" alt="" className="w-11 h-11  rounded-full" />
             <span 
               className={`text-2xl font-bold font-heading tracking-tight ${
                 isScrolled 
