@@ -43,7 +43,7 @@ const About: React.FC = () => {
     <div className="w-full relative">
       <ParticleBackground className="opacity-30" />
       <div className="relative z-10">
-        {}
+        { }
         <section className="py-2">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center mb-16">
@@ -56,7 +56,7 @@ const About: React.FC = () => {
             </div>
           </div>
         </section>
-        
+
         {/* Our Story */}
         <section className="py-10 bg-cynerza-gray-light">
           <div className="container mx-auto px-4">
@@ -75,9 +75,9 @@ const About: React.FC = () => {
               </div>
               <div className="lg:w-1/2 relative">
                 <div className="rounded-2xl overflow-hidden shadow-xl purple-glow">
-                  <img 
-                    src="/placeholder.svg" 
-                    alt="CYNERZA team working" 
+                  <img
+                    src="/placeholder.svg"
+                    alt="CYNERZA team working"
                     className="w-full h-auto"
                   />
                 </div>
@@ -85,13 +85,13 @@ const About: React.FC = () => {
             </div>
           </div>
         </section>
-        
-        {}
+
+        { }
         <section className="py-4">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               {stats.map((stat, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -107,55 +107,81 @@ const About: React.FC = () => {
             </div>
           </div>
         </section>
-        
-        {}
-        <section className="py-16 bg-cynerza-gray-light">
+
+        { }
+        <section className="py-10 bg-cynerza-gray-light">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold font-heading mb-12 text-center">Our Journey</h2>
-            
+
             <div className="relative">
-              {}
+              { }
               <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-cynerza-purple/20"></div>
-              
               {timeline.map((item, index) => (
-                <motion.div 
-                  key={index} 
+                <motion.div
+                  key={index}
                   initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.5 }}
                   transition={{ duration: 0.5, delay: index * 0.15 }}
                   className={`relative flex items-center justify-between mb-12 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
                 >
-                  <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'pl-8'}`}>
-                    <div className="glass-effect rounded-xl p-6">
-                      <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                      <p className="text-gray-600">{item.description}</p>
+                  <div
+                    className={`w-5/12 break-words ${index % 2 === 0 ? 'md:text-right md:pr-8' : 'md:pl-8'}`}
+                  >
+                    <div className="glass-effect rounded-xl p-4 sm:p-6 min-h-[100px]">
+                      <h3 className="text-lg sm:text-xl font-bold mb-2 gradient-text break-words">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm sm:text-base text-gray-500 break-words">
+                        {item.description}
+                      </p>
                     </div>
                   </div>
-                  
                   <div className="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-cynerza-purple text-white font-bold">
                     {item.year.substring(2)}
                   </div>
-                  
+
                   <div className="w-5/12"></div>
                 </motion.div>
+                // <motion.div
+                //   key={index}
+                //   initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                //   whileInView={{ opacity: 1, x: 0 }}
+                //   viewport={{ once: true, amount: 0.5 }}
+                //   transition={{ duration: 0.5, delay: index * 0.15 }}
+                //   className={`relative flex flex-col md:flex-row items-center justify-between mb-12 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                // >
+                //   <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'text-center md:text-right md:pr-8' : 'md:pl-8'}`}>
+                //     <div className="glass-effect rounded-xl p-4 sm:p-6">
+                //       <h3 className="text-lg sm:text-xl font-bold mb-2 gradient-text">{item.title}</h3>
+                //       <p className="text-sm sm:text-base text-gray-500">{item.description}</p>
+                //     </div>
+                //   </div>
+
+                //   <div className="z-10 flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-cynerza-purple text-white font-bold my-4 md:my-0">
+                //     {item.year.substring(2)}
+                //   </div>
+
+                //   <div className="w-full md:w-5/12"></div>
+                // </motion.div>
+
               ))}
             </div>
           </div>
         </section>
-        
-        {}
+
+        { }
         <section className="py-8">
-          <div className="container mx-auto px-4 max-w-4xl">
+          <div className="container mx-auto px-4 max-w-4xl ">
             <div className="glass-effect rounded-3xl p-8 md:p-12 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4 gradient-text">
                 Join Us on Our <span className="gradient-text">Mission</span>
               </h2>
-              
+
               <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
                 Whether you're a developer looking to use our tools or interested in joining our team, we'd love to hear from you.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <a href="https://tools.cynerza.com" target="_blank" rel="noopener noreferrer">
                   <Button className="bg-cynerza-purple hover:bg-cynerza-purple/90 text-white">
@@ -163,7 +189,8 @@ const About: React.FC = () => {
                   </Button>
                 </a>
                 <Link to="/careers">
-                  <Button variant="outline" className="border-cynerza-purple text-cynerza-purple hover:bg-cynerza-purple/5">
+                  <Button variant="outline" className="border-cynerza-purple text-cynerza-purple
+                   hover:bg-cynerza-purple/5 px-2 sm:px-4">
                     View Career Opportunities
                   </Button>
                 </Link>

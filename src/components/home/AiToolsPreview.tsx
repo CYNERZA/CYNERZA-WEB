@@ -13,19 +13,22 @@ const AiToolsPreview: React.FC = () => {
           name: "Ad Copy Generator",
           description: "Create high-converting ad copy for all your marketing campaigns",
           gradient: "from-purple-400 to-pink-600",
-          icon: <FileType size={20} className="text-white" />
+          icon: <FileType size={20} className="text-white" />,
+          link: "https://tools.cynerza.com/text-tools-ad-copy-generator"
         },
         {
           name: "Script Creator",
           description: "Write professional video and podcast scripts with ease",
           gradient: "from-emerald-400 to-teal-600",
-          icon: <FileText size={20} className="text-white" />
+          icon: <FileText size={20} className="text-white" />,
+          link: "https://tools.cynerza.com/text-tools-script-creator"
         },
         {
           name: "Summarizer",
           description: "Get concise summaries of long documents and articles",
           gradient: "from-rose-400 to-pink-600",
-          icon: <FileOutput size={20} className="text-white" />
+          icon: <FileOutput size={20} className="text-white" />,
+          link: "https://tools.cynerza.com/text-tools-summarizer"
         }
       ]
     },
@@ -36,19 +39,22 @@ const AiToolsPreview: React.FC = () => {
           name: "AI Image Generator",
           description: "Create stunning, high-quality images from text descriptions",
           gradient: "from-amber-400 to-orange-600",
-          icon: <ImageIcon size={20} className="text-white" />
+          icon: <ImageIcon size={20} className="text-white" />,
+          link: "https://tools.cynerza.com/image-tools-ai-image-generator"
         },
         {
           name: "Background Remover",
           description: "Instantly remove backgrounds from any image with precision",
           gradient: "from-violet-400 to-purple-600",
-          icon: <ImageIcon size={20} className="text-white" />
+          icon: <ImageIcon size={20} className="text-white" />,
+          link: "https://tools.cynerza.com/image-tools-background-remover"
         },
         {
           name: "Image Enhancer",
           description: "Enhance and upscale images without losing quality",
           gradient: "from-emerald-400 to-cyan-600",
-          icon: <Wand2 size={20} className="text-white" />
+          icon: <Wand2 size={20} className="text-white" />,
+          link: "https://tools.cynerza.com/image-tools-image-enhancer"
         }
       ]
     },
@@ -59,19 +65,22 @@ const AiToolsPreview: React.FC = () => {
           name: "Text to Speech",
           description: "Convert text to natural-sounding speech in multiple languages",
           gradient: "from-blue-400 to-indigo-600",
-          icon: <Volume2 size={20} className="text-white" />
+          icon: <Volume2 size={20} className="text-white" />,
+          link: "https://tools.cynerza.com/audio-tools-text-to-speech"
         },
         {
           name: "Voice Cloner",
           description: "Create realistic voice clones from just a few samples",
           gradient: "from-purple-400 to-pink-600",
-          icon: <Mic size={20} className="text-white" />
+          icon: <Mic size={20} className="text-white" />,
+          link: "https://tools.cynerza.com/audio-tools-voice-cloner"
         },
         {
           name: "Noise Remover",
           description: "Remove background noise and enhance audio quality",
           gradient: "from-rose-400 to-pink-600",
-          icon: <Volume2 size={20} className="text-white" />
+          icon: <Volume2 size={20} className="text-white" />,
+          link: "https://tools.cynerza.com/audio-tools-noise-remover"
         }
       ]
     },
@@ -82,19 +91,22 @@ const AiToolsPreview: React.FC = () => {
           name: "AI Code Generator",
           description: "Generate code in multiple programming languages with AI",
           gradient: "from-indigo-400 to-cyan-600",
-          icon: <Code size={20} className="text-white" />
+          icon: <Code size={20} className="text-white" />,
+          link: "https://tools.cynerza.com/gen-ai-tools-code-generator"
         },
         {
           name: "Chatbot Creator",
           description: "Build and deploy AI-powered chatbots without coding",
           gradient: "from-blue-400 to-cyan-600",
-          icon: <MessageSquare size={20} className="text-white" />
+          icon: <MessageSquare size={20} className="text-white" />,
+          link: "https://tools.cynerza.com/gen-ai-tools-chatbot-creator"
         },
         {
           name: "Prompt Designer",
           description: "Create effective prompts for AI models",
           gradient: "from-green-400 to-emerald-600",
-          icon: <PenTool size={20} className="text-white" />
+          icon: <PenTool size={20} className="text-white" />,
+          link: "https://tools.cynerza.com/gen-ai-tools-prompt-designer"
         }
       ]
     },
@@ -105,31 +117,36 @@ const AiToolsPreview: React.FC = () => {
           name: "Podcast Generator",
           description: "Create professional podcasts from text content",
           gradient: "from-amber-400 to-orange-600",
-          icon: <Mic size={20} className="text-white" />
+          icon: <Mic size={20} className="text-white" />,
+          link: "https://tools.cynerza.com/podcast-generator"
         },
         {
           name: "Social Media Posts",
           description: "Generate engaging posts for all social platforms",
           gradient: "from-violet-400 to-purple-600",
-          icon: <Share2 size={20} className="text-white" />
+          icon: <Share2 size={20} className="text-white" />,
+          link: "https://tools.cynerza.com/social-media-posts"
         },
         {
           name: "Brand Book Generator",
           description: "Create comprehensive brand guidelines automatically",
           gradient: "from-emerald-400 to-cyan-600",
-          icon: <BookOpen size={20} className="text-white" />
+          icon: <BookOpen size={20} className="text-white" />,
+          link: "https://tools.cynerza.com/brandbook-generator"
         },
         {
           name: "Multimedia Bot Builder",
           description: "Build bots that understand and generate multiple media types",
           gradient: "from-rose-400 to-pink-600",
-          icon: <Bot size={20} className="text-white" />
+          icon: <Bot size={20} className="text-white" />,
+          link: "https://tools.cynerza.com/multimedia-bot-builder"
         },
         {
           name: "API Reference",
           description: "Access our comprehensive API documentation",
           gradient: "from-indigo-400 to-cyan-600",
-          icon: <Code2 size={20} className="text-white" />
+          icon: <Code2 size={20} className="text-white" />,
+          link: "https://tools.cynerza.com/api-reference"
         }
       ]
     }
@@ -145,7 +162,7 @@ const AiToolsPreview: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center max-w-4xl mx-auto mb-20">
+        <div className="text-center max-w-4xl mx-auto mb-6">
           <motion.div 
             className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-cynerza-purple/5 dark:bg-cynerza-purple/10 border border-cynerza-purple/10 dark:border-cynerza-purple/20 text-cynerza-purple dark:text-cynerza-purple-light text-sm font-medium mb-6"
             initial={{ opacity: 0, y: 20 }}
@@ -183,7 +200,7 @@ const AiToolsPreview: React.FC = () => {
           {aiTools.map((category, index) => (
             <motion.div 
               key={category.category}
-              className="mb-20 last:mb-0"
+              className="my-6 last:mb-0"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -225,7 +242,7 @@ const AiToolsPreview: React.FC = () => {
                         {tool.description}
                       </p>
                       <a 
-                        href="https://tools.cynerza.com" 
+                        href={tool.link} 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="inline-flex items-center text-cynerza-purple dark:text-cynerza-purple-light font-medium text-sm group"
@@ -244,7 +261,7 @@ const AiToolsPreview: React.FC = () => {
         </div>
 
         <motion.div 
-          className="mt-14 text-center"
+          className="mt-6 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}

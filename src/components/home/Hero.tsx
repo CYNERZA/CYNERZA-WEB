@@ -5,38 +5,144 @@ import { motion, useAnimation, useInView } from 'framer-motion';
 import { ChevronDown, Play, Zap, Code, Cpu, Smartphone, Globe, BarChart3, ArrowRight } from 'lucide-react';
 
 
+// const AnimatedIcons = () => {
+//   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+//   const containerRef = useRef<HTMLDivElement>(null);
+//   const isInView = useInView(containerRef, { once: true });
+
+//   const handleMouseMove = (e: React.MouseEvent) => {
+//     if (containerRef.current) {
+//       const rect = containerRef.current.getBoundingClientRect();
+//       setMousePos({
+//         x: ((e.clientX - rect.left) / rect.width - 0.5) * 20,
+//         y: ((e.clientY - rect.top) / rect.height - 0.5) * 20
+//       });
+//     }
+//   };
+
+//   // icons list
+//   const icons = [
+//     { icon: <Zap className="w-8 h-8 text-amber-400" />, delay: 0 },
+//     { icon: <Code className="w-8 h-8 text-cyan-400" />, delay: 0.1 },
+//     { icon: <Cpu className="w-8 h-8 text-purple-400" />, delay: 0.2 },
+//     { icon: <Smartphone className="w-8 h-8 text-pink-400" />, delay: 0.3 },
+//     { icon: <Globe className="w-8 h-8 text-blue-400" />, delay: 0.4 },
+//     { icon: <BarChart3 className="w-8 h-8 text-green-400" />, delay: 0.5 },
+//   ];
+
+//   const radius = 140;
+
+//   return (
+//     <div
+//       ref={containerRef}
+//       onMouseMove={handleMouseMove}
+//       className="relative w-full h-[450px] lg:h-[550px] flex items-center justify-center"
+//     >
+//       {/* Icons fixed around circle */}
+//       {icons.map((item, i) => {
+//         const angle = (i / icons.length) * Math.PI * 2;
+//         const x = Math.cos(angle) * radius + mousePos.x;
+//         const y = Math.sin(angle) * radius + mousePos.y;
+//         return (
+//           <motion.div
+//             key={i}
+//             className="absolute"
+//             initial={{ x: 0, y: 0, opacity: 0 }}
+//             animate={{
+//               x: isInView ? x : 0,
+//               y: isInView ? y : 0,
+//               opacity: isInView ? 1 : 0,
+//               scale: isInView ? 1 : 0.5
+//             }}
+//             transition={{
+//               type: "spring", damping: 20, stiffness: 100, delay: item.delay
+//             }}
+//           >
+//             <motion.div
+//               className="p-4 bg-white rounded-2xl shadow-lg"
+//               whileHover={{ scale: 1.1, rotate: 5 }}
+//               whileTap={{ scale: 0.95 }}
+//             >
+//               {item.icon}
+//             </motion.div>
+//           </motion.div>
+//         );
+//       })}
+
+//       {/* Central circle with logo */}
+//       <motion.div
+//         className="absolute w-40 h-40 rounded-full bg-gradient-to-br from-cyan-400 to-purple-600 flex items-center justify-center shadow-lg"
+//         initial={{ scale: 0, opacity: 0 }}
+//         animate={isInView ? { scale: 1, opacity: 1 } : {}}
+//         transition={{ delay: 0.3, type: "spring" }}
+//       >
+//         <img
+//           src={"../../../logo.png"}
+//           alt="Logo"
+//           className="w-full h-full object-cover rounded-full"
+//         />
+//         <motion.div
+//           className="absolute inset-0 rounded-full"
+//           animate={{
+//             scale: [1, 1.2, 1],
+//             opacity: [0.5, 0.8, 0.5]
+//           }}
+//           transition={{
+//             duration: 3, repeat: Infinity, ease: "easeInOut"
+//           }}
+//         />
+//       </motion.div>
+//     </div>
+//   );
+// };
+
+
+
 const AnimatedIcons = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  
+  {/*} Set initial radius based on window size */}
+  const [radius, setRadius] = useState(
+    typeof window !== "undefined" && window.innerWidth < 640 ? 90 : 140
+  );
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true });
 
+  {/* Adjust radius based on window size */}
+  useEffect(() => {
+    const handleResize = () => {
+      setRadius(window.innerWidth < 640 ? 90 : 140);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  {/* Handle mouse movement to update icon positions */}
   const handleMouseMove = (e: React.MouseEvent) => {
     if (containerRef.current) {
       const rect = containerRef.current.getBoundingClientRect();
       setMousePos({
         x: ((e.clientX - rect.left) / rect.width - 0.5) * 20,
-        y: ((e.clientY - rect.top) / rect.height - 0.5) * 20
+        y: ((e.clientY - rect.top) / rect.height - 0.5) * 20,
       });
     }
   };
 
-  // icons list
+  {/* Icons list */}
   const icons = [
-    { icon: <Zap className="w-8 h-8 text-amber-400" />, delay: 0 },
-    { icon: <Code className="w-8 h-8 text-cyan-400" />, delay: 0.1 },
-    { icon: <Cpu className="w-8 h-8 text-purple-400" />, delay: 0.2 },
-    { icon: <Smartphone className="w-8 h-8 text-pink-400" />, delay: 0.3 },
-    { icon: <Globe className="w-8 h-8 text-blue-400" />, delay: 0.4 },
-    { icon: <BarChart3 className="w-8 h-8 text-green-400" />, delay: 0.5 },
+    { icon: <Zap className="w-6 h-6 sm:w-8 sm:h-8 text-amber-400" />, delay: 0 },
+    { icon: <Code className="w-6 h-6 sm:w-8 sm:h-8 text-cyan-400" />, delay: 0.1 },
+    { icon: <Cpu className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400" />, delay: 0.2 },
+    { icon: <Smartphone className="w-6 h-6 sm:w-8 sm:h-8 text-pink-400" />, delay: 0.3 },
+    { icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400" />, delay: 0.4 },
+    { icon: <BarChart3 className="w-6 h-6 sm:w-8 sm:h-8 text-green-400" />, delay: 0.5 },
   ];
-
-  const radius = 140;
 
   return (
     <div
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="relative w-full h-[450px] lg:h-[550px] flex items-center justify-center"
+      className="relative w-full h-[350px] sm:h-[450px] lg:h-[550px] flex items-center justify-center"
     >
       {/* Icons fixed around circle */}
       {icons.map((item, i) => {
@@ -52,14 +158,17 @@ const AnimatedIcons = () => {
               x: isInView ? x : 0,
               y: isInView ? y : 0,
               opacity: isInView ? 1 : 0,
-              scale: isInView ? 1 : 0.5
+              scale: isInView ? 1 : 0.5,
             }}
             transition={{
-              type: "spring", damping: 20, stiffness: 100, delay: item.delay
+              type: "spring",
+              damping: 20,
+              stiffness: 100,
+              delay: item.delay,
             }}
           >
             <motion.div
-              className="p-4 bg-white rounded-2xl shadow-lg"
+              className="p-2 sm:p-4 bg-white rounded-2xl shadow-lg"
               whileHover={{ scale: 1.1, rotate: 5 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -71,7 +180,7 @@ const AnimatedIcons = () => {
 
       {/* Central circle with logo */}
       <motion.div
-        className="absolute w-40 h-40 rounded-full bg-gradient-to-br from-cyan-400 to-purple-600 flex items-center justify-center shadow-lg"
+        className="absolute w-24 h-24 sm:w-40 sm:h-40 rounded-full  flex items-center justify-center shadow-lg"
         initial={{ scale: 0, opacity: 0 }}
         animate={isInView ? { scale: 1, opacity: 1 } : {}}
         transition={{ delay: 0.3, type: "spring" }}
@@ -85,16 +194,19 @@ const AnimatedIcons = () => {
           className="absolute inset-0 rounded-full"
           animate={{
             scale: [1, 1.2, 1],
-            opacity: [0.5, 0.8, 0.5]
+            opacity: [0.5, 0.8, 0.5],
           }}
           transition={{
-            duration: 3, repeat: Infinity, ease: "easeInOut"
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
           }}
         />
       </motion.div>
     </div>
   );
 };
+
 
 const Hero: React.FC = () => {
   const controls = useAnimation();
@@ -155,7 +267,9 @@ const Hero: React.FC = () => {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden 
+      bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800
+       dark:to-gray-900 py-8 sm:py-10 md:py-8"
     >
       { }
       <div className="absolute inset-0 overflow-hidden">
@@ -172,7 +286,7 @@ const Hero: React.FC = () => {
         <div className="absolute -bottom-64 -left-64 w-[600px] h-[600px] rounded-full bg-cynerza-blue/10 blur-3xl dark:bg-cynerza-blue/20" />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 sm:py-24">
+      <div className="container mx-auto px-4 sm:px-2 lg:px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           { }
           <motion.div
@@ -280,9 +394,9 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      { }
+      {/* make respomsible in mobile devices  */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        className="z-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5, duration: 0.5 }}
@@ -313,6 +427,8 @@ const Hero: React.FC = () => {
           </button>
         </div>
       </motion.div>
+
+
     </section>
   );
 };

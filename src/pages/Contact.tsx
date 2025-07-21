@@ -68,21 +68,21 @@ const Contact: React.FC = () => {
       <section className="py-2">
         <section className="py-0">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center mb-16">
+            <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold font-heading mb-4 gradient-text">
                 Get in <span className="gradient-text">Touch</span>
               </h1>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-gray-600 mb-4">
                 Have questions or want to learn more? Reach out to our team and we&apos;ll get back to you shortly.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-6">
               {contactInfo.map((item, index) => (
                 <a
                   key={index}
                   href={item.link}
-                  className="glass-effect rounded-xl p-6 text-center transition-transform hover:scale-105"
+                  className="gradient-text glass-effect rounded-xl p-6 text-center transition-transform hover:scale-105"
                   target={item.title === 'Visit Us' ? '_blank' : undefined}
                   rel={item.title === 'Visit Us' ? 'noopener noreferrer' : undefined}
                 >
@@ -98,7 +98,7 @@ const Contact: React.FC = () => {
             <div className="max-w-3xl mx-auto">
               <div className="glass-effect rounded-2xl overflow-hidden">
                 <div className="p-8">
-                  <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
+                  <h2 className="text-2xl font-bold mb-6 gradient-text text-center">Send Us a Message</h2>
                   
                   <form onSubmit={handleSubmit}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -175,7 +175,7 @@ const Contact: React.FC = () => {
           </div>
         </section>
         
-        <section className="py-8 bg-cynerza-gray-light">
+        <section className="py-8 bg-cynerza-gray-light mt-6">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-2xl font-bold mb-4">Frequently Asked Questions</h2>
             <p className="text-gray-600 mb-8">
