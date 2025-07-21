@@ -113,8 +113,8 @@ const AiTools: React.FC = () => {
     <div className="w-full relative">
       <ParticleBackground />
       <div className="relative z-10">
-        <main className="flex-grow pt-16 pb-12 relative z-10">
-          <section className="py-12 md:py-20">
+        <main className="flex-grow pt-0 pb-12 relative z-10">
+          <section className="pb-8 pt-2">
             <div className="container mx-auto px-4">
               <motion.div 
                 className="max-w-4xl mx-auto text-center mb-16"
@@ -254,7 +254,7 @@ const AiTools: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6">Ready to supercharge your workflow?</h2>
+                <h2 className="gradient-text text-3xl md:text-4xl font-bold font-heading mb-6">Ready to supercharge your workflow?</h2>
                 <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
                   Start using our AI tools today and experience the future of productivity.
                 </p>

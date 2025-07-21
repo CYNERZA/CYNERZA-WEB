@@ -1,42 +1,10 @@
 import React from 'react';
-import { Code, Globe, Layers, Smartphone, Server, FileText } from 'lucide-react';
+import { Globe, Layers, Smartphone, Server, FileText } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 
-
-
 const ServicesSection: React.FC = () => {
-  
-  
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
 
   const services = [
     {
@@ -72,8 +40,8 @@ const ServicesSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-24 overflow-hidden bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
-      {}
+    <section className="relative py-8 overflow-hidden bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
+      { }
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(124,58,237,0.03)_0%,transparent_70%)] dark:bg-[radial-gradient(circle_at_center,rgba(124,58,237,0.05)_0%,transparent_70%)]" />
         <div className="absolute -top-1/2 -right-1/4 w-[800px] h-[800px] rounded-full bg-cynerza-purple/5 dark:bg-cynerza-purple/10 blur-3xl" />
@@ -82,7 +50,7 @@ const ServicesSection: React.FC = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center max-w-4xl mx-auto mb-20">
-          <motion.div 
+          <motion.div
             className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-cynerza-purple/5 dark:bg-cynerza-purple/10 border border-cynerza-purple/10 dark:border-cynerza-purple/20 text-cynerza-purple dark:text-cynerza-purple-light text-sm font-medium mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -93,8 +61,8 @@ const ServicesSection: React.FC = () => {
             <span className="text-cynerza-purple/70 dark:text-cynerza-purple-light/70">•</span>
             <span>Services</span>
           </motion.div>
-          
-          <motion.h2 
+
+          <motion.h2
             className="text-4xl sm:text-5xl font-bold font-heading mb-6 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -103,8 +71,8 @@ const ServicesSection: React.FC = () => {
           >
             Comprehensive Digital Solutions
           </motion.h2>
-          
-          <motion.p 
+
+          <motion.p
             className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -117,14 +85,14 @@ const ServicesSection: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {services.map((service, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               className="group relative"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ 
-                duration: 0.6, 
+              transition={{
+                duration: 0.6,
                 delay: index * 0.1,
                 ease: [0.16, 1, 0.3, 1]
               }}
@@ -150,26 +118,33 @@ const ServicesSection: React.FC = () => {
             </motion.div>
           ))}
         </div>
-        
-        <motion.div 
-          className="mt-16 text-center"
+
+        <motion.div
+          className="mt-14 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <a 
-            href="https://tools.cynerza.com" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cynerza-purple to-cynerza-blue text-white text-lg font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cynerza-purple/30 hover:-translate-y-0.5"
-          >
-            <span>Explore All Services</span>
-            <svg className="w-5 h-5 ml-2 -mr-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
+          <div className="relative inline-flex group">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-cynerza-purple to-cynerza-blue rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
+            <a
+              href="https://tools.cynerza.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative flex items-center px-8 py-8 bg-gradient-to-r from-cynerza-purple to-cynerza-blue text-white text-lg font-semibold rounded-xl transition-all
+                       duration-200 hover:shadow-lg hover:shadow-cynerza-purple/30
+                       bg-cynerza-purple hover:bg-cynerza-purple/90 h-12 "
+            >
+              <span>Explore All Services</span>
+              <svg className="w-5 h-5 ml-2 -mr-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
         </motion.div>
+
+
       </div>
     </section>
   );
