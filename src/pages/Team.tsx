@@ -7,39 +7,60 @@ const Team: React.FC = () => {
     document.title = 'Our Team - CYNERZA';
   }, []);
 
-  const founders = [
+  type teamDetails = {
+    name: string
+    role: string
+    imageUrl: string
+    bio: string
+    linkedInUrl: string
+  }
+  const founders: Array<teamDetails> = [
     {
       name: 'Aditya Sahoo',
       role: 'Founder',
       imageUrl: '/Teams/Aditya.jpg',
-      bio: 'Visionary leader and tech enthusiast, passionate about building transformative AI products.'
+      bio: 'Visionary leader and tech enthusiast, passionate about building transformative AI products.',
+      linkedInUrl: ""
     },
     {
       name: 'Ashutosh Rath',
       role: 'Founder',
       imageUrl: '/Teams/Asutosh.jpg',
-      bio: 'Creative problem solver with a knack for innovation and a love for elegant code.'
+      bio: 'Creative problem solver with a knack for innovation and a love for elegant code.',
+      linkedInUrl: ""
     },
     {
       name: 'Biswajit Rath',
       role: 'Founder',
       imageUrl: '/Teams/Biswajit.jpg',
-      bio: 'Expert in scalable systems and passionate about building seamless user experiences.'
+      bio: 'Expert in scalable systems and passionate about building seamless user experiences.',
+      linkedInUrl: ""
     },
     {
       name: 'Haraprasad Hota',
       role: 'Founder',
       imageUrl: '/Teams/Haraprasad.jpg',
-      bio: 'AI researcher and full-stack developer, driven to push the boundaries of technology.'
+      bio: 'AI researcher and full-stack developer, driven to push the boundaries of technology.',
+      linkedInUrl: ""
     },
     {
       name: 'Satyaprakash Nayak',
       role: 'Founder',
       imageUrl: '/Teams/Satya.jpg',
-      bio: 'Strategic thinker and product architect, dedicated to delivering impactful solutions.'
+      bio: 'Strategic thinker and product architect, dedicated to delivering impactful solutions.',
+      linkedInUrl: ""
     },
   ];
 
+  const members: Array<teamDetails> = [
+    {
+      name: "Aditi Mehera",
+      role: "Android Developer",
+      imageUrl: "/Teams/Aditi Mehera.jpeg",
+      bio: "Android Developer",
+      linkedInUrl: "https://www.linkedin.com/in/aditi-mehra-5921a4288"
+    }
+  ]
 
   return (
     <div className="w-full">
@@ -60,13 +81,16 @@ const Team: React.FC = () => {
               <h2 className="text-2xl font-bold mb-8 border-b pb-4 text-center gradient-text">Founders</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center items-stretch pb-4">
                 {founders.map((member, index) => (
-                  <motion.div
+                  <motion.a
                     key={index}
+                    href={member.linkedInUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.5 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="w-full flex justify-center"
+                    className="w-full flex justify-center no-underline"
                   >
                     <TeamMemberCard
                       name={member.name}
@@ -74,20 +98,24 @@ const Team: React.FC = () => {
                       imageUrl={member.imageUrl}
                       bio={member.bio}
                     />
-                  </motion.div>
+                  </motion.a>
                 ))}
+
               </div>
               {/*Members */}
-              <h2 className="text-2xl font-bold mb-8 border-b pb-4 text-center mt-12 gradient-text">Memebers</h2>
+              <h2 className="text-2xl font-bold mb-8 border-b pb-4 text-center mt-12 gradient-text">Members</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center items-stretch pb-4">
-                {founders.map((member, index) => (
-                  <motion.div
+                {members.map((member, index) => (
+                  <motion.a
                     key={index}
+                    href={member.linkedInUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.5 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="w-full flex justify-center"
+                    className="w-full flex justify-center no-underline"
                   >
                     <TeamMemberCard
                       name={member.name}
@@ -95,8 +123,9 @@ const Team: React.FC = () => {
                       imageUrl={member.imageUrl}
                       bio={member.bio}
                     />
-                  </motion.div>
+                  </motion.a>
                 ))}
+
               </div>
             </div>
           </div>
