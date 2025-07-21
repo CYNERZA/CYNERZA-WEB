@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ParticleBackground from '@/components/ui/ParticleBackground';
 import ToolCard from '@/components/tools/ToolCard';
-import { 
-  FileText, 
-  Image as ImageIcon, 
-  Mic, 
-  Volume2, 
-  Code, 
+import {
+  FileText,
+  Image as ImageIcon,
+  Mic,
+  Volume2,
+  Code,
   MessageSquare,
   PenTool,
   Share2,
@@ -19,6 +19,7 @@ import {
   Wrench
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { link } from 'fs';
 
 const AiTools: React.FC = () => {
   useEffect(() => {
@@ -32,10 +33,20 @@ const AiTools: React.FC = () => {
       description: 'Advanced text generation and processing tools powered by AI',
       icon: <FileText className="w-6 h-6" />,
       gradient: 'from-blue-400 to-indigo-600',
+      link: "https://tools.cynerza.com/text-tools-ad-copy-generator",
       tools: [
-        'Ad Copy Generator',
-        'Script Creator',
-        'Summarizer'
+        {
+          toolName: "Ad Copy Generator",
+          link: "https://tools.cynerza.com/text-tools-ad-copy-generator"
+        },
+        {
+          toolName: "Script Creator",
+          link: "https://tools.cynerza.com/text-tools-script-creator"
+        },
+        {
+          toolName: "Summarizer",
+          link: "https://tools.cynerza.com/text-tools-summarizer"
+        }
       ]
     },
     {
@@ -44,10 +55,22 @@ const AiTools: React.FC = () => {
       description: 'Create and enhance images with AI-powered editing',
       icon: <ImageIcon className="w-6 h-6" />,
       gradient: 'from-purple-400 to-pink-600',
+                link: "https://tools.cynerza.com/image-tools-ai-image-generator",
+
       tools: [
-        'AI Image Generator',
-        'Background Remover',
-        'Image Enhancer'
+        {
+          toolName: "AI Image Generator",
+          link: "https://tools.cynerza.com/image-tools-ai-image-generator"
+        },
+        {
+          toolName: "Background Remover",
+          link: "https://tools.cynerza.com/image-tools-background-remover"
+        },
+        {
+          toolName: "Image Enhancer",
+          link: "https://tools.cynerza.com/image-tools-image-enhancer"
+        }
+
       ]
     },
     {
@@ -56,10 +79,20 @@ const AiTools: React.FC = () => {
       description: 'Transform and generate audio with cutting-edge AI',
       icon: <Volume2 className="w-6 h-6" />,
       gradient: 'from-emerald-400 to-teal-600',
+      link: "https://tools.cynerza.com/audio-tools-text-to-speech",
       tools: [
-        'Text to Speech',
-        'Voice Cloner',
-        'Noise Remover'
+       {
+        toolName: "Text to Speech",
+        link: "https://tools.cynerza.com/audio-tools-text-to-speech"
+       },
+       {
+        toolName: "Voice Cloner",
+        link: "https://tools.cynerza.com/audio-tools-voice-cloner"
+       },
+       {
+        toolName: "Noise Remover",
+        link: "https://tools.cynerza.com/audio-tools-noise-remover"
+       }
       ]
     },
     {
@@ -68,10 +101,20 @@ const AiTools: React.FC = () => {
       description: 'Next-generation AI for creative content generation',
       icon: <Sparkles className="w-6 h-6" />,
       gradient: 'from-amber-400 to-orange-600',
+      link: "https://tools.cynerza.com/gen-ai-tools-code-generator",
       tools: [
-        'AI Code Generator',
-        'Chatbot Creator',
-        'Prompt Designer'
+        {
+          toolName: "AI Code Generator",
+          link: "https://tools.cynerza.com/gen-ai-tools-code-generator"
+        },
+        {
+          toolName: "Chatbot Creator",
+          link: "https://tools.cynerza.com/gen-ai-tools-chatbot-creator"
+        },
+        {
+          toolName: "Prompt Designer",
+          link: "https://tools.cynerza.com/gen-ai-tools-prompt-designer"
+        }
       ]
     },
     {
@@ -81,11 +124,26 @@ const AiTools: React.FC = () => {
       icon: <Wrench className="w-6 h-6" />,
       gradient: 'from-rose-400 to-pink-600',
       tools: [
-        'Podcast Generator',
-        'Social Media Posts',
-        'Brand Book Generator',
-        'Multimedia Bot Builder',
-        'API Reference'
+        {
+          toolName: 'Podcast Generator',
+          link: 'https://tools.cynerza.com/podcast-generator'
+        },
+        {
+          toolName: 'Social Media Posts',
+          link: 'https://tools.cynerza.com/social-media-posts'
+        },
+        {
+          toolName: 'Brand Book Generator',
+          link: 'https://tools.cynerza.com/brandbook-generator'
+        },
+        {
+          toolName: 'Multimedia Bot Builder',
+          link: 'https://tools.cynerza.com/multimedia-bot-builder'
+        },
+        {
+          toolName: 'API Reference',
+          link: 'https://tools.cynerza.com/api-reference'
+        }
       ]
     }
   ];
@@ -93,19 +151,20 @@ const AiTools: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredCategories = categories.filter(category => 
+  const filteredCategories = categories.filter(category =>
     activeCategory === 'all' || category.id === activeCategory
   );
 
-  const filteredTools = filteredCategories.flatMap(category => 
-    category.tools.filter(tool => 
-      tool.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredTools = filteredCategories.flatMap(category =>
+    category.tools.filter(tool =>
+      tool.toolName.toLowerCase().includes(searchQuery.toLowerCase())
     ).map(tool => ({
-      name: tool,
+      name: tool.toolName,
       category: category.name,
       icon: category.icon,
       gradient: category.gradient,
-      description: `AI-powered ${tool.toLowerCase()} tool`
+      link: tool.link,
+      description: `AI-powered ${tool.toolName.toLowerCase()} tool`
     }))
   );
 
@@ -116,7 +175,7 @@ const AiTools: React.FC = () => {
         <main className="flex-grow pt-0 pb-12 relative z-10">
           <section className="pb-8 pt-2">
             <div className="container mx-auto px-4">
-              <motion.div 
+              <motion.div
                 className="max-w-4xl mx-auto text-center mb-16"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -131,8 +190,8 @@ const AiTools: React.FC = () => {
                   <Zap className="w-4 h-4 mr-2" />
                   <span>AI-Powered Tools</span>
                 </motion.div>
-                
-                <motion.h1 
+
+                <motion.h1
                   className="text-4xl md:text-6xl font-bold font-heading mb-6 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -140,8 +199,8 @@ const AiTools: React.FC = () => {
                 >
                   Explore Our <span className="gradient-text">AI Tools</span>
                 </motion.h1>
-                
-                <motion.p 
+
+                <motion.p
                   className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -151,8 +210,8 @@ const AiTools: React.FC = () => {
                 </motion.p>
               </motion.div>
 
-              {}
-              <motion.div 
+              { }
+              <motion.div
                 className="max-w-3xl mx-auto mb-12"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -170,14 +229,14 @@ const AiTools: React.FC = () => {
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
                 </div>
-                
+
                 <div className="flex flex-wrap justify-center gap-3 mt-6">
                   <button
                     onClick={() => setActiveCategory('all')}
                     className={cn(
                       'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
-                      activeCategory === 'all' 
-                        ? 'bg-cynerza-purple text-white shadow-lg shadow-cynerza-purple/20' 
+                      activeCategory === 'all'
+                        ? 'bg-cynerza-purple text-white shadow-lg shadow-cynerza-purple/20'
                         : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                     )}
                   >
@@ -189,8 +248,8 @@ const AiTools: React.FC = () => {
                       onClick={() => setActiveCategory(category.id)}
                       className={cn(
                         'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 flex items-center',
-                        activeCategory === category.id 
-                          ? 'text-white shadow-lg' 
+                        activeCategory === category.id
+                          ? 'text-white shadow-lg'
                           : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700',
                         `bg-gradient-to-r ${category.gradient}`
                       )}
@@ -203,11 +262,14 @@ const AiTools: React.FC = () => {
                 </div>
               </motion.div>
 
-              {}
+              { }
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <AnimatePresence mode="wait">
                   {filteredTools.map((tool, index) => (
-                    <motion.div
+                    <motion.a
+                      href={tool.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       key={`${tool.name}-${index}`}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -222,13 +284,13 @@ const AiTools: React.FC = () => {
                         gradient={tool.gradient}
                         delay={index * 0.1}
                       />
-                    </motion.div>
+                    </motion.a>
                   ))}
                 </AnimatePresence>
               </div>
 
               {filteredTools.length === 0 && (
-                <motion.div 
+                <motion.div
                   className="text-center py-12"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -244,10 +306,10 @@ const AiTools: React.FC = () => {
             </div>
           </section>
 
-          {}
+          { }
           <section className="py-16 bg-gradient-to-r from-cynerza-purple/5 to-cynerza-blue/5 dark:from-cynerza-purple/10 dark:to-cynerza-blue/10">
             <div className="container mx-auto px-4 text-center">
-              <motion.div 
+              <motion.div
                 className="max-w-3xl mx-auto"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
