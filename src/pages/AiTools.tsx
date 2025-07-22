@@ -201,7 +201,7 @@ const AiTools: React.FC = () => {
                 </motion.h1>
 
                 <motion.p
-                  className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
+                  className="text-xl text-gray-800 dark:text-gray-400 max-w-2xl mx-auto"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4, duration: 0.5 }}
@@ -299,8 +299,8 @@ const AiTools: React.FC = () => {
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-800 mb-4">
                     <Search className="w-8 h-8 text-gray-400" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">No tools found</h3>
-                  <p className="text-gray-600 dark:text-gray-400">Try adjusting your search or filter criteria</p>
+                  <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-400 mb-2">No tools found</h3>
+                  <p className="text-gray-800 dark:text-gray-4000">Try adjusting your search or filter criteria</p>
                 </motion.div>
               )}
             </div>
@@ -317,7 +317,7 @@ const AiTools: React.FC = () => {
                 transition={{ duration: 0.5 }}
               >
                 <h2 className="gradient-text text-3xl md:text-4xl font-bold font-heading mb-6">Ready to supercharge your workflow?</h2>
-                <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
+                <p className="text-xl text-gray-800 dark:text-gray-400 mb-8">
                   Start using our AI tools today and experience the future of productivity.
                 </p>
                 <div className="flex flex-col sm:flex-row justify-center gap-4">
