@@ -50,7 +50,7 @@ const About: React.FC = () => {
               <h1 className="text-4xl md:text-5xl font-bold font-heading mb-6 gradient-text">
                 About <span className="gradient-text">CYNERZA</span>
               </h1>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-gray-800 dark:text-gray-400">
                 We're on a mission to revolutionize software development by making advanced AI tools accessible to all developers.
               </p>
             </div>
@@ -58,18 +58,19 @@ const About: React.FC = () => {
         </section>
 
         {/* Our Story */}
-        <section className="py-10 bg-cynerza-gray-light">
+        <section className="py-10 glass-effect">
           <div className="container mx-auto px-4">
             <div className="flex flex-col lg:flex-row gap-12 items-center">
               <div className="lg:w-1/2">
-                <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6">Our Story</h2>
-                <p className="text-lg text-gray-700 mb-4">
+                <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6
+                text-gray-800 dark:text-gray-400">Our Story</h2>
+                <p className="text-lg text-gray-800 dark:text-gray-400">
                   CYNERZA was born from a simple observation: developers spend too much time on repetitive tasks and not enough time creating value.
                 </p>
-                <p className="text-lg text-gray-700 mb-4">
+                <p className="text-lg text-gray-800 dark:text-gray-400 mb-4">
                   Founded in 2022 by a team of AI researchers and experienced developers, we set out to build tools that would fundamentally change how software is created.
                 </p>
-                <p className="text-lg text-gray-700">
+                <p className="text-lg text-gray-800 dark:text-gray-400">
                   Today, we're proud to serve thousands of developers worldwide, from solo entrepreneurs to Fortune 500 companies, all using our platform to build better software faster.
                 </p>
               </div>
@@ -108,10 +109,10 @@ const About: React.FC = () => {
           </div>
         </section>
 
-        { }
-        <section className="py-10 bg-cynerza-gray-light">
+        { /* Our Journey */ }
+        <section className="py-10 glass-effect">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold font-heading mb-12 text-center">Our Journey</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-heading mb-12 text-center text-gray-800 dark:text-gray-400">Our Journey</h2>
 
             <div className="relative">
               { }
@@ -129,10 +130,10 @@ const About: React.FC = () => {
                     className={`w-5/12 break-words ${index % 2 === 0 ? 'md:text-right md:pr-8' : 'md:pl-8'}`}
                   >
                     <div className="glass-effect rounded-xl p-4 sm:p-6 min-h-[100px]">
-                      <h3 className="text-lg sm:text-xl font-bold mb-2 gradient-text break-words">
+                      <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-800 dark:text-gray-400 break-words">
                         {item.title}
                       </h3>
-                      <p className="text-sm sm:text-base text-gray-500 break-words">
+                      <p className="text-sm sm:text-base text-gray-800 dark:text-gray-400 break-words">
                         {item.description}
                       </p>
                     </div>
@@ -143,28 +144,6 @@ const About: React.FC = () => {
 
                   <div className="w-5/12"></div>
                 </motion.div>
-                // <motion.div
-                //   key={index}
-                //   initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                //   whileInView={{ opacity: 1, x: 0 }}
-                //   viewport={{ once: true, amount: 0.5 }}
-                //   transition={{ duration: 0.5, delay: index * 0.15 }}
-                //   className={`relative flex flex-col md:flex-row items-center justify-between mb-12 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
-                // >
-                //   <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'text-center md:text-right md:pr-8' : 'md:pl-8'}`}>
-                //     <div className="glass-effect rounded-xl p-4 sm:p-6">
-                //       <h3 className="text-lg sm:text-xl font-bold mb-2 gradient-text">{item.title}</h3>
-                //       <p className="text-sm sm:text-base text-gray-500">{item.description}</p>
-                //     </div>
-                //   </div>
-
-                //   <div className="z-10 flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-cynerza-purple text-white font-bold my-4 md:my-0">
-                //     {item.year.substring(2)}
-                //   </div>
-
-                //   <div className="w-full md:w-5/12"></div>
-                // </motion.div>
-
               ))}
             </div>
           </div>
@@ -178,7 +157,7 @@ const About: React.FC = () => {
                 Join Us on Our <span className="gradient-text">Mission</span>
               </h2>
 
-              <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+              <p className="text-lg text-gray-800 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
                 Whether you're a developer looking to use our tools or interested in joining our team, we'd love to hear from you.
               </p>
 
