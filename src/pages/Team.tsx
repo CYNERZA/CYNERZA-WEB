@@ -59,7 +59,7 @@ const Team: React.FC = () => {
       imageUrl: "/Teams/Aditi Mehera.jpeg",
       bio: "Android Developer",
       linkedInUrl: "https://www.linkedin.com/in/aditi-mehra-5921a4288"
-    }
+    },
   ]
 
   return (
@@ -71,14 +71,14 @@ const Team: React.FC = () => {
               <h2 className="text-4xl md:text-5xl font-bold text-center mb-5 gradient-text">
                 Meet the <span className="gradient-text">Team</span> Behind CYNERZA
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-gray-800 dark:text-gray-400">
                 We're a passionate group of engineers, researchers, and designers dedicated to revolutionizing development with AI.
               </p>
             </div>
 
             <div className="mb-16">
               {/* Founders */}
-              <h2 className="text-2xl font-bold mb-8 border-b pb-4 text-center gradient-text">Founders</h2>
+              <h2 className="text-2xl font-bold mb-4 border-b pb-4 text-center gradient-text">Founders</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center items-stretch pb-4">
                 {founders.map((member, index) => (
                   <motion.a
@@ -103,8 +103,10 @@ const Team: React.FC = () => {
 
               </div>
               {/*Members */}
-              <h2 className="text-2xl font-bold mb-8 border-b pb-4 text-center mt-12 gradient-text">Members</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center items-stretch pb-4">
+              <h2 className="text-2xl font-bold mb-4 border-b pb-4 text-center mt-7 gradient-text">Members</h2>
+              <div className={`${members.length > 3 ?
+                 "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center items-stretch pb-4" 
+                 : "flex flex-col sm:flex-row items-center justify-center gap-6"}`}>
                 {members.map((member, index) => (
                   <motion.a
                     key={index}
@@ -115,7 +117,7 @@ const Team: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.5 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="w-full flex justify-center no-underline"
+                    className="flex justify-center no-underline"
                   >
                     <TeamMemberCard
                       name={member.name}
