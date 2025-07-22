@@ -75,8 +75,18 @@
     scroll-behavior: smooth;
   }
 
+  html {
+    /* Set a fluid font size for responsive typography */
+    font-size: clamp(15px, 1rem + 0.1vw, 17px);
+    /* Improve font rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   body {
     @apply bg-background text-foreground transition-colors duration-300;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.65;
   }
 
   section {
@@ -132,7 +142,8 @@
   }
   
   .section-heading {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold font-heading mb-4;
+    /* Reduced heading size for a more refined look on large screens */
+    @apply text-3xl md:text-4xl font-bold font-heading mb-4;
   }
   
   .gradient-text {

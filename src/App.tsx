@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -6,7 +7,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
 import Index from "./pages/Index";
-import AiTools from "./pages/AiTools";
+import AiTools from './pages/AiTools';
+import Services from './pages/Services';
 import Team from "./pages/Team";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -29,6 +31,11 @@ const App = () => (
           <Route path="/ai-tools" element={
             <PageLayout>
               <AiTools />
+            </PageLayout>
+          } />
+          <Route path="/services" element={
+            <PageLayout>
+              <Services />
             </PageLayout>
           } />
           <Route path="/team" element={

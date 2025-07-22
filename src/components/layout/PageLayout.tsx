@@ -36,7 +36,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
           className
         )}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="w-full px-4 sm:px-6 lg:px-8">
           {children}
         </div>
       </main>
