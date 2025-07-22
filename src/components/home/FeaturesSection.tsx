@@ -6,7 +6,7 @@ import { Fade } from "react-awesome-reveal";
 import { ArrowRight } from 'lucide-react';
 
 const FeaturesSection: React.FC = () => {
-  
+
   const features = [
     {
       title: 'Unified AI Ecosystem',
@@ -47,34 +47,34 @@ const FeaturesSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-8 bg-cynerza-gray-light" id="features">
+    <section className="py-8 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950" id="features">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <Fade direction="up" triggerOnce>
-            <h2 className="section-heading text-center mb-4">
+            <h2 className="section-heading text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
               Why CYNERZA?
             </h2>
           </Fade>
           <Fade direction="up" triggerOnce delay={200}>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-4 text-center">
+            <p className="text-lg text-gray-800 dark:text-gray-400 max-w-2xl mx-auto mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
               We're not just another tech company. CYNERZA is your strategic partner in digital transformation, combining cutting-edge AI with enterprise-grade solutions to drive real business impact.
             </p>
           </Fade>
         </div>
 
-        <div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" 
-          // ref={featuresRef} // No longer needed
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        // ref={featuresRef} // No longer needed
         >
           {features.map((feature, index) => (
-            <motion.div 
-              key={index} 
+            <motion.div
+              key={index}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              // className="feature-item opacity-0" // No longer needed
-              // style={{ transitionDelay: `${index * 0.1}s` }} // No longer needed
+            // className="feature-item opacity-0" // No longer needed
+            // style={{ transitionDelay: `${index * 0.1}s` }} // No longer needed
             >
               <FeatureCard
                 title={feature.title}

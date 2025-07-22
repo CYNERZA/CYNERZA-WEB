@@ -17,7 +17,7 @@ const ContactCta: React.FC = () => {
             Ready to <span className="gradient-text">Transform</span> Your Development?
           </h2>
           
-          <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-800 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
             Join thousands of developers who are already using CYNERZA to build better software faster. Get started free or contact us for a personalized demo.
           </p>
           
