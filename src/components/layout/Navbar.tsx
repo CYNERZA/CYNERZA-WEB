@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 const navItems = [
   { name: 'Home', path: '/' },
   { name: 'AI Tools', path: '/ai-tools' },
+  { name: 'Blog', path: '/blog' },
   { name: 'Team', path: '/team' },
   { name: 'About', path: '/about' },
   { name: 'Contact', path: '/contact' },
