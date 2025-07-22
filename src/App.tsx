@@ -11,6 +11,8 @@ import Team from "./pages/Team";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import Blog from "./pages/Blog";
+import Admin from "./pages/Admin";
 
 const queryClient = new QueryClient();
 
@@ -26,11 +28,23 @@ const App = () => (
               <Index />
             </PageLayout>
           } />
+          {/* Admin Route */}
+          <Route path="/admin" element={
+            <PageLayout>
+              <Admin/>
+            </PageLayout>
+          } />
           <Route path="/ai-tools" element={
             <PageLayout>
               <AiTools />
             </PageLayout>
           } />
+          <Route path="/blog" element={
+            <PageLayout>
+              <Blog/>
+            </PageLayout>
+          } >
+          </Route>
           <Route path="/team" element={
             <PageLayout>
               <Team />
