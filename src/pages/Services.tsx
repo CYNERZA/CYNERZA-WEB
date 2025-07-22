@@ -3,53 +3,56 @@ import React from 'react';
 const Services: React.FC = () => {
   const services = [
     {
-      title: 'Custom AI Development',
-      description: 'We build custom AI solutions tailored to your specific business needs, from natural language processing to computer vision.',
+      title: 'Web & App Development',
+      description: 'Crafting beautiful, high-performance websites and mobile applications tailored to your brand.',
     },
     {
-      title: 'Machine Learning Models',
-      description: 'Our team develops and deploys high-performance machine learning models for prediction, classification, and clustering tasks.',
+      title: 'UI/UX & Product Design',
+      description: 'Designing intuitive and engaging user experiences that captivate your audience and drive results.',
     },
     {
-      title: 'Data Analytics & Insights',
-      description: 'We help you unlock the value of your data with advanced analytics, providing actionable insights to drive business growth.',
+      title: 'AI & Automation Solutions',
+      description: 'Leveraging artificial intelligence to automate processes, enhance efficiency, and unlock new possibilities.',
     },
     {
-      title: 'AI Integration Services',
-      description: 'Integrate the power of AI into your existing applications and workflows for enhanced efficiency and capabilities.',
+      title: 'Digital Marketing & SEO',
+      description: 'Boosting your online presence with data-driven marketing strategies and expert SEO services.',
     },
     {
-      title: 'AI Consulting',
-      description: 'Our experts provide strategic guidance to help you leverage AI and machine learning for a competitive advantage.',
+      title: 'Cloud & DevOps Engineering',
+      description: 'Building scalable and resilient infrastructure with modern cloud technologies and DevOps practices.',
     },
     {
-      title: 'Natural Language Processing (NLP)',
-      description: 'From chatbots to sentiment analysis, we offer a range of NLP services to help you understand and interact with your customers.',
+      title: 'Branding & Creative Services',
+      description: 'Developing a strong brand identity that resonates with your audience and sets you apart from the competition.',
     },
   ];
 
   return (
-    <div className="bg-gray-50 dark:bg-transparent py-12 sm:py-16">
-      <div className="mx-auto max-w-2xl lg:text-center">
-        <h2 className="text-base font-semibold leading-7 text-indigo-600">Our Services</h2>
-        <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
-          Everything you need to leverage AI
-        </p>
-        <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-          We provide a comprehensive suite of AI services to help your business innovate and grow. From custom solutions to strategic consulting, we're here to help.
+    <div className="py-12 sm:py-16">
+      <div className="text-center max-w-4xl mx-auto mb-12">
+        <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-cynerza-purple/5 dark:bg-cynerza-purple/10 border border-cynerza-purple/10 dark:border-cynerza-purple/20 text-cynerza-purple dark:text-cynerza-purple-light text-sm font-medium mb-6">
+          <span>Our Expertise</span>
+          <span className="text-cynerza-purple/70 dark:text-cynerza-purple-light/70">•</span>
+          <span>Services</span>
+        </div>
+        <h2 className="text-4xl sm:text-5xl font-bold font-heading mb-6 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
+          Comprehensive Digital Solutions
+        </h2>
+        <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+          Empowering your digital transformation with cutting-edge technologies and innovative solutions tailored to your business needs.
         </p>
       </div>
-      <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-        <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+      
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service) => (
-            <div key={service.title} className="relative pl-16">
-              <dt className="text-base font-semibold leading-7 text-gray-900 dark:text-gray-100">
-                {service.title}
-              </dt>
-              <dd className="mt-2 text-base leading-7 text-gray-600 dark:text-gray-300">{service.description}</dd>
+            <div key={service.title} className="glass-card p-6 rounded-lg">
+              <h3 className="text-xl font-bold font-heading mb-2 text-gray-900 dark:text-white">{service.title}</h3>
+              <p className="text-gray-600 dark:text-gray-400">{service.description}</p>
             </div>
           ))}
-        </dl>
+        </div>
       </div>
     </div>
   );
