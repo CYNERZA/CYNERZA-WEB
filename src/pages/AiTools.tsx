@@ -316,7 +316,8 @@ const AiTools: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="gradient-text text-3xl md:text-4xl font-bold font-heading mb-6">Ready to supercharge your workflow?</h2>
+                <h2 className="gradient-text text-3xl md:text-4xl font-bold font-heading mb-6 text-gray-800 dark:text-gray-200">
+                  Ready to <span className='gradient-text'>supercharge</span> your workflow?</h2>
                 <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
                   Start using our AI tools today and experience the future of productivity.
                 </p>

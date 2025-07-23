@@ -63,16 +63,38 @@ const Contact: React.FC = () => {
     }
   ];
 
-  return (
+ return (
     <div className="w-full">
       <section className="py-2">
         <section className="py-0">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold font-heading mb-4 gradient-text">
+              {/* <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="max-w-3xl mx-auto text-center">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                className="text-4xl md:text-5xl font-bold font-heading mb-4 
+              text-slate-900 dark:text-slate-200">
+                Get in <span className="gradient-text">Touch</span>
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+                className="text-xl text-gray-800 dark:text-gray-400 mb-4">
+                Have questions or want to learn more? Reach out to our team and we&apos;ll get back to you shortly.
+              </motion.p>
+            </motion.div> */}
+              <h1 className="text-4xl md:text-5xl font-bold font-heading mb-4 
+              text-slate-900 dark:text-slate-200">
                 Get in <span className="gradient-text">Touch</span>
               </h1>
-              <p className="text-xl text-gray-600 mb-4">
+              <p className="text-xl text-gray-800 dark:text-gray-400 mb-4">
                 Have questions or want to learn more? Reach out to our team and we&apos;ll get back to you shortly.
               </p>
             </div>
@@ -90,7 +112,7 @@ const Contact: React.FC = () => {
                     {item.icon}
                   </div>
                   <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-                  <p className="text-gray-600">{item.details}</p>
+                  <p className="text-gray-800 dark:text-gray-400">{item.details}</p>
                 </a>
               ))}
             </div>
@@ -98,12 +120,12 @@ const Contact: React.FC = () => {
             <div className="max-w-3xl mx-auto">
               <div className="glass-effect rounded-2xl overflow-hidden">
                 <div className="p-8">
-                  <h2 className="text-2xl font-bold mb-6 gradient-text text-center">Send Us a Message</h2>
+                  <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-200 text-center">Send Us a Message</h2>
                   
                   <form onSubmit={handleSubmit}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                       <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label htmlFor="name" className="block text-sm font-medium text-gray-800 dark:text-gray-400 mb-1">
                           Your Name
                         </label>
                         <input
@@ -113,11 +135,11 @@ const Contact: React.FC = () => {
                           value={formData.name}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
+                          className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
                         />
                       </div>
                       <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-800 dark:text-gray-400 mb-1">
                           Email Address
                         </label>
                         <input
@@ -127,13 +149,13 @@ const Contact: React.FC = () => {
                           value={formData.email}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
+                          className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
                         />
                       </div>
                     </div>
                     
                     <div className="mb-6">
-                      <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="company" className="block text-sm font-medium text-gray-800 dark:text-gray-400 mb-1">
                         Company (Optional)
                       </label>
                       <input
@@ -142,12 +164,12 @@ const Contact: React.FC = () => {
                         name="company"
                         value={formData.company}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
+                        className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
                       />
                     </div>
                     
                     <div className="mb-6">
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-800 dark:text-gray-400 mb-1">
                         Your Message
                       </label>
                       <textarea
@@ -157,7 +179,7 @@ const Contact: React.FC = () => {
                         value={formData.message}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
+                        className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
                       ></textarea>
                     </div>
                     
@@ -175,10 +197,10 @@ const Contact: React.FC = () => {
           </div>
         </section>
         
-        <section className="py-8 bg-cynerza-gray-light mt-6">
+        <section className="py-8 glass-effect-light mt-6">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-2xl font-bold mb-4">Frequently Asked Questions</h2>
-            <p className="text-gray-600 mb-8">
+            <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-200">Frequently Asked Questions</h2>
+            <p className="text-gray-800 dark:text-gray-400 mb-8">
               Can&apos;t find what you&apos;re looking for? Contact us for more information.
             </p>
             
@@ -202,8 +224,8 @@ const Contact: React.FC = () => {
                 }
               ].map((faq, index) => (
                 <div key={index} className="glass-effect rounded-xl p-6 text-left">
-                  <h3 className="text-lg font-bold mb-2">{faq.q}</h3>
-                  <p className="text-gray-600">{faq.a}</p>
+                  <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-gray-200">{faq.q}</h3>
+                  <p className="ttext-gray-800 dark:text-gray-400">{faq.a}</p>
                 </div>
               ))}
             </div>
