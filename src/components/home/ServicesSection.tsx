@@ -132,7 +132,7 @@ const ServicesSection: React.FC = () => {
               href="https://tools.cynerza.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative flex items-center px-8 py-8 bg-gradient-to-r from-cynerza-purple to-cynerza-blue text-white text-lg font-semibold rounded-xl transition-all
+              className="relative flex items-center px-5 py-5 bg-gradient-to-r from-cynerza-purple to-cynerza-blue text-white text-lg font-semibold rounded-xl transition-all
                        duration-200 hover:shadow-lg hover:shadow-cynerza-purple/30
                        bg-cynerza-purple hover:bg-cynerza-purple/90 h-12 "
             >
@@ -143,8 +143,6 @@ const ServicesSection: React.FC = () => {
             </a>
           </div>
         </motion.div>
-
-
       </div>
     </section>
   );
