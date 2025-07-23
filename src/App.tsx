@@ -13,6 +13,10 @@ import Team from "./pages/Team";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import BlogLayout from './pages/Blog';
+import Admin from './pages/admin/Admin';
+import Login from './pages/admin/Login';
+// import AuthLayout from "./components/layout/PageLayout"
 
 const queryClient = new QueryClient();
 
@@ -28,6 +32,17 @@ const App = () => (
               <Index />
             </PageLayout>
           } />
+           {/* Admin Route */}
+          <Route path="/admin" element={
+                <PageLayout>
+                <Admin/>
+            </PageLayout>
+          } />
+          <Route path="/admin/login" element={
+            <PageLayout>
+              <Login/>
+            </PageLayout>
+          } />
           <Route path="/ai-tools" element={
             <PageLayout>
               <AiTools />
@@ -38,6 +53,12 @@ const App = () => (
               <Services />
             </PageLayout>
           } />
+           <Route path="/blog" element={
+            <PageLayout>
+              <BlogLayout/>
+            </PageLayout>
+          } >
+          </Route>
           <Route path="/team" element={
             <PageLayout>
               <Team />
