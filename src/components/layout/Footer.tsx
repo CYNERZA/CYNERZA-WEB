@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 const Footer: React.FC = () => {
   return (
     <footer className="bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 ">
           {}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 flex flex-col items-center">
             <Link to="/" className="inline-flex items-center">
               <span className="text-2xl font-bold font-heading text-cynerza-purple dark:text-cynerza-purple-light">
                 CYNERZA
               </span>
             </Link>
-            <p className="mt-4 text-gray-600 dark:text-gray-400 leading-relaxed">
+            <p className="mt-4 text-gray-600 dark:text-gray-400 leading-relaxed text-center sm:text-left">
               Empowering innovation through cutting-edge AI solutions. We make advanced technology accessible for developers and businesses worldwide.
             </p>
             <div className="flex space-x-4 mt-6">
@@ -39,9 +39,9 @@ const Footer: React.FC = () => {
           </div>
 
           {}
-          <div>
+          <div className='flex flex-col items-center md:block'>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4">Products</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3 text-center md:text-left">
               {['AI Tools', 'API', 'Integrations', 'Enterprise', 'Pricing'].map((item) => (
                 <li key={item}>
                   <Link 
@@ -55,9 +55,9 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          <div>
+          <div className='flex flex-col items-center md:block'>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4">Company</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3 text-center md:text-left">
               {['About Us', 'Careers', 'Press', 'Partners'].map((item) => (
                 <li key={item}>
                   <Link 
@@ -71,9 +71,9 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          <div>
+          <div className='flex flex-col items-center md:block'>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4">Resources</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3 text-center md:text-left">
               <li>
                 <Link 
                   to="/documentation" 
