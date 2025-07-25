@@ -15,13 +15,20 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import BlogLayout from './pages/Blog';
 import Admin from './pages/admin/Admin';
-import Login from './pages/admin/Login';
-// import AuthLayout from "./components/layout/PageLayout"
+import Login from './pages/admin/Login.jsx';
+import AuthLayout from "./components/layout/AuthLayout.js"
+import {store} from './app/store.js';
+import { Provider } from 'react-redux'; 
+import BlogForm from './pages/admin/BlogForm.js';
+import AllBlogs from './pages/admin/AllBlogs.js';
 
 const queryClient = new QueryClient();
 
+
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
+    <Provider store={store}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
@@ -33,15 +40,25 @@ const App = () => (
             </PageLayout>
           } />
            {/* Admin Route */}
-          <Route path="/admin" element={
-                <PageLayout>
-                <Admin/>
-            </PageLayout>
-          } />
           <Route path="/admin/login" element={
-            <PageLayout>
+            <AuthLayout authentication={false}>
               <Login/>
-            </PageLayout>
+            </AuthLayout>
+          } />
+           <Route path="/admin/dashboard" element={
+            <AuthLayout authentication={true}>
+                <Admin/>
+            </AuthLayout>
+          } />
+          <Route path="/admin/create-blog" element={
+            <AuthLayout authentication={true}>
+              <BlogForm />
+            </AuthLayout>
+          } />
+          <Route path="/admin/blogs" element={
+            <AuthLayout authentication={true}>
+              <AllBlogs />
+            </AuthLayout>
           } />
           <Route path="/ai-tools" element={
             <PageLayout>
@@ -82,6 +99,7 @@ const App = () => (
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
+    </Provider>
   </QueryClientProvider>
 );
 
