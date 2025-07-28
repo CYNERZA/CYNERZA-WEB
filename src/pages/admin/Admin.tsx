@@ -77,24 +77,15 @@ const Admin: React.FC = () => {
         }
     }, [userData, status, loading]);
 
-    const logoutHandler = () => {
-        dispatch(logout());
-        toast({
-            title: "Logout Successful",
-            description: successMessage || "You have been logged out successfully.",
-        });
-        navigate('/admin/login');
-    }
-
     return (
-        <div className="p-4">
+        <div className="p-4 w-full">
             <h1 className="text-2xl font-bold mb-4">Welcome Admin Dashboard</h1>
             {loading && <p>Loading...</p>}
             {!loading && userData && (
                 <div className="space-y-4">
-                    <div className="flex justify-end">
+                    {/* <div className="flex justify-end">
                         <Button onClick={logoutHandler} variant="destructive">Logout</Button>
-                    </div>
+                    </div> */}
                     <div className="bg-white dark:bg-gray-800 p-4 rounded-md shadow">
                         <h2 className="text-xl font-semibold mb-2">User Information</h2>
                         <p><span className="font-medium">Email:</span> {userData.email}</p>

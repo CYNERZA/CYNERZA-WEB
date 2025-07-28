@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 interface BlogType {
     _id: string;
-    image: string;
+    thumbImage: string;
     title: string;
     description: string;
     content: string;
@@ -32,38 +32,23 @@ const AllBlogs: React.FC = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    console.log("vlogs, ", blogs)
-
     return loading ? (
         <div className="flex items-center justify-center h-screen">
       <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-500"></div>
       <p className="mt-4 text-lg">Loading...</p>
     </div>
     ) : (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 px-4 py-10">
-            <div className="max-w-7xl mx-auto flex justify-between items-center mb-8">
+        <div className="min-h-screen text-gray-900 dark:text-gray-100 px-4 py-10">
+            {/* <div className="max-w-7xl mx-auto flex ml-4 items-center mb-8"> */}
                 <motion.h1
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="text-4xl font-extrabold"
+                    className="text-4xl font-extrabold mx-4 mb-4"
                 >
                     Our Blog
                 </motion.h1>
-                <button
-                    onClick={() => {
-                        document.documentElement.classList.toggle('dark');
-                        localStorage.setItem(
-                            'theme',
-                            document.documentElement.classList.contains('dark') ? 'dark' : 'light'
-                        );
-                    }}
-                    className="text-xl p-2 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition"
-                    aria-label="Toggle dark mode"
-                >
-                    {document.documentElement.classList.contains('dark') ? '☀️' : '🌙'}
-                </button>
-            </div>
+            {/* </div> */}
 
             <motion.div
                 initial="hidden"
@@ -72,7 +57,7 @@ const AllBlogs: React.FC = () => {
                     hidden: { opacity: 0 },
                     visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
                 }}
-                className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6"
             >
                 {/* {blogs.map((blog: BlogType, idx: number) => (
                     <motion.div
@@ -137,11 +122,11 @@ const AllBlogs: React.FC = () => {
             whileTap={{ scale: 0.97 }}
             whileHover={isDesktop ? { scale: 1.03 } : {}}
             className="group bg-white dark:bg-gray-800 rounded-2xl shadow-md dark:shadow-lg overflow-hidden cursor-pointer border border-transparent hover:border-purple-400 dark:hover:border-purple-600 transition-all duration-300"
-            onClick={() => navigate(`/blog/${blog._id}`)}
+            onClick={() => navigate(`/admin/blogs/${blog._id}`)}
           >
             <div className="relative overflow-hidden">
               <motion.img
-                src={blog.image}
+                src={blog.thumbImage}
                 alt={blog.title}
                 className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"
                 initial={{ opacity: 0 }}
