@@ -17,10 +17,13 @@ import BlogLayout from './pages/Blog';
 import Admin from './pages/admin/Admin';
 import Login from './pages/admin/Login.jsx';
 import AuthLayout from "./components/layout/AuthLayout.js"
-import {store} from './app/store.js';
-import { Provider } from 'react-redux'; 
+import { store } from './app/store.js';
+import { Provider } from 'react-redux';
 import BlogForm from './pages/admin/BlogForm.js';
 import AllBlogs from './pages/admin/AllBlogs.js';
+import Layout from './components/layout/admin/layout/adminPageLayout';
+import { BlogDetailPage } from './components/admin/blogPost.js';
+import UpdateBlogPost from "./components/admin/updateBlogPost"
 
 const queryClient = new QueryClient();
 
@@ -29,76 +32,97 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <Provider store={store}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={
-            <PageLayout noPadding>
-              <Index />
-            </PageLayout>
-          } />
-           {/* Admin Route */}
-          <Route path="/admin/login" element={
-            <AuthLayout authentication={false}>
-              <Login/>
-            </AuthLayout>
-          } />
-           <Route path="/admin/dashboard" element={
-            <AuthLayout authentication={true}>
-                <Admin/>
-            </AuthLayout>
-          } />
-          <Route path="/admin/create-blog" element={
-            <AuthLayout authentication={true}>
-              <BlogForm />
-            </AuthLayout>
-          } />
-          <Route path="/admin/blogs" element={
-            <AuthLayout authentication={true}>
-              <AllBlogs />
-            </AuthLayout>
-          } />
-          <Route path="/ai-tools" element={
-            <PageLayout>
-              <AiTools />
-            </PageLayout>
-          } />
-          <Route path="/services" element={
-            <PageLayout>
-              <Services />
-            </PageLayout>
-          } />
-           <Route path="/blog" element={
-            <PageLayout>
-              <BlogLayout/>
-            </PageLayout>
-          } >
-          </Route>
-          <Route path="/team" element={
-            <PageLayout>
-              <Team />
-            </PageLayout>
-          } />
-          <Route path="/about" element={
-            <PageLayout>
-              <About />
-            </PageLayout>
-          } />
-          <Route path="/contact" element={
-            <PageLayout>
-              <Contact />
-            </PageLayout>
-          } />
-          <Route path="*" element={
-            <PageLayout>
-              <NotFound />
-            </PageLayout>
-          } />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={
+              <PageLayout noPadding>
+                <Index />
+              </PageLayout>
+            } />
+            {/* Admin Route */}
+            <Route path="/admin/login" element={
+              <AuthLayout authentication={false}>
+                <Login />
+              </AuthLayout>
+            } />
+            <Route path="/admin/dashboard" element={
+              <AuthLayout authentication={true}>
+                <Layout>
+                  <Admin />
+                </Layout>
+              </AuthLayout>
+            } />
+            <Route path="/admin/create-blog" element={
+              <AuthLayout authentication={true}>
+                <Layout>
+                  <BlogForm />
+                </Layout>
+              </AuthLayout>
+            } />
+            <Route path="/admin/blogs" element={
+              <AuthLayout authentication={true}>
+                <Layout>
+                  <AllBlogs />
+                </Layout>
+              </AuthLayout>
+            } />
+            <Route path="/admin/blogs/:id" element={
+              <AuthLayout authentication={true}>
+                <Layout>
+                  <BlogDetailPage />
+                </Layout>
+              </AuthLayout>
+            } />
+            <Route path="/admin/update-blog/:id" element={
+              <AuthLayout authentication={true}>
+                <Layout>
+                  <UpdateBlogPost/>
+                </Layout>
+              </AuthLayout>
+            } />
+
+            <Route path="/ai-tools" element={
+              <PageLayout>
+                <AiTools />
+              </PageLayout>
+            } />
+            <Route path="/services" element={
+              <PageLayout>
+                <Services />
+              </PageLayout>
+            } />
+            <Route path="/blog" element={
+              <PageLayout>
+                <BlogLayout />
+              </PageLayout>
+            } >
+            </Route>
+            <Route path="/team" element={
+              <PageLayout>
+                <Team />
+              </PageLayout>
+            } />
+            <Route path="/about" element={
+              <PageLayout>
+                <About />
+              </PageLayout>
+            } />
+            <Route path="/contact" element={
+              <PageLayout>
+                <Contact />
+              </PageLayout>
+            } />
+            <Route path="*" element={
+              <PageLayout>
+                <NotFound />
+              </PageLayout>
+            } />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
     </Provider>
   </QueryClientProvider>
 );
