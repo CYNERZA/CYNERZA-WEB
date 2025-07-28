@@ -14,18 +14,21 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({
 }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-const location = useLocation();
+  const location = useLocation();
   const authStatus = useSelector((state: any) => state.auth.status);
 
   // ✅ Local loading state for layout only
   const [layoutLoading, setLayoutLoading] = useState(true);
 
   useEffect(() => {
+    const mode = localStorage.getItem("theme")
+    document.documentElement.classList.add(mode);
+
     const fetchUser = async () => {
       try {
         await dispatch(getCurrentUser());
       } finally {
-        setLayoutLoading(false); 
+        setLayoutLoading(false);
       }
     };
     fetchUser();

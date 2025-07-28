@@ -1,0 +1,106 @@
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchBlogPosts, deleteBlogPost } from '@/featured/blog/blogSlice';
+import { RootState, AppDispatch } from '@/app/store';
+import { useToast } from '@/components/ui/use-toast';
+
+export const BlogDetailPage: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const { toast } = useToast()
+  const navigate = useNavigate();
+  const { id } = useParams<{ id: string }>();
+
+  const blogs = useSelector((state: RootState) => state.blog.blogPosts);
+  const currentBlog = blogs.find(b => b._id === id);
+
+  useEffect(() => {
+    if (!blogs.length) {
+      dispatch(fetchBlogPosts());
+    }
+  }, [dispatch, blogs, id]);
+
+  const loading = useSelector((state: RootState) => state.blog.loading);
+  if (loading && !currentBlog) {
+    return <div className="p-8 text-center text-slate-600 dark:text-slate-400">Loading...</div>;
+  }
+
+  if (!currentBlog && !loading) {
+    return <div className="p-8 text-center">Blog not found</div>;
+  }
+
+  const handleEdit = () => navigate(`/admin/update-blog/${currentBlog._id}`);
+  const handleDelete = () => {
+    dispatch(deleteBlogPost(currentBlog._id))
+      .then((res) => {
+        navigate("/admin/blogs")
+        toast({
+          title: "Success",
+          description: res.payload.message,
+          variant: "default",
+        });
+      }).catch((error) => {
+        console.log("eror", error)
+        toast({
+          title: "Error",
+          description: error.message,
+          variant: "destructive",
+        });
+      })
+  };
+
+
+
+  return (
+    <div
+      className="min-h-screen p-4 sm:p-8 bg-white dark:bg-gray-900 transition-colors max-w-4xl mx-auto"
+    //   variants={containerVariants}
+    >
+      {/* Header */}
+      <div
+        className="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0"
+      >
+        <button
+          className="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
+          onClick={() => navigate(-1)}
+        >
+          ← Back
+        </button>
+        <div className="flex space-x-2 w-full justify-between sm:justify-end">
+          <button
+            onClick={handleEdit}
+            className="px-3 py-1 sm:px-4 sm:py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition-transform"
+          >
+            Edit
+          </button>
+          <button
+            onClick={handleDelete}
+            className="px-3 py-1 sm:px-4 sm:py-2 bg-red-600 text-white rounded-lg shadow hover:bg-red-700 transition-transform"
+            disabled={loading}
+          >
+            {loading ? "Deleting..." : "Delete"}
+          </button>
+        </div>
+      </div>
+
+      {/* Title & Image */}
+      <h1
+        className="text-3xl sm:text-5xl font-extrabold text-gray-900 dark:text-gray-100 mb-8 text-center sm:text-left"
+      >
+        {currentBlog.title}
+      </h1>
+      <img
+        src={currentBlog.thumbImage}
+        alt={currentBlog.title}
+        className="w-full h-64 sm:h-96  rounded-lg mb-8 shadow-lg"
+      // variants={imageVariants}
+      />
+
+      {/* Content: Apply HTML directly */}
+      <div
+        className="raw-content text-slate-600 dark:text-slate-400"
+        dangerouslySetInnerHTML={{ __html: currentBlog.content }}
+      />
+    </div>
+  );
+};
