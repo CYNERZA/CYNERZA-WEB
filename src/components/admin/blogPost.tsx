@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchBlogPosts, deleteBlogPost } from '@/featured/blog/blogSlice';
 import { RootState, AppDispatch } from '@/app/store';
 import { useToast } from '@/components/ui/use-toast';
+import LogoLoader from './loader';
+import { FileText } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 export const BlogDetailPage: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -11,22 +14,40 @@ export const BlogDetailPage: React.FC = () => {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
 
+  const [initialLoad, setInitialLoad] = useState(true);
   const blogs = useSelector((state: RootState) => state.blog.blogPosts);
+  const loading = useSelector((state: RootState) => state.blog.loading);
   const currentBlog = blogs.find(b => b._id === id);
 
   useEffect(() => {
     if (!blogs.length) {
-      dispatch(fetchBlogPosts());
-    }
-  }, [dispatch, blogs, id]);
+      dispatch(fetchBlogPosts()).finally(() => setInitialLoad(false));
+    } else setInitialLoad(false)
+  }, [dispatch, initialLoad]);
 
-  const loading = useSelector((state: RootState) => state.blog.loading);
-  if (loading && !currentBlog) {
-    return <div className="p-8 text-center text-slate-600 dark:text-slate-400">Loading...</div>;
+  if (initialLoad || loading) {
+    return <LogoLoader />;
   }
 
-  if (!currentBlog && !loading) {
-    return <div className="p-8 text-center">Blog not found</div>;
+  if (!currentBlog) {
+    return (
+      <div className="flex flex-col items-center justify-center h-[calc(100vh-4rem)] p-8">
+        <FileText className="w-16 h-16 text-red-500 mb-4 animate-pulse" />
+        <h2 className="text-3xl font-semibold text-gray-800 dark:text-gray-200 mb-2">
+          Blog Not Found
+        </h2>
+        <p className="text-center text-gray-600 dark:text-gray-400 mb-6 max-w-md">
+          Requested blog does not exist or might have been removed.
+        </p>
+        <Button
+          variant="outline"
+          className="px-6"
+          onClick={() => navigate('/admin/blogs')}
+        >
+          ← Back to Blogs
+        </Button>
+      </div>
+    );
   }
 
   const handleEdit = () => navigate(`/admin/update-blog/${currentBlog._id}`);
@@ -54,15 +75,13 @@ export const BlogDetailPage: React.FC = () => {
   return (
     <div
       className="min-h-screen p-4 sm:p-8 bg-white dark:bg-gray-900 transition-colors max-w-4xl mx-auto"
-    //   variants={containerVariants}
     >
-      {/* Header */}
       <div
         className="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0"
       >
         <button
           className="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
-          onClick={() => navigate(-1)}
+          onClick={() => navigate(`/admin/blogs`)}
         >
           ← Back
         </button>
@@ -93,12 +112,11 @@ export const BlogDetailPage: React.FC = () => {
         src={currentBlog.thumbImage}
         alt={currentBlog.title}
         className="w-full h-64 sm:h-96  rounded-lg mb-8 shadow-lg"
-      // variants={imageVariants}
       />
 
       {/* Content: Apply HTML directly */}
       <div
-        className="raw-content text-slate-600 dark:text-slate-400"
+        className="raw-content text-slate-900 dark:text-slate-200"
         dangerouslySetInnerHTML={{ __html: currentBlog.content }}
       />
     </div>
