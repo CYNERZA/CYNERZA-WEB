@@ -4,9 +4,9 @@ import { axiosInstance } from '../../helpers/axiosInstance';
 
 const initialState = {
     loading: false,
-    errorMessage: '',
-    successMessage: '',
     blogPosts: [],
+    currentBlog: null,
+    recentBlogPosts: null
 }
 
 export const fetchBlogPosts = createAsyncThunk(
@@ -14,6 +14,32 @@ export const fetchBlogPosts = createAsyncThunk(
     async () => {
         try {
             const response = await axiosInstance.get('/blogs/');
+            return response.data;
+        } catch (error) {
+            console.error('Failed to fetch blog posts:', error.message);
+            throw error;
+        }
+    }
+);
+
+export const fetchRecentBlogPosts = createAsyncThunk(
+    'blog/fetchRecentBlogPosts',
+    async (limit) => {
+        try {
+            const response = await axiosInstance.get(`/blogs/recent?limit=${limit}`);
+            return response.data;
+        } catch (error) {
+            console.error('Failed to fetch recent blog posts:', error.message);
+            throw error;
+        }
+    }
+);
+
+export const getSignleBlogPost = createAsyncThunk(
+    'blog/singleBlogPost',
+    async (blogId) => {
+        try {
+            const response = await axiosInstance.get(`/blogs/${blogId}`);
             return response.data;
         } catch (error) {
             console.error('Failed to fetch blog posts:', error.message);
@@ -42,7 +68,7 @@ export const updateBlogPost = createAsyncThunk(
             const response = await axiosInstance.patch(`/blogs/${blogId}`, blogPost)
             return response.data
         } catch (error) {
-            console.log("Failed to update blog post: ", error.message)
+            console.log("Failed to update blog post: ", error)
             throw error
         }
     }
@@ -70,43 +96,54 @@ const blogSlice = createSlice({
             // fetch all blogs 
             .addCase(fetchBlogPosts.pending, (state) => {
                 state.loading = true;
-                state.errorMessage = "";
-                state.successMessage = "";
             })
             .addCase(fetchBlogPosts.fulfilled, (state, action) => {
                 state.loading = false;
                 state.blogPosts = action.payload.data;
-                state.successMessage = action.payload.message;
-                state.errorMessage = "";
             })
             .addCase(fetchBlogPosts.rejected, (state, action) => {
                 state.loading = false;
-                state.errorMessage = action.error.message;
-                state.successMessage = ""
+            })
+
+            // fetch recent blog 
+            .addCase(fetchRecentBlogPosts.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(fetchRecentBlogPosts.fulfilled, (state, action) => {
+                state.loading = false;
+                state.recentBlogPosts = action.payload.data;
+            })
+            .addCase(fetchRecentBlogPosts.rejected, (state, action) => {
+                state.loading = false;
             })
 
             // create blog 
             .addCase(createBlogPost.pending, (state) => {
                 state.loading = true;
-                state.errorMessage = '';
-                state.successMessage = '';
             })
             .addCase(createBlogPost.fulfilled, (state, action) => {
                 state.loading = false;
                 state.blogPosts.push(action.payload);
-                state.successMessage = action.payload.message;
-                state.errorMessage = '';
             })
             .addCase(createBlogPost.rejected, (state, action) => {
                 state.loading = false;
-                state.errorMessage = action.error.message;
+            })
+
+            // fetch single blog
+            .addCase(getSignleBlogPost.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(getSignleBlogPost.fulfilled, (state, action) => {
+                state.loading = false;
+                state.currentBlog = action.payload.data;
+            })
+            .addCase(getSignleBlogPost.rejected, (state, action) => {
+                state.loading = false;
             })
 
             // update blog post
             .addCase(updateBlogPost.pending, (state) => {
                 state.loading = true
-                state.successMessage = ""
-                state.errorMessage = ""
             })
             .addCase(updateBlogPost.fulfilled, (state, action) => {
                 state.loading = false
@@ -114,14 +151,10 @@ const blogSlice = createSlice({
                 if (index !== -1) {
                     state.blogPosts[index] = action.payload.data
                 }
-                state.successMessage = action.payload.message
-                state.errorMessage = ""
 
             })
             .addCase(updateBlogPost.rejected, (state, action) => {
                 state.loading = false
-                state.errorMessage = action.error.message
-                state.successMessage = ""
             })
 
             // delete blog post
