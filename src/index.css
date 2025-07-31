@@ -5,6 +5,17 @@
 @tailwind utilities;
 
 /* Editor Inner Html css */
+.align-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  height: auto;
+}
+.align-center > video {
+  width: 70%;
+}
 .raw-content {
   word-wrap: break-word;
   overflow-wrap: break-word;

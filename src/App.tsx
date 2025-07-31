@@ -15,8 +15,8 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import BlogLayout from './pages/Blog';
 import Admin from './pages/admin/Admin';
-import Login from './pages/admin/Login.jsx';
-import AuthLayout from "./components/layout/AuthLayout.js"
+import Login from './pages/admin/Login.js';
+import AuthLayout from "./components/layout/admin/AuthLayout.js"
 import { store } from './app/store.js';
 import { Provider } from 'react-redux';
 import BlogForm from './pages/admin/BlogForm.js';
@@ -24,6 +24,7 @@ import AllBlogs from './pages/admin/AllBlogs.js';
 import Layout from './components/layout/admin/layout/adminPageLayout';
 import { BlogDetailPage } from './components/admin/blogPost.js';
 import UpdateBlogPost from "./components/admin/updateBlogPost"
+import { SingleBlog } from './pages/SingleBlog.js';
 
 const queryClient = new QueryClient();
 
@@ -79,11 +80,11 @@ const App = () => (
             <Route path="/admin/update-blog/:id" element={
               <AuthLayout authentication={true}>
                 <Layout>
-                  <UpdateBlogPost/>
+                  <UpdateBlogPost />
                 </Layout>
               </AuthLayout>
             } />
-
+            {/* End Admin Routes */}
             <Route path="/ai-tools" element={
               <PageLayout>
                 <AiTools />
@@ -94,9 +95,15 @@ const App = () => (
                 <Services />
               </PageLayout>
             } />
-            <Route path="/blog" element={
+            <Route path="/blogs" element={
               <PageLayout>
                 <BlogLayout />
+              </PageLayout>
+            } >
+            </Route>
+            <Route path="/blogs/:id" element={
+              <PageLayout>
+                <SingleBlog />
               </PageLayout>
             } >
             </Route>
