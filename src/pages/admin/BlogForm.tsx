@@ -1,7 +1,5 @@
 import React, { useRef } from "react"
-import { motion } from "framer-motion";
-import { useState } from "react";
-import RTE from "@/components/editor/RTE";
+import RTE from "@/components/admin/editor/RTE";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { createBlogPost, updateBlogPost } from "@/featured/blog/blogSlice";
@@ -39,10 +37,9 @@ interface BlogFormProps {
 }
 const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const { toast } = useToast()
-
   const loading = useSelector((state: any) => state.blog.loading);
-
 
   const { control, handleSubmit, register, reset, formState: { errors }, getValues }
     = useForm<FormData>({
@@ -52,130 +49,122 @@ const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
         metaTitle: post ? post.metaTitle : "",
         metaDescription: post ? post.metaDescription : "",
         metaKeywords: post ? post.metaKeywords : "",
-        postingDate: post ? post.postingDate : "",
+        postingDate: post && post.postingDate
+          ? new Date(post.postingDate).toISOString().split('T')[0]
+          : "",
         tags: post ? post.tags : "",
         thumbImage: post ? post.thumbImage : undefined,
         content: post ? post.content : ""
 
       }
     })
-  const navigate = useNavigate()
-
-  const fade = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-  };
 
   const onSubmit = async (data: FormData) => {
-    if (post) {
-      const formData = new FormData()
-      formData.append("title", data.title)
-      formData.append("description", data.description)
-      formData.append("metaTitle", data.metaTitle || "")
-      formData.append("metaDescription", data.metaDescription || "")
-      formData.append("metaKeywords", data.metaKeywords || "")
-      formData.append("tags", data.tags || "")
-      formData.append("postingDate", data.postingDate)
-      formData.append("thumbImage", data.thumbImage[0])
+    const formData = new FormData();
 
-      const parser = new DOMParser()
-      const doc = parser.parseFromString(data.content, "text/html")
-      const imgEls = Array.from(doc.querySelectorAll("img"))
+    formData.append("title", data.title);
+    formData.append("description", data.description);
+    formData.append("metaTitle", data.metaTitle || "");
+    formData.append("metaDescription", data.metaDescription || "");
+    formData.append("metaKeywords", data.metaKeywords || "");
+    formData.append("tags", data.tags || "");
+    formData.append("postingDate", data.postingDate);
 
-      for (let i = 0; i < imgEls.length; i++) {
-        const imgEl = imgEls[i]
-        const src = imgEl.src
-
-        if (src.startsWith("data:")) {
-          const response = await fetch(src)
-          const blob = await response.blob()
-          const filename = `editor-image-${Date.now()}-${i}.png`
-          formData.append("editorImages", blob, filename)
-
-          imgEl.setAttribute("src", filename)
-        }
-      }
-
-      const updatedHtml = doc.body.innerHTML
-      formData.append("content", updatedHtml)
-
-      dispatch(updateBlogPost({ blogId: post._id, blogPost: formData }))
-        .then((res) => {
-          reset();
-          navigate(`/admin/blogs/${post._id}`)
-          toast({
-            title: "Success",
-            description: res.payload.message,
-            variant: "default",
-          });
-        }).catch((error) => {
-          console.log("eror", error)
-          toast({
-            title: "Error",
-            description: error.message,
-            variant: "destructive",
-          });
-        })
-    } else {
-      const formData = new FormData()
-      formData.append("title", data.title)
-      formData.append("description", data.description)
-      formData.append("metaTitle", data.metaTitle || "")
-      formData.append("metaDescription", data.metaDescription || "")
-      formData.append("metaKeywords", data.metaKeywords || "")
-      formData.append("tags", data.tags || "")
-      formData.append("postingDate", data.postingDate)
-      formData.append("thumbImage", data.thumbImage[0])
-
-      const parser = new DOMParser()
-      const doc = parser.parseFromString(data.content, "text/html")
-      const imgEls = Array.from(doc.querySelectorAll("img"))
-
-      for (let i = 0; i < imgEls.length; i++) {
-        const imgEl = imgEls[i]
-        const src = imgEl.src
-
-        if (src.startsWith("data:")) {
-          const response = await fetch(src)
-          const blob = await response.blob()
-          const filename = `editor-image-${Date.now()}-${i}.png`
-          formData.append("editorImages", blob, filename)
-
-          imgEl.setAttribute("src", filename)
-        }
-      }
-
-      const updatedHtml = doc.body.innerHTML
-      formData.append("content", updatedHtml)
-      dispatch(createBlogPost(formData))
-        .then((res) => {
-          reset();
-          navigate('/admin/blogs/')
-          toast({
-            title: "Success",
-            description: res.payload.message,
-            variant: "default",
-          });
-        }).catch((error) => {
-          console.log("eror", error)
-          toast({
-            title: "Error",
-            description: error.message,
-            variant: "destructive",
-          });
-        })
+    if (data.thumbImage?.[0] instanceof File) {
+      formData.append("thumbImage", data.thumbImage[0]);
     }
 
-  }
+    // Process editor content
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(data.content, "text/html");
 
+    // Process images and videos together
+    const mediaElements = Array.from(doc.querySelectorAll("img, video"));
+    const mediaPromises = mediaElements.map(async (el, index) => {
+      const src = el.getAttribute("src") || "";
+      const isBlob = src.startsWith("blob:");
+      const isDataUrl = src.startsWith("data:");
+
+      if (isBlob || isDataUrl) {
+        try {
+          const response = await fetch(src);
+          const blob = await response.blob();
+
+          // Determine file type
+          let fileExt = "bin";
+          if (el.tagName === "IMG") {
+            fileExt = blob.type.split("/")[1] || "jpg";
+          } else if (el.tagName === "VIDEO") {
+            fileExt = blob.type.split("/")[1] || "mp4";
+          }
+
+          const filename = `media-${Date.now()}-${index}.${fileExt}`;
+
+          // Append to formData with appropriate field name
+          if (el.tagName === "IMG") {
+            formData.append("editorImages", blob, filename);
+          } else {
+            formData.append("editorVideos", blob, filename);
+          }
+
+          // Update src to filename for server reference
+          el.setAttribute("src", filename);
+        } catch (error) {
+          console.error("Error processing media:", error);
+          // Fallback - keep original src if processing fails
+        }
+      }
+    });
+
+    await Promise.all(mediaPromises);
+
+    // Update HTML content
+    const updatedHtml = doc.body.innerHTML;
+    formData.append("content", updatedHtml);
+
+    // Submit to server
+    post
+      ? dispatch(updateBlogPost({ blogId: post._id, blogPost: formData }))
+        .then((res: any) => {
+          if (!res.error) {
+            navigate(`/admin/blogs/${post._id}`)
+            toast({
+              title: "Success",
+              description: res.payload.message,
+            })
+          } else {
+            console.log("error: ",res.error.message)
+            toast({
+              title: "Error",
+              description: "Opps..! Something want to wrong",
+              variant: "destructive",
+            })
+          }
+        })
+      : dispatch(createBlogPost(formData))
+        .then((res: any) => {
+          if (!res.error) {
+            navigate("/admin/blogs")
+            toast({
+              title: "Success",
+              description: res.payload.message,
+            })
+          } else {
+            console.log("error: ",res.error.message)
+            toast({
+              title: "Error",
+              description: "Opps..! Something want to wrong",
+              variant: "destructive",
+            })
+          }
+        })
+
+  };
   return (
     <section className="flex items-center justify-center min-h-screen w-full py-0 px-2 sm:px-4">
       <div className="glass-effect sm:p-6 flex flex-col justify-center rounded-md
         w-full md:max-w-2xl lg:max-w-3xl">
-        <motion.form
-          variants={fade}
-          initial="hidden"
-          animate="visible"
+        <form
           className=" p-6 rounded-lg space-y-4"
           onSubmit={handleSubmit(onSubmit)}
         >
@@ -281,13 +270,26 @@ const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
           </div>
 
           <div className="space-y-2">
-            <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
+            <RTE
+              label="Content :"
+              name="content"
+              control={control}
+              defaultValue={getValues("content")}
+              rules={{
+                required: "Content is required",
+                validate: (value) =>
+                  !value || value.trim() === '<p></p>' ? "Content cannot be empty" : true
+              }}
+            />
+            {errors.content && (
+              <p className="text-red-500 text-sm mt-1">{errors.content.message}</p>
+            )}
           </div>
 
           <div className="flex justify-end gap-2 pt-4">
             {post && <Button
               type="button"
-              onClick={() => navigate(`/admin/blog/${post._id}`)}
+              onClick={() => navigate(`/admin/blogs/${post._id}`)}
               className="w-full bg-cynerza-purple hover:bg-cynerza-purple/90"
             >
               Cancle
@@ -305,10 +307,9 @@ const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
             </Button>
 
           </div>
-        </motion.form>
+        </form>
       </div>
     </section>
-    // </section>
   );
 
 };
