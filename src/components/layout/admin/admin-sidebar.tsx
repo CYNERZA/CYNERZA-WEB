@@ -1,117 +1,3 @@
-// import { Calendar, Home, Inbox, LogOut, LogIn, LogOutIcon, LogInIcon, ArrowLeft } from "lucide-react"
-
-// import {
-//   Sidebar,
-//   SidebarContent,
-//   SidebarGroup,
-//   SidebarGroupContent,
-//   SidebarGroupLabel,
-//   SidebarMenu,
-//   SidebarMenuButton,
-//   SidebarMenuItem,
-// } from "@/components/ui/sidebar"
-// import { useDispatch, useSelector } from "react-redux"
-// import { useNavigate } from "react-router-dom"
-// import { Button } from "@/components/ui/button";
-// import { useToast } from '@/components/ui/use-toast';
-
-// import { logout } from "../../../featured/auth/authSlice"
-// import { useEffect, useState } from "react";
-
-// export function AppSidebar() {
-//   const authStatus = useSelector((state: any) => state.auth.status)
-//   const successMessage = useSelector((state: any) => state.auth.successMessage)
-
-//   const dispatch = useDispatch();
-//   const navigate = useNavigate();
-//   const { toast } = useToast();
-
-//   const logoutHandler = () => {
-//     dispatch(logout());
-//     toast({
-//       title: "Logout Successful",
-//       description: successMessage || "You have been logged out successfully.",
-//     });
-//     navigate('/admin/login');
-//   }
-
-//   const items = [
-//     { title: "Home", url: "/admin/dashboard", icon: Home },
-//     { title: "Create Blog", url: "/admin/create-blog", icon: Inbox },
-//     { title: "Blogs", url: "/admin/blogs", icon: Calendar },
-//   ]
-
-//   // State to track current theme
-//   const [isDarkMode, setIsDarkMode] = useState(() => {
-//     return document.documentElement.classList.contains("dark");
-//   });
-
-//   // When user toggles theme
-//   const toggleTheme = () => {
-//     const newTheme = !isDarkMode;
-//     document.documentElement.classList.toggle("dark", newTheme);
-//     localStorage.setItem("theme", newTheme ? "dark" : "light");
-//     setIsDarkMode(newTheme); // update state so component re-renders
-//   };
-
-
-
-//   return (
-//     <Sidebar className="bg-slate-200 dark:bg-gray-800 flex flex-col justify-between h-screen">
-//       {/* Top section */}
-//       <SidebarContent>
-//         <SidebarGroup>
-//           <SidebarGroupLabel className="mb-4">CYNERZA</SidebarGroupLabel>
-//           <SidebarGroupContent>
-//             <SidebarMenu>
-//               {/* Top menu items */}
-//               {authStatus && items.map((item) => (
-//                 <SidebarMenuItem key={item.title}>
-//                   <SidebarMenuButton asChild>
-//                     <a href={item.url}>
-//                       <item.icon />
-//                       <span>{item.title}</span>
-//                     </a>
-//                   </SidebarMenuButton>
-//                 </SidebarMenuItem>
-//               ))}
-
-//               {/* Logout / Login Button */}
-//               {authStatus ? (
-//                 <SidebarMenuButton onClick={logoutHandler}>
-//                   <ArrowLeft />
-//                   <span>Logout</span>
-//                 </SidebarMenuButton>
-//               ) : (
-//                 <SidebarMenuButton onClick={() => navigate("/admin/login")}>
-//                   <LogInIcon />
-//                   <span>Login</span>
-//                 </SidebarMenuButton>
-//               )}
-//             </SidebarMenu>
-//           </SidebarGroupContent>
-//         </SidebarGroup>
-//       </SidebarContent>
-
-//       {/* Bottom section: Dark Mode Button */}
-//       <div className="p-4">
-//         <SidebarMenu>
-//           <SidebarMenuButton
-//             onClick={toggleTheme}
-//             aria-label="Toggle dark mode"
-//           >
-//             <span className="ml-2">
-//               {isDarkMode ? 'Light' : 'Dark'}
-//             </span>
-//           </SidebarMenuButton>
-//         </SidebarMenu>
-
-//       </div>
-//     </Sidebar>
-//   );
-// }
-
-
 import { Calendar, Home, Inbox, LogOut, LogIn, Moon, Sun } from "lucide-react";
 import {
   Sidebar,
@@ -125,14 +11,12 @@ import {
 } from "@/components/ui/sidebar";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import { useToast } from '@/components/ui/use-toast';
 import { logout } from "../../../featured/auth/authSlice";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export function AppSidebar() {
   const authStatus = useSelector((state: any) => state.auth.status);
-  const successMessage = useSelector((state: any) => state.auth.successMessage);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -142,12 +26,23 @@ export function AppSidebar() {
   });
 
   const logoutHandler = () => {
-    dispatch(logout());
-    toast({
-      title: "Logout Successful",
-      description: successMessage || "You have been logged out successfully.",
-    });
-    navigate('/admin/login');
+    dispatch(logout())
+      .then((res) => {
+        console.log(res, "lofof")
+        if (!res.error) {
+          navigate("/admin/login")
+          toast({
+            title: "Success",
+            description: res.payload.message,
+          })
+        } else {
+          toast({
+            title: "Error",
+            description: "Opps..! Something want to wrong",
+            variant: "destructive",
+          })
+        }
+      })
   };
 
   const toggleTheme = () => {
@@ -175,7 +70,7 @@ export function AppSidebar() {
             <SidebarMenu>
               {authStatus && items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton 
+                  <SidebarMenuButton
                     asChild
                     className="hover:bg-slate-200 dark:hover:bg-gray-700 transition-colors duration-200"
                   >
@@ -189,7 +84,7 @@ export function AppSidebar() {
 
               {authStatus ? (
                 <SidebarMenuItem>
-                  <SidebarMenuButton 
+                  <SidebarMenuButton
                     onClick={logoutHandler}
                     className="hover:bg-slate-200 dark:hover:bg-gray-700 transition-colors duration-200"
                   >
@@ -201,7 +96,7 @@ export function AppSidebar() {
                 </SidebarMenuItem>
               ) : (
                 <SidebarMenuItem>
-                  <SidebarMenuButton 
+                  <SidebarMenuButton
                     onClick={() => navigate("/admin/login")}
                     className="hover:bg-slate-200 dark:hover:bg-gray-700 transition-colors duration-200"
                   >
