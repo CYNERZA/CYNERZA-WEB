@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentUser } from "../../../featured/auth/authSlice";
 import LogoLoader from '../../admin/loader';
+import { AppDispatch } from '@/app/store';
 
 interface AuthLayoutProps {
   children: React.ReactNode;
@@ -13,7 +14,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({
   children,
   authentication = true
 }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const location = useLocation();
   const authStatus = useSelector((state: any) => state.auth.status);

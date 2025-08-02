@@ -14,10 +14,11 @@ import { useNavigate } from "react-router-dom";
 import { useToast } from '@/components/ui/use-toast';
 import { logout } from "../../../featured/auth/authSlice";
 import { useState } from "react";
+import { AppDispatch } from "@/app/store";
 
 export function AppSidebar() {
   const authStatus = useSelector((state: any) => state.auth.status);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -27,8 +28,7 @@ export function AppSidebar() {
 
   const logoutHandler = () => {
     dispatch(logout())
-      .then((res) => {
-        console.log(res, "lofof")
+      .then((res: any) => {
         if (!res.error) {
           navigate("/admin/login")
           toast({
