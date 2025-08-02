@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchBlogPosts, deleteBlogPost } from '@/featured/blog/blogSlice';
+import { fetchBlogPosts, deleteBlogPost, fetchRecentBlogPosts } from '@/featured/blog/blogSlice';
 import { RootState, AppDispatch } from '@/app/store';
 import { useToast } from '@/components/ui/use-toast';
 import LogoLoader from './loader';
@@ -29,50 +29,48 @@ export const BlogDetailPage: React.FC = () => {
     return <LogoLoader />;
   }
 
-  if (!currentBlog) {
-    return (
-      <div className="flex flex-col items-center justify-center h-[calc(100vh-4rem)] p-8">
-        <FileText className="w-16 h-16 text-red-500 mb-4 animate-pulse" />
-        <h2 className="text-3xl font-semibold text-gray-800 dark:text-gray-200 mb-2">
-          Blog Not Found
-        </h2>
-        <p className="text-center text-gray-600 dark:text-gray-400 mb-6 max-w-md">
-          Requested blog does not exist or might have been removed.
-        </p>
-        <Button
-          variant="outline"
-          className="px-6"
-          onClick={() => navigate('/admin/blogs')}
-        >
-          ← Back to Blogs
-        </Button>
-      </div>
-    );
-  }
 
   const handleEdit = () => navigate(`/admin/update-blog/${currentBlog._id}`);
   const handleDelete = () => {
     dispatch(deleteBlogPost(currentBlog._id))
-      .then((res) => {
-        navigate("/admin/blogs")
-        toast({
-          title: "Success",
-          description: res.payload.message,
-          variant: "default",
-        });
-      }).catch((error) => {
-        console.log("eror", error)
-        toast({
-          title: "Error",
-          description: error.message,
-          variant: "destructive",
-        });
+                dispatch(fetchRecentBlogPosts())
+
+      .then((res: any) => {
+        if (!res.error) {
+          navigate("/admin/blogs")
+          toast({
+            title: "Success",
+            description: res.payload.message,
+            variant: "default",
+          });
+        } else {
+          console.log("error: ", res.error.message)
+          toast({
+            title: "Error",
+            description: "Opps..! Something want to wrong",
+            variant: "destructive",
+          })
+        }
+
       })
   };
 
-
-
-  return (
+  return !currentBlog ? (<div className="flex flex-col items-center justify-center h-[calc(100vh-4rem)] p-8">
+    <FileText className="w-16 h-16 text-red-500 mb-4 animate-pulse" />
+    <h2 className="text-3xl font-semibold text-gray-800 dark:text-gray-200 mb-2">
+      Blog Not Found
+    </h2>
+    <p className="text-center text-gray-600 dark:text-gray-400 mb-6 max-w-md">
+      Requested blog does not exist or might have been removed.
+    </p>
+    <Button
+      variant="outline"
+      className="px-6"
+      onClick={() => navigate('/admin/blogs')}
+    >
+      ← Back to Blogs
+    </Button>
+  </div>) : (
     <div
       className="min-h-screen p-4 sm:p-8 bg-white dark:bg-gray-900 transition-colors max-w-4xl mx-auto"
     >

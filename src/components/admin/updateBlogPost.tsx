@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { getSignleBlogPost } from '@/featured/blog/blogSlice';
+import { getSingleBlogPost } from '@/featured/blog/blogSlice';
 import { RootState, AppDispatch } from '@/app/store';
 import BlogForm from "@/pages/admin/BlogForm";
 import LogoLoader from "./loader";
@@ -14,11 +14,10 @@ const UpdateBlogPost: React.FC = () => {
     const navigate = useNavigate();
     const [initialLoad, setInitialLoad] = useState(true);
 
-    const currentBlog = useSelector((state: RootState) => state.blog.currentBlog);
-
+    const currentBlog = useSelector((state: any) => state.blog.currentBlog);
     useEffect(() => {
         if (initialLoad) {
-            dispatch(getSignleBlogPost(id)).finally(() => setInitialLoad(false));
+            dispatch(getSingleBlogPost(id)).finally(() => setInitialLoad(false));
         }
     }, [dispatch, initialLoad]);
 
