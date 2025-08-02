@@ -6,16 +6,17 @@ import {
 } from '../featured/blog/blogSlice';
 import { PostCard, PostCardLarge, PostCardSmall, SinglePostCard } from '../components/blog/BlogPostCart';
 import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch } from '@/app/store';
 
 const BlogLayout: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const {
     blogPosts,
     recentBlogPosts,
     loading,
   } = useSelector((state: any) => state.blog);
 
-
+  
   useEffect(() => {
     const fetchData = async () => {
       await Promise.all([
@@ -23,7 +24,7 @@ const BlogLayout: React.FC = () => {
         dispatch(fetchBlogPosts())
       ]);
     };
-
+    
     fetchData();
   }, [dispatch]);
 
@@ -129,7 +130,7 @@ const BlogLayout: React.FC = () => {
         </h2>
 
         {blogPosts && blogPosts.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {blogPosts.map((post, i) => (
               <motion.div
                 key={post._id}

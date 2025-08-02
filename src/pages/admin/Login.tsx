@@ -28,7 +28,7 @@ const Login: React.FC = () => {
         dispatch(login(formData))
             .then((res: any) => {
                 if (!res.error) {
-                    dispatch(getCurrentUser()).then((user) => {
+                    dispatch(getCurrentUser()).then((user: any) => {
                         if (user.payload?._id) {
                             toast({
                                 title: "Success",

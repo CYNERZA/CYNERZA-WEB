@@ -2,10 +2,11 @@ import React, { useRef } from "react"
 import RTE from "@/components/admin/editor/RTE";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { createBlogPost, updateBlogPost } from "@/featured/blog/blogSlice";
+import { BlogType, createBlogPost, fetchBlogPosts, updateBlogPost } from "@/featured/blog/blogSlice";
 import { useToast } from '@/components/ui/use-toast';
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { AppDispatch } from "@/app/store";
 
 interface FormData {
   title: string;
@@ -36,12 +37,12 @@ interface BlogFormProps {
   post?: Post; // optional
 }
 const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate()
   const { toast } = useToast()
   const loading = useSelector((state: any) => state.blog.loading);
 
-  const { control, handleSubmit, register, reset, formState: { errors }, getValues }
+  const { control, handleSubmit, register, formState: { errors }, getValues }
     = useForm<FormData>({
       defaultValues: {
         title: post ? post.title : "",
@@ -133,7 +134,7 @@ const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
               description: res.payload.message,
             })
           } else {
-            console.log("error: ",res.error.message)
+            console.log("error: ", res.error.message)
             toast({
               title: "Error",
               description: "Opps..! Something want to wrong",
@@ -142,15 +143,16 @@ const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
           }
         })
       : dispatch(createBlogPost(formData))
-        .then((res: any) => {
+        .then(async (res: any) => {
           if (!res.error) {
+            // await dispatch(fetchBlogPosts());
             navigate("/admin/blogs")
             toast({
               title: "Success",
               description: res.payload.message,
             })
           } else {
-            console.log("error: ",res.error.message)
+            console.log("error: ", res.error.message)
             toast({
               title: "Error",
               description: "Opps..! Something want to wrong",
@@ -301,7 +303,7 @@ const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
               disabled={loading}
             >
               {post ?
-                (loading ? "Updating" : "Update")
+                (loading ? "Updating..." : "Update")
                 :
                 (loading ? "Submitting..." : "Submit")}
             </Button>

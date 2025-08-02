@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { fetchBlogPosts } from "@/featured/blog/blogSlice";
 import { useDispatch, useSelector } from "react-redux";
 import LogoLoader from "@/components/admin/loader";
+import { AppDispatch, RootState } from "@/app/store";
 
 interface BlogType {
   _id: string;
@@ -19,7 +20,7 @@ interface BlogType {
 
 const AllBlogs: React.FC = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const blogs = useSelector((state: any) => state.blog.blogPosts);
   const loading = useSelector((state: any) => state.blog.loading);
   const [isInitialLoading, setInitialLoading] = useState(true);
