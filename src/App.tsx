@@ -15,16 +15,16 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import BlogLayout from './pages/Blog';
 import Admin from './pages/admin/Admin';
-import Login from './pages/admin/Login.js';
-import AuthLayout from "./components/layout/admin/AuthLayout.js"
+import Login from './pages/admin/Login';
+import AuthLayout from "./components/layout/admin/AuthLayout"
 import { store } from './app/store.js';
 import { Provider } from 'react-redux';
-import BlogForm from './pages/admin/BlogForm.js';
-import AllBlogs from './pages/admin/AllBlogs.js';
+import BlogForm from './pages/admin/BlogForm';
+import AllBlogs from './pages/admin/AllBlogs';
 import Layout from './components/layout/admin/layout/adminPageLayout';
-import { BlogDetailPage } from './components/admin/blogPost.js';
+import { BlogDetailPage } from './components/admin/blogPost';
 import UpdateBlogPost from "./components/admin/updateBlogPost"
-import { SingleBlog } from './pages/SingleBlog.js';
+import { SingleBlog } from './pages/SingleBlog';
 
 const queryClient = new QueryClient();
 
