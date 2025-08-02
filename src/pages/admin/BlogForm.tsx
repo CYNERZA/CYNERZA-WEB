@@ -164,10 +164,10 @@ const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
   };
   return (
     <section className="flex items-center justify-center min-h-screen w-full py-0 px-2 sm:px-4">
-      <div className="glass-effect sm:p-6 flex flex-col justify-center rounded-md
+      <div className=" sm:p-6 flex flex-col justify-center rounded-md
         w-full md:max-w-2xl lg:max-w-3xl">
         <form
-          className=" p-6 rounded-lg space-y-4"
+          className=" p-6 rounded-lg space-y-4 glass-effect"
           onSubmit={handleSubmit(onSubmit)}
         >
           <h2 className="text-2xl font-bold mb-4 text-center text-gray-900 dark:text-gray-200">Create Blog Post</h2>
