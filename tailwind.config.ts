@@ -150,6 +150,9 @@ export default {
         heading: ['Montserrat', 'sans-serif'],
       },
     },
+
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+  ],
 } satisfies Config;

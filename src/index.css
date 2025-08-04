@@ -4,6 +4,138 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.tox .tox-promotion {
+    background: repeating-linear-gradient(transparent 0 1px, transparent 1px 39px) center top 39px / 100% calc(100% - 39px) no-repeat;
+    background-color: #fff;
+    grid-column: 2;
+    grid-row: 1;
+    padding-inline-end: 8px;
+    padding-inline-start: 4px;
+    padding-top: 5px;
+    display: none;
+}
+
+/* Editor conetnt css */
+.align-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem;
+}
+.editor-caption {
+  margin-top: 5px;
+}
+.align-center > video {
+  width: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+}
+.align-center > img {
+  width: auto;
+}
+.raw-content {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+}
+
+.raw-content pre,
+.raw-content code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.raw-content table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.raw-content h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+.raw-content section{
+  padding: 0;
+}
+
+.raw-content h2 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 0.8rem 0;
+}
+
+.raw-content p {
+  margin: 0.5rem 0;
+  line-height: 1.5;
+}
+
+.raw-content a {
+  color: blue;
+  text-decoration: underline;
+}
+
+.raw-content ul {
+  list-style-type: disc;
+  padding-left: 2rem;
+  margin: 0.5rem 0;
+}
+.raw-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Responsive image and video styles for different screen sizes */
+@media (min-width: 640px) {
+ 
+  .align-center > video {
+    width: 70%;
+  }
+  .align-center > img {
+    width: 70%;
+  }
+  
+}
+
+.dark .raw-content img video {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+/* End Editor content css */
+
+@layer base {
+  :root {
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
+  }
+
+  .dark {
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.439 0 0);
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

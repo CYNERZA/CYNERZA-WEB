@@ -5,8 +5,7 @@ import TeamMemberCard from '@/components/ui/TeamMemberCard';
 import { motion } from 'framer-motion';
 
 const TeamPreview: React.FC = () => {
-
-  const teamMembers = [
+ const teamMembers = [
     {
       name: 'Aditya Sahoo',
       role: 'CEO & Co-Founder',
