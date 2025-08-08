@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+      return document.documentElement.classList.contains("dark");
+    });
+
+    console.log(isDarkMode)
+
+    // theme mode handler
+    const toggleTheme = () => {
+    const newTheme = !isDarkMode;
+    document.documentElement.classList.toggle("dark", newTheme);
+    localStorage.setItem("theme", newTheme ? "dark" : "light");
+    setIsDarkMode(newTheme);
+  };
+
   return (
     <footer className="bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -120,14 +134,11 @@ const Footer: React.FC = () => {
               Security
             </Link>
             <button 
-              onClick={() => {
-                document.documentElement.classList.toggle('dark');
-                localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-              }}
+             onClick={toggleTheme}
               className="text-gray-500 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors"
               aria-label="Toggle dark mode"
             >
-              {document.documentElement.classList.contains('dark') ? '☀️ Light' : '🌙 Dark'} Mode
+              {isDarkMode ? '☀️ Light' : '🌙 Dark'} Mode
             </button>
           </div>
         </div>
