@@ -1,438 +1,414 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
-import { motion, useAnimation, useInView } from 'framer-motion';
-import { ChevronDown, Play, Zap, Code, Cpu, Smartphone, Globe, BarChart3, ArrowRight } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { AiOutlineFileText, AiOutlinePicture, AiOutlineRobot } from "react-icons/ai";
+import { FiCopy } from "react-icons/fi";
+import { RiMovie2Line, RiShareBoxLine } from "react-icons/ri";
+import { MdMicOff, MdOutlineTextDecrease, MdSummarize } from "react-icons/md";
+import { FaBookOpen, FaEraser, FaMagic, FaMicrophoneAlt, FaPodcast, FaRobot } from "react-icons/fa";
+import { GiBrain } from "react-icons/gi";
+import { VscFileCode } from "react-icons/vsc";
+import { BookAIcon } from 'lucide-react';
 
 
-// const AnimatedIcons = () => {
-//   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-//   const containerRef = useRef<HTMLDivElement>(null);
-//   const isInView = useInView(containerRef, { once: true });
+// === HEXAGON BACKGROUND ===
+interface Cursor { x: number; y: number; }
+interface Hex { x: number; y: number; prog: number; lastTrigger: number; }
+interface HexProps { isActive: boolean; cursor: Cursor; }
+const HexagonBackground: React.FC<HexProps> = ({ isActive, cursor }) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const hexagonsRef = useRef<Hex[]>([]);
 
-//   const handleMouseMove = (e: React.MouseEvent) => {
-//     if (containerRef.current) {
-//       const rect = containerRef.current.getBoundingClientRect();
-//       setMousePos({
-//         x: ((e.clientX - rect.left) / rect.width - 0.5) * 20,
-//         y: ((e.clientY - rect.top) / rect.height - 0.5) * 20
-//       });
-//     }
-//   };
-
-//   // icons list
-//   const icons = [
-//     { icon: <Zap className="w-8 h-8 text-amber-400" />, delay: 0 },
-//     { icon: <Code className="w-8 h-8 text-cyan-400" />, delay: 0.1 },
-//     { icon: <Cpu className="w-8 h-8 text-purple-400" />, delay: 0.2 },
-//     { icon: <Smartphone className="w-8 h-8 text-pink-400" />, delay: 0.3 },
-//     { icon: <Globe className="w-8 h-8 text-blue-400" />, delay: 0.4 },
-//     { icon: <BarChart3 className="w-8 h-8 text-green-400" />, delay: 0.5 },
-//   ];
-
-//   const radius = 140;
-
-//   return (
-//     <div
-//       ref={containerRef}
-//       onMouseMove={handleMouseMove}
-//       className="relative w-full h-[450px] lg:h-[550px] flex items-center justify-center"
-//     >
-//       {/* Icons fixed around circle */}
-//       {icons.map((item, i) => {
-//         const angle = (i / icons.length) * Math.PI * 2;
-//         const x = Math.cos(angle) * radius + mousePos.x;
-//         const y = Math.sin(angle) * radius + mousePos.y;
-//         return (
-//           <motion.div
-//             key={i}
-//             className="absolute"
-//             initial={{ x: 0, y: 0, opacity: 0 }}
-//             animate={{
-//               x: isInView ? x : 0,
-//               y: isInView ? y : 0,
-//               opacity: isInView ? 1 : 0,
-//               scale: isInView ? 1 : 0.5
-//             }}
-//             transition={{
-//               type: "spring", damping: 20, stiffness: 100, delay: item.delay
-//             }}
-//           >
-//             <motion.div
-//               className="p-4 bg-white rounded-2xl shadow-lg"
-//               whileHover={{ scale: 1.1, rotate: 5 }}
-//               whileTap={{ scale: 0.95 }}
-//             >
-//               {item.icon}
-//             </motion.div>
-//           </motion.div>
-//         );
-//       })}
-
-//       {/* Central circle with logo */}
-//       <motion.div
-//         className="absolute w-40 h-40 rounded-full bg-gradient-to-br from-cyan-400 to-purple-600 flex items-center justify-center shadow-lg"
-//         initial={{ scale: 0, opacity: 0 }}
-//         animate={isInView ? { scale: 1, opacity: 1 } : {}}
-//         transition={{ delay: 0.3, type: "spring" }}
-//       >
-//         <img
-//           src={"../../../logo.png"}
-//           alt="Logo"
-//           className="w-full h-full object-cover rounded-full"
-//         />
-//         <motion.div
-//           className="absolute inset-0 rounded-full"
-//           animate={{
-//             scale: [1, 1.2, 1],
-//             opacity: [0.5, 0.8, 0.5]
-//           }}
-//           transition={{
-//             duration: 3, repeat: Infinity, ease: "easeInOut"
-//           }}
-//         />
-//       </motion.div>
-//     </div>
-//   );
-// };
-
-
-
-const AnimatedIcons = () => {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  
-  {/*} Set initial radius based on window size */}
-  const [radius, setRadius] = useState(
-    typeof window !== "undefined" && window.innerWidth < 640 ? 90 : 140
-  );
-  const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { once: true });
-
-  {/* Adjust radius based on window size */}
+  // Generate grid only once
   useEffect(() => {
-    const handleResize = () => {
-      setRadius(window.innerWidth < 640 ? 90 : 140);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  {/* Handle mouse movement to update icon positions */}
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect();
-      setMousePos({
-        x: ((e.clientX - rect.left) / rect.width - 0.5) * 20,
-        y: ((e.clientY - rect.top) / rect.height - 0.5) * 20,
-      });
-    }
-  };
-
-  {/* Icons list */}
-  const icons = [
-    { icon: <Zap className="w-6 h-6 sm:w-8 sm:h-8 text-amber-400" />, delay: 0 },
-    { icon: <Code className="w-6 h-6 sm:w-8 sm:h-8 text-cyan-400" />, delay: 0.1 },
-    { icon: <Cpu className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400" />, delay: 0.2 },
-    { icon: <Smartphone className="w-6 h-6 sm:w-8 sm:h-8 text-pink-400" />, delay: 0.3 },
-    { icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400" />, delay: 0.4 },
-    { icon: <BarChart3 className="w-6 h-6 sm:w-8 sm:h-8 text-green-400" />, delay: 0.5 },
-  ];
-
-  return (
-    <div
-      ref={containerRef}
-      onMouseMove={handleMouseMove}
-      className="relative w-full h-[350px] sm:h-[450px] lg:h-[550px] flex items-center justify-center"
-    >
-      {/* Icons fixed around circle */}
-      {icons.map((item, i) => {
-        const angle = (i / icons.length) * Math.PI * 2;
-        const x = Math.cos(angle) * radius + mousePos.x;
-        const y = Math.sin(angle) * radius + mousePos.y;
-        return (
-          <motion.div
-            key={i}
-            className="absolute"
-            initial={{ x: 0, y: 0, opacity: 0 }}
-            animate={{
-              x: isInView ? x : 0,
-              y: isInView ? y : 0,
-              opacity: isInView ? 1 : 0,
-              scale: isInView ? 1 : 0.5,
-            }}
-            transition={{
-              type: "spring",
-              damping: 20,
-              stiffness: 100,
-              delay: item.delay,
-            }}
-          >
-            <motion.div
-              className="p-2 sm:p-4 bg-white rounded-2xl shadow-lg"
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {item.icon}
-            </motion.div>
-          </motion.div>
-        );
-      })}
-
-      {/* Central circle with logo */}
-      <motion.div
-        className="absolute w-24 h-24 sm:w-40 sm:h-40 rounded-full  flex items-center justify-center shadow-lg"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={isInView ? { scale: 1, opacity: 1 } : {}}
-        transition={{ delay: 0.3, type: "spring" }}
-      >
-        <img
-          src={"../../../logo.png"}
-          alt="Logo"
-          className="w-full h-full object-cover rounded-full"
-        />
-        <motion.div
-          className="absolute inset-0 rounded-full"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.5, 0.8, 0.5],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      </motion.div>
-    </div>
-  );
-};
-
-
-const Hero: React.FC = () => {
-  const controls = useAnimation();
-  const heroRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-
-    const sequence = async () => {
-      await controls.start('visible');
-    };
-    sequence();
-  }, [controls]);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const baseSize = window.innerWidth < 768 ? 40 : 120;
+    const spacing = 1.1;
+    const hexSize = baseSize;
+    const hexHeight = Math.sqrt(3) * hexSize * spacing;
+    const vertDist = hexHeight;
+    const horizDist = hexSize * 1.5 * spacing;
+    const cols = Math.ceil(canvas.offsetWidth / horizDist) + 2;
+    const rows = Math.ceil(canvas.offsetHeight / vertDist) + 2;
+    const hexs: Hex[] = [];
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const x = c * horizDist;
+        const y = r * vertDist + (c % 2 ? vertDist / 2 : 0);
+        hexs.push({ x, y, prog: 0, lastTrigger: -Infinity });
       }
     }
+    hexagonsRef.current = hexs;
+  }, []);
+
+  // Record trigger time for nearest two
+  useEffect(() => {
+    if (!isActive) return;
+    const now = performance.now();
+    const range = 100;
+    const maxActive = 2;
+    const hexs = hexagonsRef.current;
+    const dists = hexs.map(h => ({ h, d: Math.hypot(cursor.x - h.x, cursor.y - h.y) }));
+    const near = dists.filter(o => o.d < range).sort((a, b) => a.d - b.d).slice(0, maxActive);
+    near.forEach(o => (o.h.lastTrigger = now));
+  }, [cursor.x, cursor.y, isActive]);
+
+  // Animate hexagons
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    const resize = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resize();
+    window.addEventListener('resize', resize);
+
+    const baseSize = window.innerWidth < 768 ? 40 : 120;
+    const spacing = 1.1;
+    const hexSize = baseSize;
+    const perimeter = 6 * hexSize;
+    const fadeDelay = 1500;
+
+    const drawHexagon = (h: Hex) => {
+      const { x, y, prog } = h;
+      // same animation, different colors per mode
+      const isDark = document.documentElement.classList.contains('dark');
+      const color1 = isDark ? `rgba(6,182,212,${prog})` : `rgba(255,255,255,${prog})`;
+      const color2 = isDark ? `rgba(59,130,246,${prog})` : `rgba(200,200,200,${prog})`;
+      ctx.beginPath();
+      for (let i = 0; i < 6; i++) {
+        const ang = (Math.PI / 3) * i;
+        const px = x + hexSize * Math.cos(ang);
+        const py = y + hexSize * Math.sin(ang);
+        i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+      }
+      ctx.closePath();
+      ctx.setLineDash([perimeter]);
+      ctx.lineDashOffset = perimeter * (1 - prog);
+            // radial gradient for full coverage
+      const grad = ctx.createRadialGradient(x, y, 0, x, y, hexSize);
+      grad.addColorStop(0, color1);
+      grad.addColorStop(1, color2);
+
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = 2;
+      ctx.shadowColor = color1;
+      ctx.shadowBlur = 10 * prog;
+      ctx.stroke();
+      ctx.setLineDash([]);
+    };
+
+    let animId: number;
+    const animate = () => {
+      const now = performance.now();
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      hexagonsRef.current.forEach(h => {
+        const age = now - h.lastTrigger;
+        const target = age < fadeDelay ? 1 : 0;
+        h.prog += (target - h.prog) * 0.1;
+        if (h.prog > 0.01) drawHexagon(h);
+      });
+      animId = requestAnimationFrame(animate);
+    };
+    animate();
+
+    return () => {
+      cancelAnimationFrame(animId);
+      window.removeEventListener('resize', resize);
+    };
+  }, [isActive]);
+
+  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" />;
+};
+
+{/* Impornant */}
+const ToolsSection: React.FC = () => {
+  const [scrollY, setScrollY] = useState(0);
+  const [hoveredTool, setHoveredTool] = useState<string | null>(null);
+  const [isActive, setIsActive] = useState(false);
+  const [cursor, setCursor] = useState<Cursor>({ x: -Infinity, y: -Infinity });
+
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const handleMouseEnter = () => setIsActive(true);
+  const handleMouseLeave = () => {
+    setIsActive(false);
+    setCursor({ x: -Infinity, y: -Infinity });
+  };
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    setCursor({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { type: 'spring', stiffness: 100, damping: 12 }
-    }
-  };
+  // Selected important AI tools
+  const importantTools = [
+    { name: "AI Writer", icon: <AiOutlineFileText />, position: { top: "15%", left: "8%" }, size: "medium" },
+    { name: "Image Generator", icon: <AiOutlinePicture />, position: { top: "35%", right: "12%" }, size: "medium" },
+    { name: "Code Assistant", icon: <VscFileCode />, position: { top: "15%", left: "75%" }, size: "medium" },
+    { name: "Voice Cloner", icon: <FaMicrophoneAlt />, position: { top: "80%", right: "5%" }, size: "medium" },
+    { name: "AI Chatbot", icon: <FaRobot />, position: { top: "40%", left: "5%" }, size: "medium" },
+    { name: "Prompt Designer", icon: <GiBrain />, position: { top: "65%", right: "15%" }, size: "medium" },
+    { name: "Content Summarizer", icon: <MdSummarize />, position: { top: "20%", right: "50%" }, size: "medium" },
+    { name: "Video Scripts", icon: <RiMovie2Line />, position: { top: "80%", left: "8%" }, size: "medium" },
+      { name: "Background remover", icon: <FaEraser />, position: { top: "65%", left: "25%" }, size: "medium" },
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 }
-    }
-  };
+  ];
 
-  const gradientText = {
-    background: 'linear-gradient(90deg, #7C3AED 0%, #EC4899 50%, #F59E0B 100%)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    backgroundSize: '200% auto',
-    animation: 'gradient 8s ease-in-out infinite',
-  };
+//   const importantTools = [
+//   { name: "Blog writer", icon: <AiOutlineFileText />, position: { top: "12%", left: "8%" }, size: "large" },
+//   { name: "Ad copy generator", icon: <FiCopy />, position: { top: "18%", right: "12%" }, size: "medium" },
+//   { name: "Script creator", icon: <RiMovie2Line />, position: { top: "8%", left: "75%" }, size: "medium" },
+//   { name: "Summariser", icon: <MdSummarize />, position: { top: "35%", left: "5%" }, size: "small" },
+//   { name: "AI Image Generator", icon: <AiOutlinePicture />, position: { top: "45%", right: "8%" }, size: "medium" },
+//   { name: "Background remover", icon: <FaEraser />, position: { top: "65%", left: "15%" }, size: "small" },
+//   { name: "Image enhancer", icon: <FaMagic />, position: { top: "28%", left: "50%" }, size: "large" },
+//   { name: "Text to speech", icon: <MdOutlineTextDecrease />, position: { top: "75%", right: "20%" }, size: "medium" },
+//   { name: "Voice cloner", icon: <FaMicrophoneAlt />, position: { top: "82%", left: "65%" }, size: "small" },
+//   { name: "Noise remover", icon: <MdMicOff />, position: { top: "58%", left: "70%" }, size: "medium" },
+//   { name: "AI code generator", icon: <VscFileCode />, position: { top: "42%", left: "40%" }, size: "small" },
+//   { name: "Chatbot creator", icon: <FaRobot />, position: { top: "78%", left: "40%" }, size: "medium" },
+//   { name: "Prompt designer", icon: <GiBrain />, position: { top: "25%", right: "30%" }, size: "small" },
+//   { name: "Podcast generator", icon: <FaPodcast />, position: { top: "88%", right: "35%" }, size: "small" },
+//   { name: "Social media posts", icon: <RiShareBoxLine />, position: { top: "68%", right: "40%" }, size: "medium" },
+//   { name: "Multimedia bot builder", icon: <AiOutlineRobot />, position: { top: "52%", left: "25%" }, size: "medium" },
+//   { name: "API reference", icon: <FaBookOpen />, position: { top: "38%", right: "25%" }, size: "small" }
+// ];
 
-  const glassEffect = {
-    background: 'rgba(255, 255, 255, 0.15)',
-    backdropFilter: 'blur(10px)',
-    border: '1px solid rgba(255, 255, 255, 0.18)',
-    boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)'
-  } as React.CSSProperties;
+  const getToolSize = (s: string) => ({
+    large: "w-32 h-32 p-7",
+    medium: "w-16 h-16 p-2 sm:w-24 sm:h-24 sm:p-3 md:w-28 md:h-28 md:p-6",
+    small: "w-24 h-24 p-5"
+  }[s] || "w-28 h-28 p-6");
+
+  const getIconSize = (s: string) => ({
+    large: "text-5xl",
+    medium: "text-2xl sm:text-4xl",
+    small: "text-3xl"
+  }[s] || "text-4xl");
 
   return (
-    <section
-      ref={heroRef}
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden 
-      bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800
-       dark:to-gray-900 py-8 sm:py-10 md:py-8"
+     <section
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onMouseMove={handleMouseMove}
+      className="relative overflow-hidden min-h-screen py-20 sm:py-40 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center"
     >
-      { }
-      <div className="absolute inset-0 overflow-hidden">
-        { }
-        <div className="absolute inset-0 bg-gradient-to-br from-cynerza-purple/5 via-white to-cynerza-blue/5 dark:from-cynerza-purple/10 dark:via-gray-900 dark:to-cynerza-blue/10" />
+      <HexagonBackground isActive={isActive} cursor={cursor} />
 
-        { }
-        <div className="absolute inset-0 opacity-20 dark:opacity-10">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj4KICA8cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiNmZmZmZmYiLz4KICA8cGF0aCBkPSJNMCAwSDYwVjYwSDBWMHoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2QxZDVkYiIgc3Ryb2tlLXdpZHRoPSIxIi8+Cjwvc3ZnPg==')]" />
-        </div>
-
-        { }
-        <div className="absolute -top-64 -right-64 w-[600px] h-[600px] rounded-full bg-cynerza-purple/10 blur-3xl dark:bg-cynerza-purple/20" />
-        <div className="absolute -bottom-64 -left-64 w-[600px] h-[600px] rounded-full bg-cynerza-blue/10 blur-3xl dark:bg-cynerza-blue/20" />
+      {/* Text Content - Higher z-index */}
+      <div className="relative z-30 w-full max-w-4xl mx-auto text-center space-y-2 sm:space-y-4  px-4 pointer-events-none">
+        <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-6xl font-bold text-slate-900 dark:text-slate-200 leading-tight">
+          Powerful AI Tools</h2>
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-6xl font-bold text-slate-900 leading-tight bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
+            For Modern Creators
+          {/* </span> */}
+        </h2>
+        <p className="text-base sm:text-xl text-gray-600 dark:text-gray-300">
+          Access the most advanced AI tools to boost your productivity and creativity.
+        </p>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-2 lg:px-4 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          { }
-          <motion.div
-            className="space-y-8 text-center lg:text-left"
-            initial="hidden"
-            animate={controls}
-            variants={containerVariants}
-          >
-            <motion.div
-              className="inline-flex items-center space-x-3 px-4 py-2.5 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-100 dark:border-gray-700 text-cynerza-purple dark:text-cynerza-purple-light text-sm font-medium shadow-sm"
-              variants={fadeInUp}
+      {/* Tools Container */}
+      <div className="absolute inset-0 z-20">
+        {importantTools.map((tool, idx) => {
+          const parallax = 0.05 + (idx % 4) * 0.02;
+          const isHovered = hoveredTool === tool.name;
+          return (
+            <div
+              key={tool.name}
+              className="absolute transition-all duration-500 group"
+              style={{
+                ...tool.position,
+                transform: `translateY(${scrollY * parallax}px) translateX(${Math.sin(scrollY * 0.01 + idx) * 10}px)`,
+                zIndex: isHovered ? 25 : 20,
+              }}
+              onMouseEnter={() => setHoveredTool(tool.name)}
+              onMouseLeave={() => setHoveredTool(null)}
+              onClick={() => setHoveredTool(tool.name)}
             >
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cynerza-purple/70 dark:bg-cynerza-purple-light/70 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cynerza-purple dark:bg-cynerza-purple-light"></span>
-              </span>
-              <span className="text-gray-700 dark:text-gray-300 font-medium">Unified AI, Simplified Tech</span>
-              <span className="ml-1.5 animate-pulse">✨</span>
-            </motion.div>
-
-            <motion.h1
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight"
-              variants={fadeInUp}
-            >
-              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-cynerza-purple to-cynerza-blue dark:from-cynerza-purple-light dark:to-cynerza-blue-light">
-                Unified AI.
-              </span>
-              <span className="block text-gray-900 dark:text-white mt-2 sm:mt-3">
-                Simplified Tech.
-              </span>
-              <span className="block text-gray-600 dark:text-gray-300 mt-2 sm:mt-3 font-medium">
-                Limitless Possibilities.
-              </span>
-            </motion.h1>
-
-            <motion.p
-              className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
-              variants={fadeInUp}
-            >
-              Transform your digital presence with our all-in-one platform for web, mobile, AI, and automation solutions. Build faster, scale smarter, and innovate with confidence.
-            </motion.p>
-
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2"
-              variants={fadeInUp}
-            >
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="group">
-                  <Link to="/ai-tools" className="flex items-center">
-                    <span>Explore AI Tools</span>
-                    <Zap className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-0.5" />
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="group">
-                  <Link to="/contact" className="flex items-center">
-                    <span>Contact Sales</span>
-                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-0.5" />
-                  </Link>
-                </Button>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 text-sm text-gray-500 dark:text-gray-400"
-              variants={fadeInUp}
-            >
-              <div className="flex items-center">
-                <div className="flex -space-x-3 mr-3">
-                  {[1, 2, 3].map((i) => (
-                    <div
-                      key={i}
-                      className="w-10 h-10 rounded-full border-2 border-white dark:border-gray-800 bg-gradient-to-r from-cynerza-purple to-cynerza-blue"
-                      style={{
-                        zIndex: 3 - i,
-                        backgroundImage: `linear-gradient(135deg, var(--cynerza-purple), var(--cynerza-blue))`,
-                        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
-                      }}
-                    />
-                  ))}
-                </div>
-                <div>
-                  <div className="font-medium text-gray-700 dark:text-gray-300">Trusted by 10,000+ developers</div>
-                  <div className="flex items-center text-xs text-cynerza-purple dark:text-cynerza-purple-light">
-                    <span className="flex items-center">
-                      <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                      4.9/5 (2,000+ reviews)
-                    </span>
+              <div className={`
+                ${getToolSize(tool.size)} rounded-2xl sm:rounded-3xl border shadow-lg
+                transition-all duration-500 ease-out animate-float cursor-pointer
+                ${isHovered
+                  ? 'bg-gradient-to-br from-purple-500 to-blue-500 scale-110 sm:scale-125 shadow-xl sm:shadow-2xl dark:from-purple-600 dark:to-blue-700'
+                  : 'bg-white/80 border-gray-200 hover:bg-white/90 dark:bg-gray-800/80 dark:border-gray-700 dark:hover:bg-gray-700/90'
+                }
+              `} style={{ 
+                animationDelay: `${idx * 0.2}s`, 
+                animationDuration: `${4 + (idx % 3)}s`,
+                pointerEvents: 'auto' // Ensure tools are clickable
+              }}>
+                {!isHovered ? (
+                  <div className="flex flex-col items-center justify-center h-full">
+                    <div className={`${getIconSize(tool.size)} text-gray-700 dark:text-gray-300 group-hover:text-white transition-colors`}>
+                      {tool.icon}
+                    </div>
+                    <div className="text-center mt-1 sm:mt-2 text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-white">
+                      {tool.name}
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-2 sm:p-4">
+                    <div className={`${getIconSize(tool.size)} mb-1 sm:mb-2`}>{tool.icon}</div>
+                    <div className="text-xs sm:text-sm font-bold text-center">{tool.name}</div>
+                  </div>
+                )}
               </div>
-            </motion.div>
-          </motion.div>
-
-          { }
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <AnimatedIcons />
-          </motion.div>
-        </div>
+            </div>
+          );
+        })}
       </div>
-
-      {/* make respomsible in mobile devices  */}
-      <motion.div
-        className="z-10"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 0.5 }}
-      >
-        <div className="flex flex-col items-center">
-          <span className="text-sm text-gray-500 dark:text-gray-400 mb-2">Scroll to explore</span>
-          <button
-            className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all duration-300 flex items-center justify-center group"
-            onClick={() => {
-              const nextSection = document.getElementById('features');
-              nextSection?.scrollIntoView({ behavior: 'smooth' });
-            }}
-            aria-label="Scroll to next section"
-          >
-            <motion.div
-              animate={{
-                y: [0, 10, 0],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
-              className="flex items-center justify-center"
-            >
-              <ChevronDown className="h-6 w-6 text-white group-hover:text-cynerza-purple-light transition-colors" />
-            </motion.div>
-          </button>
-        </div>
-      </motion.div>
-
-
     </section>
   );
 };
 
-export default Hero;
+export default ToolsSection;
 
 
+{/* Optionally */}
+// const ToolsSection: React.FC = () => {
+//   const [scrollY, setScrollY] = useState(0);
+//   const [hoveredTool, setHoveredTool] = useState<string | null>(null);
+//   const [isActive, setIsActive] = useState(false);
+//   const [cursor, setCursor] = useState<Cursor>({ x: -Infinity, y: -Infinity });
+
+//   useEffect(() => {
+//     const onScroll = () => setScrollY(window.scrollY);
+//     window.addEventListener('scroll', onScroll);
+//     return () => window.removeEventListener('scroll', onScroll);
+//   }, []);
+
+//   const handleMouseEnter = () => setIsActive(true);
+//   const handleMouseLeave = () => {
+//     setIsActive(false);
+//     setCursor({ x: -Infinity, y: -Infinity });
+//   };
+//   const handleMouseMove = (e: React.MouseEvent) => {
+//     const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+//     setCursor({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+//   };
+
+//   // Selected important AI tools
+//   const importantTools = [
+//     { name: "AI Writer", icon: <AiOutlineFileText />, position: { top: "15%", left: "5%" }, size: "medium" },
+//     { name: "Image Generator", icon: <AiOutlinePicture />, position: { top: "15%", right: "5%" }, size: "medium" },
+//     { name: "Code Assistant", icon: <VscFileCode />, position: { top: "35%", left: "5%" }, size: "medium" },
+//     { name: "Voice Cloner", icon: <FaMicrophoneAlt />, position: { top: "35%", right: "5%" }, size: "medium" },
+//     { name: "AI Chatbot", icon: <FaRobot />, position: { top: "60%", left: "5%" }, size: "medium" },
+//     { name: "Prompt Designer", icon: <GiBrain />, position: { top: "60%", right: "5%" }, size: "medium" },
+//     { name: "Content Summarizer", icon: <MdSummarize />, position: { top: "80%", right: "5%" }, size: "medium" },
+//     { name: "Video Scripts", icon: <RiMovie2Line />, position: { top: "80%", left: "5%" }, size: "medium" },
+//   ];
+
+//   const getToolSize = (s: string) => ({
+//     large: "w-32 h-32 p-7",
+//     medium: "w-16 h-16 p-2 sm:w-24 sm:h-24 sm:p-3 md:w-28 md:h-28 md:p-6",
+//     small: "w-24 h-24 p-5"
+//   }[s] || "w-28 h-28 p-6");
+
+//   const getIconSize = (s: string) => ({
+//     large: "text-5xl",
+//     medium: "text-2xl sm:text-4xl",
+//     small: "text-3xl"
+//   }[s] || "text-4xl");
+
+//   return (
+//     <section
+//       onMouseEnter={handleMouseEnter}
+//       onMouseLeave={handleMouseLeave}
+//       onMouseMove={handleMouseMove}
+//       className="relative overflow-hidden min-h-screen py-20 sm:py-40 px-4 sm:px-6 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center"
+//     >
+//       <HexagonBackground isActive={isActive} cursor={cursor} />
+
+//       <div className="relative z-10 w-full max-w-4xl mx-auto text-center space-y-4 sm:space-y-6 px-4">
+//         <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-slate-900 dark:text-slate-200">
+//           Powerful AI Tools<br />
+//           <span className="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
+//             For Modern Creators
+//           </span>
+//         </h2>
+//         <p className="text-base sm:text-xl text-gray-600 dark:text-gray-300">
+//           Access the most advanced AI tools to boost your productivity and creativity.
+//         </p>
+//       </div>
+
+//       <div className="absolute inset-0">
+//         {importantTools.map((tool, idx) => {
+//           const parallax = 0.05 + (idx % 4) * 0.02;
+//           const isHovered = hoveredTool === tool.name;
+//           return (
+//             <div
+//               key={tool.name}
+//               className="absolute transition-all duration-500 cursor-pointer group"
+//               style={{
+//                 ...tool.position,
+//                 transform: `translateY(${scrollY * parallax}px) translateX(${Math.sin(scrollY * 0.01 + idx) * 10}px)`,
+//                 zIndex: isHovered ? 50 : 10,
+//               }}
+//               onMouseEnter={() => setHoveredTool(tool.name)}
+//               onMouseLeave={() => setHoveredTool(null)}
+//             >
+//               <div className={`
+//                 ${getToolSize(tool.size)} rounded-2xl sm:rounded-3xl backdrop-blur-sm border shadow-lg
+//                 transition-all duration-500 ease-out animate-float
+//                 ${isHovered
+//                   ? 'bg-gradient-to-br from-purple-500 to-blue-500 scale-110 sm:scale-125 shadow-xl sm:shadow-2xl dark:from-purple-600 dark:to-blue-700'
+//                   : 'bg-white/80 border-gray-200 hover:bg-white/90 dark:bg-gray-800/80 dark:border-gray-700 dark:hover:bg-gray-700/90'
+//                 }
+//               `} style={{ 
+//                 animationDelay: `${idx * 0.2}s`, 
+//                 animationDuration: `${4 + (idx % 3)}s` 
+//               }}>
+//                 {!isHovered ? (
+//                   <div className="flex flex-col items-center justify-center h-full">
+//                     <div className={`${getIconSize(tool.size)} text-gray-700 dark:text-gray-300 group-hover:text-white transition-colors`}>
+//                       {tool.icon}
+//                     </div>
+//                     <div className="text-center mt-1 sm:mt-2 text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-white">
+//                       {tool.name}
+//                     </div>
+//                   </div>
+//                 ) : (
+//                   <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-2 sm:p-4">
+//                     <div className={`${getIconSize(tool.size)} mb-1 sm:mb-2`}>{tool.icon}</div>
+//                     <div className="text-xs sm:text-sm font-bold text-center">{tool.name}</div>
+//                   </div>
+//                 )}
+//               </div>
+//             </div>
+//           );
+//         })}
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default ToolsSection
+
+// const tools = [
+//   { name: "Blog writer", icon: <AiOutlineFileText />, position: { top: "12%", left: "8%" }, size: "large" },
+//   { name: "Ad copy generator", icon: <FiCopy />, position: { top: "18%", right: "12%" }, size: "medium" },
+//   { name: "Script creator", icon: <RiMovie2Line />, position: { top: "8%", left: "75%" }, size: "medium" },
+//   { name: "Summariser", icon: <MdSummarize />, position: { top: "35%", left: "5%" }, size: "small" },
+//   { name: "AI Image Generator", icon: <AiOutlinePicture />, position: { top: "45%", right: "8%" }, size: "medium" },
+//   { name: "Background remover", icon: <FaEraser />, position: { top: "65%", left: "15%" }, size: "small" },
+//   { name: "Image enhancer", icon: <FaMagic />, position: { top: "28%", left: "50%" }, size: "large" },
+//   { name: "Text to speech", icon: <MdOutlineTextDecrease />, position: { top: "75%", right: "20%" }, size: "medium" },
+//   { name: "Voice cloner", icon: <FaMicrophoneAlt />, position: { top: "82%", left: "65%" }, size: "small" },
+//   { name: "Noise remover", icon: <MdMicOff />, position: { top: "58%", left: "70%" }, size: "medium" },
+//   { name: "AI code generator", icon: <VscFileCode />, position: { top: "42%", left: "40%" }, size: "small" },
+//   { name: "Chatbot creator", icon: <FaRobot />, position: { top: "78%", left: "40%" }, size: "medium" },
+//   { name: "Prompt designer", icon: <GiBrain />, position: { top: "25%", right: "30%" }, size: "small" },
+//   { name: "Podcast generator", icon: <FaPodcast />, position: { top: "88%", right: "35%" }, size: "small" },
+//   { name: "Social media posts", icon: <RiShareBoxLine />, position: { top: "68%", right: "40%" }, size: "medium" },
+//   { name: "Brand book generator", icon: <BsBook />, position: { top: "15%", left: "25%" }, size: "small" },
+//   { name: "Multimedia bot builder", icon: <AiOutlineRobot />, position: { top: "52%", left: "25%" }, size: "medium" },
+//   { name: "API reference", icon: <FaBookOpen />, position: { top: "38%", right: "25%" }, size: "small" }
+// ];
