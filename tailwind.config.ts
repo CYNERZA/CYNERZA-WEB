@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-
+import animation from "tailwindcss-animate"
 export default {
   darkMode: ["class"],
   content: [
@@ -105,10 +105,10 @@ export default {
             height: '0'
           }
         },
-        'float': {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-10px)' }
-        },
+        // 'float': {
+        //   '0%, 100%': { transform: 'translateY(0)' },
+        //   '50%': { transform: 'translateY(-10px)' }
+        // },
         'pulse-light': {
           '0%, 100%': { opacity: '0.6' },
           '50%': { opacity: '0.9' }
@@ -132,18 +132,28 @@ export default {
         'spin-slow': {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' }
+        },
+        "draw-lines": {
+          "0%": { strokeDashoffset: "80" },
+          "100%": { strokeDashoffset: "0" }
+        },
+        "float": {
+          "0%,100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-6px)" }
         }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'float': 'float 6s ease-in-out infinite',
+        // 'float': 'float 6s ease-in-out infinite',
         'pulse-light': 'pulse-light 4s ease-in-out infinite',
         'typing': 'typing 3.5s steps(40, end) infinite',
         'blink': 'blink 1s step-end infinite',
         'fade-in-up': 'fade-in-up 0.5s ease-out',
         'fade-in': 'fade-in 0.5s ease-out',
-        'spin-slow': 'spin-slow 6s linear infinite'
+        'spin-slow': 'spin-slow 6s linear infinite',
+        "draw-lines": "draw-lines 0.6s ease-out forwards",
+        "float": "float 6s ease-in-out infinite"
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
@@ -153,6 +163,7 @@ export default {
 
   },
   plugins: [
-    require("tailwindcss-animate"),
+    animation,
   ],
 } satisfies Config;
+
