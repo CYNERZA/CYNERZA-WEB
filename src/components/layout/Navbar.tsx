@@ -1,10 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { Button } from 'react-day-picker';
 
-const navItems = [
+const Navigation = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isHoveringLogo, setIsHoveringLogo] = useState(false);
+  const [isTappedLogo, setIsTappedLogo] = useState(false);
+  const [displayText, setDisplayText] = useState('');
+  const [typingComplete, setTypingComplete] = useState(false);
+  const [isAnimatingOut, setIsAnimatingOut] = useState(false);
+
+  const location = useLocation();
+  const textToType = 'CYNERZA';
+  const typingSpeed = 150;
+  const eraseSpeed = 50;
+  
+  const navItems = [
   { name: 'Home', path: '/' },
   { name: 'AI Tools', path: '/ai-tools' },
   { name: 'Services', path: '/services' },
@@ -13,19 +27,6 @@ const navItems = [
   { name: 'About', path: '/about' },
   { name: 'Contact', path: '/contact' },
 ];
-
-const Navbar: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isHoveringLogo, setIsHoveringLogo] = useState(false);
-  const [displayText, setDisplayText] = useState('');
-  const [typingComplete, setTypingComplete] = useState(false);
-  const [isAnimatingOut, setIsAnimatingOut] = useState(false);
-  const location = useLocation();
-
-  const textToType = 'CYNERZA';
-  const typingSpeed = 150; // milliseconds per character
-  const eraseSpeed = 50; // milliseconds per character when erasing
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,7 +51,6 @@ const Navbar: React.FC = () => {
         } else {
           isTyping = false;
           setTypingComplete(true);
-          // Wait for 2 seconds before starting to erase
           timeout = setTimeout(typeWriter, 2000);
         }
       } else {
@@ -61,42 +61,57 @@ const Navbar: React.FC = () => {
         } else {
           isTyping = true;
           setTypingComplete(false);
-          // Start typing again immediately
+          setIsTappedLogo(false); // Reset tap state when animation completes
           timeout = setTimeout(typeWriter, typingSpeed);
         }
       }
     };
 
-    if (isHoveringLogo) {
+    const animateOut = () => {
+      let currentIndex = displayText.length;
+      const erase = () => {
+        if (currentIndex >= 0) {
+          setDisplayText(textToType.substring(0, currentIndex));
+          currentIndex--;
+          timeout = setTimeout(erase, eraseSpeed);
+        } else {
+          setDisplayText('');
+          setTypingComplete(false);
+          setIsAnimatingOut(false);
+          setIsTappedLogo(false); // Reset tap state when erase completes
+        }
+      };
+      erase();
+    };
+
+    // For mobile devices, use isTappedLogo instead of isHoveringLogo
+    const shouldAnimate = window.innerWidth >= 768 ? isHoveringLogo : isTappedLogo;
+
+    if (shouldAnimate) {
       setIsAnimatingOut(false);
       typeWriter();
-    } else {
-      // Start animating out
+    } else if (displayText) {
       setIsAnimatingOut(true);
-      const animateOut = () => {
-        let currentIndex = displayText.length;
-        const erase = () => {
-          if (currentIndex >= 0) {
-            setDisplayText(textToType.substring(0, currentIndex));
-            currentIndex--;
-            timeout = setTimeout(erase, eraseSpeed);
-          } else {
-            setDisplayText('');
-            setTypingComplete(false);
-            setIsAnimatingOut(false);
-          }
-        };
-        erase();
-      };
       animateOut();
     }
 
     return () => clearTimeout(timeout);
-  }, [isHoveringLogo]);
+  }, [isHoveringLogo, isTappedLogo]);
+
+  const handleLogoClick = () => {
+    if (window.innerWidth < 768) {
+      setIsTappedLogo(!isTappedLogo);
+    }
+  };
+
+  const handleMobileLinkClick = () => {
+    setMobileMenuOpen(false);
+    setIsTappedLogo(false); // Close typewriter when a link is clicked
+  };
 
   return (
     <>
-      <header className="fixed top-4 left-0 w-full z-50 flex justify-center pointer-events-none">
+      <header className="pb-20 sm:pb-1 fixed top-4 left-0 w-full z-50 flex justify-center pointer-events-none">
         {/* Logo - Outside container for desktop */}
         <div
           className="hidden md:flex items-center space-x-2 pr-10 pointer-events-auto"
@@ -110,7 +125,7 @@ const Navbar: React.FC = () => {
           >
             <Link to="/">
               <img
-                src="../../../logo.png"
+                src="./android-chrome-192x192.png"
                 alt="Logo"
                 className="w-12 h-12 rounded-full cursor-pointer"
               />
@@ -138,42 +153,41 @@ const Navbar: React.FC = () => {
             </motion.div>
           )}
         </div>
+        
         <div
-          className={`pointer-events-auto max-w-[1020px] w-[95vw] flex items-center justify-between px-6 py-2 rounded-2xl border border-white/15 shadow-lg backdrop-blur-lg bg-white/10 dark:bg-gray-900/60 transition-all duration-300 ${isScrolled ? 'border-white/20 shadow-xl' : ''
-            }`}
+          className={`pointer-events-auto max-w-[1020px] w-[95vw] flex items-center justify-between px-6 py-2 rounded-2xl border border-white/15 shadow-lg backdrop-blur-lg bg-white/10 dark:bg-gray-900/60 transition-all duration-300 ${isScrolled ? 'border-white/20 shadow-xl' : ''}`}
           style={{ height: '54px', fontFamily: 'neue-haas-grotesk-text, sans-serif', fontSize: '16px' }}
         >
           {/* Logo - Inside container for mobile */}
-          <div
-            className="md:hidden flex items-center space-x-2"
-            onMouseEnter={() => setIsHoveringLogo(true)}
-            onMouseLeave={() => setIsHoveringLogo(false)}
-          >
+          <div className="md:hidden flex items-center space-x-2">
             <motion.div
-              animate={{ rotate: isHoveringLogo ? 360 : 0 }}
+              animate={{ rotate: isTappedLogo ? 360 : 0 }}
               transition={{ duration: 0.6, ease: "easeInOut" }}
               className="relative"
             >
-              <Link to="/">
+              <Link 
+                to="/"
+                onClick={handleLogoClick}
+              >
                 <img
-                  src="../../../logo.png"
+                  src="./android-chrome-192x192.png"
                   alt="Logo"
                   className="w-12 h-12 rounded-full cursor-pointer"
                 />
               </Link>
             </motion.div>
 
-            {(isHoveringLogo || isAnimatingOut) && (
+            {(isTappedLogo || isAnimatingOut) && (
               <motion.div
                 initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: isHoveringLogo ? 1 : isAnimatingOut ? 1 : 0, x: 0 }}
+                animate={{ opacity: isTappedLogo ? 1 : isAnimatingOut ? 1 : 0, x: 0 }}
                 exit={{ opacity: 0, x: -10 }}
                 transition={{ duration: 0.3 }}
                 className="font-bold text-xl tracking-wider dark:text-slate-200 text-slate-900"
               >
                 <span className="relative">
                   {displayText}
-                  {!typingComplete && isHoveringLogo && (
+                  {!typingComplete && isTappedLogo && (
                     <motion.span
                       animate={{ opacity: [0, 1, 0] }}
                       transition={{ repeat: Infinity, duration: 0.8 }}
@@ -244,7 +258,10 @@ const Navbar: React.FC = () => {
             {/* Backdrop */}
             <div
               className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => {
+                setMobileMenuOpen(false);
+                setIsTappedLogo(false);
+              }}
             />
 
             {/* Mobile Menu Content */}
@@ -265,11 +282,12 @@ const Navbar: React.FC = () => {
                   >
                     <Link
                       to={item.path}
-                      className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${location.pathname === item.path
+                      className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                        location.pathname === item.path
                           ? 'text-cynerza-purple dark:text-cynerza-purple bg-cynerza-purple/10 dark:bg-cynerza-purple/20 font-bold'
                           : 'text-gray-700 dark:text-gray-300 hover:text-cynerza-purple dark:hover:text-cynerza-purple hover:bg-gray-100/50 dark:hover:bg-gray-800/50'
-                        }`}
-                      onClick={() => setMobileMenuOpen(false)}
+                      }`}
+                      onClick={handleMobileLinkClick}
                     >
                       <div className="flex items-center">
                         {location.pathname === item.path && (
@@ -292,7 +310,7 @@ const Navbar: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block w-full"
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={handleMobileLinkClick}
                   >
                     <Button className="w-full bg-cynerza-purple hover:bg-cynerza-purple/90 h-12 text-base font-medium rounded-xl">
                       Get Started
@@ -311,4 +329,4 @@ const Navbar: React.FC = () => {
   );
 };
 
-export default Navbar;
+export default Navigation;
