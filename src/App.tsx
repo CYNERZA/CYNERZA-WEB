@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -28,7 +28,8 @@ import { SingleBlog } from './pages/SingleBlog';
 
 const queryClient = new QueryClient();
 
-
+    const mode = localStorage.getItem("theme")
+    document.documentElement.classList.add(mode);
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
