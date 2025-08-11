@@ -24,7 +24,7 @@ import AllBlogs from './pages/admin/AllBlogs';
 import Layout from './components/layout/admin/layout/adminPageLayout';
 import { BlogDetailPage } from './components/admin/blogPost';
 import UpdateBlogPost from "./components/admin/updateBlogPost"
-import { SingleBlog } from './pages/SingleBlog';
+import SingleBlog from './pages/SingleBlog.js';
 
 const queryClient = new QueryClient();
 
@@ -102,7 +102,7 @@ const App = () => (
               </PageLayout>
             } >
             </Route>
-            <Route path="/blogs/:id" element={
+            <Route path="/blogs/:title" element={
               <PageLayout>
                 <SingleBlog />
               </PageLayout>
