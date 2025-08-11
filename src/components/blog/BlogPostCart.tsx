@@ -15,7 +15,7 @@ interface Post {
 }
 // Large post card component
 export const PostCardLarge: React.FC<{ blog: Post }> = ({ blog }) => (
-    <Link to={`/blogs/${blog._id}`}
+    <Link to={`/blogs/${blog.title}`}
         className='rounded-md p-3 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950'>
         <div className="relative overflow-hidden">
             <img
@@ -74,7 +74,7 @@ export const PostCardLarge: React.FC<{ blog: Post }> = ({ blog }) => (
 
 // Small post card component
 export const PostCardSmall: React.FC<{ blog: Post }> = ({ blog }) => (
-    <Link to={`/blogs/${blog._id}`}
+    <Link to={`/blogs/${blog.title}`}
         className="rounded-md p-3 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950 flex flex-col sm:flex-col lg:flex-row sm:space-x-0 lg:space-x-4">
         <div className="relative overflow-hidden">
             <img
@@ -105,7 +105,7 @@ export const PostCardSmall: React.FC<{ blog: Post }> = ({ blog }) => (
 
 // Single post card component
 export const SinglePostCard: React.FC<{ blog: Post }> = ({ blog }) => (
-    <Link to={`/blogs/${blog._id}`}
+    <Link to={`/blogs/${blog.title}`}
         className="rounded-md p-3 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950 flex flex-col sm:flex-row sm:space-x-6 mb-4">
         <div className="relative overflow-hidden flex justify-center items-center">
             <img
@@ -161,7 +161,7 @@ export const SinglePostCard: React.FC<{ blog: Post }> = ({ blog }) => (
 
 // Post card component
 export const PostCard: React.FC<{ blog: Post }> = ({ blog }) => (
-    <Link to={`/blogs/${blog._id}`}
+    <Link to={`/blogs/${blog.title}`}
         className='rounded-md p-3 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950 flex flex-col'>
         <div className="relative overflow-hidden">
             <img

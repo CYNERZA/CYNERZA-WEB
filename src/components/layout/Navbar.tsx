@@ -125,7 +125,7 @@ const Navigation = () => {
           >
             <Link to="/">
               <img
-                src="./android-chrome-192x192.png"
+                src="./apple-touch-icon-180x180.png"
                 alt="Logo"
                 className="w-12 h-12 rounded-full cursor-pointer"
               />
@@ -170,7 +170,7 @@ const Navigation = () => {
                 onClick={handleLogoClick}
               >
                 <img
-                  src="./android-chrome-192x192.png"
+                  src="./apple-touch-icon-180x180.png"
                   alt="Logo"
                   className="w-12 h-12 rounded-full cursor-pointer"
                 />
