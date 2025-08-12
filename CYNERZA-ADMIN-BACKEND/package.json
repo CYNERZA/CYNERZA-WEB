@@ -1,20 +1,30 @@
 {
   "name": "cynerza-admin-backend",
   "version": "1.0.0",
-  "description": "cynerza admin backend",
-  "main": "index.js",
+  "private": true,
+  "description": "cynerza admin backend - Private and proprietary",
+  "main": "src/index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js",
-    "start": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
+    "start": "node --experimental-json-modules src/index.js",
+    "build": "echo \"No build step required for Node.js backend\" && exit 0",
+    "prod": "NODE_ENV=production npm start"
   },
   "keywords": [
-    "chai",
     "cynerza"
   ],
-  "author": "Hardip Solanki",
-  "license": "ISC",
+  "author": "cynerza",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CYNERZA/CYNERZA-WEB.git"
+  },
+  "homepage": "https://github.com/CYNERZA/CYNERZA-WEB#readme",
+  "bugs": {
+    "url": "https://github.com/CYNERZA/CYNERZA-WEB/issues"
+  },
   "dependencies": {
     "cheerio": "^1.1.2",
     "cloudinary": "^2.7.0",
@@ -24,7 +34,12 @@
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.16.4",
-    "multer": "^2.0.2",
+    "multer": "^2.0.2"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.10"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
