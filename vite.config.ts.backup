@@ -2,23 +2,24 @@ import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { fileURLToPath } from 'url';
+import { checkAndSetPort } from "./src/utils/portChecker.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-export default defineConfig(({ mode }) => {
+// https://vitejs.dev/config/
+export default defineConfig(async ({ mode }) => {
   const isProduction = mode === 'production';
-  const port = isProduction ? 8996 : 8998;
+  const port = await checkAndSetPort(isProduction);
   
   // Load env file based on `mode` in the current directory.
   const env = loadEnv(mode, process.cwd(), '');
 
   return {
     server: {
-      host: "0.0.0.0",
+      host: "::",
       port: port,
-      strictPort: true,
-      open: true,
+      strictPort: true, // Exit if port is already in use
     },
     preview: {
       port: port,

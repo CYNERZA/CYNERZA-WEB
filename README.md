@@ -19,16 +19,26 @@ CYNERZA is a modern web application built with React, TypeScript, and Tailwind C
 - 🌙 **Dark Mode** support
 - 🐳 **Docker** containerization for easy deployment
 - 🔄 **CI/CD** ready with GitHub Actions
+- 🔒 **Secure** with proper environment handling
+- ⚡ **Optimized** production builds
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
-- Node.js 18+ and npm 9+
+- Docker 20.10+ and Docker Compose (optional)
+- Node.js 18+ and npm 9+ (only needed for development)
 - Git
-- Docker (optional)
+- MongoDB Atlas (for production) or local MongoDB (for development)
 
-### Local Development
+### Port Configuration
+
+| Service  | Development Port | Production Port |
+|----------|-----------------|-----------------|
+| Frontend | 8998           | 8996           |
+| Backend  | 3778           | 3776           |
+
+### Running with Docker
 
 1. **Clone the repository**
    ```bash
@@ -36,42 +46,176 @@ CYNERZA is a modern web application built with React, TypeScript, and Tailwind C
    cd CYNERZA-WEB
    ```
 
-2. **Install dependencies**
+2. **Create a `.env` file**
+   Copy the example environment file and update it with your configuration:
+   ```bash
+   cp .env.example .env
+   # Edit .env with your configuration
+   ```
+
+3. **Build and start the containers**
+   ```bash
+   ./run-docker.sh
+   ```
+   This will:
+   - Build both frontend and backend Docker images
+   - Start both containers with the correct ports
+   - Set up environment variables
+
+4. **Access the application**
+   - Frontend: http://localhost:8996
+   - Backend API: http://localhost:3776
+
+5. **Stopping the services**
+   ```bash
+   ./stop-docker.sh
+   ```
+
+### Local Development (Without Docker)
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/CYNERZA/CYNERZA-WEB.git
+   cd CYNERZA-WEB
+   ```
+
+2. **Install frontend dependencies**
    ```bash
    npm install
    ```
 
-3. **Start development server**
+3. **Install backend dependencies**
    ```bash
-   npm run dev
+   cd CYNERZA-ADMIN-BACKEND
+   npm install
+   cd ..
    ```
-   Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
+
+4. **Start development servers**
+   ```bash
+   # In separate terminals:
+   
+   # Terminal 1 - Start backend
+   cd CYNERZA-ADMIN-BACKEND
+   npm run dev  # Runs on port 3778
+   
+   # Terminal 2 - Start frontend
+   cd ..
+   npm run dev  # Runs on port 8998
+   ```
+   - Frontend: [http://localhost:8998](http://localhost:8998)
+   - Backend API: [http://localhost:3778](http://localhost:3778)
 
 ### Building for Production
 
-```bash
-npm run build
-```
+### Frontend Production Build
+
+1. **Build the application**
+   ```bash
+   npm run build  # Creates optimized production build in /dist
+   ```
+
+2. **Preview production build**
+   ```bash
+   npm run preview  # Serves the production build on port 8996
+   ```
+   Or use the combined command:
+   ```bash
+   npm run prod  # Builds and serves the production build
+   ```
+
+### Backend Production Build
+
+1. **Start the production server**
+   ```bash
+   cd CYNERZA-ADMIN-BACKEND
+   npm start  # Runs on port 3776
+   ```
+   Or use the production alias:
+   ```bash
+   npm run prod  # Sets NODE_ENV=production and starts the server
+   ```
 
 ## 🐳 Docker Deployment
 
-### Build the Docker Image
+### Frontend
 
-```bash
-docker build -t cynerza-web .
-```
+1. **Build the Docker image**
+   ```bash
+   docker build -t cynerza-web .
+   ```
 
-### Run the Container
+2. **Run the container**
+   ```bash
+   docker run -d --restart unless-stopped -p 8996:8996 --name cynerza-frontend cynerza-web
+   ```
 
-```bash
-docker run -d --restart unless-stopped -p 7070:7070 --name cynerza-app cynerza-web
-```
+### Backend
 
-The application will be available at [http://localhost:7070](http://localhost:7070)
+1. **Build the Docker image**
+   ```bash
+   cd CYNERZA-ADMIN-BACKEND
+   docker build -t cynerza-backend .
+   ```
+
+2. **Run the container**
+   ```bash
+   docker run -d \
+     --restart unless-stopped \
+     -p 3776:3776 \
+     -e MONGODB_URI=your_mongodb_uri \
+     --name cynerza-backend \
+     cynerza-backend
+   ```
+
+### Docker Compose (Recommended)
+
+1. Create a `docker-compose.yml` file:
+   ```yaml
+   version: '3.8'
+   services:
+     frontend:
+       build: .
+       ports:
+         - "8996:8996"
+       environment:
+         - NODE_ENV=production
+       restart: unless-stopped
+     
+     backend:
+       build: ./CYNERZA-ADMIN-BACKEND
+       ports:
+         - "3776:3776"
+       environment:
+         - NODE_ENV=production
+         - MONGODB_URI=mongodb://mongodb:27017/cynerza
+       depends_on:
+         - mongodb
+       restart: unless-stopped
+     
+     mongodb:
+       image: mongo:latest
+       volumes:
+         - mongodb_data:/data/db
+       ports:
+         - "27017:27017"
+       restart: unless-stopped
+   
+   volumes:
+     mongodb_data:
+   ```
+
+2. Start all services:
+   ```bash
+   docker-compose up -d
+   ```
+
+Access the application at [http://localhost:8996](http://localhost:8996)
 
 ## 🛠️ Tech Stack
 
-- **Frontend Framework**: React 18
+### Frontend
+- **Framework**: React 18
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **UI Components**: shadcn/ui
@@ -80,19 +224,39 @@ The application will be available at [http://localhost:7070](http://localhost:70
 - **Form Handling**: React Hook Form
 - **Animation**: Framer Motion
 - **Icons**: Lucide React
+
+### Backend
+- **Runtime**: Node.js
+- **Framework**: Express.js
+- **Database**: MongoDB
+- **API**: RESTful
+- **Authentication**: JWT
+- **File Storage**: Cloudinary
 - **Containerization**: Docker
 
 ## 📂 Project Structure
 
 ```
-/src
-  /components      # Reusable UI components
-  /hooks          # Custom React hooks
-  /lib            # Utility functions and configurations
-  /pages          # Application pages
-  /styles         # Global styles and Tailwind config
-  /types          # TypeScript type definitions
-  /utils          # Helper functions
+CYNERZA-WEB/
+├── /public/                  # Static files
+├── /src/                     # Frontend source code
+│   ├── /components/          # Reusable UI components
+│   ├── /hooks/               # Custom React hooks
+│   ├── /lib/                 # Utility functions and configurations
+│   ├── /pages/               # Application pages
+│   ├── /styles/              # Global styles and Tailwind config
+│   ├── /types/               # TypeScript type definitions
+│   └── /utils/               # Helper functions
+│
+└── /CYNERZA-ADMIN-BACKEND/   # Backend source code
+    ├── /src/
+    │   ├── /controllers/     # Request handlers
+    │   ├── /models/          # Database models
+    │   ├── /routes/          # API routes
+    │   ├── /utils/           # Utility functions
+    │   ├── app.js            # Express app configuration
+    │   └── index.js          # Server entry point
+    └── package.json          # Backend dependencies
 ```
 
 ## 🤝 Contributing
