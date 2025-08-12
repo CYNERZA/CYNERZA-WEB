@@ -71,7 +71,7 @@ const App = () => (
                 </Layout>
               </AuthLayout>
             } />
-            <Route path="/admin/blogs/:id" element={
+            <Route path="/admin/blogs/:title" element={
               <AuthLayout authentication={true}>
                 <Layout>
                   <BlogDetailPage />

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { fetchBlogPosts } from "@/featured/blog/blogSlice";
 import { useDispatch, useSelector } from "react-redux";
 import LogoLoader from "@/components/admin/loader";
@@ -40,10 +40,10 @@ const AllBlogs: React.FC = () => {
 
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
         {blogs.map((blog: BlogType) => (
-          <div
+          <Link
             key={blog._id}
             className="group bg-white dark:bg-gray-800 rounded-2xl shadow-md dark:shadow-lg overflow-hidden cursor-pointer border border-transparent hover:border-purple-400 dark:hover:border-purple-600 transition-all duration-300"
-            onClick={() => navigate(`/admin/blogs/${blog._id}`)}
+            to={`/admin/blogs/${blog.title}`}
           >
             <div className="relative overflow-hidden">
               <img
@@ -95,7 +95,7 @@ const AllBlogs: React.FC = () => {
                 </div>
               )}
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

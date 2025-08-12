@@ -127,8 +127,9 @@ const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
     post
       ? dispatch(updateBlogPost({ blogId: post._id, blogPost: formData }))
         .then((res: any) => {
+          console.log(res)
           if (!res.error) {
-            navigate(`/admin/blogs/${post._id}`)
+            navigate(`/admin/blogs/${res.payload.data.title}`)
             toast({
               title: "Success",
               description: res.payload.message,
@@ -145,7 +146,6 @@ const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
       : dispatch(createBlogPost(formData))
         .then(async (res: any) => {
           if (!res.error) {
-            // await dispatch(fetchBlogPosts());
             navigate("/admin/blogs")
             toast({
               title: "Success",

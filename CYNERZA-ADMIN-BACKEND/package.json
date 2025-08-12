@@ -7,13 +7,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js",
-    "start": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
+    "start": "node -r dotenv/config --experimental-json-modules src/index.js"
   },
   "keywords": [
     "chai",
     "cynerza"
   ],
-  "author": "Hardip Solanki",
+  "author": "cynerza team",
   "license": "ISC",
   "dependencies": {
     "cheerio": "^1.1.2",

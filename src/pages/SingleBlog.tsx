@@ -261,7 +261,7 @@ const SingleBlog: React.FC = () => {
                                     <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 px-3 py-2 uppercase tracking-wide">Share this post</h4>
                                     <button onClick={shareToTwitter} className="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors text-gray-700 dark:text-gray-300">
                                         <Twitter className="w-4 h-4 text-blue-500" />
-                                        <span className="text-sm">Share on Twitter</span>
+                                        <span className="text-sm">Share on X</span>
                                     </button>
                                     <button onClick={shareToFacebook} className="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors text-gray-700 dark:text-gray-300">
                                         <Facebook className="w-4 h-4 text-blue-600" />

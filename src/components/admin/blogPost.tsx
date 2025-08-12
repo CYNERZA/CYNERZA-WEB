@@ -12,12 +12,12 @@ export const BlogDetailPage: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { toast } = useToast()
   const navigate = useNavigate();
-  const { id } = useParams<{ id: string }>();
+  const {title } = useParams<{ title: string }>();
 
   const [initialLoad, setInitialLoad] = useState(true);
   const blogs = useSelector((state: RootState) => state.blog.blogPosts);
   const loading = useSelector((state: RootState) => state.blog.loading);
-  const currentBlog = blogs.find(b => b._id === id);
+  const currentBlog = blogs.find(b => b.title === title);
 
   useEffect(() => {
     if (!blogs.length) {
@@ -33,8 +33,6 @@ export const BlogDetailPage: React.FC = () => {
   const handleEdit = () => navigate(`/admin/update-blog/${currentBlog._id}`);
   const handleDelete = () => {
     dispatch(deleteBlogPost(currentBlog._id))
-                dispatch(fetchRecentBlogPosts())
-
       .then((res: any) => {
         if (!res.error) {
           navigate("/admin/blogs")
