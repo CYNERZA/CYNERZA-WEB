@@ -36,7 +36,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
           className
         )}
       >
-                <div className="w-full px-4 sm:px-6 lg:px-8">
+                <div className={`${!noPadding && "w-full px-4 sm:px-6 lg:px-8"}`}>
           {children}
         </div>
       </main>

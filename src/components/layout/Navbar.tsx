@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import { Button } from 'react-day-picker';
+import { Button } from '@/components/ui/button';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -125,7 +125,7 @@ const Navigation = () => {
           >
             <Link to="/">
               <img
-                src="./apple-touch-icon-180x180.png"
+                src="../../../public/android-chrome-512x512.png"
                 alt="Logo"
                 className="w-12 h-12 rounded-full cursor-pointer"
               />
