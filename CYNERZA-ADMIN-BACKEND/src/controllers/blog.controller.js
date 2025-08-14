@@ -31,11 +31,12 @@ const uploadSubImages = async (editorImages) => {
 };
 
 const createBlog = asyncHandler(async (req, res) => {
-    const { title, description, metaTitle, metaDescription, metaKeywords, tags, postingDate, content } = req.body;
+    const { title,slug, description, metaTitle, metaDescription, metaKeywords, tags, postingDate, content } 
+    = req.body;
 
     // Validate required fields
-    if (!title || !description || !postingDate || !content) {
-        throw new ApiError(400, "Title, description, posting date, content are required");
+    if (!title || !description || !postingDate || !content || !slug) {
+        throw new ApiError(400, "Title, description, posting date, content, slug are required");
     }
 
     // Handle thumbnail image upload
@@ -132,6 +133,7 @@ const createBlog = asyncHandler(async (req, res) => {
         tags,
         thumbImage,
         postingDate,
+        slug,
         content: processedContent
     });
 
@@ -193,7 +195,8 @@ const getSignleBlog = asyncHandler(async (req, res) => {
 
 const updateBlog = asyncHandler(async (req, res) => {
     const { blogId } = req.params;
-    const { title, description, metaTitle, metaDescription, metaKeywords, tags, postingDate, content } = req.body;
+    const { title,slug, description, metaTitle, metaDescription, metaKeywords, tags, postingDate, content } 
+    = req.body;
 
     // Find existing blog first to handle media cleanup
     const existingBlog = await Blog.findById(blogId);
@@ -297,6 +300,7 @@ const updateBlog = asyncHandler(async (req, res) => {
                 metaKeywords,
                 tags,
                 postingDate,
+                slug,
                 ...(newThumbImage && { thumbImage: newThumbImage }),
                 ...(processedContent && { content: processedContent })
             }
