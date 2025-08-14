@@ -68,7 +68,7 @@ const BlogLayout: React.FC = () => {
         </h2>
 
         {recentBlogPosts && recentBlogPosts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6">
             {/* Featured */}
             <div className="sm:col-span-2 lg:col-span-3 space-y-6">
               <motion.div
@@ -154,3 +154,4 @@ const BlogLayout: React.FC = () => {
 };
 
 export default BlogLayout;
+
