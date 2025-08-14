@@ -2,7 +2,7 @@ import React, { useRef } from "react"
 import RTE from "@/components/admin/editor/RTE";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { BlogType, createBlogPost, fetchBlogPosts, updateBlogPost } from "@/featured/blog/blogSlice";
+import {createBlogPost, updateBlogPost } from "@/featured/blog/blogSlice";
 import { useToast } from '@/components/ui/use-toast';
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -36,6 +36,20 @@ interface Post {
 interface BlogFormProps {
   post?: Post; // optional
 }
+
+interface BlogPostResponse {
+  error?: {
+    message: string;
+  };
+  payload?: {
+    message: string;
+    data: {
+      slug: string;
+      [key: string]: any;
+    };
+  };
+}
+
 const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate()
@@ -60,10 +74,25 @@ const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
       }
     })
 
+
+function generateSlug(text: string): string {
+  return text
+    .toString()
+    .toLowerCase() // Convert to lowercase
+    .normalize('NFD') // Normalize to decomposed form for diacritic removal
+    .replace(/[\u0300-\u036f]/g, '') // Remove combining diacritical marks
+    .replace(/[^\u0A80-\u0AFF\u002D\u0030-\u0039\u0061-\u007A\u0020]/g, '') // Allow only Gujarati, hyphens, numbers, basic Latin
+    .replace(/[\s]+/g, '-') // Replace spaces with hyphens
+    .replace(/[-]+/g, '-') // Replace multiple hyphens with single
+    .replace(/^-+/, '') // Trim hyphens from start
+    .replace(/-+$/, ''); // Trim hyphens from end
+}
+
   const onSubmit = async (data: FormData) => {
     const formData = new FormData();
-
+    const slug = generateSlug(data.title)
     formData.append("title", data.title);
+    formData.append("slug", slug);
     formData.append("description", data.description);
     formData.append("metaTitle", data.metaTitle || "");
     formData.append("metaDescription", data.metaDescription || "");
@@ -73,6 +102,7 @@ const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
 
     if (data.thumbImage?.[0] instanceof File) {
       formData.append("thumbImage", data.thumbImage[0]);
+      console.log("object", data.thumbImage[0])
     }
 
     // Process editor content
@@ -129,7 +159,7 @@ const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
         .then((res: any) => {
           console.log(res)
           if (!res.error) {
-            navigate(`/admin/blogs/${res.payload.data.title}`)
+            navigate(`/admin/blogs/${res.payload.data.slug}`)
             toast({
               title: "Success",
               description: res.payload.message,
@@ -162,6 +192,8 @@ const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
         })
 
   };
+
+
   return (
     <section className="flex items-center justify-center min-h-screen w-full py-0 px-2 sm:px-4">
       <div className=" sm:p-6 flex flex-col justify-center rounded-md

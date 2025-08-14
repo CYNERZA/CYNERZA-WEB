@@ -27,10 +27,7 @@ const getBaseURL = (): string => {
 const axiosInstance = axios.create({
   baseURL: getBaseURL(),
   withCredentials: true,
-  headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
-  },
+
 });
 
 // Add a request interceptor to handle errors

@@ -16,6 +16,7 @@ interface BlogType {
   metaDescription?: string;
   metaKeywords?: string;
   tags?: string;
+  slug: string;
 }
 
 const AllBlogs: React.FC = () => {
@@ -43,7 +44,7 @@ const AllBlogs: React.FC = () => {
           <Link
             key={blog._id}
             className="group bg-white dark:bg-gray-800 rounded-2xl shadow-md dark:shadow-lg overflow-hidden cursor-pointer border border-transparent hover:border-purple-400 dark:hover:border-purple-600 transition-all duration-300"
-            to={`/admin/blogs/${blog.title}`}
+            to={`/admin/blogs/${blog.slug}`}
           >
             <div className="relative overflow-hidden">
               <img
