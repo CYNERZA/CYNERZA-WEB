@@ -2,6 +2,7 @@ import { User } from "../models/user.model.js"
 import { ApiError } from "../utils/ApiError.js"
 import { ApiResponse } from "../utils/ApiResponse.js"
 import { asyncHandler } from "../utils/asynsHandler.js"
+import { sendAdminMailGenContent, sendMail } from "../utils/mail.js"
 
 const generateAccessAndRefreshToken = async (userId) => {
     try {
@@ -88,8 +89,34 @@ const getCurrentUser = asyncHandler(async (req, res) => {
         )
 })
 
+const sendMessageToAdmin = asyncHandler(async (req, res) => {
+    const { name, email, company, message } = req.body;
+
+
+    if (!name || !email || !message) {
+        throw new ApiError(400, "Name, email and message are required")
+    }
+
+
+    await sendMail({
+        email,
+        subject: "✅ We Received Your Contact Request",
+        mailGenContent: sendAdminMailGenContent({name, email, company, message})
+
+    })
+
+    return res
+        .status(200)
+        .json(
+            new ApiResponse(200, {}, "Thanks for reaching out! We'll get back to you soon.")
+        )
+
+
+})
+
 export {
     loginUser,
     logoutUser,
-    getCurrentUser
+    getCurrentUser,
+    sendMessageToAdmin
 }
