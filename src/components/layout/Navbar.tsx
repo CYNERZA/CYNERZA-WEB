@@ -125,7 +125,7 @@ const Navigation = () => {
           >
             <Link to="/">
               <img
-                src="../../../public/android-chrome-512x512.png"
+                src="/android-chrome-512x512.png"
                 alt="Logo"
                 className="w-12 h-12 rounded-full cursor-pointer"
               />

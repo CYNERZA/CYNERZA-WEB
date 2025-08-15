@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
           <div className='flex flex-col items-center md:block'>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4">Company</h3>
             <ul className="space-y-3 text-center md:text-left">
-              {['About Us', 'Careers', 'Press', 'Partners'].map((item) => (
+              {['About', 'Careers', 'Press', 'Partners'].map((item) => (
                 <li key={item}>
                   <Link 
                     to={`/${item.toLowerCase().replace(/\s/g, '-')}`}
