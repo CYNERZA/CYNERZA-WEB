@@ -120,21 +120,23 @@ interface AuthState {
   loading: boolean;
   status: boolean;
   userData: UserData | null;
-  errorMessage?: string;
-  successMessage?: string;
 }
 
 const initialState: AuthState = {
   loading: false,
   status: false,
   userData: null,
-  errorMessage: '',
-  successMessage: '',
 };
 
 interface LoginPayload {
   email: string;
   password: string;
+}
+interface userMessage {
+  name: string
+  email: string
+  company?: string
+  message: string
 }
 
 export const login = createAsyncThunk<any, LoginPayload, { rejectValue: string }>(
@@ -170,49 +172,55 @@ export const getCurrentUser = createAsyncThunk<UserData>("/auth/currentUser", as
   }
 });
 
+export const sendMessageToAdmin = createAsyncThunk<any, userMessage, { rejectValue: string }>(
+  "auth/send-message",
+  async (message, {rejectWithValue}) => {
+    try {
+      const response = await axiosInstance.post("/users/send-contact", message)
+      return response.data
+    } catch (error) {
+      console.log("Failed to send message to admin: ", error)
+      return rejectWithValue("Failed to send message");
+    }
+  }
+);
+
 const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
+
+      // login user 
       .addCase(login.pending, (state) => {
         state.loading = true;
-        state.errorMessage = "";
-        state.successMessage = "";
       })
       .addCase(login.fulfilled, (state, action: PayloadAction<any>) => {
         state.loading = false;
         state.status = true;
-        state.successMessage = action.payload.message;
-        state.errorMessage = "";
       })
       .addCase(login.rejected, (state, action) => {
         state.loading = false;
         state.status = false;
-        state.errorMessage = action.payload || action.error.message;
-        state.successMessage = "";
       })
+
+      // logout user
       .addCase(logout.pending, (state) => {
         state.loading = true;
-        state.successMessage = "";
-        state.errorMessage = "";
       })
       .addCase(logout.fulfilled, (state, action: PayloadAction<any>) => {
         state.loading = false;
         state.status = false;
         state.userData = null;
-        state.successMessage = action.payload.message;
       })
       .addCase(logout.rejected, (state, action) => {
         state.loading = false;
-        state.successMessage = "";
-        state.errorMessage = action.error.message;
       })
+
+      // get current user
       .addCase(getCurrentUser.pending, (state) => {
         state.loading = true;
-        state.successMessage = "";
-        state.errorMessage = "";
       })
       .addCase(getCurrentUser.fulfilled, (state, action: PayloadAction<UserData>) => {
         state.loading = false;
@@ -223,7 +231,18 @@ const authSlice = createSlice({
         state.loading = false;
         state.status = false;
         state.userData = null;
-      });
+      })
+
+      // send message
+      .addCase(sendMessageToAdmin.pending, (state) => {
+        state.loading = true
+      })
+      .addCase(sendMessageToAdmin.fulfilled, (state) => {
+        state.loading = false
+      })
+      .addCase(sendMessageToAdmin.rejected, (state) => {
+        state.loading = false
+      })
   },
 });
 
