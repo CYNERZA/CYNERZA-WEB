@@ -174,7 +174,7 @@ const AiToolsPreview: React.FC = () => {
             <span className="text-cynerza-purple/70 dark:text-cynerza-purple-light/70">•</span>
             <span>Productivity Suite</span>
           </motion.div>
-          
+
           <motion.h2 
             className="text-4xl sm:text-5xl font-bold font-heading mb-6 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300"
             initial={{ opacity: 0, y: 20 }}
@@ -184,7 +184,7 @@ const AiToolsPreview: React.FC = () => {
           >
             Supercharge Your Workflow
           </motion.h2>
-          
+
           <motion.p 
             className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
@@ -221,7 +221,7 @@ const AiToolsPreview: React.FC = () => {
                   {category.tools.length} {category.tools.length > 1 ? 'Tools' : 'Tool'}
                 </span>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {category.tools.map((tool, toolIndex) => (
                   <motion.div

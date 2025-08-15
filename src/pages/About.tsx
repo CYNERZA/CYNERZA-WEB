@@ -95,7 +95,7 @@ const About: React.FC = () => {
               </div>
               <Fade direction="up" triggerOnce delay={100} className='lg:w-1/2 relative'>
 
-              {/* <div className=""> */}
+                {/* <div className=""> */}
                 <div className="rounded-2xl overflow-hidden shadow-xl purple-glow">
                   <img
                     src="/placeholder.svg"
@@ -103,7 +103,7 @@ const About: React.FC = () => {
                     className="w-full h-auto"
                   />
                 </div>
-              {/* </div> */}
+                {/* </div> */}
               </Fade>
             </div>
           </div>
@@ -173,11 +173,11 @@ const About: React.FC = () => {
 
         { }
         <motion.section
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-         className="py-8">
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="py-8">
           <div className="container mx-auto px-4 max-w-4xl ">
             <div className="glass-effect rounded-3xl p-8 md:p-12 text-center">
               <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4 text-gray-800 dark:text-gray-200">
@@ -195,10 +195,10 @@ const About: React.FC = () => {
                   </Button>
                 </a>
                 <Link to="/careers">
-                  <Button variant="outline" className="border-cynerza-purple text-cynerza-purple
-                   hover:bg-cynerza-purple/5 px-2 sm:px-4">
+                  <button className="px-8 py-3 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-medium rounded-xl border border-gray-200
+                   dark:border-gray-700 transition-all duration-200 transform hover:-translate-y-0.5">
                     View Career Opportunities
-                  </Button>
+                  </button>
                 </Link>
               </div>
             </div>
