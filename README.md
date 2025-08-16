@@ -1,82 +1,14 @@
-# CYNERZA - Modern Web Interface
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub stars](https://img.shields.io/github/stars/CYNERZA/CYNERZA-WEB?style=social)](https://github.com/CYNERZA/CYNERZA-WEB/stargazers)
-[![Docker Pulls](https://img.shields.io/docker/pulls/cynerza/web)](https://hub.docker.com/r/cynerza/web)
-
-<p align="center">
-  <img src="public/logo.png" alt="CYNERZA Logo" width="200"/>
-</p>
-
-CYNERZA is a modern web application built with React, TypeScript, and Tailwind CSS, featuring a responsive design and beautiful UI components. This project serves as the official web interface for CYNERZA's AI tools and services.
-
-## ✨ Features
-
-- 🎨 **Modern UI/UX** with responsive design
-- 🚀 **Blazing Fast** performance with Vite
-- 🎯 **Type Safety** with TypeScript
-- 🎨 **Beautiful Components** with shadcn/ui and Tailwind CSS
-- 🌙 **Dark Mode** support
-- 🐳 **Docker** containerization for easy deployment
-- 🔄 **CI/CD** ready with GitHub Actions
-- 🔒 **Secure** with proper environment handling
-- ⚡ **Optimized** production builds
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-- Docker 20.10+ and Docker Compose (optional)
-- Node.js 18+ and npm 9+ (only needed for development)
-- Git
-- MongoDB Atlas (for production) or local MongoDB (for development)
-
-### Port Configuration
-
-| Service  | Development Port | Production Port |
-|----------|-----------------|-----------------|
-| Frontend | 8998           | 8996           |
-| Backend  | 3778           | 3776           |
-
-### Running with Docker
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/CYNERZA/CYNERZA-WEB.git
-   cd CYNERZA-WEB
-   ```
-
-2. **Create a `.env` file**
-   Copy the example environment file and update it with your configuration:
-   ```bash
-   cp .env.example .env
-   # Edit .env with your configuration
-   ```
-
-3. **Build and start the containers**
-   ```bash
-   ./run-docker.sh
-   ```
-   This will:
-   - Build both frontend and backend Docker images
-   - Start both containers with the correct ports
-   - Set up environment variables
-
-4. **Access the application**
-   - Frontend: http://localhost:8996
-   - Backend API: http://localhost:3776
-
-5. **Stopping the services**
-   ```bash
-   ./stop-docker.sh
-   ```
-
-### Local Development (Without Docker)
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/CYNERZA/CYNERZA-WEB.git
-   cd CYNERZA-WEB
+# CYNERZA - Modern Web Interface                                            
+[![GitHub stars](https://img.shields.io/github/stars/CYNERZA/CYNERZA-WEB?style=social)](https://github.com/CYNERZA/CYNERZA-WEB/stargazers)              
+<p align="center">                                                            <img src="public/logo.png" alt="CYNERZA Logo" width="200"/>               </p>
+                                                                            CYNERZA is a modern web application built with React, TypeScript, and Tailwind CSS, featuring a responsive design and beautiful UI components. This project serves as the official web interface for CYNERZA's AI tools and services.                                                                           
+## ✨ Features                                                                                                                                          - 🎨 **Modern UI/UX** with responsive design
+- 🚀 **Blazing Fast** performance with Vite                                 - 🎯 **Type Safety** with TypeScript                                        - 🎨 **Beautiful Components** with shadcn/ui and Tailwind CSS               - 🌙 **Dark Mode** support
+- ⚡ **Optimized** production builds                                        - 🔒 **Secure** with proper environment handling                                                                                                        ## 🚀 Quick Start
+                                                                            ### Prerequisites                                                           
+- Node.js 20+ and npm 9+                                                    - Git                                                                       
+### Local Development                                                                                                                                   1. **Clone the repository**
+   ```bash                                                                     git clone https://github.com/CYNERZA/CYNERZA-WEB.git                        cd CYNERZA-WEB
    ```
 
 2. **Install frontend dependencies**
@@ -94,123 +26,29 @@ CYNERZA is a modern web application built with React, TypeScript, and Tailwind C
 4. **Start development servers**
    ```bash
    # In separate terminals:
-   
+
    # Terminal 1 - Start backend
    cd CYNERZA-ADMIN-BACKEND
-   npm run dev  # Runs on port 3778
-   
+   npm run dev
+
    # Terminal 2 - Start frontend
    cd ..
-   npm run dev  # Runs on port 8998
+   npm run dev
    ```
-   - Frontend: [http://localhost:8998](http://localhost:8998)
+
+5. **Access the application**
+   - Frontend: [http://localhost:5173](http://localhost:5173)
    - Backend API: [http://localhost:3778](http://localhost:3778)
 
 ### Building for Production
 
-### Frontend Production Build
+```bash
+# Build frontend
+npm run build
 
-1. **Build the application**
-   ```bash
-   npm run build  # Creates optimized production build in /dist
-   ```
-
-2. **Preview production build**
-   ```bash
-   npm run preview  # Serves the production build on port 8996
-   ```
-   Or use the combined command:
-   ```bash
-   npm run prod  # Builds and serves the production build
-   ```
-
-### Backend Production Build
-
-1. **Start the production server**
-   ```bash
-   cd CYNERZA-ADMIN-BACKEND
-   npm start  # Runs on port 3776
-   ```
-   Or use the production alias:
-   ```bash
-   npm run prod  # Sets NODE_ENV=production and starts the server
-   ```
-
-## 🐳 Docker Deployment
-
-### Frontend
-
-1. **Build the Docker image**
-   ```bash
-   docker build -t cynerza-web .
-   ```
-
-2. **Run the container**
-   ```bash
-   docker run -d --restart unless-stopped -p 8996:8996 --name cynerza-frontend cynerza-web
-   ```
-
-### Backend
-
-1. **Build the Docker image**
-   ```bash
-   cd CYNERZA-ADMIN-BACKEND
-   docker build -t cynerza-backend .
-   ```
-
-2. **Run the container**
-   ```bash
-   docker run -d \
-     --restart unless-stopped \
-     -p 3776:3776 \
-     -e MONGODB_URI=your_mongodb_uri \
-     --name cynerza-backend \
-     cynerza-backend
-   ```
-
-### Docker Compose (Recommended)
-
-1. Create a `docker-compose.yml` file:
-   ```yaml
-   version: '3.8'
-   services:
-     frontend:
-       build: .
-       ports:
-         - "8996:8996"
-       environment:
-         - NODE_ENV=production
-       restart: unless-stopped
-     
-     backend:
-       build: ./CYNERZA-ADMIN-BACKEND
-       ports:
-         - "3776:3776"
-       environment:
-         - NODE_ENV=production
-         - MONGODB_URI=mongodb://mongodb:27017/cynerza
-       depends_on:
-         - mongodb
-       restart: unless-stopped
-     
-     mongodb:
-       image: mongo:latest
-       volumes:
-         - mongodb_data:/data/db
-       ports:
-         - "27017:27017"
-       restart: unless-stopped
-   
-   volumes:
-     mongodb_data:
-   ```
-
-2. Start all services:
-   ```bash
-   docker-compose up -d
-   ```
-
-Access the application at [http://localhost:8996](http://localhost:8996)
+# Preview production build
+npm run preview
+```
 
 ## 🛠️ Tech Stack
 
@@ -220,19 +58,18 @@ Access the application at [http://localhost:8996](http://localhost:8996)
 - **Styling**: Tailwind CSS
 - **UI Components**: shadcn/ui
 - **Build Tool**: Vite
-- **State Management**: React Query
+- **State Management**: Redux Toolkit & React Query
 - **Form Handling**: React Hook Form
 - **Animation**: Framer Motion
 - **Icons**: Lucide React
 
 ### Backend
-- **Runtime**: Node.js
+- **Runtime**: Node.js 20+
 - **Framework**: Express.js
 - **Database**: MongoDB
 - **API**: RESTful
 - **Authentication**: JWT
 - **File Storage**: Cloudinary
-- **Containerization**: Docker
 
 ## 📂 Project Structure
 
@@ -244,8 +81,7 @@ CYNERZA-WEB/
 │   ├── /hooks/               # Custom React hooks
 │   ├── /lib/                 # Utility functions and configurations
 │   ├── /pages/               # Application pages
-│   ├── /styles/              # Global styles and Tailwind config
-│   ├── /types/               # TypeScript type definitions
+│   ├── /featured/            # Redux slices
 │   └── /utils/               # Helper functions
 │
 └── /CYNERZA-ADMIN-BACKEND/   # Backend source code
@@ -271,7 +107,7 @@ Contributions are welcome! Please follow these steps:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is private and proprietary. All rights reserved.
 
 ## 🙏 Acknowledgments
 
