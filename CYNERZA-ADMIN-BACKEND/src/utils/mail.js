@@ -62,7 +62,7 @@ const sendAdminMailGenContent = (user) => {
             intro: [
                 // Clean Header with Branding
                 `<div style="
-          padding: 30px 20px;
+          padding: 1rem;
           text-align: center;
           background: #ffffff;
           border-bottom: 1px solid #f3f4f6;
