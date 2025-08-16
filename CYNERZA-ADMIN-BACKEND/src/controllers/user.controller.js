@@ -34,7 +34,7 @@ const loginUser = asyncHandler(async (req, res) => {
             .json(new ApiResponse(404, {}, "User Not Found"))
     }
 
-    const validPassword = user.isPasswordCurrect(password)
+    const validPassword = await user.isPasswordCurrect(password)
 
     if (!validPassword) {
         return res
@@ -101,7 +101,7 @@ const sendMessageToAdmin = asyncHandler(async (req, res) => {
     await sendMail({
         email,
         subject: "✅ We Received Your Contact Request",
-        mailGenContent: sendAdminMailGenContent({name, email, company, message})
+        mailGenContent: sendAdminMailGenContent({ name, email, company, message })
 
     })
 

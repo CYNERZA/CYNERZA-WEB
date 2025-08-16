@@ -19,11 +19,23 @@ const userSchema = new Schema({
 
 }, { timestamps: true })
 
-userSchema.methods.isPasswordCurrect = function (password) {
-    if (this.password === password) return true
-    else return false
-}
+// Hash password before saving
+userSchema.pre("save", async function (next) {
+  try {
+    if (!this.isModified("password")) return next();
 
+    const saltRounds = 12;
+    this.password = await bcrypt.hash(this.password, saltRounds);
+    next();
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Compare password
+userSchema.methods.isPasswordCorrect = async function (password) {
+  return await bcrypt.compare(password, this.password);
+};
 userSchema.methods.generateAccessToken = function () {
     return jwt.sign(
         {

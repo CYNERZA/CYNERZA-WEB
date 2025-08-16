@@ -45,6 +45,30 @@ app.use(cookieParser());
 app.get("/", (_, res) => {
     res.send("Welcome to CYNERZA");
 })
+
+app.get("/health", (_, res) => {
+  const requiredEnvVars = [
+    'MONGODB_ATLAS_URL',
+    'ACCESS_TOKEN_SECRET',
+    'REFRESH_TOKEN_SECRET'
+  ];
+
+  const missingVars = requiredEnvVars.filter(varName => !process.env[varName]);
+
+  const healthStatus = {
+    status: missingVars.length > 0 ? "unhealthy" : "healthy",
+    timestamp: new Date().toISOString(),
+    service: "cynerza-backend",
+    environment: process.env.NODE_ENV,
+    port: process.env.PORT,
+    ...(missingVars.length > 0 && { missingEnvironmentVariables: missingVars })
+  };
+
+  const statusCode = missingVars.length > 0 ? 503 : 200;
+  res.status(statusCode).json(healthStatus);
+});
+
+
 // import route
 import userRouter from "./routes/user.routes.js"
 import blogRouter from "./routes/blog.routes.js";

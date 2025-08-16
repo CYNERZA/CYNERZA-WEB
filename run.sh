@@ -1,11 +1,9 @@
 #!/bin/bash
 
-# Load environment variables
 set -a
 source .env
 set +a
 
-# Build and run the backend container
 echo "Building and starting backend container..."
 docker build -t cynerza-backend-web -f CYNERZA-ADMIN-BACKEND/Dockerfile CYNERZA-ADMIN-BACKEND/
 docker run -d \
@@ -20,7 +18,6 @@ docker run -d \
   --restart unless-stopped \
   cynerza-backend-web
 
-# Build and run the frontend container
 echo "Building and starting frontend container..."
 docker build -t cynerza-frontend-web -f Dockerfile .
 docker run -d \
