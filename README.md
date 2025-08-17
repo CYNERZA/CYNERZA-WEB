@@ -1,16 +1,30 @@
 # CYNERZA - Modern Web Interface                                            
 [![GitHub stars](https://img.shields.io/github/stars/CYNERZA/CYNERZA-WEB?style=social)](https://github.com/CYNERZA/CYNERZA-WEB/stargazers)              
-<p align="center">                                                            <img src="public/logo.png" alt="CYNERZA Logo" width="200"/>               </p>
-                                                                             CYNERZA is a modern web application built with React, TypeScript, and Tailwind CSS, featuring a responsive design and beautiful UI components. This project serves as the official web interface for CYNERZA's AI tools and services.                                                                           
-## ✨ Features                                                                                                                                          - 🎨 **Modern UI/UX** with responsive design
-- 🚀 **Blazing Fast** performance with Vite                                 - 🎯 **Type Safety** with TypeScript                                        - 🎨 **Beautiful Components** with shadcn/ui and Tailwind CSS               - 🌙 **Dark Mode** support
-- ⚡ **Optimized** production builds                                        - 🔒 **Secure** with proper environment handling                                                                                                        ## 🚀 Quick Start
-                                                                            ### Prerequisites                                                           
-- Node.js 20+ and npm 9+                                                    - Git                                                                       
-### Local Development                                                                                                                                   1. **Clone the repository**
-   ```bash                                                                     git clone https://github.com/CYNERZA/CYNERZA-WEB.git                        cd CYNERZA-WEB
-   ```
+<p align="center"><img src="public/logo.png" alt="CYNERZA Logo" width="200"/></p>
 
+CYNERZA is a modern web application built with React, TypeScript, and Tailwind CSS, featuring a responsive design and beautiful UI components. This project serves as the official web interface for CYNERZA's AI tools and services.
+
+## ✨ Features                                                                                                                                          
+- 🎨 **Modern UI/UX** with responsive design
+- 🚀 **Blazing Fast** performance with Vite
+- 🎯 **Type Safety** with TypeScript
+- 🎨 **Beautiful Components** with shadcn/ui and Tailwind CSS
+- 🌙 **Dark Mode** support
+- ⚡ **Optimized** production builds
+- 🔒 **Secure** with proper environment handling
+
+## 🚀 Quick Start
+
+### Prerequisites                                                           
+- Node.js 20+ and npm 9+
+- Git
+
+### Local Development
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/CYNERZA/CYNERZA-WEB.git
+   cd CYNERZA-WEB
+   ```
 2. **Install frontend dependencies**
    ```bash
    npm install
