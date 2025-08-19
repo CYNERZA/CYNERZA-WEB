@@ -211,7 +211,7 @@ const SingleBlog: React.FC = () => {
 
                         <motion.div ref={contentRef} className="prose prose-sm sm:prose-lg lg:prose-xl prose-gray dark:prose-invert max-w-none" variants={itemVariants} style={{ fontSize: `${fontSize}px` }}>
                             <motion.div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 xl:p-16 shadow-lg sm:shadow-xl border border-gray-200/50 dark:border-gray-700/50" whileInView={{ y: 0, opacity: 1 }} initial={{ y: 30, opacity: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
-                                <div className="leading-relaxed text-gray-800 dark:text-gray-200" dangerouslySetInnerHTML={{ __html: currentBlog.content }} />
+                                <div className="raw-content leading-relaxed text-gray-800 dark:text-gray-200" dangerouslySetInnerHTML={{ __html: currentBlog.content }} />
                             </motion.div>
                         </motion.div>
 
