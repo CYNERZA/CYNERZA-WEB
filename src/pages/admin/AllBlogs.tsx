@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { fetchBlogPosts } from "@/featured/blog/blogSlice";
 import { useDispatch, useSelector } from "react-redux";
 import LogoLoader from "@/components/admin/loader";
@@ -20,7 +20,6 @@ interface BlogType {
 }
 
 const AllBlogs: React.FC = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
   const blogs = useSelector((state: any) => state.blog.blogPosts);
   const loading = useSelector((state: any) => state.blog.loading);

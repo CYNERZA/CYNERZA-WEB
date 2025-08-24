@@ -196,6 +196,7 @@ export interface BlogType {
   postingDate?: string;
   tags?: string[];
   thumbImage?: string;
+  slug: string
   [key: string]: any;
 }
 
@@ -230,7 +231,7 @@ export const fetchBlogPosts = createAsyncThunk<{
 
 export const fetchRecentBlogPosts = createAsyncThunk<{
   data: BlogType[];
-  
+
 }, number | void>('blog/fetchRecentBlogPosts', async (limit) => {
   const response = await axiosInstance.get(`/blogs/recent?limit=${limit}`);
   return response.data;

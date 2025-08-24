@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
 import Index from "./pages/Index";
 import AiTools from './pages/AiTools';
@@ -28,9 +28,20 @@ import SingleBlog from './pages/SingleBlog.js';
 
 const queryClient = new QueryClient();
 
-    const mode = localStorage.getItem("theme")
-    document.documentElement.classList.add(mode);
+const mode = localStorage.getItem("theme")
+document.documentElement.classList.add(mode);
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'auto' // This makes it instant without animation
+    });
+  }, [pathname]);
+
+  return null;
+};
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <Provider store={store}>
@@ -38,6 +49,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={
               <PageLayout noPadding>
@@ -103,7 +115,7 @@ const App = () => (
             } >
             </Route>
             <Route path="/blogs/:slug" element={
-              <PageLayout>
+              <PageLayout noPadding>
                 <SingleBlog />
               </PageLayout>
             }             >

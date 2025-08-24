@@ -28,7 +28,7 @@ const ContactCta: React.FC = () => {
               </Button>
             </a>
             <Link to="/contact">
-              <button className="px-8 py-3 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-medium rounded-xl border
+              <button className="px-6 py-3 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-medium rounded-full border
                border-gray-200 dark:border-gray-700 transition-all duration-200 transform hover:-translate-y-0.5">
                 Contact Sales
               </button>

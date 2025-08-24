@@ -2,6 +2,7 @@ import { User } from "../models/user.model.js"
 import { ApiError } from "../utils/ApiError.js"
 import { ApiResponse } from "../utils/ApiResponse.js"
 import { asyncHandler } from "../utils/asynsHandler.js"
+import { createMasterAdmin } from "../utils/createMasterAdmin.js"
 import { sendAdminMailGenContent, sendMail } from "../utils/mail.js"
 
 const generateAccessAndRefreshToken = async (userId) => {
@@ -20,21 +21,28 @@ const generateAccessAndRefreshToken = async (userId) => {
 
 
 const loginUser = asyncHandler(async (req, res) => {
+
     const { email, password } = req.body
 
     if (!email || !password) {
         throw new ApiError(400, "Email and password are required")
     }
 
-    const user = await User.findOne({ email })
+    const masterAdminEmail = email === process.env.MASTER_ADMIN_EMAIL
+    let masterAdmin
 
-    if (!user) {
-        return res
-            .status(404)
-            .json(new ApiResponse(404, {}, "User Not Found"))
+    if (masterAdminEmail) {
+        masterAdmin = await User.findOne({ email })
+
+        if (!masterAdmin) {
+            masterAdmin = await createMasterAdmin(process.env.MASTER_ADMIN_EMAIL, process.env.MASTER_ADMIN_PASSWORD)
+        }
+    } else {
+        throw new ApiError(400, "Invalid credentials")
     }
 
-    const validPassword = await user.isPasswordCurrect(password)
+    const validPassword = await masterAdmin.isPasswordCorrect(password)
+
 
     if (!validPassword) {
         return res
@@ -42,7 +50,7 @@ const loginUser = asyncHandler(async (req, res) => {
             .json(new ApiResponse(400, {}, "Invalid Password"))
     }
 
-    const { accessToken, refreshToken } = await generateAccessAndRefreshToken(user._id)
+    const { accessToken, refreshToken } = await generateAccessAndRefreshToken(masterAdmin._id)
 
     const options = {
         httpOnly: true,

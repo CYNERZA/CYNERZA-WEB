@@ -1,9 +1,10 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { cn } from '@/lib/utils';
 import { AIToolSchema, WebsiteSchema } from '../seo/SchemaMarkup';
+import { useLocation } from 'react-router-dom';
 
 interface PageLayoutProps {
   children: ReactNode;
@@ -18,6 +19,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   noPadding = false,
   noFooter = false
 }) => {
+
   return (
     <HelmetProvider>
       <div className="min-h-screen flex flex-col bg-white dark:bg-gray-950">
@@ -28,7 +30,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
         </Helmet>
         <AIToolSchema />
         <WebsiteSchema />
-        <Navbar />
+        <Navbar  />
       <main 
         className={cn(
           'flex-1 w-full',
