@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 
@@ -52,7 +52,7 @@ export const MenuItem = ({
                             >
                                 <motion.div
                                     layout // layout ensures smooth animation
-                                    className="w-max h-full p-4"
+                                    className="w-max h-full"
                                 >
                                     {children}
                                 </motion.div>
@@ -92,23 +92,23 @@ export const ProductItem = ({
 }: {
     title: string;
     description: string;
-    href: string;
-    src: string;
+    href?: string;
+    src?: string;
 }) => {
     return (
         <Link to={href} className="flex space-x-2">
-            <img
+            {src && <img
                 src={src}
                 width={140}
                 height={70}
                 alt={title}
                 className="lg:w-28 lg:h-16 xl:w-40 xl:h-24 shrink-0 rounded-md shadow-2xl"
-            />
-            <div>
-                <h4 className="truncate text-sm max-w-[10rem] font-bold mb-1 text-white">
+            />}
+            <div className="p-2 md:mb-0">
+                <h4 className="truncate text-sm max-w-[10rem] font-bold text-white">
                     {title}
                 </h4>
-                <p className="truncate text-sm max-w-[10rem] text-neutral-300">
+                <p className="truncate text-sm max-w-[10rem] text-neutral-300 ">
                     {description}
                 </p>
             </div>
@@ -118,12 +118,16 @@ export const ProductItem = ({
 
 export const HoveredLink = ({ children, to, className }: any) => {
     return (
-        <Link
+        <NavLink
             to={to}
+            className={
+                ({ isActive }) => `${isActive && "border-b-2 border-cynerza-purple"}
+                text-center text-neutral-200 ${className}`
+            }
 
-            className={`text-neutral-200 ${className}`}
+
         >
             {children}
-        </Link>
+        </NavLink>
     );
 };

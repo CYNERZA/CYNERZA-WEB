@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { HoverEffect } from "../components/ui/card-hover-effect";
 
 const Services: React.FC = () => {
-  const services = [
+   const services = [
     {
       title: 'SaaS Product Development',
       description: 'Crafting beautiful, high-performance websites and mobile applications tailored to your brand.',

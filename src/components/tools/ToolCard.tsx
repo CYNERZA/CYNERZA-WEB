@@ -26,11 +26,12 @@ const ToolCard: React.FC<ToolCardProps> = ({
       transition={{ duration: 0.5, delay }}
       whileHover={{ y: -5, transition: { duration: 0.2 } }}
       className={cn(
-        'rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300',
+        ' rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300',
         'dark:shadow-purple-500/5 dark:hover:shadow-purple-500/10',
         'group relative cursor-pointer'
       )}
     >
+      {/* sm:max-h-[89%] */}
       <div className={cn(
         'bg-gradient-to-r p-8 text-white h-full dark:bg-opacity-90 backdrop-blur-sm',
         gradient

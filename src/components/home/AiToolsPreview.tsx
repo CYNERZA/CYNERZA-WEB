@@ -13,21 +13,21 @@
 //         name: "Ad Copy Generator",
 //         description: "Create high-converting ad copy for all your marketing campaigns",
 //         gradient: "from-purple-400 to-pink-600",
-//         icon: <FileType size={20} className="text-white" />,
+//         icon: <FileType  />,
 //         link: "https://tools.cynerza.com/text-tools-ad-copy-generator"
 //       },
 //       {
 //         name: "Script Creator",
 //         description: "Write professional video and podcast scripts with ease",
 //         gradient: "from-emerald-400 to-teal-600",
-//         icon: <FileText size={20} className="text-white" />,
+//         icon: <FileText  />,
 //         link: "https://tools.cynerza.com/text-tools-script-creator"
 //       },
 //       {
 //         name: "Summarizer",
 //         description: "Get concise summaries of long documents and articles",
 //         gradient: "from-rose-400 to-pink-600",
-//         icon: <FileOutput size={20} className="text-white" />,
+//         icon: <FileOutput  />,
 //         link: "https://tools.cynerza.com/text-tools-summarizer"
 //       }
 //     ]
@@ -39,21 +39,21 @@
 //         name: "AI Image Generator",
 //         description: "Create stunning, high-quality images from text descriptions",
 //         gradient: "from-amber-400 to-orange-600",
-//         icon: <ImageIcon size={20} className="text-white" />,
+//         icon: <ImageIcon  />,
 //         link: "https://tools.cynerza.com/image-tools-ai-image-generator"
 //       },
 //       {
 //         name: "Background Remover",
 //         description: "Instantly remove backgrounds from any image with precision",
 //         gradient: "from-violet-400 to-purple-600",
-//         icon: <ImageIcon size={20} className="text-white" />,
+//         icon: <ImageIcon  />,
 //         link: "https://tools.cynerza.com/image-tools-background-remover"
 //       },
 //       {
 //         name: "Image Enhancer",
 //         description: "Enhance and upscale images without losing quality",
 //         gradient: "from-emerald-400 to-cyan-600",
-//         icon: <Wand2 size={20} className="text-white" />,
+//         icon: <Wand2  />,
 //         link: "https://tools.cynerza.com/image-tools-image-enhancer"
 //       }
 //     ]
@@ -65,21 +65,21 @@
 //         name: "Text to Speech",
 //         description: "Convert text to natural-sounding speech in multiple languages",
 //         gradient: "from-blue-400 to-indigo-600",
-//         icon: <Volume2 size={20} className="text-white" />,
+//         icon: <Volume2  />,
 //         link: "https://tools.cynerza.com/audio-tools-text-to-speech"
 //       },
 //       {
 //         name: "Voice Cloner",
 //         description: "Create realistic voice clones from just a few samples",
 //         gradient: "from-purple-400 to-pink-600",
-//         icon: <Mic size={20} className="text-white" />,
+//         icon: <Mic  />,
 //         link: "https://tools.cynerza.com/audio-tools-voice-cloner"
 //       },
 //       {
 //         name: "Noise Remover",
 //         description: "Remove background noise and enhance audio quality",
 //         gradient: "from-rose-400 to-pink-600",
-//         icon: <Volume2 size={20} className="text-white" />,
+//         icon: <Volume2  />,
 //         link: "https://tools.cynerza.com/audio-tools-noise-remover"
 //       }
 //     ]
@@ -91,21 +91,21 @@
 //         name: "AI Code Generator",
 //         description: "Generate code in multiple programming languages with AI",
 //         gradient: "from-indigo-400 to-cyan-600",
-//         icon: <Code size={20} className="text-white" />,
+//         icon: <Code  />,
 //         link: "https://tools.cynerza.com/gen-ai-tools-code-generator"
 //       },
 //       {
 //         name: "Chatbot Creator",
 //         description: "Build and deploy AI-powered chatbots without coding",
 //         gradient: "from-blue-400 to-cyan-600",
-//         icon: <MessageSquare size={20} className="text-white" />,
+//         icon: <MessageSquare  />,
 //         link: "https://tools.cynerza.com/gen-ai-tools-chatbot-creator"
 //       },
 //       {
 //         name: "Prompt Designer",
 //         description: "Create effective prompts for AI models",
 //         gradient: "from-green-400 to-emerald-600",
-//         icon: <PenTool size={20} className="text-white" />,
+//         icon: <PenTool  />,
 //         link: "https://tools.cynerza.com/gen-ai-tools-prompt-designer"
 //       }
 //     ]
@@ -117,35 +117,35 @@
 //         name: "Podcast Generator",
 //         description: "Create professional podcasts from text content",
 //         gradient: "from-amber-400 to-orange-600",
-//         icon: <Mic size={20} className="text-white" />,
+//         icon: <Mic  />,
 //         link: "https://tools.cynerza.com/podcast-generator"
 //       },
 //       {
 //         name: "Social Media Posts",
 //         description: "Generate engaging posts for all social platforms",
 //         gradient: "from-violet-400 to-purple-600",
-//         icon: <Share2 size={20} className="text-white" />,
+//         icon: <Share2  />,
 //         link: "https://tools.cynerza.com/social-media-posts"
 //       },
 //       {
 //         name: "Brand Book Generator",
 //         description: "Create comprehensive brand guidelines automatically",
 //         gradient: "from-emerald-400 to-cyan-600",
-//         icon: <BookOpen size={20} className="text-white" />,
+//         icon: <BookOpen  />,
 //         link: "https://tools.cynerza.com/brandbook-generator"
 //       },
 //       {
 //         name: "Multimedia Bot Builder",
 //         description: "Build bots that understand and generate multiple media types",
 //         gradient: "from-rose-400 to-pink-600",
-//         icon: <Bot size={20} className="text-white" />,
+//         icon: <Bot  />,
 //         link: "https://tools.cynerza.com/multimedia-bot-builder"
 //       },
 //       {
 //         name: "API Reference",
 //         description: "Access our comprehensive API documentation",
 //         gradient: "from-indigo-400 to-cyan-600",
-//         icon: <Code2 size={20} className="text-white" />,
+//         icon: <Code2  />,
 //         link: "https://tools.cynerza.com/api-reference"
 //       }
 //     ]
@@ -289,483 +289,464 @@
 
 // export default AiToolsPreview;
 
-
-
-
-
-import React, { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
 import {
-  BookOpen,
-  Bot,
+  FileText,
+  Image as ImageIcon,
+  Wand2,
   Code,
   Code2,
-  FileOutput,
-  FileText,
-  FileType,
-  ImageIcon,
   MessageSquare,
   Mic,
+  Volume2,
+  Music,
+  BookOpen,
   PenTool,
   Share2,
-  Volume2,
-  Wand2
-} from "lucide-react";
+  Bot,
+  FileType,
+  FileOutput
+}
+  from 'lucide-react'
+import { AnimatePresence, motion } from "framer-motion"
+import React, { cloneElement, useState } from 'react';
 
-const ResponsiveToo2xlrid = () => {
+const AiToolsPreview: React.FC = () => {
+
+
   const aiTools = [
     {
-      category: "Text Tools",
-      tools: [
-        {
-          name: "Ad Copy Generator",
-          description: "Create high-converting ad copy for all your marketing campaigns",
-          gradient: "from-purple-400 to-pink-600",
-          icon: <FileType />,
-          link: "https://tools.cynerza.com/text-tools-ad-copy-generator"
-        },
-        {
-          name: "Script Creator",
-          description: "Write professional video and podcast scripts with ease",
-          gradient: "from-emerald-400 to-teal-600",
-          icon: <FileText />,
-          link: "https://tools.cynerza.com/text-tools-script-creator"
-        },
-        {
-          name: "Summarizer",
-          description: "Get concise summaries of long documents and articles",
-          gradient: "from-rose-400 to-pink-600",
-          icon: <FileOutput />,
-          link: "https://tools.cynerza.com/text-tools-summarizer"
-        }
-      ]
+      name: "Ad Copy Generator",
+      gradient: "from-purple-400 to-pink-600",
+      icon: <FileType />,
+      link: "https://tools.cynerza.com/text-tools-ad-copy-generator"
     },
     {
-      category: "Image Tools",
-      tools: [
-        {
-          name: "AI Image Generator",
-          description: "Create stunning, high-quality images from text descriptions",
-          gradient: "from-amber-400 to-orange-600",
-          icon: <ImageIcon />,
-          link: "https://tools.cynerza.com/image-tools-ai-image-generator"
-        },
-        {
-          name: "Background Remover",
-          description: "Instantly remove backgrounds from any image with precision",
-          gradient: "from-violet-400 to-purple-600",
-          icon: <ImageIcon />,
-          link: "https://tools.cynerza.com/image-tools-background-remover"
-        },
-        {
-          name: "Image Enhancer",
-          description: "Enhance and upscale images without losing quality",
-          gradient: "from-emerald-400 to-cyan-600",
-          icon: <Wand2 />,
-          link: "https://tools.cynerza.com/image-tools-image-enhancer"
-        }
-      ]
+      name: "Script Creator",
+      gradient: "from-emerald-400 to-teal-600",
+      icon: <FileText />,
+      link: "https://tools.cynerza.com/text-tools-script-creator"
     },
     {
-      category: "Audio Tools",
-      tools: [
-        {
-          name: "Text to Speech",
-          description: "Convert text to natural-sounding speech in multiple languages",
-          gradient: "from-blue-400 to-indigo-600",
-          icon: <Volume2 />,
-          link: "https://tools.cynerza.com/audio-tools-text-to-speech"
-        },
-        {
-          name: "Voice Cloner",
-          description: "Create realistic voice clones from just a few samples",
-          gradient: "from-purple-400 to-pink-600",
-          icon: <Mic />,
-          link: "https://tools.cynerza.com/audio-tools-voice-cloner"
-        },
-        {
-          name: "Noise Remover",
-          description: "Remove background noise and enhance audio quality",
-          gradient: "from-rose-400 to-pink-600",
-          icon: <Volume2 />,
-          link: "https://tools.cynerza.com/audio-tools-noise-remover"
-        }
-      ]
+      name: "Summarizer",
+      gradient: "from-rose-400 to-pink-600",
+      icon: <FileOutput />,
+      link: "https://tools.cynerza.com/text-tools-summarizer"
     },
     {
-      category: "Gen AI Tools",
-      tools: [
-        {
-          name: "AI Code Generator",
-          description: "Generate code in multiple programming languages with AI",
-          gradient: "from-indigo-400 to-cyan-600",
-          icon: <Code />,
-          link: "https://tools.cynerza.com/gen-ai-tools-code-generator"
-        },
-        {
-          name: "Chatbot Creator",
-          description: "Build and deploy AI-powered chatbots without coding",
-          gradient: "from-blue-400 to-cyan-600",
-          icon: <MessageSquare />,
-          link: "https://tools.cynerza.com/gen-ai-tools-chatbot-creator"
-        },
-        {
-          name: "Prompt Designer",
-          description: "Create effective prompts for AI models",
-          gradient: "from-green-400 to-emerald-600",
-          icon: <PenTool />,
-          link: "https://tools.cynerza.com/gen-ai-tools-prompt-designer"
-        }
-      ]
+      name: "AI Image Generator",
+      gradient: "from-amber-400 to-orange-600",
+      icon: <ImageIcon />,
+      link: "https://tools.cynerza.com/image-tools-ai-image-generator"
     },
     {
-      category: "Additional Tools",
-      tools: [
-        {
-          name: "Podcast Generator",
-          description: "Create professional podcasts from text content",
-          gradient: "from-amber-400 to-orange-600",
-          icon: <Mic />,
-          link: "https://tools.cynerza.com/podcast-generator"
-        },
-        {
-          name: "Social Media Posts",
-          description: "Generate engaging posts for all social platforms",
-          gradient: "from-violet-400 to-purple-600",
-          icon: <Share2 />,
-          link: "https://tools.cynerza.com/social-media-posts"
-        },
-        {
-          name: "Brand Book Generator",
-          description: "Create comprehensive brand guidelines automatically",
-          gradient: "from-emerald-400 to-cyan-600",
-          icon: <BookOpen />,
-          link: "https://tools.cynerza.com/brandbook-generator"
-        },
-        {
-          name: "Multimedia Bot Builder",
-          description: "Build bots that understand and generate multiple media types",
-          gradient: "from-rose-400 to-pink-600",
-          icon: <Bot />,
-          link: "https://tools.cynerza.com/multimedia-bot-builder"
-        },
-        {
-          name: "API Reference",
-          description: "Access our comprehensive API documentation",
-          gradient: "from-indigo-400 to-cyan-600",
-          icon: <Code2 />,
-          link: "https://tools.cynerza.com/api-reference"
-        },
-        // fill last slot if needed
-        {
-          name: "Content Repurposer",
-          description: "Turn one article into many formats (social, newsletter, etc.)",
-          gradient: "from-pink-400 to-amber-400",
-          icon: <FileOutput />,
-          link: "https://tools.cynerza.com/content-repurposer"
-        }
-      ]
+      name: "Background Remover",
+      gradient: "from-violet-400 to-purple-600",
+      icon: <ImageIcon />,
+      link: "https://tools.cynerza.com/image-tools-background-remover"
+    },
+    {
+      name: "Image Enhancer",
+      gradient: "from-emerald-400 to-cyan-600",
+      icon: <Wand2 />,
+      link: "https://tools.cynerza.com/image-tools-image-enhancer"
+    },
+    {
+      name: "Text to Speech",
+      gradient: "from-blue-400 to-indigo-600",
+      icon: <Volume2 />,
+      link: "https://tools.cynerza.com/audio-tools-text-to-speech"
+    },
+    {
+      name: "Voice Cloner",
+      gradient: "from-purple-400 to-pink-600",
+      icon: <Mic />,
+      link: "https://tools.cynerza.com/audio-tools-voice-cloner"
+    },
+    {
+      name: "Noise Remover",
+      gradient: "from-rose-400 to-pink-600",
+      icon: <Volume2 />,
+      link: "https://tools.cynerza.com/audio-tools-noise-remover"
+    },
+    {
+      name: "AI Code Generator",
+      gradient: "from-indigo-400 to-cyan-600",
+      icon: <Code />,
+      link: "https://tools.cynerza.com/gen-ai-tools-code-generator"
+    },
+    {
+      name: "Chatbot Creator",
+      gradient: "from-blue-400 to-cyan-600",
+      icon: <MessageSquare />,
+      link: "https://tools.cynerza.com/gen-ai-tools-chatbot-creator"
+    },
+    {
+      name: "Prompt Designer",
+      gradient: "from-green-400 to-emerald-600",
+      icon: <PenTool />,
+      link: "https://tools.cynerza.com/gen-ai-tools-prompt-designer"
+    },
+    {
+      name: "Podcast Generator",
+      gradient: "from-amber-400 to-orange-600",
+      icon: <Mic />,
+      link: "https://tools.cynerza.com/podcast-generator"
+    },
+    {
+      name: "Social Media Posts",
+      gradient: "from-violet-400 to-purple-600",
+      icon: <Share2 />,
+      link: "https://tools.cynerza.com/social-media-posts"
+    },
+    {
+      name: "Brand Book Generator",
+      gradient: "from-emerald-400 to-cyan-600",
+      icon: <BookOpen />,
+      link: "https://tools.cynerza.com/brandbook-generator"
+    },
+    {
+      name: "Multimedia Bot Builder",
+      gradient: "from-rose-400 to-pink-600",
+      icon: <Bot />,
+      link: "https://tools.cynerza.com/multimedia-bot-builder"
+    },
+    {
+      name: "API Reference",
+      gradient: "from-indigo-400 to-cyan-600",
+      icon: <Code2 />,
+      link: "https://tools.cynerza.com/api-reference"
+    },
+    {
+      name: "API Reference",
+      gradient: "from-indigo-400 to-cyan-600",
+      icon: <Code2 />,
+      link: "https://tools.cynerza.com/api-reference"
+    },
+    {
+      name: "API Reference",
+      gradient: "from-indigo-400 to-cyan-600",
+      icon: <Code2 />,
+      link: "https://tools.cynerza.com/api-reference"
+    },
+    {
+      name: "API Reference",
+      gradient: "from-indigo-400 to-cyan-600",
+      icon: <Code2 />,
+      link: "https://tools.cynerza.com/api-reference"
     }
   ];
 
-  // flatten tools array
-  const flatTools = aiTools.flatMap((c) => c.tools);
-  const getTool = (i) => flatTools[i];
+  const getAiTool = (idx: number) => aiTools[idx]
 
-  // refs & state
-  const sectionRef = useRef(null);
-  const toolsRef = useRef(null);
-  const [toolsHeight, setToolsHeight] = useState(0);
-  const [scrollProgress, setScrollProgress] = useState(0); // 0..1
-  const [sectionInView, setSectionInView] = useState(false);
 
-  // measure tools height for translation calc
-  useEffect(() => {
-    const measure = () => {
-      if (toolsRef.current) setToolsHeight(toolsRef.current.offsetHeight || 0);
-    };
-    measure();
-    let ro;
-    try {
-      ro = new ResizeObserver(measure);
-      if (toolsRef.current) ro.observe(toolsRef.current);
-    } catch (e) {
-      // ignore if ResizeObserver not available
-    }
-    window.addEventListener("resize", measure);
-    return () => {
-      if (ro && ro.disconnect) ro.disconnect();
-      window.removeEventListener("resize", measure);
-    };
-  }, []);
-
-  // observe section visibility for entrance animations
-  useEffect(() => {
-    if (!sectionRef.current) return;
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setSectionInView(entry.isIntersecting && entry.intersectionRatio > 0.08);
-        });
-      },
-      { threshold: [0, 0.08, 0.25, 0.6] }
-    );
-    obs.observe(sectionRef.current);
-    return () => obs.disconnect();
-  }, []);
-
-  // scroll listener -> compute progress 0..1
-  useEffect(() => {
-    let rafId = 0;
-    const onScroll = () => {
-      if (!sectionRef.current || !toolsRef.current) return;
-      const rect = sectionRef.current.getBoundingClientRect();
-      // Start sliding when section top reaches slightly above viewport top (rect.top <= 0)
-      // denom = toolsHeight + gap to reach full slide
-      const gap = 18;
-      const denom = Math.max(1, toolsHeight + gap);
-      const raw = Math.max(0, -rect.top) / denom;
-      const prog = Math.min(1, raw);
-      cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => setScrollProgress(prog));
-    };
-
-    // initial
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      cancelAnimationFrame(rafId);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, [toolsHeight]);
-
-  /** ToolCard: same behavior (icon only by default; overlay on hover) */
-  const ToolCard = ({ tool, wrapperClass, index = 0 }) => {
-    if (!tool) {
-      return (
-        <div
-          className={`${wrapperClass} rounded-lg flex items-center justify-center p-4
-            bg-white/80 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700`}
-        />
-      );
-    }
-
-    const [isHover, setIsHover] = useState(false);
-    const [entranceGlow, setEntranceGlow] = useState(true);
-
-    useEffect(() => {
-      const t = setTimeout(() => setEntranceGlow(false), 1200 + index * 30);
-      return () => clearTimeout(t);
-    }, [index]);
-
-    const normalIcon = React.cloneElement(tool.icon, {
-      size: 26,
-      className: "text-gray-600 dark:text-gray-300"
-    });
-    const hoverIcon = React.cloneElement(tool.icon, {
-      size: 26,
-      className: "text-white"
-    });
+  function ToolCard({ tool, className = "", animateCards = true, burstIdx = 0 }: any) {
+    const [isHovered, setIsHovered] = React.useState(false);
 
     return (
-      <motion.a
+      <a
         href={tool.link}
         target="_blank"
         rel="noopener noreferrer"
-        className={`${wrapperClass} relative inline-block rounded-lg overflow-hidden`}
-        onHoverStart={() => setIsHover(true)}
-        onHoverEnd={() => setIsHover(false)}
-        onFocus={() => setIsHover(true)}
-        onBlur={() => setIsHover(false)}
-        // initial={{ opacity: 0, y: 22, scale: 0.98 }}
-        // animate={{
-        //   opacity: sectionInView ? 1 : 0,
-        //   y: sectionInView ? -8 : 22,
-        //   scale: isHover ? 1.02 : 1
-        // }}
-        transition={{ delay: Math.min(0.02 * index, 0.9), duration: 0.45, type: "spring", stiffness: 220, damping: 24 }}
+        className={`${className} w-full h-full relative inline-block overflow-hidden group `}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
       >
-        <div
-          className={`w-full h-full flex items-center justify-center p-4 rounded-lg transition-colors duration-200
-            bg-white/80 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700`}
-          style={
-            entranceGlow
-              ? {
-                  boxShadow: "0 10px 30px rgba(99,102,241,0.08), 0 4px 12px rgba(59,130,246,0.05)"
-                }
-              : {}
-          }
+        {/* Full card container */}
+        <motion.div
+          className="w-full h-full flex items-center justify-center p-4 relative border border-gray-200 dark:border-gray-700"
+          initial={{ backgroundColor: "#e4ecf4" }}
+          animate={{
+            backgroundColor: isHovered ? "#3bd4cb" : "#e4ecf4"
+          }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
         >
-          <div
-            className={`flex items-center justify-center w-12 h-12 rounded-md transition-opacity duration-200 ${
-              isHover ? "opacity-0" : "opacity-100"
-            }`}
-            aria-hidden={isHover}
-          >
-            {normalIcon}
-          </div>
-
+          {/* Icon with animated color */}
           <motion.div
-            className={`absolute inset-0 flex flex-col items-center justify-center px-4 text-center text-white rounded-lg`}
-            initial={{ opacity: 0 }}
-            animate={isHover ? { opacity: 1, y: 0 } : { opacity: 0, y: 6 }}
-            transition={{ duration: 0.22 }}
-            style={
-              isHover
-                ? {
-                    boxShadow: "0 18px 60px rgba(99,102,241,0.16), 0 8px 26px rgba(59,130,246,0.08)"
-                  }
-                : {}
-            }
+            animate={{
+              color: isHovered ? "#ffffff" : "#94a3b8"
+            }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="flex items-center justify-center"
           >
-            <div
-              className={`absolute inset-0 -z-10 rounded-lg bg-gradient-to-r ${tool.gradient}`}
-              aria-hidden="true"
-            />
-            <div
-              className="absolute inset-0 -z-20 rounded-lg filter blur-sm opacity-30"
-              style={{ background: "linear-gradient(90deg, rgba(255,255,255,0.03), rgba(0,0,0,0))" }}
-            />
-
-            <div className="flex flex-col items-center gap-2 px-2">
-              <div className={`p-2 rounded-full bg-white/10 ${entranceGlow ? "entrance-glow" : ""}`}>
-                {hoverIcon}
-              </div>
-
-              <motion.div
-                className="text-sm font-semibold leading-tight select-none"
-                animate={isHover || entranceGlow ? { scale: 1.02 } : { scale: 1 }}
-                transition={{ duration: 0.28 }}
-              >
-                <span className={isHover || entranceGlow ? "cynerza-glow" : ""}>{tool.name}</span>
-              </motion.div>
-
-              <div className="text-xs max-w-[10rem] leading-tight opacity-90 select-none">
-                {tool.description}
-              </div>
-            </div>
+            {React.cloneElement(tool.icon, {
+              size: 35,
+              className: `transition-colors duration-400`,
+              style: { color: isHovered ? "#ffffff" : "#94a3b8" }
+            })}
           </motion.div>
-        </div>
-      </motion.a>
-    );
-  };
 
-  // compute header transforms based on scrollProgress
-  const gap = 18;
-  const translateY = scrollProgress * (toolsHeight + gap); // how far header moves down
-  const maxBlur = 8; // px
-  const blur = Math.min(maxBlur, scrollProgress * maxBlur * 1.2); // increase blur early
-  const opacity = Math.max(0, 1 - scrollProgress * 1.2); // fade out as progress increases
+          {/* Tool name animation from bottom */}
+          <motion.div
+            className="absolute bottom-4 text-center text-sm font-semibold leading-tight select-none 
+          text-white"
+            initial={{ y: 40, opacity: 0 }}
+            animate={{
+              y: isHovered ? 0 : 40,
+              opacity: isHovered ? 1 : 0
+            }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
+            {tool.name}
+          </motion.div>
+        </motion.div>
+      </a>
+    );
+  }
 
   return (
-    <section ref={sectionRef} className="relative py-8 overflow-hidden bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
-      {/* scoped styles */}
-      <style>{`
-        .cynerza-glow {
-          color: inherit;
-          text-shadow: 0 8px 24px rgba(99,102,241,0.14);
-          transition: text-shadow .2s ease, transform .2s ease;
-          animation: cynerzaGlow 1.6s ease-in-out infinite alternate;
-        }
-        @keyframes cynerzaGlow {
-          from { text-shadow: 0 4px 12px rgba(99,102,241,0.06); transform: translateY(0); }
-          to { text-shadow: 0 14px 36px rgba(99,102,241,0.28); transform: translateY(-1px); }
-        }
-        .entrance-glow {
-          box-shadow: 0 10px 30px rgba(99,102,241,0.12), 0 6px 18px rgba(59,130,246,0.06);
-          animation: entrancePulse 1.2s ease-out forwards;
-        }
-        @keyframes entrancePulse {
-          0% { transform: translateY(0) scale(1); opacity: 1; }
-          40% { transform: translateY(-3px) scale(1.03); opacity: 1; }
-          100% { transform: translateY(0) scale(1); opacity: 1; }
-        }
-        a > div { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
-      `}</style>
-
-      {/* Header at top — translates down, blurs, fades as user scrolls the section up */}
-      <div style={{ position: "relative", zIndex: 10, pointerEvents: "none" }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2
-            className="text-center text-4xl sm:text-5xl font-bold mb-4 text-gray-900 dark:text-white"
-            style={{
-              transform: `translateY(${translateY}px)`,
-              filter: `blur(${blur}px)`,
-              opacity,
-              transition: "transform 0.08s linear, filter 0.15s linear, opacity 0.15s linear",
-              willChange: "transform, filter, opacity, text-shadow"
-            }}
+    <section className='relative sm:pb-[7rem] xl:pb-[25rem]'>
+      {/* Text */}
+      <div className='text-center flex flex-col flex-wrap items-center justify-center '>
+        <div className='absolute top-20 sm:top-[10rem]  xl:top-[19rem] 2xl:top-[20rem]'>
+          <motion.h2
+            className="text-xl sm:text-4xl font-bold font-heading mb-6 text-slate-900 dark:text-slate-200"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <span className={scrollProgress > 0.02 ? "cynerza-glow" : ""}>Supercharge Your Workflow</span>
-          </h2>
+            Supercharge Your Workflow
+          </motion.h2>
 
-          <p
-            className="text-center text-xl sm:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
-            style={{
-              transform: `translateY(${translateY}px)`,
-              filter: `blur(${blur * 0.6}px)`,
-              opacity: Math.max(0, opacity - 0.05),
-              transition: "transform 0.08s linear, filter 0.15s linear, opacity 0.15s linear",
-              willChange: "transform, filter, opacity"
-            }}
+          <motion.p
+            className="xl:text-2xl sm:text-xl text-md text-gray-600 dark:text-gray-400 leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
             Transform your productivity with our comprehensive suite of AI-powered tools.
-          </p>
+          </motion.p>
         </div>
       </div>
 
-      {/* Tools area (z higher so header slides under) */}
-      <div ref={toolsRef} className="flex justify-between w-full px-0 mt-6 relative z-20">
-        {/* Left column */}
-        <div className="flex gap-2">
-          <div className="flex flex-col gap-2">
-            <ToolCard tool={getTool(0)} wrapperClass="sm:hidden md:block md:w-[13.3vw] lg:w-[13.4vw] h-72 2xl:w-[13.7vw]" index={0} />
-            <ToolCard tool={getTool(1)} wrapperClass="sm:hidden md:block md:w-[13.3vw] lg:w-[13.4vw] h-52 2xl:w-[13.7vw]" index={1} />
-            <ToolCard tool={getTool(2)} wrapperClass="sm:hidden md:block md:w-[13.3vw] lg:w-[13.4vw] h-72 2xl:w-[13.7vw]" index={2} />
+      {/* Tools */}
+      <div className='lg:flex justify-between hidden '>
+        {/* Left columns */}
+        {/* Rows */}
+        <div className='flex space-x-2 relative'>
+          {/* Column 1 */}
+          <div className='flex flex-col  space-y-2'>
+            {/* {[0, 1, 2, 3].map((idx) => ( */}
+              <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                {<ToolCard tool={getAiTool(0)} burstIdx={0} />}
+              </div>
+              <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-28 sm:h-52 lg:h-40 bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                {<ToolCard tool={getAiTool(1)} burstIdx={1} />}
+              </div>
+              <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                {<ToolCard tool={getAiTool(2)} burstIdx={2} />}
+              </div>
+            {/* ))} */}
           </div>
-
-          <div className="flex flex-col relative top-20 gap-2">
-            <ToolCard tool={getTool(3)} wrapperClass="sm:hidden md:block md:w-[13.3vw] lg:w-[13.4vw] h-72 2xl:w-[13.7vw]" index={3} />
-            <ToolCard tool={getTool(4)} wrapperClass="sm:hidden md:block md:w-[13.3vw] lg:w-[13.4vw] h-52 2xl:w-[13.7vw]" index={4} />
-            <ToolCard tool={getTool(5)} wrapperClass="sm:hidden md:block md:w-[13.3vw] lg:w-[13.4vw] h-72 2xl:w-[13.7vw]" index={5} />
+          {/*  Column 2 */}
+          <div className='flex flex-col relative top-52 lg:top-40 space-y-2'>
+            {/* {[4, 5, 6].map((idx) => ( */}
+              <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                {<ToolCard tool={getAiTool(4)} burstIdx={4} />}
+              </div>
+              <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-28 sm:h-52 lg:h-40 bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                {<ToolCard tool={getAiTool(5)} burstIdx={5} />}
+              </div>
+              <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                {<ToolCard tool={getAiTool(6)} burstIdx={6} />}
+              </div>
+            {/* ))} */}
           </div>
-
-          <div className="flex flex-col gap-2 relative top-52">
-            <ToolCard tool={getTool(6)} wrapperClass="sm:hidden md:block md:w-[13.3vw] lg:w-[13.4vw] h-52 2xl:w-[13.7vw]" index={6} />
-            <ToolCard tool={getTool(7)} wrapperClass="sm:hidden md:block md:w-[13.3vw] lg:w-[13.4vw] h-72 2xl:w-[13.7vw]" index={7} />
+          {/*  Column 3 */}
+          <div className='flex flex-col relative top-[31rem] lg:top-[22rem] space-y-2'>
+            {/* {[7, 8].map((idx) => ( */}
+              <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-28 sm:h-52 lg:h-40 bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                {<ToolCard tool={getAiTool(7)} burstIdx={7} />}
+              </div>
+              <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                {<ToolCard tool={getAiTool(8)} burstIdx={8} />}
+              </div>
+            {/* ))} */}
           </div>
         </div>
 
         {/* Center column */}
-        <div className="flex flex-col gap-2 relative top-60">
-          <ToolCard tool={getTool(8)} wrapperClass="sm:hidden md:block md:w-[13.3vw] lg:w-[13.4vw] h-52 2xl:w-[13.7vw]" index={8} />
-          <ToolCard tool={getTool(9)} wrapperClass="sm:hidden md:block md:w-[13.3vw] lg:w-[13.4vw] h-72 2xl:w-[13.7vw]" index={9} />
+        <div className='flex flex-col'>
+          {/*  Column 1 */}
+          <div className='flex flex-col relative top-[36rem] lg:top-[27rem] space-y-2'>
+            {/* {[9, 10].map((idx) => ( */}
+              <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-28 sm:h-52 lg:h-40 bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                <ToolCard tool={getAiTool(9)} burstIdx={9} />
+              </div>
+              <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                <ToolCard tool={getAiTool(10)} burstIdx={10} />
+              </div>
+            {/* ))} */}
+          </div>
         </div>
 
         {/* Right column */}
-        <div className="flex gap-2">
-          <div className="flex flex-col gap-2 relative top-52">
-            <ToolCard tool={getTool(10)} wrapperClass="sm:hidden md:block md:w-[13.3vw] lg:w-[13.4vw] h-52 2xl:w-[13.7vw]" index={10} />
-            <ToolCard tool={getTool(11)} wrapperClass="sm:hidden md:block md:w-[13.3vw] lg:w-[13.4vw] h-72 2xl:w-[13.7vw]" index={11} />
+        {/* Rows */}
+        <div className='flex space-x-2'>
+          {/*  Column 3 */}
+          <div className='flex flex-col relative top-[31rem] lg:top-[22rem] space-y-2'>
+            {/* {[11, 12].map((idx) => ( */}
+
+              <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-28 sm:h-52 lg:h-40 bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                {<ToolCard tool={getAiTool(11)} burstIdx={11} />}
+              </div>
+              <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                {<ToolCard tool={getAiTool(12)} burstIdx={12} />}
+              </div>
+            {/* ))} */}
+          </div>
+          {/*  Column 2 */}
+          <div className='flex flex-col relative top-52 lg:top-40 space-y-2'>
+            {/* {[13, 14, 15].map((idx) => ( */}
+              <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                {<ToolCard tool={getAiTool(13)} burstIdx={13} />}
+              </div>
+              <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-28 sm:h-52 lg:h-40 bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                {<ToolCard tool={getAiTool(14)} burstIdx={14} />}
+              </div>
+              <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                {<ToolCard tool={getAiTool(15)} burstIdx={15} />}
+              </div>
+            {/* ))} */}
           </div>
 
-          <div className="flex flex-col relative top-20 gap-2">
-            <ToolCard tool={getTool(12)} wrapperClass="sm:hidden md:block md:w-[13.3vw] lg:w-[13.4vw] h-72 2xl:w-[13.7vw]" index={12} />
-            <ToolCard tool={getTool(13)} wrapperClass="sm:hidden md:block md:w-[13.3vw] lg:w-[13.4vw] h-52 2xl:w-[13.7vw]" index={13} />
-            <ToolCard tool={getTool(14)} wrapperClass="sm:hidden md:block md:w-[13.3vw] lg:w-[13.4vw] h-72 2xl:w-[13.7vw]" index={14} />
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <ToolCard tool={getTool(15)} wrapperClass="sm:hidden md:block md:w-[13.3vw] lg:w-[13.4vw] 2xl:w-[13.7vw] h-72" index={15} />
-            <ToolCard tool={getTool(16)} wrapperClass="sm:hidden md:block md:w-[13.3vw] lg:w-[13.4vw] 2xl:w-[13.7vw] h-52" index={16} />
-            <ToolCard tool={getTool(17)} wrapperClass="sm:hidden md:block md:w-[13.3vw] lg:w-[13.4vw] 2xl:w-[13.7vw] h-72" index={17} />
+          {/* Column 1 */}
+          <div className='flex flex-col  space-y-2'>
+            {/* {[16, 17, 18, 19].map((idx) => ( */}
+              <div className='lg:w-[13.6vw] 2lg:w-[13.6vw] xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                {<ToolCard tool={getAiTool(16)} burstIdx={16} />}
+              </div>
+              <div className='lg:w-[13.6vw] 2lg:w-[13.6vw] xl:w-[13.7vw] h-28 sm:h-52 lg:h-40 bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                {<ToolCard tool={getAiTool(17)} burstIdx={17} />}
+              </div>
+              {/* <div className='lg:w-[13.6vw] 2lg:w-[13.6vw] xl:w-[13.7vw] h-52 sm:h-72 bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                {<ToolCard tool={getAiTool(18)} burstIdx={18} />}
+              </div> */}
+              <div className='lg:w-[13.6vw] 2lg:w-[13.6vw] xl:w-[13.7vw] h-28 sm:h-72 lg:h-56 bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                {<ToolCard tool={getAiTool(19)} burstIdx={19} />}
+              </div>
+            {/* ))} */}
           </div>
         </div>
       </div>
-    </section>
-  );
-};
 
-export default ResponsiveToo2xlrid;
+      {/* Tools for small devices */}
+      <div className='flex justify-between lg:hidden mt-40 sm:mt-56'>
+        <div className='flex flex-col space-y-2 relative top-20'>
+          {/* {[0, 1, 2, 3,4,5].map((idx) => ( */}
+            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72 
+                      bg-[#e4ecf4] hover:bg-[#3bd4cb] rounded-sm'>
+              {<ToolCard tool={getAiTool(0)} burstIdx={0} />}
+
+            </div>
+            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52 
+                      bg-[#e4ecf4] hover:bg-[#3bd4cb] rounded-sm'>
+              {<ToolCard tool={getAiTool(1)} burstIdx={1} />}
+
+            </div>
+            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72 
+                      bg-[#e4ecf4] hover:bg-[#3bd4cb] rounded-sm'>
+              {<ToolCard tool={getAiTool(2)} burstIdx={2} />}
+
+            </div>
+            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52 
+                      bg-[#e4ecf4] hover:bg-[#3bd4cb] rounded-sm'>
+              {<ToolCard tool={getAiTool(3)} burstIdx={3} />}
+
+            </div>
+            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72 
+                      bg-[#e4ecf4] hover:bg-[#3bd4cb] rounded-sm'>
+              {<ToolCard tool={getAiTool(4)} burstIdx={4} />}
+
+            </div>
+            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52 
+                      bg-[#e4ecf4] hover:bg-[#3bd4cb] rounded-sm'>
+              {<ToolCard tool={getAiTool(5)} burstIdx={5} />}
+
+            </div>
+          {/* ))} */}
+          {/* <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-52 sm:h-72 bg-slate-500 rounded-sm'></div>
+          <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-52 sm:h-72 bg-slate-500 rounded-sm'></div> */}
+        </div>
+        <div className='flex flex-col space-y-2 '>
+          {/* {[6,7,8,9,10,11,12].map((idx) => ( */}
+            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72
+                         bg-[#e4ecf4] hover:bg-[#3bd4cb] rounded-sm'>
+              {<ToolCard tool={getAiTool(6)} burstIdx={6} />}
+            </div>
+            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52 
+                         bg-[#e4ecf4] hover:bg-[#3bd4cb] rounded-sm'>
+              {<ToolCard tool={getAiTool(7)} burstIdx={7} />}
+            </div>
+            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72
+                         bg-[#e4ecf4] hover:bg-[#3bd4cb] rounded-sm'>
+              {<ToolCard tool={getAiTool(8)} burstIdx={8} />}
+            </div>
+            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52 
+                         bg-[#e4ecf4] hover:bg-[#3bd4cb] rounded-sm'>
+              {<ToolCard tool={getAiTool(9)} burstIdx={9} />}
+            </div>
+            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72
+                         bg-[#e4ecf4] hover:bg-[#3bd4cb] rounded-sm'>
+              {<ToolCard tool={getAiTool(10)} burstIdx={10} />}
+            </div>
+            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52 
+                         bg-[#e4ecf4] hover:bg-[#3bd4cb] rounded-sm'>
+              {<ToolCard tool={getAiTool(11)} burstIdx={11} />}
+            </div>
+            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72
+                         bg-[#e4ecf4] hover:bg-[#3bd4cb] rounded-sm'>
+              {<ToolCard tool={getAiTool(12)} burstIdx={12} />}
+            </div>
+          {/*  ))} */}
+          {/* <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-52 sm:h-72 bg-slate-500 rounded-sm'></div>
+          <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-52 sm:h-72 bg-slate-500 rounded-sm'></div>
+          <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-52 sm:h-72 bg-slate-500 rounded-sm'></div> */}
+        </div>
+        <div className='flex flex-col space-y-2 relative top-20 mb-7 sm:mb-10'>
+          {/* {[14,15,16,17,18,19].map((idx) => ( */}
+            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72 
+                       bg-[#e4ecf4] hover:bg-[#3bd4cb] rounded-sm'>
+
+              {<ToolCard tool={getAiTool(14)} burstIdx={14} />}
+            </div>
+            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52  
+                       bg-[#e4ecf4] hover:bg-[#3bd4cb] rounded-sm'>
+
+              {<ToolCard tool={getAiTool(15)} burstIdx={15} />}
+            </div>
+            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72 
+                       bg-[#e4ecf4] hover:bg-[#3bd4cb] rounded-sm'>
+
+              {<ToolCard tool={getAiTool(16)} burstIdx={16} />}
+            </div>
+            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52  
+                       bg-[#e4ecf4] hover:bg-[#3bd4cb] rounded-sm'>
+
+              {<ToolCard tool={getAiTool(17)} burstIdx={17} />}
+            </div>
+            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72 
+                       bg-[#e4ecf4] hover:bg-[#3bd4cb] rounded-sm'>
+
+              {<ToolCard tool={getAiTool(18)} burstIdx={18} />}
+            </div>
+            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52 
+                       bg-[#e4ecf4] hover:bg-[#3bd4cb] rounded-sm'>
+
+              {<ToolCard tool={getAiTool(19)} burstIdx={19} />}
+            </div>
+          {/* ))} */}
+          {/* <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-52 sm:h-72 bg-slate-500 rounded-sm'></div>
+          <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-52 sm:h-72 bg-slate-500 rounded-sm'></div> */}
+        </div>
+
+      </div>
+
+
+    </section>
+  )
+}
+
+
+export default AiToolsPreview

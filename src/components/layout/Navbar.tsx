@@ -656,7 +656,7 @@
 
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from 'framer-motion';
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
 import { cn } from "@/lib/utils";
 import { useDispatch, useSelector } from "react-redux";
@@ -764,6 +764,39 @@ function Navbar({ className }: { className?: string }) {
     { name: 'Contact', path: '/contact' },
   ];
 
+  const services = [
+    {
+      title: 'SaaS Product Development',
+      link: "/services",
+      description: 'Crafting beautiful, high-performance websites and mobile applications tailored to your brand.',
+    },
+    {
+      title: 'Custom LLM API',
+      link: "/services",
+      description: 'Designing intuitive and engaging user experiences that captivate your audience and drive results.',
+    },
+    {
+      title: 'Automation Solutions',
+      link: "/services",
+      description: 'Leveraging artificial intelligence to automate processes, enhance efficiency, and unlock new possibilities.',
+    },
+    {
+      title: 'AI & ML Solution',
+      link: "/services",
+      description: 'Boosting your online presence with data-driven marketing strategies and expert SEO services.',
+    },
+    {
+      title: 'Cloud & DevOps Engineering',
+      link: "/services",
+      description: 'Building scalable and resilient infrastructure with modern cloud technologies and DevOps practices.',
+    },
+    {
+      title: 'IT Service Management',
+      link: "/services",
+      description: 'Developing a strong brand identity that resonates with your audience and sets you apart from the competition.',
+    },
+  ];
+
   return (
     <>
       {/* Blur overlay for the entire page except navbar and mobile menu */}
@@ -855,19 +888,38 @@ function Navbar({ className }: { className?: string }) {
           </div>
 
           <div className="hidden sm:flex space-x-4 md:space-x-6">
-            <Link to="/">
+            <NavLink to="/" className={
+              ({ isActive }) => `${isActive && "border-b-2 border-cynerza-purple"}`
+            }>
               <MenuItem setActive={setActive} active={active} item="Home" />
-            </Link>
-            <Link to="/ai-tools">
+            </NavLink>
+            <NavLink to="/ai-tools" className={
+              ({ isActive }) => `${isActive && "border-b-2 border-cynerza-purple"}`
+            }>
               <MenuItem setActive={setActive} active={active} item="AI Tools" />
-            </Link>
-            <Link to="/services">
-              <MenuItem setActive={setActive} active={active} item="Services" />
-            </Link>
-            <Link to={"/blogs"}>
+            </NavLink>
+            <NavLink to={"/services"} className={
+              ({ isActive }) => `${isActive && "border-b-2 border-cynerza-purple"}`
+            }>
+              <MenuItem setActive={setActive} active={active} item="Services">
+                <div className="text-sm lg:grid grid-cols-2 md:p-2 p-1">
+                  {services.map((service, idx) => (
+                    <ProductItem
+                      key={idx}
+                      href={service.link}
+                      title={service.title}
+                      description={service.description}
+                    />
+                  ))}
+                </div>
+              </MenuItem>
+            </NavLink>
+            <NavLink to={"/blogs"} className={
+              ({ isActive }) => `${isActive && "border-b-2 border-cynerza-purple"}`
+            }>
               <MenuItem setActive={setActive} active={active} item="Blog"
-                className={`hidden ${!loading && "lg:block"}`}>
-                <div className="text-sm lg:grid grid-cols-2 gap-10 p-4">
+                className={`hidden ${!loading && "sm:block"}`}>
+                <div className="text-sm lg:grid grid-cols-2 space-y-2 md:p-2 p-0">
                   {blogPosts.slice(0, 4).map((blog) => (
                     <ProductItem
                       key={blog._id}
@@ -880,10 +932,10 @@ function Navbar({ className }: { className?: string }) {
                 </div>
               </MenuItem>
               <MenuItem setActive={setActive} active={active} item="Blog"
-                className={`block ${loading ? "lg:block" : "lg:hidden"}`} />
-            </Link>
+                className={`block ${loading ? "sm:block" : "sm:hidden"}`} />
+            </NavLink>
             <MenuItem setActive={setActive} active={active} item="More">
-              <div className="flex flex-col space-y-4 text-sm">
+              <div className="flex flex-col space-y-4 text-sm md:p-4 p-2">
                 <HoveredLink to="/team">Team</HoveredLink>
                 <HoveredLink to="/about">About</HoveredLink>
                 <HoveredLink to="/contact">Contact</HoveredLink>
