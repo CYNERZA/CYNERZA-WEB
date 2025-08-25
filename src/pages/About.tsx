@@ -11,10 +11,10 @@ const About: React.FC = () => {
   }, []);
 
   const stats = [
-    { value: 25000, display: '25K+', label: 'Developers' },
-    { value: 1000000, display: '1M+', label: 'Projects Created' },
-    { value: 300, display: '300+', label: 'Enterprise Clients' },
-    { value: 150, display: '150+', label: 'Countries' }
+    { value: 25000, display: '25', label: 'Developers' },
+    { value: 1000000, display: '50+', label: 'Projects Created' },
+    { value: 300, display: '75+', label: 'Enterprise Clients' },
+    { value: 150, display: '2+', label: 'Countries' }
   ];
 
   const timeline = [
@@ -82,15 +82,21 @@ const About: React.FC = () => {
                 </Fade>
                 <Fade direction="up" triggerOnce delay={100}>
 
-                  <p className="text-lg text-gray-800 dark:text-gray-400">
-                    CYNERZA was born from a simple observation: developers spend too much time on repetitive tasks and not enough time creating value.
+                  <p className="text-lg text-gray-800 dark:text-gray-400 mb-4">
+                    Founded in 2025, Cynerza was built on a simple belief:
+                    developers should spend less time on repetitive work and more time creating meaningful impact.
+                    With a team of AI researchers and experienced developers,
+                    we set out to design tools that bring intelligence and efficiency into software development.
                   </p>
                   <p className="text-lg text-gray-800 dark:text-gray-400 mb-4">
-                    Founded in 2022 by a team of AI researchers and experienced developers, we set out to build tools that would fundamentally change how software is created.
+                    Our journey started with a core focus on AI-powered products for individuals (B2C),
+                    and over time, we expanded to deliver enterprise-grade solutions including SaaS product development,
+                    AI/ML integration, custom LLM APIs, IT service management, and Cloud & DevOps engineering.
+
                   </p>
                   <p className="text-lg text-gray-800 dark:text-gray-400">
-                    Today, we're proud to serve thousands of developers worldwide, from solo entrepreneurs to Fortune 500 companies, all using our platform to build better software faster.
-                  </p>
+                    Today, Cynerza is trusted by over 70 companies and hundreds of individual developers worldwide, all using our
+                    platform and solutions to build smarter, faster, and more reliable software.                  </p>
                 </Fade>
               </div>
               <Fade direction="up" triggerOnce delay={100} className='lg:w-1/2 relative'>
@@ -98,7 +104,7 @@ const About: React.FC = () => {
                 {/* <div className=""> */}
                 <div className="rounded-2xl overflow-hidden shadow-xl purple-glow">
                   <img
-                    src="/placeholder.svg"
+                    src="./cynerza.jpeg"
                     alt="CYNERZA team working"
                     className="w-full h-auto"
                   />

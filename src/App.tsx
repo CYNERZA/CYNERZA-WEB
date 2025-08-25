@@ -25,6 +25,7 @@ import Layout from './components/layout/admin/layout/adminPageLayout';
 import { BlogDetailPage } from './components/admin/blogPost';
 import UpdateBlogPost from "./components/admin/updateBlogPost"
 import SingleBlog from './pages/SingleBlog.js';
+import CareersPage from './pages/Careers.js';
 
 const queryClient = new QueryClient();
 
@@ -135,6 +136,12 @@ const App = () => (
                 <Contact />
               </PageLayout>
             } />
+            <Route  path='/careers' element={
+              <PageLayout>
+                <CareersPage/>
+              </PageLayout>
+            }
+            />
             <Route path="*" element={
               <PageLayout>
                 <NotFound />

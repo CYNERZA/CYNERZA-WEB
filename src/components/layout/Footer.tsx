@@ -1,15 +1,37 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Github, Linkedin, Instagram, Facebook } from 'lucide-react'
 
 const Footer: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
-      return document.documentElement.classList.contains("dark");
-    });
+    return document.documentElement.classList.contains("dark");
+  });
 
-    console.log(isDarkMode)
+  const socialLinkes = [
+    {
+      name: "Github",
+      icon: <Github />,
+      link: "https://github.com/CYNERZA/CYNERZA-WEB"
+    },
+    {
+      name: "LinkedIn",
+      icon: <Linkedin />,
+      link: "https://www.linkedin.com/company/cynerza"
+    },
+    {
+      name: "Instagram",
+      icon: <Instagram />,
+      link: "https://www.instagram.com/cynerza/?igsh=MTg5dXAwdTlkdzBtcA%3D%3D#"
+    },
+    {
+      name: "Facebook",
+      icon: <Facebook />,
+      link: "https://www.facebook.com/profile.php?id=61578860566441&rdid=JA72joEmBaBRVybF&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16wZQ8oji1%2F#"
+    },
+  ]
 
-    // theme mode handler
-    const toggleTheme = () => {
+  // theme mode handler
+  const toggleTheme = () => {
     const newTheme = !isDarkMode;
     document.documentElement.classList.toggle("dark", newTheme);
     localStorage.setItem("theme", newTheme ? "dark" : "light");
@@ -20,7 +42,7 @@ const Footer: React.FC = () => {
     <footer className="bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 ">
-          {}
+          { }
           <div className="lg:col-span-2 flex flex-col items-center">
             <Link to="/" className="inline-flex items-center">
               <span className="text-2xl font-bold font-heading text-cynerza-purple dark:text-cynerza-purple-light">
@@ -31,35 +53,32 @@ const Footer: React.FC = () => {
               Empowering innovation through cutting-edge AI solutions. We make advanced technology accessible for developers and businesses worldwide.
             </p>
             <div className="flex space-x-4 mt-6">
-              {['Twitter', 'GitHub', 'LinkedIn', 'Discord'].map((social) => (
-                <a 
-                  key={social}
-                  href={`https://${social.toLowerCase()}.com/cynerza`}
+              {socialLinkes.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-500 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
-                  aria-label={social}
+                  aria-label={social.name}
                 >
-                  <span className="sr-only">{social}</span>
+                  <span className="sr-only">{social.name}</span>
                   <div className="h-6 w-6 flex items-center justify-center">
-                    {social === 'Twitter' && <span className="text-xl">𝕏</span>}
-                    {social === 'GitHub' && <span className="text-xl">⎘</span>}
-                    {social === 'LinkedIn' && <span className="text-xl">in</span>}
-                    {social === 'Discord' && <span className="text-xl">#</span>}
+                    {social.icon}
                   </div>
                 </a>
               ))}
             </div>
           </div>
 
-          {}
+          { }
           <div className='flex flex-col items-center md:block'>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4">Products</h3>
             <ul className="space-y-3 text-center md:text-left">
               {['AI Tools', 'API', 'Integrations', 'Enterprise', 'Pricing'].map((item) => (
                 <li key={item}>
-                  <Link 
-                    to={`/${item.toLowerCase().replace(/\s/g, '-')}`} 
+                  <Link
+                    to={`/${item.toLowerCase().replace(/\s/g, '-')}`}
                     className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
                   >
                     {item}
@@ -74,7 +93,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-3 text-center md:text-left">
               {['About', 'Careers', 'Press', 'Partners'].map((item) => (
                 <li key={item}>
-                  <Link 
+                  <Link
                     to={`/${item.toLowerCase().replace(/\s/g, '-')}`}
                     className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
                   >
@@ -89,24 +108,24 @@ const Footer: React.FC = () => {
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4">Resources</h3>
             <ul className="space-y-3 text-center md:text-left">
               <li>
-                <Link 
-                  to="/documentation" 
+                <Link
+                  to="/documentation"
                   className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
                 >
                   Documentation
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/tutorials" 
+                <Link
+                  to="/tutorials"
                   className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
                 >
                   Tutorials
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/support" 
+                <Link
+                  to="/support"
                   className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
                 >
                   Support Center
@@ -133,8 +152,8 @@ const Footer: React.FC = () => {
             <Link to="/security" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors">
               Security
             </Link>
-            <button 
-             onClick={toggleTheme}
+            <button
+              onClick={toggleTheme}
               className="text-gray-500 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors"
               aria-label="Toggle dark mode"
             >
