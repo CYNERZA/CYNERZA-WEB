@@ -26,6 +26,8 @@ import { BlogDetailPage } from './components/admin/blogPost';
 import UpdateBlogPost from "./components/admin/updateBlogPost"
 import SingleBlog from './pages/SingleBlog.js';
 import CareersPage from './pages/Careers.js';
+import PrivacyPolicy from './pages/PrivacyPolicy.js';
+import TermsOfService from './pages/TermsofServic.js';
 
 const queryClient = new QueryClient();
 
@@ -139,6 +141,20 @@ const App = () => (
             <Route  path='/careers' element={
               <PageLayout>
                 <CareersPage/>
+              </PageLayout>
+            }
+            />
+            {/*  Privacy Policy */}
+            <Route  path='/privacy-policy' element={
+              <PageLayout>
+                <PrivacyPolicy/>
+              </PageLayout>
+            }
+            />
+            {/*  Terms of Servic */}
+            <Route  path='/tos' element={
+              <PageLayout>
+                <TermsOfService/>
               </PageLayout>
             }
             />

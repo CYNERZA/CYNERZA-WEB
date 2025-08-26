@@ -20,11 +20,14 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { link } from 'fs';
+import { useNavigate } from 'react-router-dom';
 
 const AiTools: React.FC = () => {
   useEffect(() => {
     document.title = 'AI Tools - CYNERZA';
   }, []);
+
+  const navigate = useNavigate()
 
   const categories = [
     {
@@ -55,7 +58,7 @@ const AiTools: React.FC = () => {
       description: 'Create and enhance images with AI-powered editing',
       icon: <ImageIcon className="w-6 h-6" />,
       gradient: 'from-purple-400 to-pink-600',
-                link: "https://tools.cynerza.com/image-tools-ai-image-generator",
+      link: "https://tools.cynerza.com/image-tools-ai-image-generator",
 
       tools: [
         {
@@ -81,18 +84,18 @@ const AiTools: React.FC = () => {
       gradient: 'from-emerald-400 to-teal-600',
       link: "https://tools.cynerza.com/audio-tools-text-to-speech",
       tools: [
-       {
-        toolName: "Text to Speech",
-        link: "https://tools.cynerza.com/audio-tools-text-to-speech"
-       },
-       {
-        toolName: "Voice Cloner",
-        link: "https://tools.cynerza.com/audio-tools-voice-cloner"
-       },
-       {
-        toolName: "Noise Remover",
-        link: "https://tools.cynerza.com/audio-tools-noise-remover"
-       }
+        {
+          toolName: "Text to Speech",
+          link: "https://tools.cynerza.com/audio-tools-text-to-speech"
+        },
+        {
+          toolName: "Voice Cloner",
+          link: "https://tools.cynerza.com/audio-tools-voice-cloner"
+        },
+        {
+          toolName: "Noise Remover",
+          link: "https://tools.cynerza.com/audio-tools-noise-remover"
+        }
       ]
     },
     {
@@ -306,9 +309,7 @@ const AiTools: React.FC = () => {
               )}
             </div>
           </section>
-
-          { }
-          <section className="py-16 bg-gradient-to-r from-cynerza-purple/5 to-cynerza-blue/5 dark:from-cynerza-purple/10 dark:to-cynerza-blue/10">
+          <section className="py-12 bg-gradient-to-r from-cynerza-purple/5 to-cynerza-blue/5 dark:from-cynerza-purple/10 dark:to-cynerza-blue/10">
             <div className="container mx-auto px-4 text-center">
               <motion.div
                 className="max-w-3xl mx-auto"
@@ -323,10 +324,16 @@ const AiTools: React.FC = () => {
                   Start using our AI tools today and experience the future of productivity.
                 </p>
                 <div className="flex flex-col sm:flex-row justify-center gap-4">
-                  <button className="px-8 py-3 bg-cynerza-purple hover:bg-cynerza-purple/90 text-white font-medium rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 hover:shadow-lg">
-                    Get Started for Free
-                  </button>
-                  <button className="px-8 py-3 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-medium rounded-xl border border-gray-200 dark:border-gray-700 transition-all duration-200 transform hover:-translate-y-0.5">
+                  <a href="https://tools.cynerza.com" target="_blank" rel="noopener noreferrer">
+                    <button
+                      className="px-8 py-3 bg-cynerza-purple hover:bg-cynerza-purple/90 text-white font-medium rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 hover:shadow-lg">
+                      Get Started for Free
+                    </button>
+                  </a>
+
+                  <button
+                  onClick={() => navigate("/contact")}
+                   className="px-8 py-3 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-medium rounded-xl border border-gray-200 dark:border-gray-700 transition-all duration-200 transform hover:-translate-y-0.5">
                     Schedule a Demo
                   </button>
                 </div>

@@ -65,7 +65,7 @@ const Contact: React.FC = () => {
     {
       icon: <Mail className="w-5 h-5" />,
       title: 'Email Us',
-      details: 'info@cynerza.ai',
+      details: 'hello@cynerza.ai',
       link: 'mailto:info@cynerza.ai'
     },
     {
@@ -77,8 +77,8 @@ const Contact: React.FC = () => {
     {
       icon: <MapPin className="w-5 h-5" />,
       title: 'Visit Us',
-      details: 'Puri, Odisha, India',
-      link: 'https://www.google.com/maps/place/Puri,+Odisha/@19.8087831,85.7391494,12z/data=!3m1!4b1!4m6!3m5!1s0x3a19c4180256e495:0x496a9d8b30c1fad7!8m2!3d19.8134554!4d85.8312359!16zL20vMDR0cTUy?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D'
+      details: 'Bhubaneswar, Odisha, India',
+      link: 'https://www.google.com/maps/place/Bhubaneswar,+Odisha/@20.3010259,85.7380514,12z/data=!3m1!4b1!4m6!3m5!1s0x3a1909d2d5170aa5:0xfc580e2b68b33fa8!8m2!3d20.2959847!4d85.8246101!16zL20vMDNjenFz?entry=ttu&g_ep=EgoyMDI1MDgyNC4wIKXMDSoASAFQAw%3D%3D'
     }
   ];
 

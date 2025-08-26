@@ -73,7 +73,7 @@ const Footer: React.FC = () => {
 
           { }
           <div className='flex flex-col items-center md:block'>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4">Products</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-300 mb-4">Products</h3>
             <ul className="space-y-3 text-center md:text-left">
               {['AI Tools', 'API', 'Integrations', 'Enterprise', 'Pricing'].map((item) => (
                 <li key={item}>
@@ -89,9 +89,9 @@ const Footer: React.FC = () => {
           </div>
 
           <div className='flex flex-col items-center md:block'>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4">Company</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-300 mb-4">Company</h3>
             <ul className="space-y-3 text-center md:text-left">
-              {['About', 'Careers', 'Press', 'Partners'].map((item) => (
+              {['About', 'Careers', 'Partners'].map((item) => (
                 <li key={item}>
                   <Link
                     to={`/${item.toLowerCase().replace(/\s/g, '-')}`}
@@ -105,7 +105,7 @@ const Footer: React.FC = () => {
           </div>
 
           <div className='flex flex-col items-center md:block'>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4">Resources</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-300 mb-4">Resources</h3>
             <ul className="space-y-3 text-center md:text-left">
               <li>
                 <Link
@@ -140,10 +140,10 @@ const Footer: React.FC = () => {
             &copy; {new Date().getFullYear()} CYNERZA Technologies Inc. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-4 md:mt-0">
-            <Link to="/privacy" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors">
+            <Link to="/privacy-policy" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors">
               Privacy Policy
             </Link>
-            <Link to="/terms" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors">
+            <Link to="/tos" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors">
               Terms of Service
             </Link>
             <Link to="/cookies" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors">
