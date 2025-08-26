@@ -64,7 +64,7 @@ const Team: React.FC = () => {
       name: "Hardip Solanki",
       role: "Full Stack Developer",
       imageUrl: "/Teams/Hardip Solanki.png",
-      bio: "Full Stack Developer",
+      bio: "Specialize in building scalable web apps using React, Node.js, and MongoDB. Creates clean, efficient code.",
       linkedInUrl: "https://www.linkedin.com/in/hardip-solanki-294168351"
     },
   ]

@@ -1,9 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { HoverEffect } from "../components/ui/card-hover-effect";
+import { useNavigate } from 'react-router-dom';
 
 const Services: React.FC = () => {
-   const services = [
+  const navigate = useNavigate()
+  const services = [
     {
       title: 'SaaS Product Development',
       description: 'Crafting beautiful, high-performance websites and mobile applications tailored to your brand.',
@@ -81,9 +83,30 @@ const Services: React.FC = () => {
             className=''
           />
         </motion.div>
-
-        {/* </div> */}
       </div>
+      {/* some text and button related to services  */}
+      <section className="py-12 mt-6 bg-gradient-to-r from-cynerza-purple/5 to-cynerza-blue/5 dark:from-cynerza-purple/10 dark:to-cynerza-blue/10">
+        <div className="container mx-auto px-4 text-center">
+          <motion.div
+            className="max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="gradient-text text-3xl md:text-4xl font-bold font-heading mb-6 text-gray-800 dark:text-gray-200">
+              Ready to <span className='gradient-text'>transform</span> your business with our services?</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
+              From SaaS development to AI solutions, cloud engineering to automation - we provide comprehensive digital services tailored to your specific business needs and goals.
+            </p>
+                <button
+                onClick={() => navigate("/contact")}
+                  className="px-8 py-3 bg-cynerza-purple hover:bg-cynerza-purple/90 text-white font-medium rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 hover:shadow-lg">
+                  Get Free Consultation
+                </button>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 };

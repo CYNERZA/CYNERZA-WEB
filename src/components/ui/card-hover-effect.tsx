@@ -3,6 +3,11 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { useState } from "react";
 
+interface iconType {
+  icon: JSX.Element
+  color: string
+}
+
 export const HoverEffect = ({
   items,
   className,
@@ -10,6 +15,7 @@ export const HoverEffect = ({
   items: {
     title: string;
     description: string;
+    iconDetails?: iconType
     link?: string;
   }[];
   className?: string;
@@ -48,7 +54,10 @@ export const HoverEffect = ({
               />
             )}
           </AnimatePresence>
-          <Card>
+          <Card className={`${item.iconDetails?.color && "text-center"}`}>
+            {item.iconDetails?.icon && <CardIcon className={`
+            
+              ${item.iconDetails.color}`}>{item.iconDetails.icon}</CardIcon>}
             <CardTitle>{item.title}</CardTitle>
             <CardDescription>{item.description}</CardDescription>
           </Card>
@@ -69,12 +78,28 @@ export const Card = ({
     <div
       className={cn(
         "rounded-2xl h-full w-full p-4 overflow-hidden bg-white dark:bg-black border border-slate-300 dark:border-white/[0.2] group-hover:dark:border-slate-700 group-hover:border-slate-300 relative z-20",
-        className
+       
       )}
     >
-      <div className="relative z-50">
+      <div className={`relative z-50  ${className}`}>
         <div className="p-4">{children}</div>
       </div>
+    </div>
+  );
+};
+export const CardIcon = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    // <h4 className={cn("", className)}>
+    //   {children}
+    // </h4>
+    <div className={cn("flex justify-center items-start mb-4", className)}>
+      {children}
     </div>
   );
 };
@@ -101,7 +126,7 @@ export const CardDescription = ({
   return (
     <p
       className={cn(
-        "mt-8 text-zinc-400 tracking-wide leading-relaxed text-sm",
+        "mt-4 text-zinc-400 tracking-wide leading-relaxed text-sm",
         className
       )}
     >
