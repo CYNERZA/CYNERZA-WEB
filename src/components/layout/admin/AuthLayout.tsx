@@ -18,6 +18,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({
   const navigate = useNavigate();
   const location = useLocation();
   const authStatus = useSelector((state: any) => state.auth.status);
+  const isLoading = useSelector((state: any) => state.auth.loading);
 
   // ✅ Local loading state for layout only
   const [layoutLoading, setLayoutLoading] = useState(true);
@@ -40,7 +41,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({
     if (authentication && authStatus !== authentication) {
       navigate("/admin/login", { state: { from: location.pathname } });
     } else if (!authentication && authStatus !== authentication) {
-      const redirectTo = location.state?.from || "/admin/dashboard";
+      const redirectTo = location.state?.from || "/admin";
       navigate(redirectTo);
     }
   }, [authStatus, authentication, navigate]);

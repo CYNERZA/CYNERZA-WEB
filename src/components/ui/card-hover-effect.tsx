@@ -30,12 +30,16 @@ export const HoverEffect = ({
       )}
     >
       {items.map((item, idx) => (
-        <a
+        <motion.a
           href={item?.link}
           key={item?.link}
           className="relative group  block p-2 h-full w-full"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5, delay: idx * 0.1 }}
         >
           <AnimatePresence>
             {hoveredIndex === idx && (
@@ -61,7 +65,7 @@ export const HoverEffect = ({
             <CardTitle>{item.title}</CardTitle>
             <CardDescription>{item.description}</CardDescription>
           </Card>
-        </a>
+        </motion.a>
       ))}
     </div>
   );
@@ -78,7 +82,7 @@ export const Card = ({
     <div
       className={cn(
         "rounded-2xl h-full w-full p-4 overflow-hidden bg-white dark:bg-black border border-slate-300 dark:border-white/[0.2] group-hover:dark:border-slate-700 group-hover:border-slate-300 relative z-20",
-       
+
       )}
     >
       <div className={`relative z-50  ${className}`}>

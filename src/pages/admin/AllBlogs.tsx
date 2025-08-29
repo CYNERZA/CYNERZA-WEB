@@ -23,14 +23,13 @@ const AllBlogs: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const blogs = useSelector((state: any) => state.blog.blogPosts);
   const loading = useSelector((state: any) => state.blog.loading);
-  const [isInitialLoading, setInitialLoading] = useState(true);
 
   useEffect(() => {
-    dispatch(fetchBlogPosts()).finally(() => setInitialLoading(false))
+    dispatch(fetchBlogPosts())
 
   }, []);
 
-  if (loading || isInitialLoading) {
+  if (loading) {
     return <LogoLoader />;
   }
 

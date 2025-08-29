@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, LogOut, LogIn, Moon, Sun } from "lucide-react";
+import { Calendar, Home, Inbox, LogOut, LogIn, Moon, Sun, Anchor, PodcastIcon, SaveAll } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -10,7 +10,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useToast } from '@/components/ui/use-toast';
 import { logout } from "../../../featured/auth/authSlice";
 import { useState } from "react";
@@ -22,14 +22,18 @@ export function AppSidebar() {
   const navigate = useNavigate();
   const { toast } = useToast();
 
+
   const [isDarkMode, setIsDarkMode] = useState(() => {
     return document.documentElement.classList.contains("dark");
   });
+
+  
 
   const logoutHandler = () => {
     dispatch(logout())
       .then((res: any) => {
         if (!res.error) {
+          localStorage.setItem("login", "false")
           navigate("/admin/login")
           toast({
             title: "Success",
@@ -53,7 +57,10 @@ export function AppSidebar() {
   };
 
   const items = [
-    { title: "Home", url: "/admin/dashboard", icon: Home },
+    { title: "Home", url: "/admin", icon: Home },
+    { title: "Department", url: "/admin/department", icon: Anchor },
+    { title: "JobPost", url: "/admin/jobs/create", icon: PodcastIcon },
+    { title: "Jobs", url: "/admin/jobs", icon:  SaveAll},
     { title: "Create Blog", url: "/admin/create-blog", icon: Inbox },
     { title: "Blogs", url: "/admin/blogs", icon: Calendar },
   ];
@@ -68,21 +75,22 @@ export function AppSidebar() {
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {authStatus && items.map((item) => (
+              {authStatus  && items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     asChild
                     className="hover:bg-slate-200 dark:hover:bg-gray-700 transition-colors duration-200"
                   >
-                    <a href={item.url} className="flex items-center gap-3 p-3">
+                    <Link
+                     to={item.url} className="flex items-center gap-3 p-3">
                       <item.icon className="w-5 h-5 text-slate-600 dark:text-slate-300" />
                       <span className="text-slate-700 dark:text-slate-300">{item.title}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
 
-              {authStatus ? (
+              {authStatus  ? (
                 <SidebarMenuItem>
                   <SidebarMenuButton
                     onClick={logoutHandler}

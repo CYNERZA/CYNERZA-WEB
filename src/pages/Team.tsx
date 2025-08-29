@@ -18,15 +18,8 @@ const Team: React.FC = () => {
     {
       name: 'Aditya Sahoo',
       role: 'Founder',
-      imageUrl: '/Teams/Aditya.jpg',
+      imageUrl: '/Teams/Adtiya Sir.jpeg',
       bio: 'Visionary leader and tech enthusiast, passionate about building transformative AI products.',
-      linkedInUrl: ""
-    },
-    {
-      name: 'Ashutosh Rath',
-      role: 'Founder',
-      imageUrl: '/Teams/Asutosh.jpg',
-      bio: 'Creative problem solver with a knack for innovation and a love for elegant code.',
       linkedInUrl: ""
     },
     {
@@ -53,7 +46,7 @@ const Team: React.FC = () => {
   ];
 
   const members: Array<teamDetails> = [
-    {
+     {
       name: "Aditi Mehera",
       role: "Android Developer",
       imageUrl: "/Teams/Aditi Mehera.jpeg",
@@ -61,10 +54,18 @@ const Team: React.FC = () => {
       linkedInUrl: "https://www.linkedin.com/in/aditi-mehra-5921a4288"
     },
     {
+      name: "saroj.jpeg Mehera",
+      role: "Full Stack Developer",
+      imageUrl: "/Teams/saroj.jpeg",
+      bio: "Senior Full Stack Developerr",
+      linkedInUrl: "https://www.linkedin.com/in/soumya-ranjan-parida-44b71b286/"
+    },
+   
+    {
       name: "Hardip Solanki",
       role: "Full Stack Developer",
       imageUrl: "/Teams/Hardip Solanki.png",
-      bio: "Specialize in building scalable web apps using React, Node.js, and MongoDB. Creates clean, efficient code.",
+      bio: "Junior Full Stack Developer",
       linkedInUrl: "https://www.linkedin.com/in/hardip-solanki-294168351"
     },
   ]
@@ -99,12 +100,13 @@ const Team: React.FC = () => {
             <div className="mb-16">
               {/* Founders */}
               <motion.h2
-              initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.5 }} 
-              className="text-2xl font-bold mb-4 border-b pb-4 text-center gradient-text">Founders
+                transition={{ delay: 0.3, duration: 0.5 }}
+                className="text-2xl font-bold mb-4 border-b pb-4 text-center gradient-text">Founders
               </motion.h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center items-stretch pb-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 
+              lg:flex justify-center items-center gap-4">
                 {founders.map((member, index) => (
                   <motion.a
                     key={index}
@@ -127,16 +129,40 @@ const Team: React.FC = () => {
                 ))}
 
               </div>
+              {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 
+              gap-8 items-stretch pb-4">
+                {founders.map((member, index) => (
+                  <motion.a
+                    key={index}
+                    href={member.linkedInUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="w-full flex justify-center items-center no-underline"
+                  >
+                    <TeamMemberCard
+                      name={member.name}
+                      role={member.role}
+                      imageUrl={member.imageUrl}
+                      bio={member.bio}
+                    />
+                  </motion.a>
+                ))}
+
+              </div> */}
               {/*Members */}
               <motion.h2
-              initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-               className="text-2xl font-bold mb-4 border-b pb-4 text-center mt-7 gradient-text">
+                className="text-2xl font-bold mb-4 border-b pb-4 text-center mt-7 gradient-text">
                 Members</motion.h2>
               <div className={`${members.length > 3 ?
                 "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center items-stretch pb-4"
-                : "flex flex-col sm:flex-row items-center justify-center gap-6"}`}>
+                : "flex flex-col sm:flex-row items-center justify-center gap-4 lg:gap-[3.5rem]"}`}>
                 {members.map((member, index) => (
                   <motion.a
                     key={index}
