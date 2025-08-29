@@ -1,6 +1,6 @@
 # CYNERZA - Modern Web Interface                                            
 [![GitHub stars](https://img.shields.io/github/stars/CYNERZA/CYNERZA-WEB?style=social)](https://github.com/CYNERZA/CYNERZA-WEB/stargazers)              
-<p align="center"><img src="public/logo.png" alt="CYNERZA Logo" width="200"/></p>
+<p align="center"><img src="public/logo.png" alt="CYNERZA Logo" width="201"/></p>
 
 CYNERZA is a modern web application built with React, TypeScript, and Tailwind CSS, featuring a responsive design and beautiful UI components. This project serves as the official web interface for CYNERZA's AI tools and services.
 
