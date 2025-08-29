@@ -157,6 +157,7 @@ import React from 'react';
 import { Globe, Layers, Smartphone, Server, FileText } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { HoverEffect } from '../ui/card-hover-effect';
+import { Link } from 'react-router-dom';
 
 
 const ServicesSection: React.FC = () => {
@@ -270,7 +271,7 @@ const ServicesSection: React.FC = () => {
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.3, delay: 1 * 0.05 }}
           layout
-          className="glass-card p-6 rounded-lg">
+          className="rounded-lg">
           <HoverEffect
             items={services}
             className=''
@@ -285,10 +286,8 @@ const ServicesSection: React.FC = () => {
         >
           <div className="relative inline-flex group">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-cynerza-purple to-cynerza-blue rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
-            <a
-              href="https://tools.cynerza.com"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="./services"
               className="relative flex items-center px-5 py-5 bg-gradient-to-r from-cynerza-purple to-cynerza-blue text-white text-lg font-semibold rounded-xl transition-all
                        duration-200 hover:shadow-lg hover:shadow-cynerza-purple/30
                        bg-cynerza-purple hover:bg-cynerza-purple/90 h-12 "
@@ -297,7 +296,7 @@ const ServicesSection: React.FC = () => {
               <svg className="w-5 h-5 ml-2 -mr-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>

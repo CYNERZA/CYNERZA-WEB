@@ -510,19 +510,25 @@
 // export default CareersPage;
 
 
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   MdWork, MdHealthAndSafety, MdSchool, MdFlight,
   MdAttachMoney, MdEventAvailable, MdGroups,
   MdTrendingUp, MdFreeBreakfast, MdSportsTennis,
-  MdLocationOn, MdAccessTime, MdBusiness
+  MdLocationOn, MdAccessTime, MdBusiness,
+  MdLink
 } from 'react-icons/md';
 import { HoverEffect } from '@/components/ui/card-hover-effect';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch } from '@/app/store';
+import { getAllJobPosts } from '@/featured/jobPost/jobPostSlice';
+import { fetchAllDepartments } from '@/featured/department/departmentSlice';
+import { Linkedin } from 'lucide-react';
 
 // Define types for TypeScript
 interface JobPosition {
-  id: number;
+  _id: string;
   title: string;
   department: string;
   location: string;
@@ -542,108 +548,108 @@ interface Benefit {
 }
 
 // Sample data with detailed job descriptions
-const jobPositions: JobPosition[] = [
-  {
-    id: 1,
-    title: "Frontend Developer",
-    department: "Engineering",
-    location: "Remote",
-    type: "Internship",
-    description: "Join our frontend team to build beautiful, responsive user interfaces for our AI tools platform. You'll work with modern technologies like React, TypeScript, and Tailwind CSS.",
-    requirements: [
-      "Experience with React and TypeScript",
-      "Knowledge of modern CSS frameworks (Tailwind CSS preferred)",
-      "Understanding of responsive design principles",
-      "Familiarity with version control (Git)"
-    ],
-    responsibilities: [
-      "Develop and maintain user-facing features",
-      "Collaborate with UX designers to implement designs",
-      "Write clean, maintainable code with tests",
-      "Participate in code reviews"
-    ],
-  },
-  {
-    id: 2,
-    title: "UX/UI Designer",
-    department: "Design",
-    location: "San Francisco",
-    type: "Full-time",
-    description: "Create intuitive and visually appealing user experiences for our AI tools. You'll be responsible for the entire design process from research to implementation.",
-    requirements: [
-      "3+ years of UX/UI design experience",
-      "Proficiency in Figma, Sketch, or Adobe XD",
-      "Strong portfolio showcasing design process",
-      "Experience with user research methods"
-    ],
-    responsibilities: [
-      "Create wireframes, prototypes, and high-fidelity designs",
-      "Conduct user research and usability testing",
-      "Collaborate with developers to implement designs",
-      "Maintain and evolve our design system"
-    ],
-  },
-  { 
-    id: 3, 
-    title: "AI/ML Engineer", 
-    department: "Engineering", 
-    location: "Remote", 
-    type: "Full-time",
-    description: "Develop and implement machine learning models to power our AI tools. You'll work with large datasets and cutting-edge algorithms.",
-    requirements: [
-      "Strong background in machine learning and statistics",
-      "Experience with Python and ML frameworks (PyTorch, TensorFlow)",
-      "Knowledge of NLP or computer vision",
-      "Experience with cloud platforms (AWS, GCP, or Azure)"
-    ],
-    responsibilities: [
-      "Design, train, and deploy machine learning models",
-      "Preprocess and analyze large datasets",
-      "Optimize model performance and scalability",
-      "Collaborate with product team to define requirements"
-    ],
-  },
-  { 
-    id: 4, 
-    title: "DevOps Engineer", 
-    department: "Engineering", 
-    location: "New York", 
-    type: "Contract",
-    description: "Manage our cloud infrastructure and deployment pipelines to ensure high availability and performance of our AI tools platform.",
-    requirements: [
-      "Experience with AWS, Docker, and Kubernetes",
-      "Knowledge of CI/CD pipelines",
-      "Infrastructure as Code (Terraform or CloudFormation)",
-      "Monitoring and logging tools experience"
-    ],
-    responsibilities: [
-      "Maintain and scale our cloud infrastructure",
-      "Implement and improve CI/CD pipelines",
-      "Ensure system security and compliance",
-      "Monitor system performance and troubleshoot issues"
-    ],
-  },
-  { 
-    id: 5, 
-    title: "Marketing Specialist", 
-    department: "Marketing", 
-    location: "Austin", 
-    type: "Full-time",
-    description: "Develop and execute marketing strategies to promote our AI tools and grow our user base. You'll work across various channels including content, social media, and partnerships.",
-    requirements: [
-      "3+ years of B2B marketing experience",
-      "Experience with digital marketing channels",
-      "Strong writing and communication skills",
-      "Analytical mindset with ability to measure ROI"
-    ],
-    responsibilities: [
-      "Develop and execute marketing campaigns",
-      "Create engaging content for various channels",
-      "Analyze campaign performance and optimize strategies",
-      "Collaborate with product team on go-to-market plans"
-    ],
-  }
-];
+// const jobPositions: JobPosition[] = [
+//   {
+//     id: 1,
+//     title: "Frontend Developer",
+//     department: "Engineering",
+//     location: "Remote",
+//     type: "Internship",
+//     description: "Join our frontend team to build beautiful, responsive user interfaces for our AI tools platform. You'll work with modern technologies like React, TypeScript, and Tailwind CSS.",
+//     requirements: [
+//       "Experience with React and TypeScript",
+//       "Knowledge of modern CSS frameworks (Tailwind CSS preferred)",
+//       "Understanding of responsive design principles",
+//       "Familiarity with version control (Git)"
+//     ],
+//     responsibilities: [
+//       "Develop and maintain user-facing features",
+//       "Collaborate with UX designers to implement designs",
+//       "Write clean, maintainable code with tests",
+//       "Participate in code reviews"
+//     ],
+//   },
+//   {
+//     id: 2,
+//     title: "UX/UI Designer",
+//     department: "Design",
+//     location: "San Francisco",
+//     type: "Full-time",
+//     description: "Create intuitive and visually appealing user experiences for our AI tools. You'll be responsible for the entire design process from research to implementation.",
+//     requirements: [
+//       "3+ years of UX/UI design experience",
+//       "Proficiency in Figma, Sketch, or Adobe XD",
+//       "Strong portfolio showcasing design process",
+//       "Experience with user research methods"
+//     ],
+//     responsibilities: [
+//       "Create wireframes, prototypes, and high-fidelity designs",
+//       "Conduct user research and usability testing",
+//       "Collaborate with developers to implement designs",
+//       "Maintain and evolve our design system"
+//     ],
+//   },
+//   {
+//     id: 3,
+//     title: "AI/ML Engineer",
+//     department: "Engineering",
+//     location: "Remote",
+//     type: "Full-time",
+//     description: "Develop and implement machine learning models to power our AI tools. You'll work with large datasets and cutting-edge algorithms.",
+//     requirements: [
+//       "Strong background in machine learning and statistics",
+//       "Experience with Python and ML frameworks (PyTorch, TensorFlow)",
+//       "Knowledge of NLP or computer vision",
+//       "Experience with cloud platforms (AWS, GCP, or Azure)"
+//     ],
+//     responsibilities: [
+//       "Design, train, and deploy machine learning models",
+//       "Preprocess and analyze large datasets",
+//       "Optimize model performance and scalability",
+//       "Collaborate with product team to define requirements"
+//     ],
+//   },
+//   {
+//     id: 4,
+//     title: "DevOps Engineer",
+//     department: "Engineering",
+//     location: "New York",
+//     type: "Contract",
+//     description: "Manage our cloud infrastructure and deployment pipelines to ensure high availability and performance of our AI tools platform.",
+//     requirements: [
+//       "Experience with AWS, Docker, and Kubernetes",
+//       "Knowledge of CI/CD pipelines",
+//       "Infrastructure as Code (Terraform or CloudFormation)",
+//       "Monitoring and logging tools experience"
+//     ],
+//     responsibilities: [
+//       "Maintain and scale our cloud infrastructure",
+//       "Implement and improve CI/CD pipelines",
+//       "Ensure system security and compliance",
+//       "Monitor system performance and troubleshoot issues"
+//     ],
+//   },
+//   {
+//     id: 5,
+//     title: "Marketing Specialist",
+//     department: "Marketing",
+//     location: "Austin",
+//     type: "Full-time",
+//     description: "Develop and execute marketing strategies to promote our AI tools and grow our user base. You'll work across various channels including content, social media, and partnerships.",
+//     requirements: [
+//       "3+ years of B2B marketing experience",
+//       "Experience with digital marketing channels",
+//       "Strong writing and communication skills",
+//       "Analytical mindset with ability to measure ROI"
+//     ],
+//     responsibilities: [
+//       "Develop and execute marketing campaigns",
+//       "Create engaging content for various channels",
+//       "Analyze campaign performance and optimize strategies",
+//       "Collaborate with product team on go-to-market plans"
+//     ],
+//   }
+// ];
 
 const benefits: Benefit[] = [
   {
@@ -716,13 +722,19 @@ const CareersPage: React.FC = () => {
   const openPositionRef = useRef<HTMLDivElement>(null);
   const ourCultureRef = useRef<HTMLDivElement>(null);
   const [selectedDepartment, setSelectedDepartment] = useState<string>('All');
-  const [expandedJobId, setExpandedJobId] = useState<number | null>(null);
+  const [expandedJobId, setExpandedJobId] = useState<string | null>(null);
+  const dispatch = useDispatch<AppDispatch>();
+  const jobPositions = useSelector((state: any) => state.jobPost.jobPosts)
+  // const departments = useSelector((state: any) => state.department.departments)
 
-  const departments = ['All', ...new Set(jobPositions.map(job => job.department))];
+
+  // const departments = ['All', ...new Set(jobPositions.map(job => job.department))];
 
   const filteredJobs = selectedDepartment === "All"
     ? [...jobPositions]
-    : jobPositions.filter((job) => job.department === selectedDepartment);
+    : jobPositions.filter((job: JobPosition) => job.department === selectedDepartment);
+
+  const departments = jobPositions.map(jobPosition => jobPosition.department)
 
   const scrollToOpenPositionSection = () => {
     if (openPositionRef.current) {
@@ -736,13 +748,18 @@ const CareersPage: React.FC = () => {
     }
   };
 
-  const toggleJobExpansion = (jobId: number) => {
+  const toggleJobExpansion = (jobId: string) => {
     if (expandedJobId === jobId) {
       setExpandedJobId(null);
     } else {
       setExpandedJobId(jobId);
     }
   };
+
+  useEffect(() => {
+    dispatch(getAllJobPosts())
+    dispatch(fetchAllDepartments())
+  }, [])
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
@@ -930,7 +947,7 @@ const CareersPage: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              {departments.map(dept => (
+              {["All", ...departments].map(dept => (
                 <button
                   key={dept}
                   className={`px-5 py-2 rounded-full font-medium transition-all duration-300 ${selectedDepartment === dept
@@ -979,7 +996,7 @@ const CareersPage: React.FC = () => {
               >
                 {filteredJobs.map((job) => (
                   <motion.div
-                    key={job.id}
+                    key={job._id}
                     className="bg-white dark:bg-gray-800 dark:border-gray-700 rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300 overflow-hidden"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -989,7 +1006,7 @@ const CareersPage: React.FC = () => {
                   >
                     <div
                       className="p-6 cursor-pointer"
-                      onClick={() => toggleJobExpansion(job.id)}
+                      onClick={() => toggleJobExpansion(job._id)}
                     >
                       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                         <div className="flex-1">
@@ -1007,26 +1024,37 @@ const CareersPage: React.FC = () => {
                           </div>
                           <p className="text-gray-600 dark:text-gray-300">{job.description}</p>
                         </div>
-                        <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-medium py-2.5 px-5 rounded-full transition-colors duration-300 flex items-center gap-2 whitespace-nowrap"
-                        >
-                          Apply Now
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                            <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                          </svg>
-                        </motion.button>
+                        <div className='flex flex-col sm:flex-row gap-4 '>
+                          <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-medium py-2.5 px-5 rounded-full transition-colors duration-300 flex items-center gap-2 whitespace-nowrap"
+                          >
+                            Apply Now
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                            </svg>
+                          </motion.button>
+                          {job.linkedJobPost && (
+                            <a href={job.linkedJobPost} target="_blank" rel="noopener noreferrer" className=" bg-white/5    hover:opacity-95 transition-all duration-200">
+                              <span className="w-9 h-9 rounded-md bg-gradient-to-tr from-pink-500 via-indigo-500 to-blue-500 flex items-center justify-center text-white shadow-md">
+                                <Linkedin className="text-lg" />
+                              </span>
+                            </a>
+                          )}
+                        </div>
+
+
                       </div>
                     </div>
 
                     {/* Expandable job details */}
-                    {expandedJobId === job.id && (
+                    {expandedJobId === job._id && (
                       <motion.div
                         className="px-6 pb-6 border-t border-gray-200 dark:border-gray-700"
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0}}
+                        exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
                       >
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">

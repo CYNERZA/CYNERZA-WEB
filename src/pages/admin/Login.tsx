@@ -34,7 +34,8 @@ const Login: React.FC = () => {
                                 title: "Success",
                                 description: res.payload.message,
                             })
-                            navigate("/admin/dashboard")
+                            localStorage.setItem("login", "true")
+                            navigate("/admin")
                         }
                     })
                 } else {

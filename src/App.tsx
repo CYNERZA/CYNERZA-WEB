@@ -28,6 +28,17 @@ import SingleBlog from './pages/SingleBlog.js';
 import CareersPage from './pages/Careers.js';
 import PrivacyPolicy from './pages/PrivacyPolicy.js';
 import TermsOfService from './pages/TermsofServic.js';
+import AddDepartment from './pages/admin/AddDepartment.js';
+import JobApplicationForm from './components/careers/ApplyForJob.js';
+import JobForm from './pages/admin/JobPostForm.js';
+import AllJobs from './pages/admin/AllJobs.js';
+import UpdateJobPosts from './components/admin/updateJobPost.js';
+import SaasProductDevelopment from './components/services/SaasProductDevelopment.js';
+import CustomLLMAPIServices from './components/services/CustomLLMAPI.js';
+import AutomationSolutions from './components/services/AutomationSolutions.js';
+import AIMLSolutions from './components/services/AI&MLSolution.js';
+import CloudDevOpsEngineering from './components/services/CloudDevOpsEngineering.js';
+import ITServiceManagement from './components/services/ITServiceManagement.js';
 
 const queryClient = new QueryClient();
 
@@ -65,7 +76,7 @@ const App = () => (
                 <Login />
               </AuthLayout>
             } />
-            <Route path="/admin/dashboard" element={
+            <Route path="/admin" element={
               <AuthLayout authentication={true}>
                 <Layout>
                   <Admin />
@@ -97,6 +108,34 @@ const App = () => (
               <AuthLayout authentication={true}>
                 <Layout>
                   <UpdateBlogPost />
+                </Layout>
+              </AuthLayout>
+            } />
+            <Route path="/admin/department" element={
+              <AuthLayout authentication={true}>
+                <Layout>
+                  <AddDepartment />
+                </Layout>
+              </AuthLayout>
+            } />
+            <Route path="/admin/jobs/create" element={
+              <AuthLayout authentication={true}>
+                <Layout>
+                  <JobForm />
+                </Layout>
+              </AuthLayout>
+            } />
+            <Route path="/admin/jobs" element={
+              <AuthLayout authentication={true}>
+                <Layout>
+                  <AllJobs />
+                </Layout>
+              </AuthLayout>
+            } />
+            <Route path="/admin/jobs/:jobId" element={
+              <AuthLayout authentication={true}>
+                <Layout>
+                  <UpdateJobPosts />
                 </Layout>
               </AuthLayout>
             } />
@@ -136,6 +175,37 @@ const App = () => (
             <Route path="/contact" element={
               <PageLayout>
                 <Contact />
+              </PageLayout>
+            } />
+            {/* services */}
+            <Route path="/saas-product-development" element={
+              <PageLayout>
+                <SaasProductDevelopment />
+              </PageLayout>
+            } />
+            <Route path="/custom-llm-api" element={
+              <PageLayout>
+                <CustomLLMAPIServices />
+              </PageLayout>
+            } />
+            <Route path="/automation-solutions" element={
+              <PageLayout>
+                <AutomationSolutions />
+              </PageLayout>
+            } />
+            <Route path="/ai-ml-solution" element={
+              <PageLayout>
+                <AIMLSolutions />
+              </PageLayout>
+            } />
+            <Route path="/cloud-devops-engineering" element={
+              <PageLayout>
+                <CloudDevOpsEngineering />
+              </PageLayout>
+            } />
+            <Route path="/it-service-management" element={
+              <PageLayout>
+                <ITServiceManagement />
               </PageLayout>
             } />
             <Route  path='/careers' element={
