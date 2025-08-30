@@ -54,10 +54,10 @@ const Team: React.FC = () => {
       linkedInUrl: "https://www.linkedin.com/in/aditi-mehra-5921a4288"
     },
     {
-      name: "saroj.jpeg Mehera",
+      name: "Saroj",
       role: "Full Stack Developer",
       imageUrl: "/Teams/saroj.jpeg",
-      bio: "Senior Full Stack Developerr",
+      bio: "Senior Full Stack Developer",
       linkedInUrl: "https://www.linkedin.com/in/soumya-ranjan-parida-44b71b286/"
     },
    
