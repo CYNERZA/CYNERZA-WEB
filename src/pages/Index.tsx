@@ -5,6 +5,8 @@ import AiToolsPreview from '@/components/home/AiToolsPreview';
 import ContactCta from '@/components/home/ContactCta';
 import ServicesSection from '@/components/home/ServicesSection';
 import { motion } from "framer-motion";
+import UnicornStudioEmbed from '@/components/home/Hero';
+import UnicornScene from '@/components/home/Hero';
 
 const Index: React.FC = () => {
   useEffect(() => {
@@ -19,7 +21,8 @@ const Index: React.FC = () => {
       transition={{ duration: 0.8 }}
       className="w-full"
     >
-      <Hero />
+      <Hero
+      />
       <FeaturesSection />
       <ServicesSection />
       <AiToolsPreview />

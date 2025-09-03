@@ -94,11 +94,21 @@ const Services: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="gradient-text text-3xl md:text-4xl font-bold font-heading mb-6 text-gray-800 dark:text-gray-200">
-              Ready to <span className='gradient-text'>transform</span> your business with our services?</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
+           <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className=" text-4xl sm:text-5xl font-bold font-heading mb-6 bg-clip-text
+          text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
+              Ready to <span className='gradient-text'>transform</span> your business with our services?
+              </motion.h1>
+            <motion.p
+            initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+             className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed">
               From SaaS development to AI solutions, cloud engineering to automation - we provide comprehensive digital services tailored to your specific business needs and goals.
-            </p>
+            </motion.p>
                 <button
                 onClick={() => navigate("/contact")}
                   className="px-8 py-3 bg-cynerza-purple hover:bg-cynerza-purple/90 text-white font-medium rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 hover:shadow-lg">

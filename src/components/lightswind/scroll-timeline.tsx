@@ -222,14 +222,18 @@ export const ScrollTimeline = ({
     <div
       ref={scrollRef}
       className={cn(
-        "relative min-h-screen w-full overflow-hidden",
+        "relative min-h-screen w-full overflow-hidden ",
         darkMode ? "bg-background text-foreground" : "",
         className
       )}
     >
-      <div className="text-center py-16 px-4">
-        <h2 className="text-3xl md:text-5xl font-bold mb-4">{title}</h2>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+      <div className="text-center py-16 px-4 ">
+        <h2 className="
+        text-4xl md:text-5xl font-bold font-heading bg-clip-text 
+                  text-transparent bg-gradient-to-r
+                   from-gray-900 to-gray-700 dark:from-white dark:to-gray-300
+         mb-4">{title}</h2>
+        <p className="text-lg text-gray-800 dark:text-gray-400 max-w-2xl mx-auto">
           {subtitle}
         </p>
       </div>
@@ -390,15 +394,15 @@ export const ScrollTimeline = ({
                             {event.year}
                           </p>
                         )}
-                        <h3 className="text-xl font-bold mb-1">
+                        <h3 className="text-xl text-gray-800 dark:text-gray-200 font-bold mb-1">
                           {event.title}
                         </h3>
                         {event.subtitle && (
-                          <p className="text-muted-foreground font-medium mb-2">
+                          <p className="text-muted-foreground text-gray-800 dark:text-gray-400 font-medium mb-2">
                             {event.subtitle}
                           </p>
                         )}
-                        <p className="text-muted-foreground">
+                        <p className="text-muted-foreground text-gray-800 dark:text-gray-400">
                           {event.description}
                         </p>
                       </CardContent>

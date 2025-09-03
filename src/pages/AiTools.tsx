@@ -198,14 +198,15 @@ const AiTools: React.FC = () => {
                   <span>AI-Powered Tools</span>
                 </motion.div>
 
-                <motion.h1
-                  className="text-4xl md:text-6xl font-bold font-heading mb-6 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300"
+                <motion.h2
+                  className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
+                  text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.5 }}
                 >
                   Explore Our <span className="gradient-text">AI Tools</span>
-                </motion.h1>
+                </motion.h2>
 
                 <motion.p
                   className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
@@ -250,7 +251,7 @@ const AiTools: React.FC = () => {
                     All Tools
                   </button>
                   {categories.map((category) => (
-                    
+
                     <button
                       key={category.id}
                       onClick={() => setActiveCategory(category.id)}
@@ -276,7 +277,7 @@ const AiTools: React.FC = () => {
                   {filteredTools.map((tool, index) => (
                     <InteractiveGradient
                       color="#1890ff"
-                      glowColor="#107667ed"
+                      glowColor="#0e113b"
                       followMouse={true}
                       hoverOnly={false}
                       intensity={100}
@@ -364,12 +365,25 @@ const AiTools: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="gradient-text text-3xl md:text-4xl font-bold font-heading mb-6 text-gray-800 dark:text-gray-200">
-                  Ready to <span className='gradient-text'>supercharge</span> your workflow?</h2>
-                <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                  className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
+                  Ready to <span className='gradient-text'>supercharge</span> your workflow?
+                </motion.h2>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                  className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-8">
                   Start using our AI tools today and experience the future of productivity.
-                </p>
-                <div className="flex flex-col sm:flex-row justify-center gap-4">
+                </motion.p>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5, duration: 0.5 }}
+                  className="flex flex-col sm:flex-row justify-center gap-4">
                   <a href="https://tools.cynerza.com" target="_blank" rel="noopener noreferrer">
                     <button
                       className="px-8 py-3 bg-cynerza-purple hover:bg-cynerza-purple/90 text-white font-medium rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 hover:shadow-lg">
@@ -382,7 +396,7 @@ const AiTools: React.FC = () => {
                     className="px-8 py-3 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-medium rounded-xl border border-gray-200 dark:border-gray-700 transition-all duration-200 transform hover:-translate-y-0.5">
                     Schedule a Demo
                   </button>
-                </div>
+                </motion.div>
               </motion.div>
             </div>
           </section>

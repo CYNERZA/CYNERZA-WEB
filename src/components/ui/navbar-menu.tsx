@@ -5,7 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 
 
 const transition = {
-    type: "spring",
+    type: "spring" as const,
     mass: 0.5,
     damping: 11.5,
     stiffness: 100,
@@ -25,13 +25,20 @@ export const MenuItem = ({
     item: string;
     children?: React.ReactNode;
     className?: string
-}) => {
+
+}
+) => {
+    const isActive = active === item;
     return (
         <div onMouseEnter={() => setActive(item)} className={`relative ${className}`}>
             <motion.p
-                transition={{ duration: 0.3 }}
-                className="cursor-pointer font-semibold text-slate-900 dark:text-slate-200 
-                text-sm sm:font-medium"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.96 }}
+                className={`
+          relative z-10 font-semibold transition-colors duration-300
+          text-sm sm:text-base px-3 py-2 rounded-md text-slate-900 dark:text-slate-200 
+          hover:text-white hover:bg-cynerza-purple/80 hover:shadow-md dark:hover:bg-cynerza-purple/80 dark:hover:text-white
+        `}
             >
                 {item}
             </motion.p>
@@ -121,13 +128,20 @@ export const HoveredLink = ({ children, to, className }: any) => {
         <NavLink
             to={to}
             className={
-                ({ isActive }) => `${isActive && "border-b-2 border-cynerza-purple"}
-                text-center text-neutral-200 ${className}`
-            }
-
-
+                ({ isActive }) => `${isActive && "  border-b-2 border-cynerza-purple"} ${className} py-1
+                `}
         >
-            {children}
+            <span className=" text-center text-neutral-200 
+     cursor-pointer font-semibold transition-all duration-300
+    text-sm sm:font-medium px-3 py-2  rounded-md   hover:text-white hover:bg-cynerza-purple/80 hover:shadow-md dark:hover:bg-cynerza-purple/80 dark:hover:text-white`}
+">
+                {children}
+            </span>
+            {/* {children} */}
+
+
         </NavLink>
     );
 };
+
+
