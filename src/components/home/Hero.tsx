@@ -559,7 +559,7 @@ const HeaderSection: React.FC = () => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
-      className="relative pb-0 pt-24 sm:py-40 overflow-hidden transition-colors duration-500">
+      className="relative pb-10 sm:pb-6 pt-24 sm:py-40 overflow-hidden transition-colors duration-500">
       <div className="absolute inset-0 z-10 pointer-events-none">
         <HexagonBackground isActive={isActive} cursor={cursor} />
       </div>

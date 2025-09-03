@@ -36,7 +36,7 @@ export const MenuItem = ({
                 whileTap={{ scale: 0.96 }}
                 className={`
           relative z-10 font-semibold transition-colors duration-300
-          text-sm sm:text-base px-3 py-2 rounded-md text-slate-900 dark:text-slate-200 
+          text-sm sm:text-base px-1 py-2 rounded-md text-slate-900 dark:text-slate-200 
           hover:text-white hover:bg-cynerza-purple/80 hover:shadow-md dark:hover:bg-cynerza-purple/80 dark:hover:text-white
         `}
             >
