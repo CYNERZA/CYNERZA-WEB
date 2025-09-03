@@ -89,6 +89,10 @@ export default {
         sm: 'calc(var(--radius) - 4px)'
       },
       keyframes: {
+        moveHand: {
+          '0%, 100%': { transform: 'translateX(0)' },            // Start fully visible
+          '50%': { transform: 'translateX(40%)' },               // Move right: hand partly outside right edge
+        },
         'accordion-down': {
           from: {
             height: '0'
@@ -143,6 +147,7 @@ export default {
         }
       },
       animation: {
+        moveHand: 'moveHand 8s ease-in-out infinite',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         // 'float': 'float 6s ease-in-out infinite',

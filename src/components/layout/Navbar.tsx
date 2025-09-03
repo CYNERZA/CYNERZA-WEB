@@ -172,7 +172,7 @@ function Navbar({ className }: { className?: string }) {
                 transition={{ duration: 0.6, ease: "easeInOut" }}
               >
                 <img
-                  src="/android-chrome-512x512.png"
+                  src="android-chrome-192x192.png"
                   alt="Logo"
                   className="w-12 h-12 rounded-full cursor-pointer"
                 />

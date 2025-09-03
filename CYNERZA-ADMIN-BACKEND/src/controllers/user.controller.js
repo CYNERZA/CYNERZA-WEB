@@ -38,7 +38,9 @@ const loginUser = asyncHandler(async (req, res) => {
             masterAdmin = await createMasterAdmin(process.env.MASTER_ADMIN_EMAIL, process.env.MASTER_ADMIN_PASSWORD)
         }
     } else {
-        throw new ApiError(400, "Invalid credentials")
+        return res
+            .status(400)
+            .json(new ApiResponse(400, {}, "Invalid credentials"))
     }
 
     const validPassword = await masterAdmin.isPasswordCorrect(password)

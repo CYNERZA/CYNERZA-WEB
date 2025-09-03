@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import ParticleBackground from '@/components/ui/ParticleBackground';
 import { motion } from 'framer-motion';
 import { Fade } from 'react-awesome-reveal';
+import { ScrollTimeline } from '@/components/lightswind/scroll-timeline';
 
 const About: React.FC = () => {
   useEffect(() => {
@@ -52,18 +53,19 @@ const About: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="max-w-3xl mx-auto text-center mb-16">
-              <motion.h1
+              <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="text-4xl md:text-5xl font-bold font-heading mb-6 text-slate-900 dark:text-slate-200">
+                className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
+                  text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
                 About <span className="gradient-text">CYNERZA</span>
-              </motion.h1>
+              </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.5 }}
-                className="text-xl text-gray-800 dark:text-gray-400">
+                className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
                 We're on a mission to revolutionize software development by making advanced AI tools accessible to all developers.
               </motion.p>
             </motion.div>
@@ -76,30 +78,30 @@ const About: React.FC = () => {
             <div className="flex flex-col lg:flex-row gap-12 items-center">
               <div className="lg:w-1/2">
                 <Fade direction="up" triggerOnce delay={100}>
-                  <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6
-                text-gray-800 dark:text-gray-200">Our Story</h2>
+                  <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
+                  text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">Our Story</h2>
 
                 </Fade>
                 <Fade direction="up" triggerOnce delay={100}>
 
-                  <p className="text-lg text-gray-800 dark:text-gray-400 mb-4">
+                  <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-4">
                     Founded in 2025, Cynerza was built on a simple belief:
                     developers should spend less time on repetitive work and more time creating meaningful impact.
                     With a team of AI researchers and experienced developers,
                     we set out to design tools that bring intelligence and efficiency into software development.
                   </p>
-                  <p className="text-lg text-gray-800 dark:text-gray-400 mb-4">
+                  <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-4">
                     Our journey started with a core focus on AI-powered products for individuals (B2C),
                     and over time, we expanded to deliver enterprise-grade solutions including SaaS product development,
                     AI/ML integration, custom LLM APIs, IT service management, and Cloud & DevOps engineering.
 
                   </p>
-                  <p className="text-lg text-gray-800 dark:text-gray-400">
+                  <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
                     Today, Cynerza is trusted by over 70 companies and hundreds of individual developers worldwide, all using our
                     platform and solutions to build smarter, faster, and more reliable software.                  </p>
                 </Fade>
               </div>
-              <Fade direction="up" triggerOnce delay={100} className='lg:w-1/2 relative'>
+              <Fade direction="up" triggerOnce delay={20} className='lg:w-1/2 relative'>
 
                 {/* <div className=""> */}
                 <div className="rounded-2xl overflow-hidden shadow-xl purple-glow">
@@ -138,44 +140,17 @@ const About: React.FC = () => {
         </section>
 
         { /* Our Journey */}
-        <section className="py-10 glass-effect">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold font-heading mb-12 text-center text-gray-800 dark:text-gray-200">Our Journey</h2>
+       
 
-            <div className="relative">
-              { }
-              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-cynerza-purple/20"></div>
-              {timeline.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.5 }}
-                  transition={{ duration: 0.5, delay: index * 0.15 }}
-                  className={`relative flex items-center justify-between mb-12 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
-                >
-                  <div
-                    className={`w-5/12 break-words ${index % 2 === 0 ? 'md:text-right md:pr-8' : 'md:pl-8'}`}
-                  >
-                    <div className="glass-effect rounded-xl p-4 sm:p-6 min-h-[100px]">
-                      <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-800 dark:text-gray-200 break-words">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm sm:text-base text-gray-800 dark:text-gray-400 break-words">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-cynerza-purple text-white font-bold">
-                    {item.year.substring(2)}
-                  </div>
-
-                  <div className="w-5/12"></div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <ScrollTimeline
+          events={timeline}
+          title="Our Journey"
+          subtitle=""
+          progressIndicator={true}
+          cardAlignment="alternating"
+          revealAnimation="fade"
+          className=''
+        />
 
         { }
         <motion.section
@@ -186,11 +161,12 @@ const About: React.FC = () => {
           className="py-8">
           <div className="container mx-auto px-4 max-w-4xl ">
             <div className="glass-effect rounded-3xl p-8 md:p-12 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4 text-gray-800 dark:text-gray-200">
+              <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
+                  text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
                 Join Us on Our <span className="gradient-text">Mission</span>
               </h2>
 
-              <p className="text-lg text-gray-800 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-8">
                 Whether you're a developer looking to use our tools or interested in joining our team, we'd love to hear from you.
               </p>
 

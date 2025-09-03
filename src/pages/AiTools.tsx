@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ParticleBackground from '@/components/ui/ParticleBackground';
 import ToolCard from '@/components/tools/ToolCard';
+import { InteractiveGradient } from "@/components/lightswind/interactive-gradient-card"
+
+
 import {
   FileText,
   Image as ImageIcon,
@@ -195,14 +198,15 @@ const AiTools: React.FC = () => {
                   <span>AI-Powered Tools</span>
                 </motion.div>
 
-                <motion.h1
-                  className="text-4xl md:text-6xl font-bold font-heading mb-6 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300"
+                <motion.h2
+                  className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
+                  text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.5 }}
                 >
                   Explore Our <span className="gradient-text">AI Tools</span>
-                </motion.h1>
+                </motion.h2>
 
                 <motion.p
                   className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
@@ -247,6 +251,7 @@ const AiTools: React.FC = () => {
                     All Tools
                   </button>
                   {categories.map((category) => (
+
                     <button
                       key={category.id}
                       onClick={() => setActiveCategory(category.id)}
@@ -270,25 +275,67 @@ const AiTools: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <AnimatePresence mode="wait">
                   {filteredTools.map((tool, index) => (
-                    <motion.a
-                      href={tool.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      key={`${tool.name}-${index}`}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 20 }}
-                      transition={{ duration: 0.3, delay: index * 0.05 }}
-                      layout
+                    <InteractiveGradient
+                      color="#1890ff"
+                      glowColor="#0e113b"
+                      followMouse={true}
+                      hoverOnly={false}
+                      intensity={100}
+                      // backgroundColor="#151419"
+                      width="auto"
+                      height="20rem"
+                      borderRadius="2.25rem"
+                      className='relative shadow-lg dark:shadow-slate-900'
                     >
-                      <ToolCard
-                        name={tool.name}
-                        description={tool.description}
-                        icon={tool.icon}
-                        gradient={tool.gradient}
-                        delay={index * 0.1}
-                      />
-                    </motion.a>
+                      <motion.a
+                        href={tool.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={`${tool.name}-${index}`}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 20 }}
+                        transition={{ duration: 0.3, delay: index * 0.05 }}
+                        layout
+                        className=''
+                      >
+                        <div className={cn(
+                          'flex items-center justify-center absolute top-8 left-10 w-16 h-16 mb-6 rounded-full',
+                          'bg-white/10 text-white group-hover:scale-110 group-hover:shadow-glow',
+                          'dark:bg-gray-900/20 dark:text-white/90 text-slate-800 bg-gray-200/20 ',
+                          'transition-all duration-300'
+                        )}>
+                          {tool.icon}
+                        </div>
+                        <h3 className="text-2xl font-bold mb-3 dark:text-white/90 text-black/90">
+                          {tool.name}
+                        </h3>
+                        <p className="mx-4 sm:mx-0
+                        text-black/90 dark:text-white/80 group-hover:text-white/95 transition-colors">
+                          {tool.description}
+                        </p>
+                      </motion.a>
+                    </InteractiveGradient>
+
+                    // <motion.a
+                    //   href={tool.link}
+                    //   target="_blank"
+                    //   rel="noopener noreferrer"
+                    //   key={`${tool.name}-${index}`}
+                    //   initial={{ opacity: 0, y: 20 }}
+                    //   animate={{ opacity: 1, y: 0 }}
+                    //   exit={{ opacity: 0, y: 20 }}
+                    //   transition={{ duration: 0.3, delay: index * 0.05 }}
+                    //   layout
+                    // >
+                    //   <ToolCard
+                    //     name={tool.name}
+                    //     description={tool.description}
+                    //     icon={tool.icon}
+                    //     gradient={tool.gradient}
+                    //     delay={index * 0.1}
+                    //   />
+                    // </motion.a>
                   ))}
                 </AnimatePresence>
               </div>
@@ -318,12 +365,25 @@ const AiTools: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="gradient-text text-3xl md:text-4xl font-bold font-heading mb-6 text-gray-800 dark:text-gray-200">
-                  Ready to <span className='gradient-text'>supercharge</span> your workflow?</h2>
-                <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                  className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
+                  Ready to <span className='gradient-text'>supercharge</span> your workflow?
+                </motion.h2>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                  className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-8">
                   Start using our AI tools today and experience the future of productivity.
-                </p>
-                <div className="flex flex-col sm:flex-row justify-center gap-4">
+                </motion.p>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5, duration: 0.5 }}
+                  className="flex flex-col sm:flex-row justify-center gap-4">
                   <a href="https://tools.cynerza.com" target="_blank" rel="noopener noreferrer">
                     <button
                       className="px-8 py-3 bg-cynerza-purple hover:bg-cynerza-purple/90 text-white font-medium rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 hover:shadow-lg">
@@ -332,11 +392,11 @@ const AiTools: React.FC = () => {
                   </a>
 
                   <button
-                  onClick={() => navigate("/contact")}
-                   className="px-8 py-3 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-medium rounded-xl border border-gray-200 dark:border-gray-700 transition-all duration-200 transform hover:-translate-y-0.5">
+                    onClick={() => navigate("/contact")}
+                    className="px-8 py-3 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-medium rounded-xl border border-gray-200 dark:border-gray-700 transition-all duration-200 transform hover:-translate-y-0.5">
                     Schedule a Demo
                   </button>
-                </div>
+                </motion.div>
               </motion.div>
             </div>
           </section>
@@ -347,3 +407,5 @@ const AiTools: React.FC = () => {
 };
 
 export default AiTools;
+
+

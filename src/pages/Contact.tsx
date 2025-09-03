@@ -65,8 +65,8 @@ const Contact: React.FC = () => {
     {
       icon: <Mail className="w-5 h-5" />,
       title: 'Email Us',
-      details: 'hello@cynerza.ai',
-      link: 'mailto:info@cynerza.ai'
+      details: 'hello@cynerza.com',
+      link: 'mailto:hello@cynerza.com'
     },
     {
       icon: <Phone className="w-5 h-5" />,
@@ -107,10 +107,11 @@ const Contact: React.FC = () => {
         <section className="py-0">
           <div className="container mx-auto px-4">
             <motion.div {...fadeUp(0)} className="max-w-3xl mx-auto text-center">
-              <motion.h1 {...fadeUp(0.2)} className="text-4xl md:text-5xl font-bold font-heading mb-4 text-slate-900 dark:text-slate-200">
+              <motion.h2 {...fadeUp(0.2)} className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
+                  text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
                 Get in <span className="gradient-text">Touch</span>
-              </motion.h1>
-              <motion.p {...fadeUp(0.3)} className="text-xl text-gray-800 dark:text-gray-400 mb-4">
+              </motion.h2>
+              <motion.p {...fadeUp(0.3)} className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-4">
                 Have questions or want to learn more? Reach out to our team and we&apos;ll get back to you shortly.
               </motion.p>
             </motion.div>
@@ -137,7 +138,9 @@ const Contact: React.FC = () => {
             <motion.div {...fadeUp(0.4)} className="max-w-3xl mx-auto">
               <div className="glass-effect rounded-2xl overflow-hidden">
                 <div className="p-8">
-                  <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-200 text-center">Send Us a Message</h2>
+                  <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
+                  text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white
+                   dark:to-gray-300 text-center">Send Us a Message</h2>
 
                   <form onSubmit={handleSubmit}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -216,10 +219,11 @@ const Contact: React.FC = () => {
 
         <section className="py-8 glass-effect-light mt-6">
           <div className="container mx-auto px-4 text-center">
-            <motion.h2 {...fadeUp(0)} className="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-200">
+            <motion.h2 {...fadeUp(0)} className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
+                  text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
               Frequently Asked Questions
             </motion.h2>
-            <motion.p {...fadeUp(0.1)} className="text-gray-800 dark:text-gray-400 mb-8">
+            <motion.p {...fadeUp(0.1)} className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-8">
               Can't find what you're looking for? Contact us for more information.
             </motion.p>
 

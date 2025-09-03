@@ -1,14 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
 
+@import "./components/lightswind.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 @keyframes dash {
   to {
     stroke-dashoffset: 0;
   }
 }
+
+ .unicorn a[href*="https://www.unicorn.studio/?utm_source=public-url/"] {
+          display: none !important;
+          visibility: hidden !important;
+          opacity: 0 !important;
+          pointer-events: none !important;
+          position: absolute !important;
+          width: 0 !important;
+          height: 0 !important;
+          min-width: 0 !important;
+          min-height: 0 !important;
+          max-width: 0 !important;
+          max-height: 0 !important;
+          padding: 0 !important;
+          margin: 0 !important;
+          background: transparent !important;
+          border: 0 !important;
+          box-shadow: none !important;
+          z-index: -99999 !important;
+        }
+        .unicorn img[alt="Made with unicorn.studio"] {
+          display: none !important;
+          visibility: hidden !important;
+        }
 
 .animate-dash {
   stroke-dasharray: 10;

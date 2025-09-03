@@ -54,10 +54,10 @@ const Team: React.FC = () => {
       linkedInUrl: "https://www.linkedin.com/in/aditi-mehra-5921a4288"
     },
     {
-      name: "saroj.jpeg Mehera",
+      name: "Soumya Ranjan Parida",
       role: "Full Stack Developer",
       imageUrl: "/Teams/saroj.jpeg",
-      bio: "Senior Full Stack Developerr",
+      bio: "Senior Full Stack Developer",
       linkedInUrl: "https://www.linkedin.com/in/soumya-ranjan-parida-44b71b286/"
     },
    
@@ -84,15 +84,15 @@ const Team: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="text-4xl md:text-5xl font-bold text-center mb-5 
-              text-slate-900 dark:text-slate-200">
+                className="text-4xl sm:text-5xl font-bold font-heading mb-6 bg-clip-text
+          text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
                 Meet the <span className="gradient-text">Team</span> Behind CYNERZA
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.5 }}
-                className="text-xl text-gray-800 dark:text-gray-400">
+                className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed">
                 We're a passionate group of engineers, researchers, and designers dedicated to revolutionizing development with AI.
               </motion.p>
             </motion.div>
@@ -103,7 +103,8 @@ const Team: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="text-2xl font-bold mb-4 border-b pb-4 text-center gradient-text">Founders
+                className="text-4xl sm:text-5xl font-bold font-heading mb-6 bg-clip-text
+          text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 text-center">Founders
               </motion.h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 
               lg:flex justify-center items-center gap-4">
@@ -158,7 +159,8 @@ const Team: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="text-2xl font-bold mb-4 border-b pb-4 text-center mt-7 gradient-text">
+                className="text-4xl sm:text-5xl font-bold font-heading mb-6 bg-clip-text
+          text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300  mt-10 text-center">
                 Members</motion.h2>
               <div className={`${members.length > 3 ?
                 "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center items-stretch pb-4"
