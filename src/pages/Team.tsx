@@ -99,7 +99,7 @@ const Team: React.FC = () => {
 
             <div className="mb-16">
               {/* Founders */}
-              <motion.h2
+              {/* <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
@@ -129,7 +129,7 @@ const Team: React.FC = () => {
                   </motion.a>
                 ))}
 
-              </div>
+              </div> */}
               {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 
               gap-8 items-stretch pb-4">
                 {founders.map((member, index) => (
