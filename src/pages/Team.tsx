@@ -71,127 +71,78 @@ const Team: React.FC = () => {
   ]
 
   return (
-    <div className="w-full">
-      <section className="py-0">
-        <section className="py-1">
-          <div className="container mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="max-w-3xl mx-auto text-center mb-16">
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-                className="text-4xl sm:text-5xl font-bold font-heading mb-6 bg-clip-text
-          text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
-                Meet the <span className="gradient-text">Team</span> Behind CYNERZA
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.5 }}
-                className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed">
-                We're a passionate group of engineers, researchers, and designers dedicated to revolutionizing development with AI.
-              </motion.p>
-            </motion.div>
+   <div className="relative pt-24 md:pt-28 w-full px-4 sm:px-6 lg:px-8">
+    {/* Purple gradient background overlay */}
+    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-0" />
+    
+    {/* Content wrapper */}
+    <div className="relative z-10">
+        <section className="py-0">
+            <section className="py-1">
+                <div className="container mx-auto px-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="max-w-3xl mx-auto text-center mb-16">
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3, duration: 0.5 }}
+                            className="text-4xl sm:text-5xl font-bold font-heading mb-6 bg-clip-text
+                            text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
+                            Meet the <span className="gradient-text">Team</span> Behind CYNERZA
+                        </motion.h2>
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4, duration: 0.5 }}
+                            className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed">
+                            We're a passionate group of engineers, researchers, and designers dedicated to revolutionizing development with AI.
+                        </motion.p>
+                    </motion.div>
 
-            <div className="mb-16">
-              {/* Founders */}
-              {/* <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-                className="text-4xl sm:text-5xl font-bold font-heading mb-6 bg-clip-text
-          text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 text-center">Founders
-              </motion.h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 
-              lg:flex justify-center items-center gap-4">
-                {founders.map((member, index) => (
-                  <motion.a
-                    key={index}
-                    href={member.linkedInUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.5 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="w-full flex justify-center no-underline"
-                  >
-                    <TeamMemberCard
-                      name={member.name}
-                      role={member.role}
-                      imageUrl={member.imageUrl}
-                      bio={member.bio}
-                    />
-                  </motion.a>
-                ))}
-
-              </div> */}
-              {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 
-              gap-8 items-stretch pb-4">
-                {founders.map((member, index) => (
-                  <motion.a
-                    key={index}
-                    href={member.linkedInUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.5 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="w-full flex justify-center items-center no-underline"
-                  >
-                    <TeamMemberCard
-                      name={member.name}
-                      role={member.role}
-                      imageUrl={member.imageUrl}
-                      bio={member.bio}
-                    />
-                  </motion.a>
-                ))}
-
-              </div> */}
-              {/*Members */}
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-                className="text-4xl sm:text-5xl font-bold font-heading mb-6 bg-clip-text
-          text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300  mt-10 text-center">
-                Members</motion.h2>
-              <div className={`${members.length > 3 ?
-                "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center items-stretch pb-4"
-                : "flex flex-col sm:flex-row items-center justify-center gap-4 lg:gap-[3.5rem]"}`}>
-                {members.map((member, index) => (
-                  <motion.a
-                    key={index}
-                    href={member.linkedInUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.5 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="flex justify-center no-underline"
-                  >
-                    <TeamMemberCard
-                      name={member.name}
-                      role={member.role}
-                      imageUrl={member.imageUrl}
-                      bio={member.bio}
-                    />
-                  </motion.a>
-                ))}
-
-              </div>
-            </div>
-          </div>
+                    <div className="mb-16">
+                        {/* Members */}
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3, duration: 0.5 }}
+                            className="text-4xl sm:text-5xl font-bold font-heading mb-6 bg-clip-text
+                            text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 mt-10 text-center">
+                            Members
+                        </motion.h2>
+                        <div className={`${members.length > 3 ?
+                            "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center items-stretch pb-4"
+                            : "flex flex-col sm:flex-row items-center justify-center gap-4 lg:gap-[3.5rem]"}`}>
+                            {members.map((member, index) => (
+                                <motion.a
+                                    key={index}
+                                    href={member.linkedInUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    initial={{ opacity: 0, y: 50 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.5 }}
+                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    className="flex justify-center no-underline"
+                                >
+                                    <TeamMemberCard
+                                        name={member.name}
+                                        role={member.role}
+                                        imageUrl={member.imageUrl}
+                                        bio={member.bio}
+                                    />
+                                </motion.a>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
         </section>
-      </section>
     </div>
+</div>
+
   );
 };
 

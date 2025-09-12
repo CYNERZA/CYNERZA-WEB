@@ -141,17 +141,17 @@ const App = () => (
             } />
             {/* End Admin Routes */}
             <Route path="/ai-tools" element={
-              <PageLayout>
+              <PageLayout noPadding>
                 <AiTools />
               </PageLayout>
             } />
             <Route path="/services" element={
-              <PageLayout>
+              <PageLayout noPadding>
                 <Services />
               </PageLayout>
             } />
             <Route path="/blogs" element={
-              <PageLayout>
+              <PageLayout noPadding>
                 <BlogLayout />
               </PageLayout>
             } >
@@ -163,17 +163,17 @@ const App = () => (
             }             >
             </Route>
             <Route path="/team" element={
-              <PageLayout>
+              <PageLayout noPadding>
                 <Team />
               </PageLayout>
             } />
             <Route path="/about" element={
-              <PageLayout>
+              <PageLayout noPadding>
                 <About />
               </PageLayout>
             } />
             <Route path="/contact" element={
-              <PageLayout>
+              <PageLayout noPadding>
                 <Contact />
               </PageLayout>
             } />

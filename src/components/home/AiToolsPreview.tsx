@@ -1545,7 +1545,10 @@ const AiToolsPreview: React.FC = () => {
         <section
          ref={sectionRef} 
          className='relative sm:pb-[7rem] xl:pb-[25rem]'>
-            {/* Text */}
+            {/* Text */
+                              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20" />
+}
+
             <div className='text-center flex flex-col flex-wrap items-center justify-center '>
                 <div className='absolute top-20 sm:top-[10rem]  xl:top-[19rem] 2xl:top-[20rem]'>
                     {/* original layout unchanged */}

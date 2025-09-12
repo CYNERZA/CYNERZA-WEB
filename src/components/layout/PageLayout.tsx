@@ -22,7 +22,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
 
   return (
     <HelmetProvider>
-      <div className="min-h-screen flex flex-col bg-white dark:bg-gray-950">
+      <div className="min-h-screen flex flex-col bg-slate-200 text-slate-900 dark:bg-gray-950 dark:text-slate-200">
         <Helmet>
           <title>Cynerza - AI Tools & Solutions</title>
           <meta name="description" content="Experience powerful AI tools with Cynerza. Try now for free!" />
@@ -39,6 +39,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
         )}
       >
                 <div className={`${!noPadding && "w-full px-4 sm:px-6 lg:px-8"}`}>
+                  
           {children}
         </div>
       </main>
