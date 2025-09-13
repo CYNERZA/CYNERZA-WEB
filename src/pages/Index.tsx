@@ -22,6 +22,7 @@ const Index: React.FC = () => {
       transition={{ duration: 0.8 }}
       className="w-full"
     >
+      
       <Hero/>
       <CyneCLIShowcase/>
       <FeaturesSection />

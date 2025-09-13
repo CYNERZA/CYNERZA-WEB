@@ -4,17 +4,20 @@ import { Button } from '@/components/ui/button';
 
 const ContactCta: React.FC = () => {
   return (
-    <section className="relative overflow-hidden p-0 mb-4">
+    <section className="relative overflow-hidden py-4">
+      {/* Purple gradient background overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-0" />
+
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-cynerza-purple-light/30 to-cynerza-purple/20"></div>
+        {/* <div className="absolute inset-0 bg-gradient-to-br from-cynerza-purple-light/30 to-cynerza-purple/20"></div>
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_left,rgba(155,135,245,0.15),transparent_50%)]"></div>
-        <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_right,rgba(155,135,245,0.15),transparent_50%)]"></div>
+        <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_right,rgba(155,135,245,0.15),transparent_50%)]"></div> */}
       </div>
 
-      <div className="container mx-auto px-4 max-w-4xl relative">
-        <div className="glass-effect rounded-3xl p-8 md:p-12 text-center">
+      <div className="container mx-auto px-4 max-w-4xl relative z-10">
+        <div className=" rounded-3xl p-8 md:p-12 text-center">
           <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
-                  text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
+                    text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
             Ready to <span className="gradient-text">Transform</span> Your Development?
           </h2>
 
@@ -30,7 +33,7 @@ const ContactCta: React.FC = () => {
             </a>
             <Link to="/contact">
               <button className="px-6 py-3 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-medium rounded-full border
-               border-gray-200 dark:border-gray-700 transition-all duration-200 transform hover:-translate-y-0.5">
+                     border-gray-200 dark:border-gray-700 transition-all duration-200 transform hover:-translate-y-0.5">
                 Contact Sales
               </button>
             </Link>
@@ -38,6 +41,7 @@ const ContactCta: React.FC = () => {
         </div>
       </div>
     </section>
+
   );
 };
 

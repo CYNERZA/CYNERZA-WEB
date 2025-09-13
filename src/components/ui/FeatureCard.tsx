@@ -19,7 +19,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
     <motion.button
       className={cn(
         "relative rounded-2xl p-6 transition-all duration-300 ease-in-out",
-        "bg-white/80 dark:bg-gray-800/70 shadow",
+        "bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm  rounded-lg p-4 md:p-6",
         className
       )}
       whileHover={{

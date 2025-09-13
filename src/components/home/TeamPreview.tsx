@@ -53,6 +53,8 @@ const TeamPreview: React.FC = () => {
 
   return (
     <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20" />
+
       <div className="container mx-auto px-4">
         <div className="text-center max-w-4xl mx-auto mb-16">
           <motion.h2 

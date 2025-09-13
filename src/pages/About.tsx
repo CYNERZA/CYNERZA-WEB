@@ -42,152 +42,300 @@ const About: React.FC = () => {
   ];
 
   return (
-    <div className="w-full relative">
-      <ParticleBackground className="opacity-30" />
-      <div className="relative z-10">
-        { }
+    // <div className="w-full relative">
+    //   <ParticleBackground className="opacity-30" />
+    //   <div className="relative z-10">
+    //     { }
+    //     <section className="py-2">
+    //       <div className="container mx-auto px-4">
+    //         <motion.div
+    //           initial={{ opacity: 0, y: 20 }}
+    //           animate={{ opacity: 1, y: 0 }}
+    //           transition={{ duration: 0.5 }}
+    //           className="max-w-3xl mx-auto text-center mb-16">
+    //           <motion.h2
+    //             initial={{ opacity: 0, y: 20 }}
+    //             animate={{ opacity: 1, y: 0 }}
+    //             transition={{ delay: 0.3, duration: 0.5 }}
+    //             className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
+    //               text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
+    //             About <span className="gradient-text">CYNERZA</span>
+    //           </motion.h2>
+    //           <motion.p
+    //             initial={{ opacity: 0, y: 20 }}
+    //             animate={{ opacity: 1, y: 0 }}
+    //             transition={{ delay: 0.4, duration: 0.5 }}
+    //             className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+    //             We're on a mission to revolutionize software development by making advanced AI tools accessible to all developers.
+    //           </motion.p>
+    //         </motion.div>
+    //       </div>
+    //     </section>
+
+    //     {/* Our Story */}
+    //     <section className="py-10 glass-effect">
+    //       <div className="container mx-auto px-4">
+    //         <div className="flex flex-col lg:flex-row gap-12 items-center">
+    //           <div className="lg:w-1/2">
+    //             <Fade direction="up" triggerOnce delay={100}>
+    //               <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
+    //               text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">Our Story</h2>
+
+    //             </Fade>
+    //             <Fade direction="up" triggerOnce delay={100}>
+
+    //               <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-4">
+    //                 Founded in 2025, Cynerza was built on a simple belief:
+    //                 developers should spend less time on repetitive work and more time creating meaningful impact.
+    //                 With a team of AI researchers and experienced developers,
+    //                 we set out to design tools that bring intelligence and efficiency into software development.
+    //               </p>
+    //               <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-4">
+    //                 Our journey started with a core focus on AI-powered products for individuals (B2C),
+    //                 and over time, we expanded to deliver enterprise-grade solutions including SaaS product development,
+    //                 AI/ML integration, custom LLM APIs, IT service management, and Cloud & DevOps engineering.
+
+    //               </p>
+    //               <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+    //                 Today, Cynerza is trusted by over 70 companies and hundreds of individual developers worldwide, all using our
+    //                 platform and solutions to build smarter, faster, and more reliable software.                  </p>
+    //             </Fade>
+    //           </div>
+    //           <Fade direction="up" triggerOnce delay={20} className='lg:w-1/2 relative'>
+
+    //             {/* <div className=""> */}
+    //             <div className="rounded-2xl overflow-hidden shadow-xl purple-glow">
+    //               <img
+    //                 src="./cynerza.jpeg"
+    //                 alt="CYNERZA team working"
+    //                 className="w-full h-auto"
+    //               />
+    //             </div>
+    //             {/* </div> */}
+    //           </Fade>
+    //         </div>
+    //       </div>
+    //     </section>
+
+    //     { }
+    //     <section className="py-4">
+    //       <div className="container mx-auto px-4">
+    //         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    //           {stats.map((stat, index) => (
+    //             <motion.div
+    //               key={index}
+    //               initial={{ opacity: 0, y: 50 }}
+    //               whileInView={{ opacity: 1, y: 0 }}
+    //             >
+    //               <div className="text-4xl font-bold text-cynerza-purple dark:text-cynerza-purple-light mb-2">
+    //                 {stat.display}
+    //               </div>
+    //               <div className="text-gray-600 dark:text-gray-300">
+    //                 {stat.label}
+    //               </div>
+    //             </motion.div>
+    //           ))}
+    //         </div>
+    //       </div>
+    //     </section>
+
+    //     { /* Our Journey */}
+       
+
+    //     <ScrollTimeline
+    //       events={timeline}
+    //       title="Our Journey"
+    //       subtitle=""
+    //       progressIndicator={true}
+    //       cardAlignment="alternating"
+    //       revealAnimation="fade"
+    //       className=''
+    //     />
+
+    //     { }
+    //     <motion.section
+    //       initial={{ opacity: 0, y: 20 }}
+    //       whileInView={{ opacity: 1, y: 0 }}
+    //       viewport={{ once: true }}
+    //       transition={{ duration: 0.5 }}
+    //       className="py-8">
+    //       <div className="container mx-auto px-4 max-w-4xl ">
+    //         <div className="glass-effect rounded-3xl p-8 md:p-12 text-center">
+    //           <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
+    //               text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
+    //             Join Us on Our <span className="gradient-text">Mission</span>
+    //           </h2>
+
+    //           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-8">
+    //             Whether you're a developer looking to use our tools or interested in joining our team, we'd love to hear from you.
+    //           </p>
+
+    //           <div className="flex flex-col sm:flex-row justify-center gap-4">
+    //             <a href="https://tools.cynerza.com" target="_blank" rel="noopener noreferrer">
+    //               <Button className="bg-cynerza-purple hover:bg-cynerza-purple/90 text-white">
+    //                 Get Started Free
+    //               </Button>
+    //             </a>
+    //             <Link to="/careers">
+    //               <button className="px-2 py-2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-medium rounded-xl border border-gray-200
+    //                dark:border-gray-700 transition-all duration-200 transform hover:-translate-y-0.5">
+    //                 View Career Opportunities
+    //               </button>
+    //             </Link>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </motion.section>
+    //   </div>
+    // </div>
+
+    <div className="w-full relative pt-24 md:pt-28 px-4 sm:px-6 lg:px-8">
+    <ParticleBackground className="opacity-30" />
+    
+    {/* Purple gradient background overlay */}
+    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+    
+    <div className="relative z-10">
+        {/* Header Section */}
         <section className="py-2">
-          <div className="container mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="max-w-3xl mx-auto text-center mb-16">
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-                className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
-                  text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
-                About <span className="gradient-text">CYNERZA</span>
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.5 }}
-                className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                We're on a mission to revolutionize software development by making advanced AI tools accessible to all developers.
-              </motion.p>
-            </motion.div>
-          </div>
+            <div className="container mx-auto px-4">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="max-w-3xl mx-auto text-center mb-16">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3, duration: 0.5 }}
+                        className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
+                        text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
+                        About <span className="gradient-text">CYNERZA</span>
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4, duration: 0.5 }}
+                        className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                        We're on a mission to revolutionize software development by making advanced AI tools accessible to all developers.
+                    </motion.p>
+                </motion.div>
+            </div>
         </section>
 
         {/* Our Story */}
-        <section className="py-10 glass-effect">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col lg:flex-row gap-12 items-center">
-              <div className="lg:w-1/2">
-                <Fade direction="up" triggerOnce delay={100}>
-                  <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
-                  text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">Our Story</h2>
-
-                </Fade>
-                <Fade direction="up" triggerOnce delay={100}>
-
-                  <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-4">
-                    Founded in 2025, Cynerza was built on a simple belief:
-                    developers should spend less time on repetitive work and more time creating meaningful impact.
-                    With a team of AI researchers and experienced developers,
-                    we set out to design tools that bring intelligence and efficiency into software development.
-                  </p>
-                  <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-4">
-                    Our journey started with a core focus on AI-powered products for individuals (B2C),
-                    and over time, we expanded to deliver enterprise-grade solutions including SaaS product development,
-                    AI/ML integration, custom LLM APIs, IT service management, and Cloud & DevOps engineering.
-
-                  </p>
-                  <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                    Today, Cynerza is trusted by over 70 companies and hundreds of individual developers worldwide, all using our
-                    platform and solutions to build smarter, faster, and more reliable software.                  </p>
-                </Fade>
-              </div>
-              <Fade direction="up" triggerOnce delay={20} className='lg:w-1/2 relative'>
-
-                {/* <div className=""> */}
-                <div className="rounded-2xl overflow-hidden shadow-xl purple-glow">
-                  <img
-                    src="./cynerza.jpeg"
-                    alt="CYNERZA team working"
-                    className="w-full h-auto"
-                  />
+        <section className="py-10 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm 
+         rounded-lg">
+            <div className="container mx-auto px-4">
+                <div className="flex flex-col lg:flex-row gap-12 items-center">
+                    <div className="lg:w-1/2">
+                        <Fade direction="up" triggerOnce delay={100}>
+                            <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
+                            text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">Our Story</h2>
+                        </Fade>
+                        <Fade direction="up" triggerOnce delay={100}>
+                            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-4">
+                                Founded in 2025, Cynerza was built on a simple belief:
+                                developers should spend less time on repetitive work and more time creating meaningful impact.
+                                With a team of AI researchers and experienced developers,
+                                we set out to design tools that bring intelligence and efficiency into software development.
+                            </p>
+                            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-4">
+                                Our journey started with a core focus on AI-powered products for individuals (B2C),
+                                and over time, we expanded to deliver enterprise-grade solutions including SaaS product development,
+                                AI/ML integration, custom LLM APIs, IT service management, and Cloud & DevOps engineering.
+                            </p>
+                            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                                Today, Cynerza is trusted by over 70 companies and hundreds of individual developers worldwide, all using our
+                                platform and solutions to build smarter, faster, and more reliable software.
+                            </p>
+                        </Fade>
+                    </div>
+                    <Fade direction="up" triggerOnce delay={20} className='lg:w-1/2 relative'>
+                        <div className="rounded-2xl overflow-hidden shadow-xl purple-glow">
+                            <img
+                                src="./cynerza.jpeg"
+                                alt="CYNERZA team working"
+                                className="w-full h-auto"
+                            />
+                        </div>
+                    </Fade>
                 </div>
-                {/* </div> */}
-              </Fade>
             </div>
-          </div>
         </section>
 
-        { }
+        {/* Stats Section */}
         <section className="py-4">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                >
-                  <div className="text-4xl font-bold text-cynerza-purple dark:text-cynerza-purple-light mb-2">
-                    {stat.display}
-                  </div>
-                  <div className="text-gray-600 dark:text-gray-300">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
+            <div className="container mx-auto px-4">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    {stats.map((stat, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                        >
+                            <div className="text-4xl font-bold text-cynerza-purple dark:text-cynerza-purple-light mb-2">
+                                {stat.display}
+                            </div>
+                            <div className="text-gray-600 dark:text-gray-300">
+                                {stat.label}
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
             </div>
-          </div>
         </section>
 
-        { /* Our Journey */}
-       
-
+        {/* Our Journey Timeline */}
         <ScrollTimeline
-          events={timeline}
-          title="Our Journey"
-          subtitle=""
-          progressIndicator={true}
-          cardAlignment="alternating"
-          revealAnimation="fade"
-          className=''
+            events={timeline}
+            title="Our Journey"
+            subtitle=""
+            progressIndicator={true}
+            cardAlignment="alternating"
+            revealAnimation="fade"
+            className=''
         />
 
-        { }
+        {/* CTA Section */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="py-8">
-          <div className="container mx-auto px-4 max-w-4xl ">
-            <div className="glass-effect rounded-3xl p-8 md:p-12 text-center">
-              <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
-                  text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
-                Join Us on Our <span className="gradient-text">Mission</span>
-              </h2>
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="py-8">
+            <div className="container mx-auto px-4 max-w-4xl">
+                <div className="
+                bg-white/50 dark:bg-gray-800/50 
+                backdrop-blur-sm rounded-3xl p-8 md:p-12 text-center">
+                    <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
+                        text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
+                        Join Us on Our <span className="gradient-text">Mission</span>
+                    </h2>
 
-              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-8">
-                Whether you're a developer looking to use our tools or interested in joining our team, we'd love to hear from you.
-              </p>
+                    <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-8">
+                        Whether you're a developer looking to use our tools or interested in joining our team, we'd love to hear from you.
+                    </p>
 
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="https://tools.cynerza.com" target="_blank" rel="noopener noreferrer">
-                  <Button className="bg-cynerza-purple hover:bg-cynerza-purple/90 text-white">
-                    Get Started Free
-                  </Button>
-                </a>
-                <Link to="/careers">
-                  <button className="px-2 py-2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-medium rounded-xl border border-gray-200
-                   dark:border-gray-700 transition-all duration-200 transform hover:-translate-y-0.5">
-                    View Career Opportunities
-                  </button>
-                </Link>
-              </div>
+                    <div className="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="https://tools.cynerza.com" target="_blank" rel="noopener noreferrer">
+                            <Button className="bg-cynerza-purple hover:bg-cynerza-purple/90 text-white">
+                                Get Started Free
+                            </Button>
+                        </a>
+                        <Link to="/careers">
+                            <button className="px-2 py-2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-medium rounded-xl border border-gray-200
+                             dark:border-gray-700 transition-all duration-200 transform hover:-translate-y-0.5">
+                                View Career Opportunities
+                            </button>
+                        </Link>
+                    </div>
+                </div>
             </div>
-          </div>
         </motion.section>
-      </div>
     </div>
+</div>
+
   );
 };
 
