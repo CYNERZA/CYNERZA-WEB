@@ -11,6 +11,7 @@ COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/src ./src
 COPY --from=builder /app/public ./public
 RUN mkdir -p ./public/temp
+VOLUME ["/app/public/temp"]
 COPY --from=builder /app/.env .
 ENV NODE_ENV=production
 ENV PORT=3776
