@@ -198,26 +198,32 @@ const ServicesSection: React.FC = () => {
   const services = [
     {
       title: 'SaaS Product Development',
+      link: "/saas-product-development",
       description: 'Crafting beautiful, high-performance websites and mobile applications tailored to your brand.',
     },
     {
       title: 'Custom LLM API',
+      link: "/custom-llm-api",
       description: 'Designing intuitive and engaging user experiences that captivate your audience and drive results.',
     },
     {
       title: 'Automation Solutions',
+      link: "/automation-solutions",
       description: 'Leveraging artificial intelligence to automate processes, enhance efficiency, and unlock new possibilities.',
     },
     {
       title: 'AI & ML Solution',
+      link: "/ai-ml-solution",
       description: 'Boosting your online presence with data-driven marketing strategies and expert SEO services.',
     },
     {
       title: 'Cloud & DevOps Engineering',
+      link: "/cloud-devops-engineering",
       description: 'Building scalable and resilient infrastructure with modern cloud technologies and DevOps practices.',
     },
     {
       title: 'IT Service Management',
+      link: "/it-service-management",
       description: 'Developing a strong brand identity that resonates with your audience and sets you apart from the competition.',
     },
   ];
@@ -225,7 +231,7 @@ const ServicesSection: React.FC = () => {
   return (
     <section className="relative py-8 ">
       { }
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20" />
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20" />
 
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(124,58,237,0.03)_0%,transparent_70%)] dark:bg-[radial-gradient(circle_at_center,rgba(124,58,237,0.05)_0%,transparent_70%)]" />
@@ -276,6 +282,7 @@ const ServicesSection: React.FC = () => {
           className="rounded-lg">
           <HoverEffect
             items={services}
+            isLink
             className=''
           />
         </motion.div>

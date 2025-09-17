@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface iconType {
   icon: JSX.Element
@@ -11,6 +12,7 @@ interface iconType {
 export const HoverEffect = ({
   items,
   className,
+  isLink = false
 }: {
   items: {
     title: string;
@@ -19,9 +21,10 @@ export const HoverEffect = ({
     link?: string;
   }[];
   className?: string;
+  isLink?:boolean
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
+  const navigate = useNavigate()
   return (
     <div
       className={cn(
@@ -31,9 +34,9 @@ export const HoverEffect = ({
     >
       {items.map((item, idx) => (
         <motion.a
-          href={item?.link}
-          key={item?.link}
-          className="relative group  block p-2 h-full w-full"
+          onClick={() => navigate(item.link)}
+          key={item.link}
+          className={`relative group  block p-2 h-full w-full ${isLink && "cursor-pointer"}`}
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
           initial={{ opacity: 0, y: 50 }}

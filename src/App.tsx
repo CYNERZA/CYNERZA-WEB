@@ -179,32 +179,32 @@ const App = () => (
             } />
             {/* services */}
             <Route path="/saas-product-development" element={
-              <PageLayout>
+              <PageLayout noPadding>
                 <SaasProductDevelopment />
               </PageLayout>
             } />
             <Route path="/custom-llm-api" element={
-              <PageLayout>
+              <PageLayout noPadding>
                 <CustomLLMAPIServices />
               </PageLayout>
             } />
             <Route path="/automation-solutions" element={
-              <PageLayout>
+              <PageLayout noPadding>
                 <AutomationSolutions />
               </PageLayout>
             } />
             <Route path="/ai-ml-solution" element={
-              <PageLayout>
+              <PageLayout noPadding>
                 <AIMLSolutions />
               </PageLayout>
             } />
             <Route path="/cloud-devops-engineering" element={
-              <PageLayout>
+              <PageLayout noPadding>
                 <CloudDevOpsEngineering />
               </PageLayout>
             } />
             <Route path="/it-service-management" element={
-              <PageLayout>
+              <PageLayout noPadding>
                 <ITServiceManagement />
               </PageLayout>
             } />
