@@ -71,7 +71,6 @@ const JobForm: React.FC<JobPostProps> = ({ job }) => {
     job ?
       dispatch(UpdateJobPosts({ jobPost: data, jobPostId: job._id }))
         .then((res: any) => {
-          console.log(res)
           if (!res.error) {
             toast({
               title: "Success",
@@ -80,10 +79,9 @@ const JobForm: React.FC<JobPostProps> = ({ job }) => {
             reset()
             navigate("/admin/jobs")
           } else {
-            console.log("error: ", res.error.message)
             toast({
               title: "Error",
-              description: "Opps..! Something want to wrong",
+              description: "Opps..! Something went wrong",
               variant: "destructive",
             })
           }
@@ -100,10 +98,9 @@ const JobForm: React.FC<JobPostProps> = ({ job }) => {
             reset()
             navigate("/admin/jobs")
           } else {
-            console.log("error: ", res.error.message)
             toast({
               title: "Error",
-              description: "Opps..! Something want to wrong",
+              description: "Opps..! Something went wrong",
               variant: "destructive",
             })
           }

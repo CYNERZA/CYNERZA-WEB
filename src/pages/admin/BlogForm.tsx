@@ -2,7 +2,7 @@ import React, { useRef } from "react"
 import RTE from "@/components/admin/editor/RTE";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import {createBlogPost, updateBlogPost } from "@/featured/blog/blogSlice";
+import { createBlogPost, updateBlogPost } from "@/featured/blog/blogSlice";
 import { useToast } from '@/components/ui/use-toast';
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -21,6 +21,7 @@ interface FormData {
 }
 interface Post {
   _id?: string
+  slug?:string
   title?: string;
   description?: string;
   metaTitle?: string;
@@ -75,18 +76,18 @@ const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
     })
 
 
-function generateSlug(text: string): string {
-  return text
-    .toString()
-    .toLowerCase() // Convert to lowercase
-    .normalize('NFD') // Normalize to decomposed form for diacritic removal
-    .replace(/[\u0300-\u036f]/g, '') // Remove combining diacritical marks
-    .replace(/[^\u0A80-\u0AFF\u002D\u0030-\u0039\u0061-\u007A\u0020]/g, '') // Allow only Gujarati, hyphens, numbers, basic Latin
-    .replace(/[\s]+/g, '-') // Replace spaces with hyphens
-    .replace(/[-]+/g, '-') // Replace multiple hyphens with single
-    .replace(/^-+/, '') // Trim hyphens from start
-    .replace(/-+$/, ''); // Trim hyphens from end
-}
+  function generateSlug(text: string): string {
+    return text
+      .toString()
+      .toLowerCase() // Convert to lowercase
+      .normalize('NFD') // Normalize to decomposed form for diacritic removal
+      .replace(/[\u0300-\u036f]/g, '') // Remove combining diacritical marks
+      .replace(/[^\u0A80-\u0AFF\u002D\u0030-\u0039\u0061-\u007A\u0020]/g, '') // Allow only Gujarati, hyphens, numbers, basic Latin
+      .replace(/[\s]+/g, '-') // Replace spaces with hyphens
+      .replace(/[-]+/g, '-') // Replace multiple hyphens with single
+      .replace(/^-+/, '') // Trim hyphens from start
+      .replace(/-+$/, ''); // Trim hyphens from end
+  }
 
   const onSubmit = async (data: FormData) => {
     const formData = new FormData();
@@ -102,7 +103,6 @@ function generateSlug(text: string): string {
 
     if (data.thumbImage?.[0] instanceof File) {
       formData.append("thumbImage", data.thumbImage[0]);
-      console.log("object", data.thumbImage[0])
     }
 
     // Process editor content
@@ -157,7 +157,6 @@ function generateSlug(text: string): string {
     post
       ? dispatch(updateBlogPost({ blogId: post._id, blogPost: formData }))
         .then((res: any) => {
-          console.log(res)
           if (!res.error) {
             navigate(`/admin/blogs/${res.payload.data.slug}`)
             toast({
@@ -165,10 +164,9 @@ function generateSlug(text: string): string {
               description: res.payload.message,
             })
           } else {
-            console.log("error: ", res.error.message)
             toast({
               title: "Error",
-              description: "Opps..! Something want to wrong",
+              description: "Opps..! Something went wrong",
               variant: "destructive",
             })
           }
@@ -185,7 +183,7 @@ function generateSlug(text: string): string {
             console.log("error: ", res.error.message)
             toast({
               title: "Error",
-              description: "Opps..! Something want to wrong",
+              description: "Opps..! Something went wrong",
               variant: "destructive",
             })
           }
@@ -323,7 +321,7 @@ function generateSlug(text: string): string {
           <div className="flex justify-end gap-2 pt-4">
             {post && <Button
               type="button"
-              onClick={() => navigate(`/admin/blogs/${post._id}`)}
+              onClick={() =>   navigate(`/admin/blogs/${post.slug}`)}
               className="w-full bg-cynerza-purple hover:bg-cynerza-purple/90"
             >
               Cancle

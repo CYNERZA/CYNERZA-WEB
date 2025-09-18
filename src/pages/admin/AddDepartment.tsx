@@ -17,14 +17,12 @@ const AdminDepartmentForm: React.FC = () => {
     const submitDepartment = async (data: any) => {
         dispatch(createDepartment(data))
             .then((res: any) => {
-                console.log(res)
                 if (!res.error) {
                     toast({
                         title: "Success",
                         description: res.payload.message,
                     })
                 } else {
-                    console.log("error: ", res.error.message)
                     toast({
                         title: "Error",
                         description: res.payload||"Opps..! Something want to wrong",

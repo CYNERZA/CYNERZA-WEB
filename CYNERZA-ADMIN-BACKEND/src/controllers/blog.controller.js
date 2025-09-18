@@ -2,7 +2,7 @@ import { asyncHandler } from "../utils/asynsHandler.js";
 import { Blog } from "../models/blog.model.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
-import { uploadImage, uploadVideo } from "../utils/cloudinary.js";
+import { deleteByUrl, uploadImage, uploadVideo } from "../utils/cloudinary.js";
 import * as cheerio from 'cheerio';
 
 const uploadSubImages = async (editorImages) => {
