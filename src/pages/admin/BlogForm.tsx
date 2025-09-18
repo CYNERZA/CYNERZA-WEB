@@ -21,6 +21,7 @@ interface FormData {
 }
 interface Post {
   _id?: string
+  slug?:string
   title?: string;
   description?: string;
   metaTitle?: string;
@@ -320,7 +321,7 @@ const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
           <div className="flex justify-end gap-2 pt-4">
             {post && <Button
               type="button"
-              onClick={() => navigate(`/admin/blogs/${post._id}`)}
+              onClick={() =>   navigate(`/admin/blogs/${post.slug}`)}
               className="w-full bg-cynerza-purple hover:bg-cynerza-purple/90"
             >
               Cancle
