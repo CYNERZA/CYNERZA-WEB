@@ -111,33 +111,33 @@ function Navbar({ className }: { className?: string }) {
   const services = [
     {
       title: 'SaaS Product Development',
-      link: "/services",
-      description: 'Crafting beautiful, high-performance websites and mobile applications tailored to your brand.',
+      link: "/saas-product-development",
+      description: 'Crafting beautiful, high-performance SaaS applications tailored to your business needs.',
     },
     {
       title: 'Custom LLM API',
-      link: "/services",
-      description: 'Designing intuitive and engaging user experiences that captivate your audience and drive results.',
+      link: "/custom-llm-api",
+      description: 'Building custom Large Language Model APIs for your specific AI requirements.',
     },
     {
       title: 'Automation Solutions',
-      link: "/services",
+      link: "/automation-solutions",
       description: 'Leveraging artificial intelligence to automate processes, enhance efficiency, and unlock new possibilities.',
     },
     {
       title: 'AI & ML Solution',
-      link: "/services",
-      description: 'Boosting your online presence with data-driven marketing strategies and expert SEO services.',
+      link: "/ai-ml-solution",
+      description: 'Advanced AI and Machine Learning solutions to transform your business operations.',
     },
     {
       title: 'Cloud & DevOps Engineering',
-      link: "/services",
+      link: "/cloud-devops-engineering",
       description: 'Building scalable and resilient infrastructure with modern cloud technologies and DevOps practices.',
     },
     {
       title: 'IT Service Management',
-      link: "/services",
-      description: 'Developing a strong brand identity that resonates with your audience and sets you apart from the competition.',
+      link: "/it-service-management",
+      description: 'Comprehensive IT service management to optimize your technology infrastructure.',
     },
   ];
 

@@ -498,35 +498,138 @@ const HeaderSection: React.FC = () => {
             </div>
           </Link>
         </div>
-        <div className="flex lg:flex-row items-center justify-center flex-col">
-          <div className="relative lg:-mt-20 w-full max-w-md">
-            <div className="relative flex flex-col bg-orange-50 dark:bg-gray-800 rounded-3xl transition-colors duration-500">
-              <div className="py-5 px-4 z-10">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 text-center">
-                  We are building the future together
-                </h3>
+        {/* Premium Combined Stats & Clients Section */}
+        <div className="flex justify-center items-center mt-16">
+          <div className="relative w-full max-w-7xl">
+            {/* Main Container with Premium Glassmorphism */}
+            <div className="relative bg-gradient-to-br from-white/95 via-purple-50/90 to-blue-50/95 dark:from-gray-900/95 dark:via-purple-900/20 dark:to-blue-900/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 dark:border-gray-700/30 overflow-hidden">
+
+              {/* Animated Background Elements */}
+              <div className="absolute inset-0">
+                <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+                <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-blue-500/15 to-purple-500/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full blur-2xl animate-ping"></div>
               </div>
-              <div className="mt-10 px-5 xs:px-10 pb-12 pt-18">
-                <div className="flex items-center">
-                  <div>
-                    <span className="text-3xl xs:text-5xl font-semibold text-gray-900 dark:text-gray-100">
-                      20+
-                    </span>
-                    <span className="block text-sm text-gray-500 dark:text-gray-400">
-                      Projects Done
-                    </span>
+
+              {/* Content Grid */}
+              <div className="relative z-10 grid lg:grid-cols-3 gap-8 p-8 lg:p-12">
+
+                {/* Left: Company Stats */}
+                <div className="lg:col-span-1 space-y-8">
+                  {/* Header */}
+                  <div className="text-center lg:text-left">
+                    <h3 className="text-3xl lg:text-4xl font-bold mb-4">
+                      <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+                        Building the Future
+                      </span>
+                      <br />
+                      <span className="text-gray-900 dark:text-gray-100">Together</span>
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400 text-lg">
+                      5 months of innovation • 5 successful projects delivered
+                    </p>
                   </div>
-                  <div className="h-12 w-px mx-auto bg-orange-200 dark:bg-orange-700"></div>
-                  <div>
-                    <span className="text-3xl xs:text-5xl font-semibold text-gray-900 dark:text-gray-100">
-                      2+
-                    </span>
-                    <span className="block text-sm text-gray-500 dark:text-gray-400">
-                      Awards Winning
-                    </span>
+
+                  {/* Key Stats */}
+                  <div className="grid grid-cols-2 gap-6">
+                    <div className="group text-center lg:text-left">
+                      <div className="relative">
+                        <span className="text-5xl lg:text-6xl font-bold bg-gradient-to-br from-purple-600 to-blue-600 bg-clip-text text-transparent block">
+                          5
+                        </span>
+                        <div className="absolute -inset-2 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      </div>
+                      <p className="text-sm font-semibold text-gray-700 dark:text-gray-300 mt-2">Successful Projects</p>
+                      <div className="w-8 h-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mt-2 mx-auto lg:mx-0"></div>
+                    </div>
+
+                    <div className="group text-center lg:text-left">
+                      <div className="relative">
+                        <span className="text-5xl lg:text-6xl font-bold bg-gradient-to-br from-blue-600 to-purple-600 bg-clip-text text-transparent block">
+                          5
+                        </span>
+                        <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      </div>
+                      <p className="text-sm font-semibold text-gray-700 dark:text-gray-300 mt-2">Months Journey</p>
+                      <div className="w-8 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-2 mx-auto lg:mx-0"></div>
+                    </div>
+                  </div>
+
+                  {/* Additional Metrics */}
+                  <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-white/20 dark:border-gray-700/30">
+                    <div className="grid grid-cols-2 gap-4 text-center">
+                      <div>
+                        <span className="text-2xl font-bold text-gray-900 dark:text-gray-100 block">99.9%</span>
+                        <span className="text-xs text-gray-600 dark:text-gray-400">Uptime</span>
+                      </div>
+                      <div>
+                        <span className="text-2xl font-bold text-gray-900 dark:text-gray-100 block">24/7</span>
+                        <span className="text-xs text-gray-600 dark:text-gray-400">Support</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right: Trusted Clients */}
+                <div className="lg:col-span-2 space-y-6">
+                  <div className="text-center lg:text-left">
+                    <h4 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                      Trusted by Leading Companies
+                    </h4>
+                    <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mx-auto lg:mx-0"></div>
+                  </div>
+
+                  {/* Clients Grid */}
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {[
+                      { name: "Digitex Technologies", industry: "Digital Solutions", color: "from-purple-500 to-blue-500" },
+                      { name: "V-Store Hub", industry: "E-commerce Platform", color: "from-blue-500 to-cyan-500" },
+                      { name: "Incognior", industry: "Privacy Solutions", color: "from-cyan-500 to-purple-500" },
+                      { name: "Ino Bharat Hub", industry: "Innovation Center", color: "from-purple-500 to-pink-500" }
+                    ].map((client, index) => (
+                      <div
+                        key={index}
+                        className="group relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-6 border border-white/30 dark:border-gray-700/30 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 overflow-hidden"
+                      >
+                        {/* Hover Effect Background */}
+                        <div className={`absolute inset-0 bg-gradient-to-br ${client.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
+
+                        <div className="relative z-10 flex items-center space-x-4">
+                          <div className={`w-4 h-4 rounded-full bg-gradient-to-r ${client.color} flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg`}></div>
+                          <div className="flex-1">
+                            <h5 className="font-bold text-gray-900 dark:text-gray-100 text-sm mb-1">
+                              {client.name}
+                            </h5>
+                            <p className="text-xs text-gray-600 dark:text-gray-400">
+                              {client.industry}
+                            </p>
+                          </div>
+                          <div className="text-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Bottom CTA */}
+                  <div className="text-center lg:text-left mt-8">
+                    <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full px-6 py-3 border border-purple-200/50 dark:border-purple-700/50">
+                      <span className="w-2 h-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full animate-pulse"></span>
+                      <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                        Join 100+ satisfied clients worldwide
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              {/* Decorative Elements */}
+              <div className="absolute top-6 right-6 w-12 h-12 border-2 border-purple-300/30 dark:border-purple-500/30 rounded-full"></div>
+              <div className="absolute bottom-6 left-6 w-8 h-8 border-2 border-blue-300/30 dark:border-blue-500/30 rounded-full"></div>
+              <div className="absolute top-1/2 right-12 w-6 h-6 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full"></div>
             </div>
           </div>
         </div>

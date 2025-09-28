@@ -39,19 +39,23 @@ import AutomationSolutions from './components/services/AutomationSolutions.js';
 import AIMLSolutions from './components/services/AI&MLSolution.js';
 import CloudDevOpsEngineering from './components/services/CloudDevOpsEngineering.js';
 import ITServiceManagement from './components/services/ITServiceManagement.js';
-import Documentation from './pages/docs.js';
 
 const queryClient = new QueryClient();
 
 const mode = localStorage.getItem("theme")
-document.documentElement.classList.add(mode);
+if (mode) {
+  document.documentElement.classList.add(mode);
+} else {
+  // Default to light mode if no theme is set
+  localStorage.setItem("theme", "light");
+}
 const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: 'auto' // This makes it instant without animation
+      behavior: 'smooth' // This makes it smooth animation
     });
   }, [pathname]);
 
@@ -207,11 +211,6 @@ const App = () => (
             <Route path="/it-service-management" element={
               <PageLayout noPadding>
                 <ITServiceManagement />
-              </PageLayout>
-            } />
-            <Route path='/documentation' element={
-              <PageLayout noPadding>
-                <Documentation />
               </PageLayout>
             } />
             <Route path='/careers' element={

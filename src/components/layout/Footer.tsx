@@ -201,20 +201,50 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Products */}
+                {/* Products & Services */}
                 <div className='flex flex-col items-center md:block'>
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-300 mb-4">Products</h3>
+                    <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-300 mb-4">Our Solutions</h3>
                     <ul className="space-y-3 text-center md:text-left">
-                        {['AI Tools', 'API', 'Integrations', 'Enterprise', 'Pricing'].map((item) => (
-                            <li key={item}>
-                                <Link
-                                    to={`/${item.toLowerCase().replace(/\s/g, '-')}`}
-                                    className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
-                                >
-                                    {item}
-                                </Link>
-                            </li>
-                        ))}
+                        <li>
+                            <Link
+                                to="/ai-tools"
+                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                            >
+                                AI Tools
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                to="/services"
+                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                            >
+                                Services
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                to="/saas-product-development"
+                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                            >
+                                SaaS Development
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                to="/custom-llm-api"
+                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                            >
+                                Custom LLM API
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                to="/automation-solutions"
+                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                            >
+                                Automation
+                            </Link>
+                        </li>
                     </ul>
                 </div>
 
@@ -222,16 +252,38 @@ const Footer: React.FC = () => {
                 <div className='flex flex-col items-center md:block'>
                     <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-300 mb-4">Company</h3>
                     <ul className="space-y-3 text-center md:text-left">
-                        {['About', 'Careers', 'Partners'].map((item) => (
-                            <li key={item}>
-                                <Link
-                                    to={`/${item.toLowerCase().replace(/\s/g, '-')}`}
-                                    className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
-                                >
-                                    {item}
-                                </Link>
-                            </li>
-                        ))}
+                        <li>
+                            <Link
+                                to="/about"
+                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                            >
+                                About Us
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                to="/team"
+                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                            >
+                                Our Team
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                to="/careers"
+                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                            >
+                                Careers
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                to="/contact"
+                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                            >
+                                Contact Us
+                            </Link>
+                        </li>
                     </ul>
                 </div>
 
@@ -241,27 +293,39 @@ const Footer: React.FC = () => {
                     <ul className="space-y-3 text-center md:text-left">
                         <li>
                             <Link
-                                to="/documentation"
+                                to="/blogs"
                                 className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
                             >
-                                Documentation
+                                Blog & Insights
                             </Link>
                         </li>
                         <li>
-                            <Link
-                                to="/tutorials"
+                            <a
+                                href="https://tools.cynerza.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
                             >
-                                Tutorials
-                            </Link>
+                                AI Tools Platform
+                            </a>
                         </li>
                         <li>
                             <Link
-                                to="/support"
+                                to="/contact"
                                 className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
                             >
-                                Support Center
+                                Get Support
                             </Link>
+                        </li>
+                        <li>
+                            <a
+                                href="https://github.com/CYNERZA"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                            >
+                                Open Source
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -278,11 +342,8 @@ const Footer: React.FC = () => {
                     <Link to="/tos" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors">
                         Terms of Service
                     </Link>
-                    <Link to="/cookies" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors">
-                        Cookie Policy
-                    </Link>
-                    <Link to="/security" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors">
-                        Security
+                    <Link to="/contact" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors">
+                        Contact
                     </Link>
                     <button
                         onClick={toggleTheme}
