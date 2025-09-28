@@ -134,8 +134,10 @@ This project is private and proprietary. All rights reserved.
 
 Check out the live demo at [https://cynerza.com](https://cynerza.com)
 
+
 ---
 
 <p align="center">
   Made with ❤️ by <a href="https://github.com/CYNERZA">CYNERZA Team</a>
 </p>
+

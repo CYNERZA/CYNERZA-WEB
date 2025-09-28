@@ -122,7 +122,7 @@ const Team: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.5 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="w-full flex justify-center no-underline"
+                    className="w-full flex justify-center no-underline "
                   >
                     <TeamMemberCard
                       name={member.name}
