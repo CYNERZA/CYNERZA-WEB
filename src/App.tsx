@@ -39,6 +39,7 @@ import AutomationSolutions from './components/services/AutomationSolutions.js';
 import AIMLSolutions from './components/services/AI&MLSolution.js';
 import CloudDevOpsEngineering from './components/services/CloudDevOpsEngineering.js';
 import ITServiceManagement from './components/services/ITServiceManagement.js';
+import Documentation from './pages/docs.js';
 
 const queryClient = new QueryClient();
 
@@ -208,23 +209,28 @@ const App = () => (
                 <ITServiceManagement />
               </PageLayout>
             } />
-            <Route  path='/careers' element={
-              <PageLayout>
-                <CareersPage/>
+            <Route path='/documentation' element={
+              <PageLayout noPadding>
+                <Documentation />
+              </PageLayout>
+            } />
+            <Route path='/careers' element={
+              <PageLayout noPadding>
+                <CareersPage />
               </PageLayout>
             }
             />
             {/*  Privacy Policy */}
-            <Route  path='/privacy-policy' element={
-              <PageLayout>
-                <PrivacyPolicy/>
+            <Route path='/privacy-policy' element={
+              <PageLayout noPadding>
+                <PrivacyPolicy />
               </PageLayout>
             }
             />
             {/*  Terms of Servic */}
-            <Route  path='/tos' element={
-              <PageLayout>
-                <TermsOfService/>
+            <Route path='/tos' element={
+              <PageLayout noPadding>
+                <TermsOfService />
               </PageLayout>
             }
             />

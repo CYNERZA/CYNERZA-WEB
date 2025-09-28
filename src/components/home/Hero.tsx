@@ -510,7 +510,7 @@ const HeaderSection: React.FC = () => {
                 <div className="flex items-center">
                   <div>
                     <span className="text-3xl xs:text-5xl font-semibold text-gray-900 dark:text-gray-100">
-                      18k+
+                      20+
                     </span>
                     <span className="block text-sm text-gray-500 dark:text-gray-400">
                       Projects Done
@@ -519,7 +519,7 @@ const HeaderSection: React.FC = () => {
                   <div className="h-12 w-px mx-auto bg-orange-200 dark:bg-orange-700"></div>
                   <div>
                     <span className="text-3xl xs:text-5xl font-semibold text-gray-900 dark:text-gray-100">
-                      20+
+                      2+
                     </span>
                     <span className="block text-sm text-gray-500 dark:text-gray-400">
                       Awards Winning
