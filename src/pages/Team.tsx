@@ -134,7 +134,7 @@ const Team: React.FC = () => {
                   </motion.a>
                 ))}
 
-              </div> *
+              </div> 
               <div className="mb-16">
                 {/* Members */}
                 <motion.h2
