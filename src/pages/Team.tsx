@@ -17,31 +17,38 @@ const Team: React.FC = () => {
   const founders: Array<teamDetails> = [
     {
       name: 'Aditya Sahoo',
-      role: 'Founder',
+      role: 'Chief Executive Officer',
       imageUrl: '/Teams/Adtiya Sir.jpeg',
       bio: 'Visionary leader and tech enthusiast, passionate about building transformative AI products.',
-      linkedInUrl: ""
+      linkedInUrl: "https://www.linkedin.com/in/aditya-sahoo-88b81b345"
     },
     {
       name: 'Biswajit Rath',
-      role: 'Founder',
+      role: 'Chief Operating Officer',
       imageUrl: '/Teams/Biswajit.jpg',
       bio: 'Expert in scalable systems and passionate about building seamless user experiences.',
-      linkedInUrl: ""
+      linkedInUrl: "https://www.linkedin.com/in/biswajit-rath-396684342"
     },
     {
       name: 'Haraprasad Hota',
-      role: 'Founder',
+      role: 'Chief Information Officer',
       imageUrl: '/Teams/Haraprasad.jpg',
       bio: 'AI researcher and full-stack developer, driven to push the boundaries of technology.',
-      linkedInUrl: ""
+      linkedInUrl: "https://www.linkedin.com/in/haraprasad-hota"
     },
     {
       name: 'Satyaprakash Nayak',
-      role: 'Founder',
+      role: 'Chief Technology Officer',
       imageUrl: '/Teams/Satya.jpg',
       bio: 'Strategic thinker and product architect, dedicated to delivering impactful solutions.',
-      linkedInUrl: ""
+      linkedInUrl: "https://www.linkedin.com/in/satya-prakash-nayak-050315315"
+    },
+    {
+      name: 'Soumya Ranjan',
+      role: 'Chief Human Resources Officer',
+      imageUrl: '/Teams/saroj.jpeg',
+      bio: 'HR leader with a focus on culture, talent strategy growth.',
+      linkedInUrl: "https://www.linkedin.com/in/soumya-ranjan-parida-44b71b286/"
     },
   ];
 
@@ -53,14 +60,6 @@ const Team: React.FC = () => {
       bio: "Android Developer",
       linkedInUrl: "https://www.linkedin.com/in/aditi-mehra-5921a4288"
     },
-    {
-      name: "Soumya Ranjan Parida",
-      role: "Full Stack Developer",
-      imageUrl: "/Teams/saroj.jpeg",
-      bio: "Senior Full Stack Developer",
-      linkedInUrl: "https://www.linkedin.com/in/soumya-ranjan-parida-44b71b286/"
-    },
-
     {
       name: "Hardip Solanki",
       role: "Full Stack Developer",
@@ -108,7 +107,7 @@ const Team: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
                 className="text-4xl sm:text-5xl font-bold font-heading mb-6 bg-clip-text
-          text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 text-center">Founders
+          text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 text-center">Boards 
               </motion.h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 
               lg:flex justify-center items-center gap-4">
