@@ -1,7 +1,7 @@
- // === HEXAGON BACKGROUND ===
+// === HEXAGON BACKGROUND ===
 
 
- import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 interface Cursor { x: number; y: number; }
@@ -69,7 +69,7 @@ interface HexProps { isActive: boolean; cursor: Cursor; }
 //     const drawHexagon = (h: Hex) => {
 //       const { x, y, prog } = h;
 //       const isDark = document.documentElement.classList.contains('dark');
-      
+
 //       // Light mode માં dark colors, Dark mode માં bright colors
 //       const color1 = isDark 
 //         ? `rgba(59,130,246,${prog})` // Dark mode - blue
@@ -77,7 +77,7 @@ interface HexProps { isActive: boolean; cursor: Cursor; }
 //       const color2 = isDark 
 //         ? `rgba(147,51,234,${prog})` // Dark mode - purple  
 //         : `rgba(60,60,60,${prog * 0.6})`; // Light mode - medium gray
-      
+
 //       ctx.beginPath();
 //       for (let i = 0; i < 6; i++) {
 //         const ang = (Math.PI / 3) * i;
@@ -88,7 +88,7 @@ interface HexProps { isActive: boolean; cursor: Cursor; }
 //       ctx.closePath();
 //       ctx.setLineDash([perimeter]);
 //       ctx.lineDashOffset = perimeter * (1 - prog);
-      
+
 //       // Radial gradient for full coverage
 //       const grad = ctx.createRadialGradient(x, y, 0, x, y, hexSize);
 //       grad.addColorStop(0, color1);
@@ -129,7 +129,7 @@ interface HexProps { isActive: boolean; cursor: Cursor; }
 const HexagonBackground: React.FC<HexProps> = ({ isActive, cursor }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const hexagonsRef = useRef<Hex[]>([]);
-  
+
   // Generate grid only once
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -152,7 +152,7 @@ const HexagonBackground: React.FC<HexProps> = ({ isActive, cursor }) => {
     }
     hexagonsRef.current = hexs;
   }, []);
-  
+
   // Record trigger time for nearest two
   useEffect(() => {
     if (!isActive) return;
@@ -164,7 +164,7 @@ const HexagonBackground: React.FC<HexProps> = ({ isActive, cursor }) => {
     const near = dists.filter(o => o.d < range).sort((a, b) => a.d - b.d).slice(0, maxActive);
     near.forEach(o => (o.h.lastTrigger = now));
   }, [cursor.x, cursor.y, isActive]);
-  
+
   // Animate hexagons
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -177,26 +177,26 @@ const HexagonBackground: React.FC<HexProps> = ({ isActive, cursor }) => {
     };
     resize();
     window.addEventListener('resize', resize);
-    
+
     const baseSize = window.innerWidth < 768 ? 40 : 120;
     const spacing = 1.1;
     const hexSize = baseSize;
     const perimeter = 6 * hexSize;
     const fadeDelay = 1500;
-    
+
     const drawHexagon = (h: Hex) => {
       const { x, y, prog } = h;
       const isDark = document.documentElement.classList.contains('dark');
       const isMobile = window.innerWidth < 768;
-      
+
       // Light mode માં dark colors, Dark mode માં bright colors
-      const color1 = isDark 
+      const color1 = isDark
         ? `rgba(59,130,246,${prog})` // Dark mode - blue
         : `rgba(30,30,30,${prog * 0.8})`; // Light mode - dark gray
-      const color2 = isDark 
+      const color2 = isDark
         ? `rgba(147,51,234,${prog})` // Dark mode - purple  
         : `rgba(60,60,60,${prog * 0.6})`; // Light mode - medium gray
-      
+
       ctx.beginPath();
       for (let i = 0; i < 6; i++) {
         const ang = (Math.PI / 3) * i;
@@ -207,27 +207,27 @@ const HexagonBackground: React.FC<HexProps> = ({ isActive, cursor }) => {
       ctx.closePath();
       ctx.setLineDash([perimeter]);
       ctx.lineDashOffset = perimeter * (1 - prog);
-      
+
       // Radial gradient for full coverage
       const grad = ctx.createRadialGradient(x, y, 0, x, y, hexSize);
       grad.addColorStop(0, color1);
       grad.addColorStop(1, color2);
-      
+
       ctx.strokeStyle = grad;
-      
+
       // Mobile devices માં border width thin કરો
       if (isMobile) {
         ctx.lineWidth = isDark ? 1 : 0.8; // Mobile માં thin border
       } else {
         ctx.lineWidth = isDark ? 2 : 1.5; // Desktop માં normal border
       }
-      
+
       ctx.shadowColor = color1;
       ctx.shadowBlur = isDark ? 10 * prog : 5 * prog;
       ctx.stroke();
       ctx.setLineDash([]);
     };
-    
+
     let animId: number;
     const animate = () => {
       const now = performance.now();
@@ -241,13 +241,13 @@ const HexagonBackground: React.FC<HexProps> = ({ isActive, cursor }) => {
       animId = requestAnimationFrame(animate);
     };
     animate();
-    
+
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener('resize', resize);
     };
   }, [isActive]);
-  
+
   return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" />;
 };
 
@@ -447,10 +447,14 @@ const HeaderSection: React.FC = () => {
 
       <div className="relative container px-4 mx-auto z-20">
         <div className="max-w-xl xl:max-w-4xl">
-          <h1 className="font-heading text-4xl sm:text-5xl xs:text-6xl md:text-8xl xl:text-10xl font-bold text-gray-900 dark:text-gray-100 mb-8 sm:mb-14">
-            <span>Powerful AI Tools For Modern </span>{" "}
-            <span className="">Creators</span>
+          <h1 className="font-heading text-2xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-8 sm:mb-14 leading-tight">
+            <span>Driving growth with </span>
+            <span >
+              cutting-edge technology
+            </span>
+            <span>, expertise, and digital transformation</span>
           </h1>
+
           <div className="md:flex mb-8 max-w-xs sm:max-w-sm md:max-w-none">
             <div className="mb-2 md:mb-0 md:mr-8 pt-3">
               <svg
