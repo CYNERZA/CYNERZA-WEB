@@ -20,17 +20,17 @@ const About: React.FC = () => {
 
   const timeline = [
     {
-      year: '2022',
+      year: '2025',
       title: 'The Beginning',
       description: 'CYNERZA was founded with a mission to revolutionize software development using artificial intelligence.'
     },
     {
-      year: '2023',
+      year: '2025',
       title: 'First Product Launch',
       description: 'Released our first AI-powered code assistant, helping developers write better code faster.'
     },
     {
-      year: '2024',
+      year: '2025',
       title: 'Series A Funding',
       description: 'Secured $15M in Series A funding to expand our product offerings and reach more developers.'
     },
