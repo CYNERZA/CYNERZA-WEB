@@ -172,7 +172,7 @@ function Navbar({ className }: { className?: string }) {
                 transition={{ duration: 0.6, ease: "easeInOut" }}
               >
                 <img
-                  src="android-chrome-192x192.png"
+                  src="./CYNERZA_LOGO_2.jpeg"
                   alt="Logo"
                   className="w-12 h-12 rounded-full cursor-pointer"
                 />
@@ -204,7 +204,7 @@ function Navbar({ className }: { className?: string }) {
                 transition={{ duration: 0.6, ease: "easeInOut" }}
               >
                 <img
-                  src="./apple-touch-icon-180x180.png"
+                  src="./CYNERZA_LOGO_2.jpeg"
                   alt="Logo"
                   className="w-12 h-12 rounded-full cursor-pointer"
                   onClick={handleLogoClick}

@@ -70,7 +70,7 @@ const Team: React.FC = () => {
     {
       name: 'Santosh K Sahoo',
       role: 'Director Advisor -  Strategic Planning & Business Decisions',
-      imageUrl: '/Teams/default-avatar.jpg',
+      imageUrl: '/Teams/Santosh Kumar sahoo.jpeg',
       linkedInUrl: ""
     },
 
@@ -85,13 +85,13 @@ const Team: React.FC = () => {
       bio: "Android Developer",
       linkedInUrl: "https://www.linkedin.com/in/aditi-mehra-5921a4288"
     },
-    {
-      name: "Hardip Solanki",
-      role: "Full Stack Developer",
-      imageUrl: "/Teams/Hardip Solanki.png",
-      bio: "Full Stack Developer",
-      linkedInUrl: "https://www.linkedin.com/in/hardip-solanki-294168351"
-    },
+    // {
+    //   name: "Hardip Solanki",
+    //   role: "Full Stack Developer",
+    //   imageUrl: "/Teams/Hardip Solanki.png",
+    //   bio: "Full Stack Developer",
+    //   linkedInUrl: "https://www.linkedin.com/in/hardip-solanki-294168351"
+    // },
   ]
 
   return (

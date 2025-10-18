@@ -77,7 +77,7 @@ const Contact: React.FC = () => {
     {
       icon: <MapPin className="w-5 h-5" />,
       title: 'Visit Us',
-      details: 'Bhubaneswar, Odisha, India',
+      details: 'PLOT NO. 1184/1573, TOP FLOOR, JAGANNATH NAGAR, ROAD NO.14, GGP COLONY, BHUBANESWAR -751025 ',
       link: 'https://www.google.com/maps/place/Bhubaneswar,+Odisha/@20.3010259,85.7380514,12z/data=!3m1!4b1!4m6!3m5!1s0x3a1909d2d5170aa5:0xfc580e2b68b33fa8!8m2!3d20.2959847!4d85.8246101!16zL20vMDNjenFz?entry=ttu&g_ep=EgoyMDI1MDgyNC4wIKXMDSoASAFQAw%3D%3D'
     }
   ];
