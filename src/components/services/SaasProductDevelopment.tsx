@@ -155,7 +155,7 @@ const CustomSaaSService: React.FC = () => {
                         <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
                         {/* Fallback iframe for browsers that don't support video */}
                         <iframe
-                           src="https://www.youtube.com/embed/88qJcwLq9g8?autoplay=1&mute=1&loop=1&playlist=88qJcwLq9g8&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&start=0"
+                            src="https://www.youtube.com/embed/88qJcwLq9g8?autoplay=1&mute=1&loop=1&playlist=88qJcwLq9g8&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&start=0"
                             className="absolute top-0 left-0 w-full h-full object-cover"
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -203,7 +203,7 @@ const CustomSaaSService: React.FC = () => {
                     </motion.div>
                 </div>
 
-                
+
             </section>
 
             {/* Main Content Section */}
