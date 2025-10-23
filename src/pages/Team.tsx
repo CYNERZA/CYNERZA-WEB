@@ -61,16 +61,17 @@ const Team: React.FC = () => {
   ];
 
   const boardOfDirectors: Array<teamDetails> = [
-    {
-      name: 'Jharana Sahoo',
-      role: 'Director - Business Operations & Customer Experience',
-      imageUrl: '/Teams/default-avatar.jpg',
-      linkedInUrl: ""
-    },
+
     {
       name: 'Santosh K Sahoo',
       role: 'Director Advisor -  Strategic Planning & Business Decisions',
       imageUrl: '/Teams/Santosh Kumar sahoo.jpeg',
+      linkedInUrl: ""
+    },
+    {
+      name: 'Jharana Sahoo',
+      role: 'Director - Business Operations & Customer Experience',
+      imageUrl: '/Teams/default-avatar.jpg',
       linkedInUrl: ""
     },
 

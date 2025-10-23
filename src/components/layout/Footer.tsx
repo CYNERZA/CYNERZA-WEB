@@ -309,15 +309,15 @@ const Footer: React.FC = () => {
                                 AI Tools Platform
                             </a>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link
                                 to="/contact"
                                 className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
                             >
                                 Get Support
                             </Link>
-                        </li>
-                        <li>
+                        </li> */}
+                        {/* <li>
                             <a
                                 href="https://github.com/CYNERZA"
                                 target="_blank"
@@ -326,7 +326,7 @@ const Footer: React.FC = () => {
                             >
                                 Open Source
                             </a>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </div>

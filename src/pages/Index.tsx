@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import UnicornStudioEmbed from '@/components/home/Hero';
 import UnicornScene from '@/components/home/Hero';
 import CyneCLIShowcase from '@/components/home/CynePreview';
+import LeadingCompanies from '@/components/home/LeadingCompanies';
 
 const Index: React.FC = () => {
   useEffect(() => {
@@ -28,6 +29,7 @@ const Index: React.FC = () => {
       <FeaturesSection />
       <ServicesSection />
       <AiToolsPreview />
+      <LeadingCompanies />
       <ContactCta />
     </motion.div>
   );
