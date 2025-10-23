@@ -8,32 +8,32 @@ const Services: React.FC = () => {
   const services = [
     {
       title: 'SaaS Product Development',
-      link: "/saas-product-development",
+      link: "/services/saas-product-development",
       description: 'Crafting beautiful, high-performance websites and mobile applications tailored to your brand.',
     },
     {
       title: 'Custom LLM API',
-      link: "/custom-llm-api",
+      link: "/services/custom-llm-api",
       description: 'Designing intuitive and engaging user experiences that captivate your audience and drive results.',
     },
     {
       title: 'Automation Solutions',
-      link: "/automation-solutions",
+      link: "/services/automation-solutions",
       description: 'Leveraging artificial intelligence to automate processes, enhance efficiency, and unlock new possibilities.',
     },
     {
       title: 'AI & ML Solution',
-      link: "/ai-ml-solution",
+      link: "/services/ai-ml-solution",
       description: 'Boosting your online presence with data-driven marketing strategies and expert SEO services.',
     },
     {
       title: 'Cloud & DevOps Engineering',
-      link: "/cloud-devops-engineering",
+      link: "/services/cloud-devops-engineering",
       description: 'Building scalable and resilient infrastructure with modern cloud technologies and DevOps practices.',
     },
     {
       title: 'IT Service Management',
-      link: "/it-service-management",
+      link: "/services/it-service-management",
       description: 'Developing a strong brand identity that resonates with your audience and sets you apart from the competition.',
     },
   ];

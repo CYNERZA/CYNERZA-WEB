@@ -254,7 +254,7 @@ const About: React.FC = () => {
                     <Fade direction="up" triggerOnce delay={20} className='lg:w-1/2 relative'>
                         <div className="rounded-2xl overflow-hidden shadow-xl purple-glow">
                             <img
-                                src="./cynerza.jpeg"
+                                src="./Picsart_25-10-23_16-01-18-818.png"
                                 alt="CYNERZA team working"
                                 className="w-full h-auto"
                             />

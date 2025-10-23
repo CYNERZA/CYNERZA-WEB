@@ -39,6 +39,15 @@ import AutomationSolutions from './components/services/AutomationSolutions.js';
 import AIMLSolutions from './components/services/AI&MLSolution.js';
 import CloudDevOpsEngineering from './components/services/CloudDevOpsEngineering.js';
 import ITServiceManagement from './components/services/ITServiceManagement.js';
+import IndustriesPage from './pages/Industries .js';
+import BankingIndustry from './components/industries/banking';
+import CapitalMarketsPage from './components/industries/CapitalMarkets.js';
+import MediaCommunicationsPage from './components/industries/MediaCommunications.js';
+import EducationPage from './components/industries/education.js';
+import HealthcarePage from './components/industries/Healthcare.js';
+import PublicServicesPage from './components/industries/PublicServices.js';
+import RetailPage from './components/industries/Retail.js';
+import TravelLogisticsPage from './components/industries/TravelLogistics.js';
 
 const queryClient = new QueryClient();
 
@@ -155,6 +164,11 @@ const App = () => (
                 <Services />
               </PageLayout>
             } />
+            <Route path="/industries" element={
+              <PageLayout noPadding>
+                <IndustriesPage />
+              </PageLayout>
+            } />
             <Route path="/blogs" element={
               <PageLayout noPadding>
                 <BlogLayout />
@@ -183,36 +197,80 @@ const App = () => (
               </PageLayout>
             } />
             {/* services */}
-            <Route path="/saas-product-development" element={
+            <Route path="/services/saas-product-development" element={
               <PageLayout noPadding>
                 <SaasProductDevelopment />
               </PageLayout>
             } />
-            <Route path="/custom-llm-api" element={
+            <Route path="/services/custom-llm-api" element={
               <PageLayout noPadding>
                 <CustomLLMAPIServices />
               </PageLayout>
             } />
-            <Route path="/automation-solutions" element={
+            <Route path="/services/automation-solutions" element={
               <PageLayout noPadding>
                 <AutomationSolutions />
               </PageLayout>
             } />
-            <Route path="/ai-ml-solution" element={
+            <Route path="/services/ai-ml-solution" element={
               <PageLayout noPadding>
                 <AIMLSolutions />
               </PageLayout>
             } />
-            <Route path="/cloud-devops-engineering" element={
+            <Route path="/services/cloud-devops-engineering" element={
               <PageLayout noPadding>
                 <CloudDevOpsEngineering />
               </PageLayout>
             } />
-            <Route path="/it-service-management" element={
+            <Route path="/services/it-service-management" element={
               <PageLayout noPadding>
                 <ITServiceManagement />
               </PageLayout>
             } />
+            {/* industries */}
+            <Route path="/industries/banking" element={
+              <PageLayout noPadding>
+                <BankingIndustry />
+              </PageLayout>
+            } />
+            <Route path="/industries/capital-markets" element={
+              <PageLayout noPadding>
+                <CapitalMarketsPage />
+              </PageLayout>
+            } />
+            <Route path="/industries/media-communications" element={
+              <PageLayout noPadding>
+                <MediaCommunicationsPage />
+              </PageLayout>
+            } />
+            <Route path="/industries/education" element={
+              <PageLayout noPadding>
+                <EducationPage />
+              </PageLayout>
+            } />
+            <Route path="/industries/healthcare" element={
+              <PageLayout noPadding>
+                <HealthcarePage />
+              </PageLayout>
+            } />
+            // public services, retail, travel and logistics can be added similarly
+            <Route path="/industries/public-services" element={
+              <PageLayout noPadding>
+                 <PublicServicesPage />
+              </PageLayout>
+            } />
+            <Route path="/industries/retail" element={
+              <PageLayout noPadding>
+                <RetailPage />
+              </PageLayout>
+            } />
+            <Route path="/industries/travel-logistics" element={
+              <PageLayout noPadding>
+               <TravelLogisticsPage />
+              </PageLayout>
+            } />
+
+            {/* Careers Page */}
             <Route path='/careers' element={
               <PageLayout noPadding>
                 <CareersPage />
