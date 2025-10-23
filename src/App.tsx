@@ -43,7 +43,7 @@ import IndustriesPage from './pages/Industries .js';
 import BankingIndustry from './components/industries/banking';
 import CapitalMarketsPage from './components/industries/CapitalMarkets.js';
 import MediaCommunicationsPage from './components/industries/MediaCommunications.js';
-import EducationPage from './components/industries/education.js';
+import EducationPage from './components/industries/Education.js';
 import HealthcarePage from './components/industries/Healthcare.js';
 import PublicServicesPage from './components/industries/PublicServices.js';
 import RetailPage from './components/industries/Retail.js';
