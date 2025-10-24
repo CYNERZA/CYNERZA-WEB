@@ -32,12 +32,12 @@ const About: React.FC = () => {
     {
       year: '2025',
       title: 'Series A Funding',
-      description: 'Secured $15M in Series A funding to expand our product offerings and reach more developers.'
+      description: 'Secured 500K in Series A funding to expand our services.'
     },
     {
       year: '2025',
       title: 'Global Expansion',
-      description: 'Opened offices in Europe and Asia to better serve our growing international user base.'
+      description: 'Opened offices in Bhubaneswar to better serve our growing Indian user base.'
     }
   ];
 

@@ -8,7 +8,7 @@ const industryData = [
     description:
       "We modernize banking systems and enrich customer experience with innovative digital solutions tailored for financial institutions.",
     image:
-      "https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=800&q=60",
+      "./bank.jpg",
   },
   {
     title: "Capital Markets",
@@ -111,30 +111,66 @@ export default function IndustriesPage() {
         </div>
 
         {/* Full-width 'What We Do' description */}
-        <motion.div
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="max-w-5xl mx-auto space-y-8 text-left px-4 sm:px-6 prose dark:prose-invert "
-        >
-          <h2 className="text-xl font-semibold mb-3">What We Do</h2>
-          <p>
-            Each industry faces unique challenges, and we craft digital solutions aligned to those challenges. We help enterprises optimize core systems,
-            innovate customer engagements, and modernize operations with scalable, secure, and intelligent technologies.
-          </p>
 
-          <h3 className="mt-6 text-lg font-medium">Our Services Include</h3>
-          <ul className="list-disc ml-6 space-y-2">
-            <li>End-to-end cloud-native platform development and migration</li>
-            <li>Advanced data analytics, AI models, and automation pipelines</li>
-            <li>Customer experience transformation spanning web, mobile, and omnichannel</li>
-            <li>Security, compliance, and resiliency engineering</li>
-          </ul>
 
-          <p className="mt-4">
-            We partner with clients at all stages — from strategy and design, through implementation and ongoing support — to deliver impactful solutions that sustain lasting advantage.
-          </p>
-        </motion.div>
+        {/* Features Grid with Images */}
+        <div className="space-y-24 max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 1 * 0.1 }}
+            className={`flex gap-8 lg:gap-16 items-center flex-col-reverse sm:flex-row `}
+          >
+            {/* Text Side */}
+            <div className="w-full lg:w-1/2 space-y-4">
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <h2 className="text-xl font-semibold mb-3">What We Do</h2>
+                <p>
+                  Each industry faces unique challenges, and we craft digital solutions aligned to those challenges. We help enterprises optimize core systems,
+                  innovate customer engagements, and modernize operations with scalable, secure, and intelligent technologies.
+                </p>
+
+                <h3 className="mt-6 text-lg font-medium">Our Services Include</h3>
+                <ul className="list-disc ml-6 space-y-2">
+                  <li>End-to-end cloud-native platform development and migration</li>
+                  <li>Advanced data analytics, AI models, and automation pipelines</li>
+                  <li>Customer experience transformation spanning web, mobile, and omnichannel</li>
+                  <li>Security, compliance, and resiliency engineering</li>
+                </ul>
+
+                <p className="mt-4">
+                  We partner with clients at all stages — from strategy and design, through implementation and ongoing support — to deliver impactful solutions that sustain lasting advantage.
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Image Side */}
+            <div className="w-full lg:w-1/2">
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                <div className="relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-xl transform transition-transform duration-500 group-hover:scale-105">
+                  <img
+                    src={"./generated-image (3).png"}
+                    alt={"Test"}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-purple-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+
+              </div>
+            </div>
+
+
+
+          </motion.div>
+        </div>
 
         {/* Industries Grid Section with motion */}
         <section className="px-4 lg:px-0 ">
