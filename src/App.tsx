@@ -43,11 +43,13 @@ import IndustriesPage from './pages/Industries .js';
 import BankingIndustry from './components/industries/banking';
 import CapitalMarketsPage from './components/industries/CapitalMarkets.js';
 import MediaCommunicationsPage from './components/industries/MediaCommunications.js';
-import EducationPage from './components/industries/Education.js';
+// import EducationPage from './components/industries/Education.js';
 import HealthcarePage from './components/industries/Healthcare.js';
 import PublicServicesPage from './components/industries/PublicServices.js';
 import RetailPage from './components/industries/Retail.js';
 import TravelLogisticsPage from './components/industries/TravelLogistics.js';
+import EducationPage from './components/industries/Education.js';
+import WhyCynerzaSection from './pages/WhyCyne.js';
 
 const queryClient = new QueryClient();
 
@@ -270,6 +272,11 @@ const App = () => (
               </PageLayout>
             } />
 
+            <Route path='/why-cynerza' element={
+              <PageLayout noPadding>
+                <WhyCynerzaSection />
+              </PageLayout>
+            } />
             {/* Careers Page */}
             <Route path='/careers' element={
               <PageLayout noPadding>

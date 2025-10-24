@@ -480,9 +480,14 @@ const HeaderSection: React.FC = () => {
           </div>
           <Link
             to={"https://tools.cynerza.com"}
-            className="relative group inline-block w-full sm:w-auto py-4 px-6 mb-10 text-white font-semibold rounded-md bg-orange-900 overflow-hidden hover:bg-orange-800 dark:bg-orange-700 dark:hover:bg-orange-600 transition-colors duration-300"
+            className="relative group inline-block w-full sm:w-auto py-4 px-6 mb-10
+             text-white font-semibold rounded-md bg-gradient-to-r from-cynerza-purple 
+             to-cynerza-blue overflow-hidden bg-cynerza-purple hover:bg-cynerza-purple/90
+              
+               transition-colors duration-300"
           >
-            <div className="absolute top-0 right-full w-full h-full bg-gray-900 dark:bg-gray-700 transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"></div>
+            <div className="absolute top-0 right-full w-full h-full
+             bg-gray-900 dark:bg-gray-700 transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"></div>
             <div className="relative flex items-center justify-center">
               <span className="mr-4">Get Started Now</span>
               <span>
