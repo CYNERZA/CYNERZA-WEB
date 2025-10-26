@@ -97,6 +97,10 @@
 
 // export default FeaturesSection;
 
+
+// it peroprly
+
+
 import React, { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Fade } from "react-awesome-reveal";
@@ -210,7 +214,7 @@ const FeaturesSection: React.FC = () => {
             className="relative"
           >
             {/* Diagram Title */}
-            <div className="text-left mb-1 sm:mb-2">
+            <div className="text-left mb-6 sm:mb-4">
               <p className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                 FIG 1.A - CYNERZA PLATFORM ARCHITECTURE
               </p>
@@ -229,9 +233,7 @@ const FeaturesSection: React.FC = () => {
             >
               <Link
                 to="/why-cynerza"
-                className="relative flex items-center px-5 py-5 bg-gradient-to-r from-cynerza-purple to-cynerza-blue text-white text-lg font-semibold rounded-xl transition-all
-                       duration-200 hover:shadow-lg hover:shadow-cynerza-purple/30
-                       bg-cynerza-purple hover:bg-cynerza-purple/90 h-12"
+                className="relative flex items-center px-4 sm:px-5 py-2.5 sm:py-3 bg-gradient-to-r from-cynerza-purple to-cynerza-blue text-white text-sm sm:text-base md:text-lg font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-cynerza-purple/30 hover:bg-cynerza-purple/90"
               >
                 <span>Learn more about our platform</span>
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 -mr-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -273,16 +275,23 @@ const DiagramWithConnections: React.FC<DiagramWithConnectionsProps> = ({ feature
       const cylinderRect = cylinderRef.current.getBoundingClientRect();
       const newConnections: Array<{ path: string; gradient: string; delay: number }> = [];
 
-      // Calculate left side connections
+      // Calculate left side connections - Same as right side logic (swapped start/end)
       leftCardsRefs.current.forEach((cardRef, index) => {
         if (cardRef) {
           const cardRect = cardRef.getBoundingClientRect();
+          
+          // Start from card's right edge (same as right side start point logic)
           const startX = cardRect.right - containerRect.left;
           const startY = cardRect.top + cardRect.height / 2 - containerRect.top;
+          
+          // End at cylinder's left edge with proper layer alignment
           const endX = cylinderRect.left - containerRect.left;
-          const endY = cylinderRect.top + (95 * index) + 95 + 47.5 - containerRect.top;
+          const cylinderHeight = cylinderRect.height;
+          const layerHeight = cylinderHeight / 6;
+          const endY = cylinderRect.top + (layerHeight * index) + (layerHeight / 2) - containerRect.top;
 
-          const path = createCurvedPath(startX, startY, endX, endY, 'left');
+          // Use same curved path function as right side
+          const path = createCurvedPath(startX, startY, endX, endY, 'right');
           newConnections.push({
             path,
             gradient: `lineGradient${(index % 3) + 1}`,
@@ -291,12 +300,18 @@ const DiagramWithConnections: React.FC<DiagramWithConnectionsProps> = ({ feature
         }
       });
 
-      // Calculate right side connections
+      // Calculate right side connections - Keep existing logic
       rightCardsRefs.current.forEach((cardRef, index) => {
         if (cardRef) {
           const cardRect = cardRef.getBoundingClientRect();
+          
+          // Start from cylinder's right edge
           const startX = cylinderRect.right - containerRect.left;
-          const startY = cylinderRect.top + (95 * index) + 95 + 47.5 - containerRect.top;
+          const cylinderHeight = cylinderRect.height;
+          const layerHeight = cylinderHeight / 6;
+          const startY = cylinderRect.top + (layerHeight * index) + (layerHeight / 2) - containerRect.top;
+          
+          // End at card's left edge
           const endX = cardRect.left - containerRect.left;
           const endY = cardRect.top + cardRect.height / 2 - containerRect.top;
 
@@ -313,19 +328,22 @@ const DiagramWithConnections: React.FC<DiagramWithConnectionsProps> = ({ feature
     };
 
     calculateConnections();
+    const timeoutId = setTimeout(calculateConnections, 100);
     window.addEventListener('resize', calculateConnections);
-    
-    setTimeout(calculateConnections, 100);
 
-    return () => window.removeEventListener('resize', calculateConnections);
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener('resize', calculateConnections);
+    };
   }, []);
 
   return (
     <div ref={containerRef} className="grid grid-cols-12 gap-1 sm:gap-2 md:gap-4 lg:gap-6 items-start relative">
-      {/* SVG Connection Lines Layer - Show on all devices */}
+      {/* SVG Connection Lines Layer */}
       <svg 
         className="absolute inset-0 w-full h-full pointer-events-none z-0"
         style={{ overflow: 'visible' }}
+        preserveAspectRatio="none"
       >
         <defs>
           <linearGradient id="lineGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -360,7 +378,7 @@ const DiagramWithConnections: React.FC<DiagramWithConnectionsProps> = ({ feature
         ))}
       </svg>
 
-      {/* Left Side - Features 1, 3, 5 - ALWAYS vertical flex */}
+      {/* Left Side - Features 1, 3, 5 */}
       <div className="col-span-3 flex flex-col justify-between min-h-[300px] sm:min-h-[400px] md:min-h-[500px] lg:min-h-[650px] relative z-10">
         {[0, 2, 4].map((index, i) => (
           <div key={index} ref={el => leftCardsRefs.current[i] = el} className="mb-1 sm:mb-2 last:mb-0">
@@ -475,7 +493,7 @@ const DiagramWithConnections: React.FC<DiagramWithConnectionsProps> = ({ feature
         </motion.div>
       </div>
 
-      {/* Right Side - Features 2, 4, 6 - ALWAYS vertical flex */}
+      {/* Right Side - Features 2, 4, 6 */}
       <div className="col-span-3 flex flex-col justify-between min-h-[300px] sm:min-h-[400px] md:min-h-[500px] lg:min-h-[650px] relative z-10">
         {[1, 3, 5].map((index, i) => (
           <div key={index} ref={el => rightCardsRefs.current[i] = el} className="mb-1 sm:mb-2 last:mb-0">
@@ -491,7 +509,7 @@ const DiagramWithConnections: React.FC<DiagramWithConnectionsProps> = ({ feature
   );
 };
 
-// Helper function to create curved SVG path
+// Helper function to create curved SVG path - Same logic for both sides
 const createCurvedPath = (x1: number, y1: number, x2: number, y2: number, direction: 'left' | 'right'): string => {
   const mpx = (x2 + x1) * 0.5;
   const mpy = (y2 + y1) * 0.5;
@@ -525,6 +543,7 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({ path, gradientId, delay }) 
         initial={{ pathLength: 0, opacity: 0 }}
         animate={isInView ? { pathLength: 1, opacity: 0.8 } : {}}
         transition={{ duration: 1, delay, ease: "easeInOut" }}
+        vectorEffect="non-scaling-stroke"
       />
       
       <motion.path
@@ -545,6 +564,7 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({ path, gradientId, delay }) 
           opacity: { duration: 1, delay },
           strokeDashoffset: { duration: 2, delay: delay + 1, repeat: Infinity, ease: "linear" }
         }}
+        vectorEffect="non-scaling-stroke"
       />
 
       <motion.circle
@@ -566,11 +586,11 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({ path, gradientId, delay }) 
           repeatCount="indefinite"
           begin={`${delay + 1}s`}
         >
-          <mpath href={`#path-${gradientId}`} />
+          <mpath href={`#path-${gradientId}-${delay}`} />
         </animateMotion>
       </motion.circle>
 
-      <path id={`path-${gradientId}`} d={path} fill="none" opacity="0" />
+      <path id={`path-${gradientId}-${delay}`} d={path} fill="none" opacity="0" />
     </g>
   );
 };
@@ -594,10 +614,10 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ feature, delay, direction }) 
   return (
     <motion.div
       ref={cardRef}
-      initial={{ opacity: 0, x: direction === 'left' ? -30 : 30 }}
+      // initial={{ opacity: 0, x: direction === 'left' ? -30 : 30 }}
       animate={isInView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.6, delay }}
-      className="group relative bg-white dark:bg-gray-800 p-1.5 sm:p-2.5 md:p-4 lg:p-5 rounded-md sm:rounded-lg md:rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-600 h-full flex flex-col"
+      className="group relative bg-white dark:bg-gray-800 p-1.5 sm:p-2.5 md:p-4 lg:p-5 rounded-md sm:rounded-lg md:rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-600 h-full flex flex-col max-w-[200px] lg:max-w-[240px]"
     >
       <div className="absolute inset-0 rounded-md sm:rounded-lg md:rounded-xl bg-gradient-to-br from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/10 group-hover:to-blue-500/10 transition-all duration-300" />
       
