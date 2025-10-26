@@ -45,35 +45,51 @@ const WhyCynerzaSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative pb-8 py-0 overflow-hidden" id="features">
+    <section className="relative pb-8 sm:pb-12 md:pb-16 py-0 overflow-hidden" id="features">
       
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-white to-indigo-50 dark:from-gray-900 dark:via-purple-900/10 dark:to-gray-900" />
-            
-
-      <div className="">
+      
+      <div className="relative z-10">
         
         {/* Hero Image Section */}
-        <div className="mb-20">
+        <div className="mb-12 sm:mb-16 md:mb-20 lg:mb-24">
           <Fade direction="up" triggerOnce>
             <div className="relative w-full">
-              <div className="relative h-[400px] md:h-[500px] w-full  overflow-hidden shadow-2xl">
-                <img
-                  src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&q=80"
-                  alt="CYNERZA AI Technology Platform"
-                  className="w-full h-full object-cover"
-                  loading="eager"
-                />
+              <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] w-full overflow-hidden shadow-2xl">
+                {/* Responsive Image with proper loading */}
+                <picture>
+                  <source 
+                    media="(min-width: 1024px)" 
+                    srcSet="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1920&q=80" 
+                  />
+                  <source 
+                    media="(min-width: 768px)" 
+                    srcSet="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1280&q=80" 
+                  />
+                  <img
+                    src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&q=80"
+                    srcSet="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=640&q=80 640w,
+                            https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&q=80 800w,
+                            https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1280&q=80 1280w,
+                            https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1920&q=80 1920w"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
+                    alt="CYNERZA AI Technology Platform"
+                    className="w-full h-full object-cover"
+                    loading="eager"
+                  />
+                </picture>
+                
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                 
-                {/* Text overlay on image */}
-                <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                {/* Text overlay on image - Responsive padding and typography */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 lg:p-12">
                   <motion.h2 
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-4xl md:text-6xl font-bold text-white mb-4 font-heading"
+                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-2 sm:mb-3 md:mb-4 font-heading"
                   >
                     Why CYNERZA?
                   </motion.h2>
@@ -82,7 +98,7 @@ const WhyCynerzaSection: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="text-lg md:text-xl text-gray-200 max-w-3xl"
+                    className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 max-w-3xl"
                   >
                     We're not just another tech company. CYNERZA is your strategic partner in digital transformation, combining cutting-edge AI with enterprise-grade solutions to drive real business impact.
                   </motion.p>
@@ -92,64 +108,70 @@ const WhyCynerzaSection: React.FC = () => {
           </Fade>
         </div>
 
-        {/* Features Grid with Images */}
-        <div className="space-y-24 max-w-7xl mx-auto">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.7, delay: index * 0.1 }}
-              className={`flex flex-col ${
-                index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-              } gap-8 lg:gap-16 items-center`}
-            >
-              
-              {/* Image Side */}
-              <div className="w-full lg:w-1/2">
-                <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-                  <div className="relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-xl transform transition-transform duration-500 group-hover:scale-105">
-                    <img
-                      src={feature.image}
-                      alt={feature.imageAlt}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-purple-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-                  
-                  {/* Decorative number */}
-                  <div className="absolute -top-6 -left-6 w-16 h-16 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg">
-                    {index + 1}
+        {/* Features Grid with Images - Responsive Container */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-16 sm:space-y-20 md:space-y-24 max-w-7xl mx-auto">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.7, delay: index * 0.1 }}
+                className={`flex flex-col ${
+                  index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                } gap-6 sm:gap-8 md:gap-12 lg:gap-16 items-center`}
+              >
+                
+                {/* Image Side - Responsive sizing */}
+                <div className="w-full lg:w-1/2">
+                  <div className="relative group">
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl md:rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                    
+                    <div className="relative h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl overflow-hidden shadow-xl transform transition-transform duration-500 group-hover:scale-105">
+                      {/* Responsive Images with srcset */}
+                      <img
+                        src={feature.image}
+                        srcSet={`${feature.image}&w=640 640w,
+                                ${feature.image}&w=800 800w,
+                                ${feature.image}&w=1024 1024w`}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
+                        alt={feature.imageAlt}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-purple-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    
+                    {/* Decorative number - Responsive sizing */}
+                    <div className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-xl md:rounded-2xl flex items-center justify-center text-white text-lg sm:text-xl md:text-2xl font-bold shadow-lg">
+                      {index + 1}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Text Side */}
-              <div className="w-full lg:w-1/2 space-y-4">
-                <motion.div
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                >
-                  <h3 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 font-heading">
-                    {feature.title}
-                  </h3>
-                  <div className="w-20 h-1 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full mb-6" />
-                  <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                    {feature.description}
-                  </p>
-                </motion.div>
-              </div>
+                {/* Text Side - Responsive typography and spacing */}
+                <div className="w-full lg:w-1/2 space-y-3 sm:space-y-4">
+                  <motion.div
+                    initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                  >
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 font-heading">
+                      {feature.title}
+                    </h3>
+                    <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full mb-4 sm:mb-6" />
+                    <p className="text-sm sm:text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </motion.div>
+                </div>
 
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
-
-   
 
       </div>
     </section>
