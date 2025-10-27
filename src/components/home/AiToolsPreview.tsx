@@ -315,128 +315,128 @@
 // const AiToolsPreview: React.FC = () => {
 
 
-  // const aiTools = [
-  //   {
-  //     name: "Ad Copy Generator",
-  //     gradient: "from-purple-400 to-pink-600",
-  //     icon: <FileType />,
-  //     link: "https://tools.cynerza.com/text-tools-ad-copy-generator"
-  //   },
-  //   {
-  //     name: "Script Creator",
-  //     gradient: "from-emerald-400 to-teal-600",
-  //     icon: <FileText />,
-  //     link: "https://tools.cynerza.com/text-tools-script-creator"
-  //   },
-  //   {
-  //     name: "Summarizer",
-  //     gradient: "from-rose-400 to-pink-600",
-  //     icon: <FileOutput />,
-  //     link: "https://tools.cynerza.com/text-tools-summarizer"
-  //   },
-  //   {
-  //     name: "AI Image Generator",
-  //     gradient: "from-amber-400 to-orange-600",
-  //     icon: <ImageIcon />,
-  //     link: "https://tools.cynerza.com/image-tools-ai-image-generator"
-  //   },
-  //   {
-  //     name: "Background Remover",
-  //     gradient: "from-violet-400 to-purple-600",
-  //     icon: <ImageIcon />,
-  //     link: "https://tools.cynerza.com/image-tools-background-remover"
-  //   },
-  //   {
-  //     name: "Image Enhancer",
-  //     gradient: "from-emerald-400 to-cyan-600",
-  //     icon: <Wand2 />,
-  //     link: "https://tools.cynerza.com/image-tools-image-enhancer"
-  //   },
-  //   {
-  //     name: "Text to Speech",
-  //     gradient: "from-blue-400 to-indigo-600",
-  //     icon: <Volume2 />,
-  //     link: "https://tools.cynerza.com/audio-tools-text-to-speech"
-  //   },
-  //   {
-  //     name: "Voice Cloner",
-  //     gradient: "from-purple-400 to-pink-600",
-  //     icon: <Mic />,
-  //     link: "https://tools.cynerza.com/audio-tools-voice-cloner"
-  //   },
-  //   {
-  //     name: "Noise Remover",
-  //     gradient: "from-rose-400 to-pink-600",
-  //     icon: <Volume2 />,
-  //     link: "https://tools.cynerza.com/audio-tools-noise-remover"
-  //   },
-  //   {
-  //     name: "AI Code Generator",
-  //     gradient: "from-indigo-400 to-cyan-600",
-  //     icon: <Code />,
-  //     link: "https://tools.cynerza.com/gen-ai-tools-code-generator"
-  //   },
-  //   {
-  //     name: "Chatbot Creator",
-  //     gradient: "from-blue-400 to-cyan-600",
-  //     icon: <MessageSquare />,
-  //     link: "https://tools.cynerza.com/gen-ai-tools-chatbot-creator"
-  //   },
-  //   {
-  //     name: "Prompt Designer",
-  //     gradient: "from-green-400 to-emerald-600",
-  //     icon: <PenTool />,
-  //     link: "https://tools.cynerza.com/gen-ai-tools-prompt-designer"
-  //   },
-  //   {
-  //     name: "Podcast Generator",
-  //     gradient: "from-amber-400 to-orange-600",
-  //     icon: <Mic />,
-  //     link: "https://tools.cynerza.com/podcast-generator"
-  //   },
-  //   {
-  //     name: "Social Media Posts",
-  //     gradient: "from-violet-400 to-purple-600",
-  //     icon: <Share2 />,
-  //     link: "https://tools.cynerza.com/social-media-posts"
-  //   },
-  //   {
-  //     name: "Brand Book Generator",
-  //     gradient: "from-emerald-400 to-cyan-600",
-  //     icon: <BookOpen />,
-  //     link: "https://tools.cynerza.com/brandbook-generator"
-  //   },
-  //   {
-  //     name: "Multimedia Bot Builder",
-  //     gradient: "from-rose-400 to-pink-600",
-  //     icon: <Bot />,
-  //     link: "https://tools.cynerza.com/multimedia-bot-builder"
-  //   },
-  //   {
-  //     name: "API Reference",
-  //     gradient: "from-indigo-400 to-cyan-600",
-  //     icon: <Code2 />,
-  //     link: "https://tools.cynerza.com/api-reference"
-  //   },
-  //   {
-  //     name: "API Reference",
-  //     gradient: "from-indigo-400 to-cyan-600",
-  //     icon: <Code2 />,
-  //     link: "https://tools.cynerza.com/api-reference"
-  //   },
-  //   {
-  //     name: "API Reference",
-  //     gradient: "from-indigo-400 to-cyan-600",
-  //     icon: <Code2 />,
-  //     link: "https://tools.cynerza.com/api-reference"
-  //   },
-  //   {
-  //     name: "API Reference",
-  //     gradient: "from-indigo-400 to-cyan-600",
-  //     icon: <Code2 />,
-  //     link: "https://tools.cynerza.com/api-reference"
-  //   }
-  // ];
+// const aiTools = [
+//   {
+//     name: "Ad Copy Generator",
+//     gradient: "from-purple-400 to-pink-600",
+//     icon: <FileType />,
+//     link: "https://tools.cynerza.com/text-tools-ad-copy-generator"
+//   },
+//   {
+//     name: "Script Creator",
+//     gradient: "from-emerald-400 to-teal-600",
+//     icon: <FileText />,
+//     link: "https://tools.cynerza.com/text-tools-script-creator"
+//   },
+//   {
+//     name: "Summarizer",
+//     gradient: "from-rose-400 to-pink-600",
+//     icon: <FileOutput />,
+//     link: "https://tools.cynerza.com/text-tools-summarizer"
+//   },
+//   {
+//     name: "AI Image Generator",
+//     gradient: "from-amber-400 to-orange-600",
+//     icon: <ImageIcon />,
+//     link: "https://tools.cynerza.com/image-tools-ai-image-generator"
+//   },
+//   {
+//     name: "Background Remover",
+//     gradient: "from-violet-400 to-purple-600",
+//     icon: <ImageIcon />,
+//     link: "https://tools.cynerza.com/image-tools-background-remover"
+//   },
+//   {
+//     name: "Image Enhancer",
+//     gradient: "from-emerald-400 to-cyan-600",
+//     icon: <Wand2 />,
+//     link: "https://tools.cynerza.com/image-tools-image-enhancer"
+//   },
+//   {
+//     name: "Text to Speech",
+//     gradient: "from-blue-400 to-indigo-600",
+//     icon: <Volume2 />,
+//     link: "https://tools.cynerza.com/audio-tools-text-to-speech"
+//   },
+//   {
+//     name: "Voice Cloner",
+//     gradient: "from-purple-400 to-pink-600",
+//     icon: <Mic />,
+//     link: "https://tools.cynerza.com/audio-tools-voice-cloner"
+//   },
+//   {
+//     name: "Noise Remover",
+//     gradient: "from-rose-400 to-pink-600",
+//     icon: <Volume2 />,
+//     link: "https://tools.cynerza.com/audio-tools-noise-remover"
+//   },
+//   {
+//     name: "AI Code Generator",
+//     gradient: "from-indigo-400 to-cyan-600",
+//     icon: <Code />,
+//     link: "https://tools.cynerza.com/gen-ai-tools-code-generator"
+//   },
+//   {
+//     name: "Chatbot Creator",
+//     gradient: "from-blue-400 to-cyan-600",
+//     icon: <MessageSquare />,
+//     link: "https://tools.cynerza.com/gen-ai-tools-chatbot-creator"
+//   },
+//   {
+//     name: "Prompt Designer",
+//     gradient: "from-green-400 to-emerald-600",
+//     icon: <PenTool />,
+//     link: "https://tools.cynerza.com/gen-ai-tools-prompt-designer"
+//   },
+//   {
+//     name: "Podcast Generator",
+//     gradient: "from-amber-400 to-orange-600",
+//     icon: <Mic />,
+//     link: "https://tools.cynerza.com/podcast-generator"
+//   },
+//   {
+//     name: "Social Media Posts",
+//     gradient: "from-violet-400 to-purple-600",
+//     icon: <Share2 />,
+//     link: "https://tools.cynerza.com/social-media-posts"
+//   },
+//   {
+//     name: "Brand Book Generator",
+//     gradient: "from-emerald-400 to-cyan-600",
+//     icon: <BookOpen />,
+//     link: "https://tools.cynerza.com/brandbook-generator"
+//   },
+//   {
+//     name: "Multimedia Bot Builder",
+//     gradient: "from-rose-400 to-pink-600",
+//     icon: <Bot />,
+//     link: "https://tools.cynerza.com/multimedia-bot-builder"
+//   },
+//   {
+//     name: "API Reference",
+//     gradient: "from-indigo-400 to-cyan-600",
+//     icon: <Code2 />,
+//     link: "https://tools.cynerza.com/api-reference"
+//   },
+//   {
+//     name: "API Reference",
+//     gradient: "from-indigo-400 to-cyan-600",
+//     icon: <Code2 />,
+//     link: "https://tools.cynerza.com/api-reference"
+//   },
+//   {
+//     name: "API Reference",
+//     gradient: "from-indigo-400 to-cyan-600",
+//     icon: <Code2 />,
+//     link: "https://tools.cynerza.com/api-reference"
+//   },
+//   {
+//     name: "API Reference",
+//     gradient: "from-indigo-400 to-cyan-600",
+//     icon: <Code2 />,
+//     link: "https://tools.cynerza.com/api-reference"
+//   }
+// ];
 
 //   const getAiTool = (idx: number) => aiTools[idx]
 
@@ -902,7 +902,7 @@
 //     const MAX_BLUR = 6;        // max blur px applied to text
 //     const BLUR_RADIUS = 240;   // px radius where blur effect begins
 
-  
+
 
 //     useEffect(() => {
 //         let raf = 0;
@@ -1247,17 +1247,20 @@
 
 
 // __ Test__
-import {   FileText,   Image as ImageIcon,   Wand2,   Code,   Code2,   MessageSquare,   Mic,   Volume2,   Music,   BookOpen,   PenTool,   Share2,   Bot,   FileType,   FileOutput }   from 'lucide-react'
+import { FileText, Image as ImageIcon, Wand2, Code, Code2, MessageSquare, Mic, Volume2, Music, BookOpen, PenTool, Share2, Bot, FileType, FileOutput } from 'lucide-react'
 import { AnimatePresence, motion } from "framer-motion"
 import React, { cloneElement, useEffect, useRef, useState } from 'react';
-import {  useScroll, useTransform } from "framer-motion";
+import { useScroll, useTransform } from "framer-motion";
+import { useSelector } from 'react-redux';
 
- 
+
 const AiToolsPreview: React.FC = () => {
+
+  const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
   const sectionRef = useRef(null);
 
-  
-    const aiTools = [
+
+  const aiTools = [
     {
       name: "Ad Copy Generator",
       gradient: "from-purple-400 to-pink-600",
@@ -1380,105 +1383,105 @@ const AiToolsPreview: React.FC = () => {
     }
   ];
 
-    const getAiTool = (idx: number) => aiTools[idx]
+  const getAiTool = (idx: number) => aiTools[idx]
 
-    // refs and state for scroll behaviour
-    const wrapperRef = useRef<HTMLDivElement | null>(null);
-    const stickyTextRef = useRef<HTMLDivElement | null>(null);
-    const toolRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+  // refs and state for scroll behaviour
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const stickyTextRef = useRef<HTMLDivElement | null>(null);
+  const toolRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
-    // smoothing refs
-    const currentYRef = useRef(0);
-    const targetYRef = useRef(0);
-    const currentBlurRef = useRef(0);
-    const targetBlurRef = useRef(0);
+  // smoothing refs
+  const currentYRef = useRef(0);
+  const targetYRef = useRef(0);
+  const currentBlurRef = useRef(0);
+  const targetBlurRef = useRef(0);
 
-    // parameters you can tweak
-    const SPEED = 0.55;         // how fast tools target moves
-    const SMOOTHNESS = 0.12;    // lerp factor (0 - 1). smaller = smoother
-    const MAX_BLUR = 6;        // max blur px applied to text
-    const BLUR_RADIUS = 240;   // px radius where blur effect begins
+  // parameters you can tweak
+  const SPEED = 0.55;         // how fast tools target moves
+  const SMOOTHNESS = 0.12;    // lerp factor (0 - 1). smaller = smoother
+  const MAX_BLUR = 6;        // max blur px applied to text
+  const BLUR_RADIUS = 240;   // px radius where blur effect begins
 
-  
 
-    useEffect(() => {
-        let raf = 0;
 
-        function loop() {
-            if (!wrapperRef.current || !stickyTextRef.current) {
-                raf = requestAnimationFrame(loop);
-                return;
-            }
+  useEffect(() => {
+    let raf = 0;
 
-            const wrapRect = wrapperRef.current.getBoundingClientRect();
-            const textRect = stickyTextRef.current.getBoundingClientRect();
-
-            // compute target translateY (same as before)
-            const startAt = window.innerHeight * 0.3;
-            const scrolled = Math.max(0, startAt - wrapRect.top);
-            const targetY = -scrolled * SPEED;
-            targetYRef.current = targetY;
-
-            // compute target blur for sticky text using intersection with tools
-            const textTop = textRect.top;
-            const textBottom = textRect.bottom;
-            const textHeight = textRect.height || 1;
-
-            let maxToolBlur = 0;
-            for (let i = 0; i < aiTools.length; i++) {
-                const el = toolRefs.current[i];
-                if (!el) continue;
-                const r = el.getBoundingClientRect();
-
-                // check intersection between tool rect and text rect
-                const interTop = Math.max(r.top, textTop);
-                const interBottom = Math.min(r.bottom, textBottom);
-                const intersectionHeight = Math.max(0, interBottom - interTop);
-
-                if (intersectionHeight > 0) {
-                    // ratio of how much tool overlaps text
-                    const ratio = intersectionHeight / textHeight; // 0..1
-                    const toolBlur = Math.min(MAX_BLUR, ratio * MAX_BLUR * 1.2);
-                    if (toolBlur > maxToolBlur) maxToolBlur = toolBlur;
-                } else {
-                    // if not intersecting but close, we can still apply soft blur based on distance
-                    const elCenter = r.top + r.height / 2;
-                    const textCenter = textTop + textHeight / 2;
-                    const dist = Math.abs(elCenter - textCenter);
-                    if (dist < BLUR_RADIUS) {
-                        const t = 1 - dist / BLUR_RADIUS;
-                        const toolBlur = t * (MAX_BLUR * 0.5);
-                        if (toolBlur > maxToolBlur) maxToolBlur = toolBlur;
-                    }
-                }
-            }
-
-            targetBlurRef.current = Math.round(maxToolBlur * 100) / 100;
-
-            // lerp current values towards targets for smoothness
-            currentYRef.current += (targetYRef.current - currentYRef.current) * SMOOTHNESS;
-            currentBlurRef.current += (targetBlurRef.current - currentBlurRef.current) * SMOOTHNESS;
-
-            // apply styles directly to DOM for perf
-            if (wrapperRef.current) {
-                wrapperRef.current.style.transform = `translate3d(0, ${currentYRef.current}px, 0)`;
-                wrapperRef.current.style.willChange = 'transform';
-            }
-
-            if (stickyTextRef.current) {
-                const blurVal = currentBlurRef.current;
-                stickyTextRef.current.style.filter = blurVal ? `blur(${blurVal}px)` : 'none';
-                stickyTextRef.current.style.willChange = 'filter';
-            }
-
-            raf = requestAnimationFrame(loop);
-        }
-
+    function loop() {
+      if (!wrapperRef.current || !stickyTextRef.current) {
         raf = requestAnimationFrame(loop);
-        return () => cancelAnimationFrame(raf);
-    }, []);
+        return;
+      }
 
-   function ToolCard({ tool, className = "", animateCards = true, burstIdx = 0 }: any) {
+      const wrapRect = wrapperRef.current.getBoundingClientRect();
+      const textRect = stickyTextRef.current.getBoundingClientRect();
+
+      // compute target translateY (same as before)
+      const startAt = window.innerHeight * 0.3;
+      const scrolled = Math.max(0, startAt - wrapRect.top);
+      const targetY = -scrolled * SPEED;
+      targetYRef.current = targetY;
+
+      // compute target blur for sticky text using intersection with tools
+      const textTop = textRect.top;
+      const textBottom = textRect.bottom;
+      const textHeight = textRect.height || 1;
+
+      let maxToolBlur = 0;
+      for (let i = 0; i < aiTools.length; i++) {
+        const el = toolRefs.current[i];
+        if (!el) continue;
+        const r = el.getBoundingClientRect();
+
+        // check intersection between tool rect and text rect
+        const interTop = Math.max(r.top, textTop);
+        const interBottom = Math.min(r.bottom, textBottom);
+        const intersectionHeight = Math.max(0, interBottom - interTop);
+
+        if (intersectionHeight > 0) {
+          // ratio of how much tool overlaps text
+          const ratio = intersectionHeight / textHeight; // 0..1
+          const toolBlur = Math.min(MAX_BLUR, ratio * MAX_BLUR * 1.2);
+          if (toolBlur > maxToolBlur) maxToolBlur = toolBlur;
+        } else {
+          // if not intersecting but close, we can still apply soft blur based on distance
+          const elCenter = r.top + r.height / 2;
+          const textCenter = textTop + textHeight / 2;
+          const dist = Math.abs(elCenter - textCenter);
+          if (dist < BLUR_RADIUS) {
+            const t = 1 - dist / BLUR_RADIUS;
+            const toolBlur = t * (MAX_BLUR * 0.5);
+            if (toolBlur > maxToolBlur) maxToolBlur = toolBlur;
+          }
+        }
+      }
+
+      targetBlurRef.current = Math.round(maxToolBlur * 100) / 100;
+
+      // lerp current values towards targets for smoothness
+      currentYRef.current += (targetYRef.current - currentYRef.current) * SMOOTHNESS;
+      currentBlurRef.current += (targetBlurRef.current - currentBlurRef.current) * SMOOTHNESS;
+
+      // apply styles directly to DOM for perf
+      if (wrapperRef.current) {
+        wrapperRef.current.style.transform = `translate3d(0, ${currentYRef.current}px, 0)`;
+        wrapperRef.current.style.willChange = 'transform';
+      }
+
+      if (stickyTextRef.current) {
+        const blurVal = currentBlurRef.current;
+        stickyTextRef.current.style.filter = blurVal ? `blur(${blurVal}px)` : 'none';
+        stickyTextRef.current.style.willChange = 'filter';
+      }
+
+      raf = requestAnimationFrame(loop);
+    }
+
+    raf = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  function ToolCard({ tool, className = "", animateCards = true, burstIdx = 0 }: any) {
     const [isHovered, setIsHovered] = React.useState(false);
 
     return (
@@ -1532,221 +1535,221 @@ const AiToolsPreview: React.FC = () => {
     );
   }
 
-  
 
-  
-      const { scrollYProgress } = useScroll({
-    
+
+
+  const { scrollYProgress } = useScroll({
+
     offset: ["start start", "end end"],
   });
-    const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0, 0]);
-  
-    return (
-        <section
-         ref={sectionRef} 
-         className='relative sm:pb-[7rem] xl:pb-[25rem]'>
-            {/* Text */
-                              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20" />
-}
+  const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0, 0]);
 
-            <div className='text-center flex flex-col flex-wrap items-center justify-center '>
-                <div className='absolute top-20 sm:top-[10rem]  xl:top-[19rem] 2xl:top-[20rem]'>
-                    {/* original layout unchanged */}
-                </div>
-            </div>
+  return (
+    <section
+      ref={sectionRef}
+      className='relative sm:pb-[7rem] xl:pb-[25rem]'>
+      {/* Purple gradient background overlay */}
+      {isDarkMode &&
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+      }
+      <div className='text-center flex flex-col flex-wrap items-center justify-center '>
+        <div className='absolute top-20 sm:top-[10rem]  xl:top-[19rem] 2xl:top-[20rem]'>
+          {/* original layout unchanged */}
+        </div>
+      </div>
 
-            {/* Sticky center text that stays in place while tools scroll under/over it */}
-            <div className="relative">
-                <div
-                 
-                    className={`sticky top-28 flex flex-col items-center justify-center pointer-events-none`}
-                    style={{ transition: 'filter 120ms linear' }}
-                >
-                    
-                  {/* For the gap i added mt-56 in motion.div */}
+      {/* Sticky center text that stays in place while tools scroll under/over it */}
+      <div className="relative">
+        <div
+
+          className={`sticky top-28 flex flex-col items-center justify-center pointer-events-none`}
+          style={{ transition: 'filter 120ms linear' }}
+        >
+
+          {/* For the gap i added mt-56 in motion.div */}
           <motion.div
-        style={{ opacity}}
-        className="sticky top-28 mt-56 flex flex-col text-center items-center justify-center pointer-events-none">
-       <motion.h2 className="text-4xl sm:text-4xl md:text-5xl font-black mb-6 text-black dark:text-slate-200">
-  Supercharge Your Workflow
-</motion.h2>
+            style={{ opacity }}
+            className="sticky top-28 mt-56 flex flex-col text-center items-center justify-center pointer-events-none">
+            <motion.h2 className="text-4xl sm:text-4xl md:text-5xl font-black mb-6 text-black dark:text-slate-200">
+              Supercharge Your Workflow
+            </motion.h2>
 
 
-        <motion.p className="xl:text-2xl sm:text-xl text-black font-black dark:text-gray-400 leading-relaxed text-center max-w-2xl">
-          Transform your productivity with our comprehensive suite of
-          AI-powered tools.
-        </motion.p>
-      </motion.div>
+            <motion.p className="xl:text-2xl sm:text-xl text-black font-black dark:text-gray-400 leading-relaxed text-center max-w-2xl">
+              Transform your productivity with our comprehensive suite of
+              AI-powered tools.
+            </motion.p>
+          </motion.div>
+        </div>
+
+        {/* Wrapper for all tools (desktop + mobile). We set a higher z-index so tools appear above the text when they overlap */}
+        <div ref={wrapperRef} style={{ transform: `translate3d(0, 0, 0)`, transition: 'transform 120ms linear', zIndex: 40 }}>
+
+          {/* Tools (layout unchanged) */}
+          <div className='lg:flex justify-between hidden mt-[15vh] '>
+            {/* Left columns */}
+            {/* Rows */}
+            <div className='flex space-x-2 relative'>
+              {/* Column 1 */}
+              <div className='flex flex-col  space-y-2'>
+                <div className='rounded-sm lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                  {<ToolCard tool={getAiTool(0)} idx={0} />}
                 </div>
-
-                {/* Wrapper for all tools (desktop + mobile). We set a higher z-index so tools appear above the text when they overlap */}
-                <div ref={wrapperRef} style={{ transform: `translate3d(0, 0, 0)`, transition: 'transform 120ms linear', zIndex: 40 }}>
-
-                    {/* Tools (layout unchanged) */}
-                    <div className='lg:flex justify-between hidden mt-[15vh] '>
-                        {/* Left columns */}
-                        {/* Rows */}
-                        <div className='flex space-x-2 relative'>
-                            {/* Column 1 */}
-                            <div className='flex flex-col  space-y-2'>
-                                <div className='rounded-sm lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
-                                    {<ToolCard tool={getAiTool(0)} idx={0} />}
-                                </div>
-                                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-28 sm:h-52 lg:h-40 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
-                                    {<ToolCard tool={getAiTool(1)} idx={1} />}
-                                </div>
-                                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
-                                    {<ToolCard tool={getAiTool(2)} idx={2} />}
-                                </div>
-                            </div>
-                            {/*  Column 2 */}
-                            <div className='flex flex-col relative top-52 lg:top-40 space-y-2'>
-                                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
-                                    {<ToolCard tool={getAiTool(4)} idx={4} />}
-                                </div>
-                                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-28 sm:h-52 lg:h-40 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
-                                    {<ToolCard tool={getAiTool(5)} idx={5} />}
-                                </div>
-                                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
-                                    {<ToolCard tool={getAiTool(6)} idx={6} />}
-                                </div>
-                            </div>
-                            {/*  Column 3 */}
-                            <div className='flex flex-col relative top-[31rem] lg:top-[22rem] space-y-2'>
-                                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-28 sm:h-52 lg:h-40 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
-                                    {<ToolCard tool={getAiTool(7)} idx={7} />}
-                                </div>
-                                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
-                                    {<ToolCard tool={getAiTool(8)} idx={8} />}
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Center column */}
-                        <div className=' flex flex-col'>
-                            {/*  Column 1 */}
-                            <div className='flex flex-col relative top-[36rem] lg:top-[27rem] space-y-2'>
-                                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-28 sm:h-52 lg:h-40 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
-                                    <ToolCard tool={getAiTool(9)} idx={9} />
-                                </div>
-                                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
-                                    <ToolCard tool={getAiTool(10)} idx={10} />
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Right column */}
-                        {/* Rows */}
-                        <div className='flex space-x-2'>
-                            {/*  Column 3 */}
-                            <div className='flex flex-col relative top-[31rem] lg:top-[22rem] space-y-2'>
-                                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-28 sm:h-52 lg:h-40 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
-                                    {<ToolCard tool={getAiTool(11)} idx={11} />}
-                                </div>
-                                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
-                                    {<ToolCard tool={getAiTool(12)} idx={12} />}
-                                </div>
-                            </div>
-                            {/*  Column 2 */}
-                            <div className='flex flex-col relative top-52 lg:top-40 space-y-2'>
-                                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
-                                    {<ToolCard tool={getAiTool(13)} idx={13} />}
-                                </div>
-                                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-28 sm:h-52 lg:h-40 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
-                                    {<ToolCard tool={getAiTool(14)} idx={14} />}
-                                </div>
-                                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
-                                    {<ToolCard tool={getAiTool(15)} idx={15} />}
-                                </div>
-                            </div>
-
-                            {/* Column 1 */}
-                            <div className='flex flex-col  space-y-2'>
-                                <div className='lg:w-[13.6vw] 2lg:w-[13.6vw] xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
-                                    {<ToolCard tool={getAiTool(16)} idx={16} />}
-                                </div>
-                                <div className='lg:w-[13.6vw] 2lg:w-[13.6vw] xl:w-[13.7vw] h-28 sm:h-52 lg:h-40 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
-                                    {<ToolCard tool={getAiTool(17)} idx={17} />}
-                                </div>
-                                <div className='lg:w-[13.6vw] 2lg:w-[13.6vw] xl:w-[13.7vw] h-28 sm:h-72 lg:h-56 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
-                                    {<ToolCard tool={getAiTool(19)} idx={19} />}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Tools for small devices */}
-                    <div className='flex justify-between lg:hidden mt-40 sm:mt-56'>
-                        <div className='flex flex-col space-y-2 relative top-20'>
-                            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72                        rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
-                                {<ToolCard tool={getAiTool(0)} idx={0} />}
-                            </div>
-                            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52                        rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
-                                {<ToolCard tool={getAiTool(1)} idx={1} />}
-                            </div>
-                            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72                        rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
-                                {<ToolCard tool={getAiTool(2)} idx={2} />}
-                            </div>
-                            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52                        rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
-                                {<ToolCard tool={getAiTool(3)} idx={3} />}
-                            </div>
-                            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72                        rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
-                                {<ToolCard tool={getAiTool(4)} idx={4} />}
-                            </div>
-                            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52                        rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
-                                {<ToolCard tool={getAiTool(5)} idx={5} />}
-                            </div>
-                        </div>
-                        <div className='flex flex-col space-y-2 '>
-                            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72                          rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
-                                {<ToolCard tool={getAiTool(6)} idx={6} />}
-                            </div>
-                            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52                           rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
-                                {<ToolCard tool={getAiTool(7)} idx={7} />}
-                            </div>
-                            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72                          rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
-                                {<ToolCard tool={getAiTool(8)} idx={8} />}
-                            </div>
-                            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52                           rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
-                                {<ToolCard tool={getAiTool(9)} idx={9} />}
-                            </div>
-                            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72                          rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] r'>
-                                {<ToolCard tool={getAiTool(10)} idx={10} />}
-                            </div>
-                            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52                           rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
-                                {<ToolCard tool={getAiTool(11)} idx={11} />}
-                            </div>
-                            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72                          rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
-                                {<ToolCard tool={getAiTool(12)} idx={12} />}
-                            </div>
-                        </div>
-                        <div className='flex flex-col space-y-2 relative top-20 mb-7 sm:mb-10'>
-                            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72                         rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
-                                {<ToolCard tool={getAiTool(14)} idx={14} />}
-                            </div>
-                            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52                          rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
-                                {<ToolCard tool={getAiTool(15)} idx={15} />}
-                            </div>
-                            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72                         rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
-                                {<ToolCard tool={getAiTool(16)} idx={16} />}
-                            </div>
-                            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52                          rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
-                                {<ToolCard tool={getAiTool(17)} idx={17} />}
-                            </div>
-                            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72                         rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
-                                {<ToolCard tool={getAiTool(18)} idx={18} />}
-                            </div>
-                            <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52                         rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
-                                {<ToolCard tool={getAiTool(19)} idx={19} />}
-                            </div>
-                        </div>
-                    </div>
-
+                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-28 sm:h-52 lg:h-40 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                  {<ToolCard tool={getAiTool(1)} idx={1} />}
                 </div>
+                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                  {<ToolCard tool={getAiTool(2)} idx={2} />}
+                </div>
+              </div>
+              {/*  Column 2 */}
+              <div className='flex flex-col relative top-52 lg:top-40 space-y-2'>
+                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                  {<ToolCard tool={getAiTool(4)} idx={4} />}
+                </div>
+                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-28 sm:h-52 lg:h-40 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                  {<ToolCard tool={getAiTool(5)} idx={5} />}
+                </div>
+                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                  {<ToolCard tool={getAiTool(6)} idx={6} />}
+                </div>
+              </div>
+              {/*  Column 3 */}
+              <div className='flex flex-col relative top-[31rem] lg:top-[22rem] space-y-2'>
+                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-28 sm:h-52 lg:h-40 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                  {<ToolCard tool={getAiTool(7)} idx={7} />}
+                </div>
+                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                  {<ToolCard tool={getAiTool(8)} idx={8} />}
+                </div>
+              </div>
             </div>
-        </section>
 
-    )
+            {/* Center column */}
+            <div className=' flex flex-col'>
+              {/*  Column 1 */}
+              <div className='flex flex-col relative top-[36rem] lg:top-[27rem] space-y-2'>
+                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-28 sm:h-52 lg:h-40 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                  <ToolCard tool={getAiTool(9)} idx={9} />
+                </div>
+                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                  <ToolCard tool={getAiTool(10)} idx={10} />
+                </div>
+              </div>
+            </div>
+
+            {/* Right column */}
+            {/* Rows */}
+            <div className='flex space-x-2'>
+              {/*  Column 3 */}
+              <div className='flex flex-col relative top-[31rem] lg:top-[22rem] space-y-2'>
+                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-28 sm:h-52 lg:h-40 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                  {<ToolCard tool={getAiTool(11)} idx={11} />}
+                </div>
+                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                  {<ToolCard tool={getAiTool(12)} idx={12} />}
+                </div>
+              </div>
+              {/*  Column 2 */}
+              <div className='flex flex-col relative top-52 lg:top-40 space-y-2'>
+                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                  {<ToolCard tool={getAiTool(13)} idx={13} />}
+                </div>
+                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-28 sm:h-52 lg:h-40 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                  {<ToolCard tool={getAiTool(14)} idx={14} />}
+                </div>
+                <div className='lg:w-[13.6vw] xl:w-[13.7vw] 2xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                  {<ToolCard tool={getAiTool(15)} idx={15} />}
+                </div>
+              </div>
+
+              {/* Column 1 */}
+              <div className='flex flex-col  space-y-2'>
+                <div className='lg:w-[13.6vw] 2lg:w-[13.6vw] xl:w-[13.7vw] h-52 sm:h-72 lg:h-56 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                  {<ToolCard tool={getAiTool(16)} idx={16} />}
+                </div>
+                <div className='lg:w-[13.6vw] 2lg:w-[13.6vw] xl:w-[13.7vw] h-28 sm:h-52 lg:h-40 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                  {<ToolCard tool={getAiTool(17)} idx={17} />}
+                </div>
+                <div className='lg:w-[13.6vw] 2lg:w-[13.6vw] xl:w-[13.7vw] h-28 sm:h-72 lg:h-56 rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                  {<ToolCard tool={getAiTool(19)} idx={19} />}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Tools for small devices */}
+          <div className='flex justify-between lg:hidden mt-40 sm:mt-56'>
+            <div className='flex flex-col space-y-2 relative top-20'>
+              <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72                        rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
+                {<ToolCard tool={getAiTool(0)} idx={0} />}
+              </div>
+              <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52                        rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                {<ToolCard tool={getAiTool(1)} idx={1} />}
+              </div>
+              <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72                        rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb]'>
+                {<ToolCard tool={getAiTool(2)} idx={2} />}
+              </div>
+              <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52                        rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
+                {<ToolCard tool={getAiTool(3)} idx={3} />}
+              </div>
+              <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72                        rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
+                {<ToolCard tool={getAiTool(4)} idx={4} />}
+              </div>
+              <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52                        rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
+                {<ToolCard tool={getAiTool(5)} idx={5} />}
+              </div>
+            </div>
+            <div className='flex flex-col space-y-2 '>
+              <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72                          rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
+                {<ToolCard tool={getAiTool(6)} idx={6} />}
+              </div>
+              <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52                           rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
+                {<ToolCard tool={getAiTool(7)} idx={7} />}
+              </div>
+              <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72                          rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
+                {<ToolCard tool={getAiTool(8)} idx={8} />}
+              </div>
+              <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52                           rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
+                {<ToolCard tool={getAiTool(9)} idx={9} />}
+              </div>
+              <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72                          rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] r'>
+                {<ToolCard tool={getAiTool(10)} idx={10} />}
+              </div>
+              <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52                           rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
+                {<ToolCard tool={getAiTool(11)} idx={11} />}
+              </div>
+              <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72                          rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
+                {<ToolCard tool={getAiTool(12)} idx={12} />}
+              </div>
+            </div>
+            <div className='flex flex-col space-y-2 relative top-20 mb-7 sm:mb-10'>
+              <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72                         rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
+                {<ToolCard tool={getAiTool(14)} idx={14} />}
+              </div>
+              <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52                          rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
+                {<ToolCard tool={getAiTool(15)} idx={15} />}
+              </div>
+              <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72                         rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
+                {<ToolCard tool={getAiTool(16)} idx={16} />}
+              </div>
+              <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52                          rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
+                {<ToolCard tool={getAiTool(17)} idx={17} />}
+              </div>
+              <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-72                         rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
+                {<ToolCard tool={getAiTool(18)} idx={18} />}
+              </div>
+              <div className='w-[32vw] sm:w-[32.8vw] md:w-[32.9vw] h-36 sm:h-52                         rounded-sm bg-[#e4ecf4] hover:bg-[#3bd4cb] '>
+                {<ToolCard tool={getAiTool(19)} idx={19} />}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  )
 }
 
 export default AiToolsPreview;

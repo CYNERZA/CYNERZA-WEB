@@ -185,6 +185,8 @@ const BlogLayout: React.FC = () => {
     loading,
   } = useSelector((state: any) => state.blog);
 
+  const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
+
   useEffect(() => {
     const fetchData = async () => {
       await Promise.all([
@@ -216,7 +218,10 @@ const BlogLayout: React.FC = () => {
   if (loading) {
     return (
       <div className="relative min-h-screen flex justify-center items-center">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-0" />
+         {/* Purple gradient background overlay */}
+            {isDarkMode &&
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+            }
         <div className="relative z-10 animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
       </div>
     );
@@ -225,14 +230,16 @@ const BlogLayout: React.FC = () => {
   return (
     <section className="relative min-h-screen pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-28 md:pb-24 w-full px-4 sm:px-6 lg:px-8 text-gray-900 dark:text-gray-100">
       {/* Purple gradient background overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-0" />
-
+      {/* Purple gradient background overlay */}
+      {isDarkMode &&
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+      }
       {/* Content wrapper */}
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Recent Posts Section */}
         {recentBlogPosts && recentBlogPosts.length > 0 && (
           <div className="mb-16">
-            <motion.h2 
+            <motion.h2
               className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-gray-200 mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -304,7 +311,7 @@ const BlogLayout: React.FC = () => {
         {/* All Posts Section */}
         {blogPosts && blogPosts.length > 0 && (
           <div>
-            <motion.h2 
+            <motion.h2
               className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-gray-200 mb-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

@@ -331,6 +331,7 @@ const SingleBlog: React.FC = () => {
     const containerVariants: any = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.6, staggerChildren: 0.1 } } };
     const itemVariants: any = { hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: 'easeOut' } } };
 
+    const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
     if (loading) {
         return (
             <motion.div className="min-h-screen flex justify-center items-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -357,9 +358,10 @@ const SingleBlog: React.FC = () => {
 
     return (
         <div className="min-h-screen transition-colors relative">
-            {/* Purple Gradient Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-0" />
-
+ {/* Purple gradient background overlay */}
+            {isDarkMode &&
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+            }
             {/* Floating Action Buttons */}
             <div className="fixed right-4 sm:right-6 bottom-4 sm:bottom-6 flex flex-col gap-3 z-40">
                 <AnimatePresence>

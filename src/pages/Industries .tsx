@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const industryData = [
@@ -82,12 +83,13 @@ export default function IndustriesPage() {
       handleClick(slug);
     }
   };
-
+const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
   return (
     <div className="relative pt-24 md:pt-28 px-4 sm:px-6 lg:px-8 min-h-screen py-8">
-      {/* Subtle background gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-0" />
-
+ {/* Purple gradient background overlay */}
+            {isDarkMode &&
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+            }
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Hero title */}
         <div className="text-center mb-10">

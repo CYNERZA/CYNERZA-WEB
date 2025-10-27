@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Building, Users, FileText, Globe, ArrowRight, CheckCircle } from 'lucide-react';
+import { useSelector } from 'react-redux';
 
 const PublicServicesPage: React.FC = () => {
   const navigate = useNavigate();
@@ -44,11 +45,13 @@ const PublicServicesPage: React.FC = () => {
     }
   ];
 
+  const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
   return (
     <div className="relative w-full overflow-x-hidden">
-      {/* Background Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-0 pointer-events-none" />
-
+ {/* Purple gradient background overlay */}
+            {isDarkMode &&
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+            }
       {/* Hero Section - Responsive Height */}
       <section className="relative z-10 h-[50vh] sm:h-[55vh] md:h-[60vh] min-h-[400px] sm:min-h-[450px] md:min-h-[500px] max-h-[700px] flex items-center justify-center overflow-hidden w-full">
         <div className="absolute inset-0 w-full h-full overflow-hidden">

@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Github, Linkedin, Instagram, Facebook } from 'lucide-react'
+import { useDispatch } from 'react-redux';
+import { toggleDarkMode } from '@/featured/theme/themeSlice';
 
 const Footer: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     return document.documentElement.classList.contains("dark");
   });
+
+  const dispatch = useDispatch()
 
   const socialLinkes = [
     {
@@ -36,7 +40,8 @@ const Footer: React.FC = () => {
     document.documentElement.classList.toggle("dark", newTheme);
     localStorage.setItem("theme", newTheme ? "dark" : "light");
     setIsDarkMode(newTheme);
-  };
+    dispatch(toggleDarkMode())
+  };        
 
   return (
     // <footer className="bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
@@ -166,7 +171,9 @@ const Footer: React.FC = () => {
 
     <footer className="relative bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
     {/* Purple gradient background overlay */}
+    {isDarkMode &&
     <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20" />
+    }
     
     {/* Content wrapper */}
     <div className="relative z-10">
