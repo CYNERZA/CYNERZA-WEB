@@ -754,6 +754,7 @@ function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [whatWeDoOpen, setWhatWeDoOpen] = useState(false); // Desktop dropdown state
+  const [moreOpen, setMoreOpen] = useState(false); // Desktop dropdown state
   const [mobileWhatWeDoOpen, setMobileWhatWeDoOpen] = useState(false); // Mobile dropdown state
 
   const textToType = 'CYNERZA';
@@ -764,6 +765,10 @@ function Navbar({ className }: { className?: string }) {
   // Check if Industries or Services are active (for dropdown items only)
   const isIndustriesActive = location.pathname === '/industries' || location.pathname.startsWith('/industries/');
   const isServicesActive = location.pathname === '/services' || location.pathname.startsWith('/services/');
+
+  const isTeamActive = location.pathname === '/team' || location.pathname.startsWith('/team/');
+  const isAboutActive = location.pathname === '/about' || location.pathname.startsWith('/about/');
+  const isContactActive = location.pathname === '/contact' || location.pathname.startsWith('/contact/');
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -880,7 +885,7 @@ function Navbar({ className }: { className?: string }) {
         )}
       </AnimatePresence>
 
-      <div className={cn("fixed top-5 inset-x-0 max-w-2xl mx-auto z-50", className)}>
+      <div className={cn("fixed top-5 inset-x-0 max-w-[44rem] mx-auto z-50 ", className)}>
         <Menu setActive={setActive}>
           {/* Logo */}
           <div className={cn("max-w-2xl z-50", className)}>
@@ -1001,8 +1006,8 @@ function Navbar({ className }: { className?: string }) {
                         to="/industries"
                         onClick={() => setWhatWeDoOpen(false)}
                         className={`block px-4 py-1 font-medium transition-colors duration-200 ${isIndustriesActive
-                            ? 'border-b-2 border-cynerza-purple text-white'
-                            : 'text-white hover:bg-cynerza-purple/80 hover:rounded-md'
+                          ? 'border-b-2 border-cynerza-purple text-white'
+                          : 'text-white hover:bg-cynerza-purple/80 hover:rounded-md'
                           }`}
                       >
                         Industries
@@ -1011,8 +1016,8 @@ function Navbar({ className }: { className?: string }) {
                         to="/services"
                         onClick={() => setWhatWeDoOpen(false)}
                         className={`block px-4 py-1 font-medium transition-colors duration-200 ${isServicesActive
-                            ? 'border-b-2 border-cynerza-purple text-white'
-                            : 'text-white hover:bg-cynerza-purple/80 hover:rounded-md'
+                          ? 'border-b-2 border-cynerza-purple text-white'
+                          : 'text-white hover:bg-cynerza-purple/80 hover:rounded-md'
                           }`}
                       >
                         Services
@@ -1043,13 +1048,80 @@ function Navbar({ className }: { className?: string }) {
               <MenuItem setActive={setActive} active={active} item="Blog"
                 className={`block ${loading ? "sm:block" : "sm:hidden"}`} />
             </NavLink>
-            <MenuItem setActive={setActive} active={active} item="More">
+            {/* <MenuItem setActive={setActive} active={active} item="More">
               <div className="flex flex-col space-y-4 text-sm md:p-4 p-2">
                 <HoveredLink to="/team">Team</HoveredLink>
                 <HoveredLink to="/about">About</HoveredLink>
                 <HoveredLink to="/contact">Contact</HoveredLink>
               </div>
-            </MenuItem>
+            </MenuItem> */}
+
+            {/* What We Do - Click Dropdown (NO underline on main button) */}
+            <div className="relative">
+              <button
+                onClick={() => setMoreOpen(!moreOpen)}
+                className="relative z-10 font-semibold transition-colors duration-300
+                  text-sm sm:text-base px-1 py-2 rounded-md text-slate-900 dark:text-slate-200 
+                  hover:text-white hover:bg-cynerza-purple/80 hover:shadow-md dark:hover:bg-cynerza-purple/80 dark:hover:text-white
+                  flex items-center gap-1"
+              >
+                More
+                <motion.div
+                  animate={{ rotate: moreOpen ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <ChevronDown size={16} />
+                </motion.div>
+              </button>
+
+              {/* Dropdown with active states for individual options */}
+              <AnimatePresence>
+                {moreOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                    className="absolute top-12 left-10 transform -translate-x-1/2 mt-2  p-2
+                      bg-gray-950/90 dark:bg-black/90 backdrop-blur-md rounded-xl overflow-hidden 
+                      border border-black/[0.2] dark:border-white/[0.2] shadow-xl z-50"
+                  >
+                    <div className="flex flex-col items-center justify-center space-y-1">
+                      <Link
+                        to="/team"
+                        onClick={() => setMoreOpen(false)}
+                        className={`block px-4 py-1 font-medium transition-colors duration-200 ${isTeamActive
+                          ? 'border-b-2 border-cynerza-purple text-white'
+                          : 'text-white hover:bg-cynerza-purple/80 hover:rounded-md'
+                          }`}
+                      >
+                        Team
+                      </Link>
+                      <Link
+                        to="/about"
+                        onClick={() => setMoreOpen(false)}
+                        className={`block px-4 py-1 font-medium transition-colors duration-200 ${isAboutActive
+                          ? 'border-b-2 border-cynerza-purple text-white'
+                          : 'text-white hover:bg-cynerza-purple/80 hover:rounded-md'
+                          }`}
+                      >
+                        About
+                      </Link>
+                      <Link
+                        to="/contact"
+                        onClick={() => setMoreOpen(false)}
+                        className={`block px-4 py-1 font-medium transition-colors duration-200 ${isContactActive
+                          ? 'border-b-2 border-cynerza-purple text-white'
+                          : 'text-white hover:bg-cynerza-purple/80 hover:rounded-md'
+                          }`}
+                      >
+                        Contact
+                      </Link>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -1117,9 +1189,9 @@ function Navbar({ className }: { className?: string }) {
                                 animate={{ opacity: 1, height: "auto" }}
                                 exit={{ opacity: 0, height: 0 }}
                                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                                className="overflow-hidden"
+                                className="overflow-hidden mt-2"
                               >
-                                <div className="pl-8 pr-4 pb-2">
+                                <div className="pl-8 pr-4 pb-2 space-y-2">
                                   <Link
                                     to="/industries"
                                     onClick={() => {
@@ -1127,8 +1199,8 @@ function Navbar({ className }: { className?: string }) {
                                       setMobileWhatWeDoOpen(false);
                                     }}
                                     className={`block px-4 py-2 text-sm font-medium rounded-md transition-colors ${isIndustriesActive
-                                        ? 'text-cynerza-purple dark:text-cynerza-purple bg-cynerza-purple/10 dark:bg-cynerza-purple/20 font-bold'
-                                        : 'text-gray-700 dark:text-gray-300 hover:text-cynerza-purple dark:hover:text-cynerza-purple hover:bg-gray-100/50 dark:hover:bg-gray-800/50'
+                                      ? 'text-cynerza-purple dark:text-cynerza-purple bg-cynerza-purple/10 dark:bg-cynerza-purple/20 font-bold'
+                                      : 'text-gray-700 dark:text-gray-300 hover:text-cynerza-purple dark:hover:text-cynerza-purple hover:bg-gray-100/50 dark:hover:bg-gray-800/50'
                                       }`}
                                   >
                                     Industries
@@ -1140,8 +1212,8 @@ function Navbar({ className }: { className?: string }) {
                                       setMobileWhatWeDoOpen(false);
                                     }}
                                     className={`block px-4 py-2 text-sm font-medium rounded-md transition-colors mt-1 ${isServicesActive
-                                        ? 'text-cynerza-purple dark:text-cynerza-purple bg-cynerza-purple/10 dark:bg-cynerza-purple/20 font-bold'
-                                        : 'text-gray-700 dark:text-gray-300 hover:text-cynerza-purple dark:hover:text-cynerza-purple hover:bg-gray-100/50 dark:hover:bg-gray-800/50'
+                                      ? 'text-cynerza-purple dark:text-cynerza-purple bg-cynerza-purple/10 dark:bg-cynerza-purple/20 font-bold'
+                                      : 'text-gray-700 dark:text-gray-300 hover:text-cynerza-purple dark:hover:text-cynerza-purple hover:bg-gray-100/50 dark:hover:bg-gray-800/50'
                                       }`}
                                   >
                                     Services
@@ -1157,8 +1229,8 @@ function Navbar({ className }: { className?: string }) {
                           to={item.path}
                           onClick={() => setMobileMenuOpen(false)}
                           className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${location.pathname === item.path
-                              ? 'text-cynerza-purple dark:text-cynerza-purple bg-cynerza-purple/10 dark:bg-cynerza-purple/20 font-bold'
-                              : 'text-gray-700 dark:text-gray-300 hover:text-cynerza-purple dark:hover:text-cynerza-purple hover:bg-gray-100/50 dark:hover:bg-gray-800/50'
+                            ? 'text-cynerza-purple dark:text-cynerza-purple bg-cynerza-purple/10 dark:bg-cynerza-purple/20 font-bold'
+                            : 'text-gray-700 dark:text-gray-300 hover:text-cynerza-purple dark:hover:text-cynerza-purple hover:bg-gray-100/50 dark:hover:bg-gray-800/50'
                             }`}
                         >
                           <div className="flex items-center">

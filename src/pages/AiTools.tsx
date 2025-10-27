@@ -24,6 +24,7 @@ import {
 import { cn } from '@/lib/utils';
 import { link } from 'fs';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const AiTools: React.FC = () => {
   useEffect(() => {
@@ -156,6 +157,7 @@ const AiTools: React.FC = () => {
 
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
 
   const filteredCategories = categories.filter(category =>
     activeCategory === 'all' || category.id === activeCategory
@@ -178,9 +180,10 @@ const AiTools: React.FC = () => {
     <div className="w-full relative pt-24 md:pt-28 px-4 sm:px-6 lg:px-8">
       <ParticleBackground />
 
-      {/* Purple gradient background overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
-
+ {/* Purple gradient background overlay */}
+            {isDarkMode &&
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+            }
       <div className="relative z-10">
         <main className="flex-grow pt-0 relative z-10">
           <section className="pb-8 pt-2">

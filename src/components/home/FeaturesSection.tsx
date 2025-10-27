@@ -105,6 +105,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Fade } from "react-awesome-reveal";
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const FeaturesSection: React.FC = () => {
   const features = [
@@ -158,10 +159,14 @@ const FeaturesSection: React.FC = () => {
     }
   ];
 
+  const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
+
   return (
     <section className="relative py-4 sm:py-6 md:py-8 overflow-hidden" id="features">
-      {/* Purple gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20" />
+      {/* Purple gradient background overlay */}
+      {isDarkMode &&
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+      }
 
       {/* Content wrapper */}
       <div className="relative z-10">
@@ -231,12 +236,15 @@ const FeaturesSection: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.9 }}
               className="text-center mt-6 sm:mt-8 md:mt-10 flex justify-center items-center"
             >
+
               <Link
                 to="/why-cynerza"
-                className="relative flex items-center px-4 sm:px-5 py-2.5 sm:py-3 bg-gradient-to-r from-cynerza-purple to-cynerza-blue text-white text-sm sm:text-base md:text-lg font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-cynerza-purple/30 hover:bg-cynerza-purple/90"
+                className="relative flex items-center px-5 py-5 bg-gradient-to-r from-cynerza-purple to-cynerza-blue text-white text-lg font-semibold rounded-xl transition-all
+                                     duration-200 hover:shadow-lg hover:shadow-cynerza-purple/30
+                                     bg-cynerza-purple hover:bg-cynerza-purple/90 h-12 "
               >
                 <span>Learn more about our platform</span>
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 -mr-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5 ml-2 -mr-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </Link>
@@ -279,11 +287,11 @@ const DiagramWithConnections: React.FC<DiagramWithConnectionsProps> = ({ feature
       leftCardsRefs.current.forEach((cardRef, index) => {
         if (cardRef) {
           const cardRect = cardRef.getBoundingClientRect();
-          
+
           // Start from card's right edge (same as right side start point logic)
           const startX = cardRect.right - containerRect.left;
           const startY = cardRect.top + cardRect.height / 2 - containerRect.top;
-          
+
           // End at cylinder's left edge with proper layer alignment
           const endX = cylinderRect.left - containerRect.left;
           const cylinderHeight = cylinderRect.height;
@@ -304,13 +312,13 @@ const DiagramWithConnections: React.FC<DiagramWithConnectionsProps> = ({ feature
       rightCardsRefs.current.forEach((cardRef, index) => {
         if (cardRef) {
           const cardRect = cardRef.getBoundingClientRect();
-          
+
           // Start from cylinder's right edge
           const startX = cylinderRect.right - containerRect.left;
           const cylinderHeight = cylinderRect.height;
           const layerHeight = cylinderHeight / 6;
           const startY = cylinderRect.top + (layerHeight * index) + (layerHeight / 2) - containerRect.top;
-          
+
           // End at card's left edge
           const endX = cardRect.left - containerRect.left;
           const endY = cardRect.top + cardRect.height / 2 - containerRect.top;
@@ -340,7 +348,7 @@ const DiagramWithConnections: React.FC<DiagramWithConnectionsProps> = ({ feature
   return (
     <div ref={containerRef} className="grid grid-cols-12 gap-1 sm:gap-2 md:gap-4 lg:gap-6 items-start relative">
       {/* SVG Connection Lines Layer */}
-      <svg 
+      <svg
         className="absolute inset-0 w-full h-full pointer-events-none z-0"
         style={{ overflow: 'visible' }}
         preserveAspectRatio="none"
@@ -358,12 +366,12 @@ const DiagramWithConnections: React.FC<DiagramWithConnectionsProps> = ({ feature
             <stop offset="0%" stopColor="#6366f1" stopOpacity="0.8" />
             <stop offset="100%" stopColor="#a855f7" stopOpacity="0.8" />
           </linearGradient>
-          
+
           <filter id="glow">
-            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feGaussianBlur stdDeviation="2" result="coloredBlur" />
             <feMerge>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
         </defs>
@@ -545,7 +553,7 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({ path, gradientId, delay }) 
         transition={{ duration: 1, delay, ease: "easeInOut" }}
         vectorEffect="non-scaling-stroke"
       />
-      
+
       <motion.path
         d={path}
         stroke={`url(#${gradientId})`}
@@ -554,12 +562,12 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({ path, gradientId, delay }) 
         strokeDasharray="8,8"
         strokeLinecap="round"
         initial={{ pathLength: 0, opacity: 0, strokeDashoffset: 0 }}
-        animate={isInView ? { 
-          pathLength: 1, 
+        animate={isInView ? {
+          pathLength: 1,
           opacity: [0, 0.6, 0.6],
           strokeDashoffset: [0, -16]
         } : {}}
-        transition={{ 
+        transition={{
           pathLength: { duration: 1, delay, ease: "easeInOut" },
           opacity: { duration: 1, delay },
           strokeDashoffset: { duration: 2, delay: delay + 1, repeat: Infinity, ease: "linear" }
@@ -620,7 +628,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ feature, delay, direction }) 
       className="group relative bg-white dark:bg-gray-800 p-1.5 sm:p-2.5 md:p-4 lg:p-5 rounded-md sm:rounded-lg md:rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-600 h-full flex flex-col max-w-[200px] lg:max-w-[240px]"
     >
       <div className="absolute inset-0 rounded-md sm:rounded-lg md:rounded-xl bg-gradient-to-br from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/10 group-hover:to-blue-500/10 transition-all duration-300" />
-      
+
       <div className="relative z-10 flex-1 flex flex-col">
         <div className="flex items-start gap-1 sm:gap-1.5 md:gap-2 mb-0.5 sm:mb-1 md:mb-2">
           <motion.div

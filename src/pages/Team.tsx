@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import TeamMemberCard from '@/components/ui/TeamMemberCard';
 import { motion } from 'framer-motion';
+import { useSelector } from 'react-redux';
 
 const Team: React.FC = () => {
   useEffect(() => {
@@ -60,6 +61,8 @@ const Team: React.FC = () => {
 
   ];
 
+  const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
+
   const boardOfDirectors: Array<teamDetails> = [
 
     {
@@ -98,8 +101,9 @@ const Team: React.FC = () => {
   return (
     <div className="relative pt-24 md:pt-28 w-full px-4 sm:px-6 lg:px-8">
       {/* Purple gradient background overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-0" />
-
+      {isDarkMode &&
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+      }
       {/* Content wrapper */}
       <div className="relative z-10">
         <section className="py-0">

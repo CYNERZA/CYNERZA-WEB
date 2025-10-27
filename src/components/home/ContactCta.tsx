@@ -1,13 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { useSelector } from 'react-redux';
 
 const ContactCta: React.FC = () => {
+
+  const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
+  
   return (
     <section className="relative overflow-hidden py-4">
-      {/* Purple gradient background overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-0" />
-
+ {/* Purple gradient background overlay */}
+            {isDarkMode &&
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+            }
       <div className="absolute inset-0 -z-10">
         {/* <div className="absolute inset-0 bg-gradient-to-br from-cynerza-purple-light/30 to-cynerza-purple/20"></div>
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_left,rgba(155,135,245,0.15),transparent_50%)]"></div>

@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const NotFound = () => {
   const location = useLocation();
@@ -11,8 +12,14 @@ const NotFound = () => {
     );
   }, [location.pathname]);
 
+  const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
+
   return (
     <div className="min-h-[60vh] flex items-center justify-center bg-white dark:bg-gray-950">
+       {/* Purple gradient background overlay */}
+            {isDarkMode &&
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+            }
       <div className="text-center py-16 px-4">
         <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-cynerza-purple to-cynerza-blue">
           404

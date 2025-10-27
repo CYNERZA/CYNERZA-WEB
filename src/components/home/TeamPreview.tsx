@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import TeamMemberCard from '@/components/ui/TeamMemberCard';
 import { motion } from 'framer-motion';
+import { useSelector } from 'react-redux';
 
 const TeamPreview: React.FC = () => {
- const teamMembers = [
+  const teamMembers = [
     {
       name: 'Aditya Sahoo',
       role: 'CEO & Co-Founder',
@@ -50,14 +51,17 @@ const TeamPreview: React.FC = () => {
     { value: '24/7', label: 'Support' },
   ];
 
+  const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
 
   return (
     <section className="py-20 bg-gradient-to-b from-white to-gray-50">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20" />
-
+      {/* Purple gradient background overlay */}
+      {isDarkMode &&
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+      }
       <div className="container mx-auto px-4">
         <div className="text-center max-w-4xl mx-auto mb-16">
-          <motion.h2 
+          <motion.h2
             className="text-4xl font-bold mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -65,7 +69,7 @@ const TeamPreview: React.FC = () => {
           >
             The <span className="text-cynerza-purple">Minds</span> Behind CYNERZA
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="text-xl text-gray-600"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -76,8 +80,8 @@ const TeamPreview: React.FC = () => {
           </motion.p>
         </div>
 
-        {}
-        <motion.div 
+        { }
+        <motion.div
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -104,8 +108,8 @@ const TeamPreview: React.FC = () => {
             >
               <div className="bg-white rounded-xl shadow-md overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                 <div className="relative h-64 overflow-hidden">
-                  <img 
-                    src={member.imageUrl} 
+                  <img
+                    src={member.imageUrl}
                     alt={member.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
@@ -127,13 +131,13 @@ const TeamPreview: React.FC = () => {
                     <a href="#" className="text-gray-400 hover:text-cynerza-purple transition-colors">
                       <span className="sr-only">LinkedIn</span>
                       <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                       </svg>
                     </a>
                     <a href="#" className="text-gray-400 hover:text-cynerza-purple transition-colors">
                       <span className="sr-only">Twitter</span>
                       <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
                       </svg>
                     </a>
                     <a href="#" className="text-gray-400 hover:text-cynerza-purple transition-colors ml-auto">
@@ -149,7 +153,7 @@ const TeamPreview: React.FC = () => {
           ))}
         </div>
 
-        <motion.div 
+        <motion.div
           className="mt-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

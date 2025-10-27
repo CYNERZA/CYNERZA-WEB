@@ -1,6 +1,7 @@
 import React from 'react';
 import { SlidingLogoMarquee, SlidingLogoMarqueeItem } from "../lightswind/sliding-logo-marquee";
 import { motion } from 'framer-motion';
+import { useSelector } from 'react-redux';
 
 const LeadingCompanies: React.FC = () => {
     const logos: SlidingLogoMarqueeItem[] = [
@@ -37,12 +38,13 @@ const LeadingCompanies: React.FC = () => {
             />
         },
     ];
-
+    const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
     return (
         <section className="relative w-full py-12 sm:py-16 md:py-20 overflow-hidden">
-            {/* Background gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20" />
-
+            {/* Purple gradient background overlay */}
+            {isDarkMode &&
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+            }
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header Section */}
                 <motion.div

@@ -2,6 +2,7 @@
 
 
 import React, { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 interface Cursor { x: number; y: number; }
@@ -277,6 +278,8 @@ const HeaderSection: React.FC = () => {
     setCursor({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   };
 
+  const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
+
 
   return (
     // <section className="relative pb-20 py-20 sm:py-40 overflow-hidden">
@@ -424,8 +427,9 @@ const HeaderSection: React.FC = () => {
       className="relative pb-10 sm:pb-6 pt-24 sm:py-40 overflow-hidden transition-colors duration-500">
 
       {/* Purple gradient background overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-0" />
-
+            {isDarkMode &&
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+            }
       <div className="absolute inset-0 z-10 pointer-events-none">
         <HexagonBackground isActive={isActive} cursor={cursor} />
       </div>

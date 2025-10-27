@@ -27,6 +27,7 @@ const Contact: React.FC = () => {
     company: '',
     message: ''
   });
+  const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -245,160 +246,161 @@ const Contact: React.FC = () => {
     // </div>
 
     <div className="w-full relative pt-24 md:pt-28 px-4 sm:px-6 lg:px-8">
-    {/* Purple gradient background overlay */}
-    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-0" />
-    
-    {/* Content wrapper */}
-    <div className="relative z-10">
+      {/* Purple gradient background overlay */}
+      {isDarkMode &&
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+      }
+      {/* Content wrapper */}
+      <div className="relative z-10">
         <section className="py-2">
-            <section className="py-0">
-                <div className="container mx-auto px-4">
-                    <motion.div {...fadeUp(0)} className="max-w-3xl mx-auto text-center">
-                        <motion.h2 {...fadeUp(0.2)} className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
+          <section className="py-0">
+            <div className="container mx-auto px-4">
+              <motion.div {...fadeUp(0)} className="max-w-3xl mx-auto text-center">
+                <motion.h2 {...fadeUp(0.2)} className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
                             text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
-                            Get in <span className="gradient-text">Touch</span>
-                        </motion.h2>
-                        <motion.p {...fadeUp(0.3)} className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-4">
-                            Have questions or want to learn more? Reach out to our team and we&apos;ll get back to you shortly.
-                        </motion.p>
-                    </motion.div>
+                  Get in <span className="gradient-text">Touch</span>
+                </motion.h2>
+                <motion.p {...fadeUp(0.3)} className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-4">
+                  Have questions or want to learn more? Reach out to our team and we&apos;ll get back to you shortly.
+                </motion.p>
+              </motion.div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-                        {contactInfo.map((item, index) => (
-                            <motion.a
-                                key={index}
-                                {...fadeUp(index * 0.1)}
-                                href={item.link}
-                                className="gradient-text p-6 glass-effect
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+                {contactInfo.map((item, index) => (
+                  <motion.a
+                    key={index}
+                    {...fadeUp(index * 0.1)}
+                    href={item.link}
+                    className="gradient-text p-6 glass-effect
                                  text-center transition-transform 
                                 hover:scale-105"
-                                target={item.title === 'Visit Us' ? '_blank' : undefined}
-                                rel={item.title === 'Visit Us' ? 'noopener noreferrer' : undefined}
-                            >
-                                <div className="flex items-center justify-center w-12 h-12 mx-auto mb-4 rounded-full bg-cynerza-purple/10 text-cynerza-purple">
-                                    {item.icon}
-                                </div>
-                                <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-                                <p className="text-gray-800 dark:text-gray-400">{item.details}</p>
-                            </motion.a>
-                        ))}
+                    target={item.title === 'Visit Us' ? '_blank' : undefined}
+                    rel={item.title === 'Visit Us' ? 'noopener noreferrer' : undefined}
+                  >
+                    <div className="flex items-center justify-center w-12 h-12 mx-auto mb-4 rounded-full bg-cynerza-purple/10 text-cynerza-purple">
+                      {item.icon}
                     </div>
+                    <h3 className="text-lg font-bold mb-2">{item.title}</h3>
+                    <p className="text-gray-800 dark:text-gray-400">{item.details}</p>
+                  </motion.a>
+                ))}
+              </div>
 
-                    <motion.div {...fadeUp(0.4)} className="max-w-3xl mx-auto">
-                        <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm 
+              <motion.div {...fadeUp(0.4)} className="max-w-3xl mx-auto">
+                <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm 
                       rounded-2xl overflow-hidden">
-                            <div className="p-8">
-                                <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
+                  <div className="p-8">
+                    <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
                                 text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white
                                  dark:to-gray-300 text-center">Send Us a Message</h2>
 
-                                <form onSubmit={handleSubmit}>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                                        <div>
-                                            <label htmlFor="name" className="block text-sm font-medium text-gray-800 dark:text-gray-400 mb-1">
-                                                Your Name
-                                            </label>
-                                            <input
-                                                type="text"
-                                                id="name"
-                                                name="name"
-                                                value={formData.name}
-                                                onChange={handleChange}
-                                                required
-                                                className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label htmlFor="email" className="block text-sm font-medium text-gray-800 dark:text-gray-400 mb-1">
-                                                Email Address
-                                            </label>
-                                            <input
-                                                type="email"
-                                                id="email"
-                                                name="email"
-                                                value={formData.email}
-                                                onChange={handleChange}
-                                                required
-                                                className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="mb-6">
-                                        <label htmlFor="company" className="block text-sm font-medium text-gray-800 dark:text-gray-400 mb-1">
-                                            Company (Optional)
-                                        </label>
-                                        <input
-                                            type="text"
-                                            id="company"
-                                            name="company"
-                                            value={formData.company}
-                                            onChange={handleChange}
-                                            className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
-                                        />
-                                    </div>
-
-                                    <div className="mb-6">
-                                        <label htmlFor="message" className="block text-sm font-medium text-gray-800 dark:text-gray-400 mb-1">
-                                            Your Message
-                                        </label>
-                                        <textarea
-                                            id="message"
-                                            name="message"
-                                            rows={5}
-                                            value={formData.message}
-                                            onChange={handleChange}
-                                            required
-                                            className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
-                                        ></textarea>
-                                    </div>
-
-                                    <Button
-                                        type="submit"
-                                        className="w-full bg-cynerza-purple hover:bg-cynerza-purple/90"
-                                        disabled={isSubmitting}
-                                    >
-                                        {isSubmitting ? 'Sending...' : 'Send Message'}
-                                    </Button>
-                                </form>
-                            </div>
+                    <form onSubmit={handleSubmit}>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                          <label htmlFor="name" className="block text-sm font-medium text-gray-800 dark:text-gray-400 mb-1">
+                            Your Name
+                          </label>
+                          <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                            className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
+                          />
                         </div>
-                    </motion.div>
+                        <div>
+                          <label htmlFor="email" className="block text-sm font-medium text-gray-800 dark:text-gray-400 mb-1">
+                            Email Address
+                          </label>
+                          <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                            className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="mb-6">
+                        <label htmlFor="company" className="block text-sm font-medium text-gray-800 dark:text-gray-400 mb-1">
+                          Company (Optional)
+                        </label>
+                        <input
+                          type="text"
+                          id="company"
+                          name="company"
+                          value={formData.company}
+                          onChange={handleChange}
+                          className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
+                        />
+                      </div>
+
+                      <div className="mb-6">
+                        <label htmlFor="message" className="block text-sm font-medium text-gray-800 dark:text-gray-400 mb-1">
+                          Your Message
+                        </label>
+                        <textarea
+                          id="message"
+                          name="message"
+                          rows={5}
+                          value={formData.message}
+                          onChange={handleChange}
+                          required
+                          className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
+                        ></textarea>
+                      </div>
+
+                      <Button
+                        type="submit"
+                        className="w-full bg-cynerza-purple hover:bg-cynerza-purple/90"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? 'Sending...' : 'Send Message'}
+                      </Button>
+                    </form>
+                  </div>
                 </div>
-            </section>
+              </motion.div>
+            </div>
+          </section>
 
-            <section className="relative py-8 glass-effect-light mt-6">
-                {/* Purple gradient background overlay for FAQ section */}
-                {/* <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20" /> */}
-                
-                <div className="container mx-auto px-4 text-center relative z-10">
-                    <motion.h2 {...fadeUp(0)} className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
+          <section className="relative py-8 glass-effect-light mt-6">
+            {/* Purple gradient background overlay for FAQ section */}
+            {/* <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20" /> */}
+
+            <div className="container mx-auto px-4 text-center relative z-10">
+              <motion.h2 {...fadeUp(0)} className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
                         text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
-                        Frequently Asked Questions
-                    </motion.h2>
-                    <motion.p {...fadeUp(0.1)} className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-8">
-                        Can't find what you're looking for? Contact us for more information.
-                    </motion.p>
+                Frequently Asked Questions
+              </motion.h2>
+              <motion.p {...fadeUp(0.1)} className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-8">
+                Can't find what you're looking for? Contact us for more information.
+              </motion.p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                        {faqs.map((faq, index) => (
-                            <motion.div
-                                key={index}
-                                {...fadeUp(index * 0.1)}
-                                className="
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                {faqs.map((faq, index) => (
+                  <motion.div
+                    key={index}
+                    {...fadeUp(index * 0.1)}
+                    className="
                                 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm
                                 rounded-xl p-6 text-left"
-                            >
-                                <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-gray-200">{faq.q}</h3>
-                                <p className="text-gray-800 dark:text-gray-400">{faq.a}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+                  >
+                    <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-gray-200">{faq.q}</h3>
+                    <p className="text-gray-800 dark:text-gray-400">{faq.a}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
         </section>
+      </div>
     </div>
-</div>
 
   );
 };
