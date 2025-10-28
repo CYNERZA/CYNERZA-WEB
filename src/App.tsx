@@ -39,7 +39,7 @@ import AutomationSolutions from './components/services/AutomationSolutions.js';
 import AIMLSolutions from './components/services/AI&MLSolution.js';
 import CloudDevOpsEngineering from './components/services/CloudDevOpsEngineering.js';
 import ITServiceManagement from './components/services/ITServiceManagement.js';
-import IndustriesPage from './pages/Industries .js';
+import IndustriesPage from './pages/admin/Industry.js';
 import BankingIndustry from './components/industries/banking';
 import CapitalMarketsPage from './components/industries/CapitalMarkets.js';
 import MediaCommunicationsPage from './components/industries/MediaCommunications.js';
@@ -103,6 +103,13 @@ const App = () => (
               <AuthLayout authentication={true}>
                 <Layout>
                   <BlogForm />
+                </Layout>
+              </AuthLayout>
+            } />
+            <Route path='/admin/industry' element={
+              <AuthLayout authentication={true}>
+                <Layout>
+                  <IndustriesPage />
                 </Layout>
               </AuthLayout>
             } />

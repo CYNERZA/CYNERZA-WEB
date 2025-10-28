@@ -74,11 +74,14 @@ import userRouter from "./routes/user.routes.js"
 import blogRouter from "./routes/blog.routes.js";
 import departmentRouter from "./routes/department.routes.js";
 import jobPostRouter from "./routes/jobPost.routes.js";
+import industryRouter from "./routes/industry.routes.js";
+
 
 // apis
 app.use("/api/v1/users", userRouter)
 app.use("/api/v1/blogs", blogRouter)
 app.use("/api/v1/departments", departmentRouter)
+app.use("/api/v1/industries", industryRouter)
 app.use("/api/v1/job-posts", jobPostRouter)
 
 
