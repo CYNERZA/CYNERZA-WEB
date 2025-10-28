@@ -132,10 +132,21 @@ interface LoginPayload {
   email: string;
   password: string;
 }
+
+// firstName: "",
+//     lastName: "",
+//     email: "",
+//     organization: "",
+//     region: "India",
+//     industry: "Capital Markets",
+//     message: "",
 interface userMessage {
-  name: string
+  firstName: string
+  lastName: string
   email: string
-  company?: string
+  organization?: string
+  region?: string
+  industry?: string
   message: string
 }
 

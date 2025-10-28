@@ -762,6 +762,9 @@ function Navbar({ className }: { className?: string }) {
   const eraseSpeed = 50;
   const location = useLocation();
 
+  // if page is contact us then change all navbar items text color to white in only large screens
+  const isContactUsPage = location.pathname === '/contact';
+
   // Check if Industries or Services are active (for dropdown items only)
   const isIndustriesActive = location.pathname === '/industries' || location.pathname.startsWith('/industries/');
   const isServicesActive = location.pathname === '/services' || location.pathname.startsWith('/services/');
@@ -912,7 +915,7 @@ function Navbar({ className }: { className?: string }) {
                 transition={{ duration: 0.3 }}
                 className="font-bold text-xl tracking-wider"
               >
-                <span className="relative dark:text-slate-200 text-slate-900">
+                <span className={`relative dark:text-slate-200 text-slate-900 ${isContactUsPage ? 'text-white' : ''}`}>
                   {displayText}
                   {!typingComplete && isHoveringLogo && (
                     <motion.span
@@ -945,7 +948,7 @@ function Navbar({ className }: { className?: string }) {
                 transition={{ duration: 0.3 }}
                 className="font-bold text-xl tracking-wider"
               >
-                <span className="relative text-slate-900 dark:text-slate-200 text-sm">
+                <span className={`relative text-slate-900 dark:text-slate-200 text-sm ${isContactUsPage ? 'text-white' : ''} `}>
                   {displayText}
                   {!typingComplete && isTappedLogo && (
                     <motion.span
@@ -975,10 +978,10 @@ function Navbar({ className }: { className?: string }) {
             <div className="relative">
               <button
                 onClick={() => setWhatWeDoOpen(!whatWeDoOpen)}
-                className="relative z-10 font-semibold transition-colors duration-300
+                className={`relative z-10 font-semibold transition-colors duration-300
                   text-sm sm:text-base px-1 py-2 rounded-md text-slate-900 dark:text-slate-200 
                   hover:text-white hover:bg-cynerza-purple/80 hover:shadow-md dark:hover:bg-cynerza-purple/80 dark:hover:text-white
-                  flex items-center gap-1"
+                  flex items-center gap-1 ${isContactUsPage ? 'text-white' : ''}`}
               >
                 What We Do
                 <motion.div
@@ -1060,10 +1063,10 @@ function Navbar({ className }: { className?: string }) {
             <div className="relative">
               <button
                 onClick={() => setMoreOpen(!moreOpen)}
-                className="relative z-10 font-semibold transition-colors duration-300
+                className={`relative z-10 font-semibold transition-colors duration-300
                   text-sm sm:text-base px-1 py-2 rounded-md text-slate-900 dark:text-slate-200 
                   hover:text-white hover:bg-cynerza-purple/80 hover:shadow-md dark:hover:bg-cynerza-purple/80 dark:hover:text-white
-                  flex items-center gap-1"
+                  flex items-center gap-1 ${isContactUsPage ? 'text-white' : ''}`}
               >
                 More
                 <motion.div
@@ -1130,8 +1133,8 @@ function Navbar({ className }: { className?: string }) {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X size={24} className='text-slate-900 dark:text-slate-200' />
-              : <MobileMenu size={24} className='text-slate-900 dark:text-slate-200' />}
+            {mobileMenuOpen ? <X size={24} className={`${isContactActive ? "text-white" : "text-slate-900 dark:text-slate-200"}`} />
+              : <MobileMenu size={24} className={`${isContactActive ? "text-white" : "text-slate-900 dark:text-slate-200"}`}   />}
           </button>
         </Menu>
 

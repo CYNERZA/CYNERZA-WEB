@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, LogOut, LogIn, Moon, Sun, Anchor, PodcastIcon, SaveAll } from "lucide-react";
+import { Calendar, Home, Inbox, LogOut, LogIn, Moon, Sun, Anchor, PodcastIcon, SaveAll , Building} from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -58,6 +58,7 @@ export function AppSidebar() {
 
   const items = [
     { title: "Home", url: "/admin", icon: Home },
+    { title: "Industry", url: "/admin/industry", icon: Building },
     { title: "Department", url: "/admin/department", icon: Anchor },
     { title: "JobPost", url: "/admin/jobs/create", icon: PodcastIcon },
     { title: "Jobs", url: "/admin/jobs", icon:  SaveAll},

@@ -100,33 +100,60 @@ const getCurrentUser = asyncHandler(async (req, res) => {
 })
 
 const sendMessageToAdmin = asyncHandler(async (req, res) => {
-    const { name, email, company, message } = req.body;
+    const { firstName, lastName, email, organization, region, industry, message } = req.body;
 
-
-    if (!name || !email || !message) {
-        throw new ApiError(400, "Name, email and message are required")
+    // Validation
+    if (!firstName || !lastName || !email || !message) {
+        throw new ApiError(400, "First name, last name, email and message are required")
     }
 
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        throw new ApiError(400, "Please provide a valid email address")
+    }
 
+    // Send email to admin
     await sendMail({
-        email,
-        subject: "✅ We Received Your Contact Request",
-        mailGenContent: sendAdminMailGenContent({ name, email, company, message })
+        email: process.env.ADMIN_EMAIL || "admin@cynerza.com", // Send to admin email
+        subject: `🔔 New Service Request from ${firstName} ${lastName}`,
+        mailGenContent: sendAdminMailGenContent({
+            firstName,
+            lastName,
+            email,
+            organization: organization || "Not specified",
+            region: region || "Not specified",
+            industry: industry || "Not specified",
+            message
+        })
+    });
 
-    })
+
 
     return res
         .status(200)
         .json(
-            new ApiResponse(200, {}, "Thanks for reaching out! We'll get back to you soon.")
-        )
+            new ApiResponse(
+                200,
+                {
+                    success: true,
+                    submittedAt: new Date().toISOString(),
+                    contact: {
+                        name: `${firstName} ${lastName}`,
+                        email,
+                        organization
+                    }
+                },
+                "Thanks for reaching out! We'll get back to you soon."
+            )
+        );
+});
 
 
-})
 
 export {
     loginUser,
     logoutUser,
     getCurrentUser,
-    sendMessageToAdmin
+    sendMessageToAdmin,
 }
