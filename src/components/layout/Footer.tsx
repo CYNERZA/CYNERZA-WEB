@@ -230,7 +230,7 @@ const Footer: React.FC = () => {
                         </li>
                         <li>
                             <Link
-                                to="/saas-product-development"
+                                to="/services/saas-product-development"
                                 className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
                             >
                                 SaaS Development
@@ -238,7 +238,7 @@ const Footer: React.FC = () => {
                         </li>
                         <li>
                             <Link
-                                to="/custom-llm-api"
+                                to="/services/custom-llm-api"
                                 className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
                             >
                                 Custom LLM API
@@ -246,7 +246,7 @@ const Footer: React.FC = () => {
                         </li>
                         <li>
                             <Link
-                                to="/automation-solutions"
+                                to="/services/automation-solutions"
                                 className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
                             >
                                 Automation
