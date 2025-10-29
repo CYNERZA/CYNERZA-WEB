@@ -246,6 +246,8 @@ import {
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { toast } from 'sonner';
+import SEO from '@/components/seo/SEO';
+import { getSEOData } from '@/components/seo/SEOConfig';
 
 const normalizeSlugForCompare = (raw?: string) => {
     if (!raw) return '';
@@ -334,17 +336,22 @@ const SingleBlog: React.FC = () => {
     const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
     if (loading) {
         return (
+            <>
+            <SEO data={getSEOData('blogs')} />
             <motion.div className="min-h-screen flex justify-center items-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
                 <div className="text-center px-4">
                     <motion.div className="inline-block w-12 h-12 sm:w-16 sm:h-16 border-4 border-purple-200 dark:border-purple-800 border-t-purple-600 dark:border-t-purple-400 rounded-full" animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }} />
                     <motion.p className="mt-4 text-gray-600 dark:text-gray-400 font-medium text-sm sm:text-base">Loading your reading experience...</motion.p>
                 </div>
             </motion.div>
+            </>
         );
     }
 
     if (!currentBlog) {
         return (
+            <>
+            <SEO data={getSEOData('blogs')} />
             <motion.div className="flex flex-col items-center justify-center min-h-screen p-4 sm:p-8 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}>
                 <FileText className="w-16 h-16 sm:w-24 sm:h-24 text-red-500 mb-6" />
                 <h2 className="text-2xl sm:text-4xl font-bold text-gray-800 dark:text-gray-200 mb-4 text-center">Blog Not Found</h2>
@@ -353,10 +360,13 @@ const SingleBlog: React.FC = () => {
                     <ArrowLeft className="w-5 h-5 mr-2" /> Explore Stories
                 </Button>
             </motion.div>
+            </>
         );
     }
 
     return (
+        <>
+        <SEO data={getSEOData('blogs')} />
         <div className="min-h-screen transition-colors relative">
  {/* Purple gradient background overlay */}
             {isDarkMode &&
@@ -455,6 +465,7 @@ const SingleBlog: React.FC = () => {
                 </div>
             </motion.div>
         </div>
+        </>
     );
 };
 

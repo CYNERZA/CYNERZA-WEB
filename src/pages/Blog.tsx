@@ -176,6 +176,8 @@ import {
 import { PostCard, PostCardLarge, PostCardSmall, SinglePostCard } from '../components/blog/BlogPostCart';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '@/app/store';
+import SEO from '@/components/seo/SEO';
+import { getSEOData } from '@/components/seo/SEOConfig';
 
 const BlogLayout: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -217,6 +219,8 @@ const BlogLayout: React.FC = () => {
 
   if (loading) {
     return (
+      <>
+      <SEO data={getSEOData('blogs')} />
       <div className="relative min-h-screen flex justify-center items-center">
          {/* Purple gradient background overlay */}
             {isDarkMode &&
@@ -224,10 +228,13 @@ const BlogLayout: React.FC = () => {
             }
         <div className="relative z-10 animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
       </div>
+      </>
     );
   }
 
   return (
+    <>
+    <SEO data={getSEOData('blogs')} />
     <section className="relative min-h-screen pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-28 md:pb-24 w-full px-4 sm:px-6 lg:px-8 text-gray-900 dark:text-gray-100">
       {/* Purple gradient background overlay */}
       {/* Purple gradient background overlay */}
@@ -348,6 +355,7 @@ const BlogLayout: React.FC = () => {
         )}
       </div>
     </section>
+    </>
   );
 };
 

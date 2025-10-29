@@ -452,11 +452,10 @@ const HeaderSection: React.FC = () => {
       <div className="relative container px-4 mx-auto z-20">
         <div className="max-w-xl xl:max-w-4xl">
           <h1 className="font-heading text-2xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-8 sm:mb-14 leading-tight">
-            <span>Driving growth with </span>
-            <span >
-              cutting-edge technology
-            </span>
-            <span>, expertise, and digital transformation</span>
+            <span className="gradient-text">Unified AI</span>
+            <span>, Simplified Tech</span>
+            <br />
+            <span className="text-3xl sm:text-4xl lg:text-5xl">Build Smarter, Faster, Better</span>
           </h1>
 
           <div className="md:flex mb-8 max-w-xs sm:max-w-sm md:max-w-none">
@@ -478,7 +477,7 @@ const HeaderSection: React.FC = () => {
             </div>
             <div className="max-w-md">
               <p className="md:text-xl text-gray-900 dark:text-gray-300 font-semibold">
-                Access the most advanced AI tools to boost your productivity and creativity.
+                All-in-one AI platform combining web/mobile development, automation, custom APIs & multimodal AI tools — accessible through a single, seamless ecosystem.
               </p>
             </div>
           </div>

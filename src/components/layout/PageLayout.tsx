@@ -3,7 +3,6 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { cn } from '@/lib/utils';
-import { AIToolSchema, WebsiteSchema } from '../seo/SchemaMarkup';
 import { useLocation } from 'react-router-dom';
 
 interface PageLayoutProps {
@@ -28,8 +27,6 @@ const PageLayout: React.FC<PageLayoutProps> = ({
           <meta name="description" content="Experience powerful AI tools with Cynerza. Try now for free!" />
           <link rel="canonical" href="https://cynerza.com" />
         </Helmet>
-        <AIToolSchema />
-        <WebsiteSchema />
         <Navbar  />
       <main 
         className={cn(

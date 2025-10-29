@@ -2,6 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Fade } from "react-awesome-reveal";
 import { ArrowRight } from "lucide-react";
+import SEO from '@/components/seo/SEO';
+import { getSEOData } from '@/components/seo/SEOConfig';
 
 const WhyCynerzaSection: React.FC = () => {
   const features = [
@@ -44,6 +46,8 @@ const WhyCynerzaSection: React.FC = () => {
   ];
 
   return (
+    <>
+    <SEO data={getSEOData('whyCynerza')} />
     <section className="relative pb-8 sm:pb-12 md:pb-16 py-0 overflow-hidden" id="features">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-white to-indigo-50 dark:from-gray-900 dark:via-purple-900/10 dark:to-gray-900" />
@@ -147,6 +151,7 @@ const WhyCynerzaSection: React.FC = () => {
 
       </div>
     </section>
+    </>
   );
 };
 

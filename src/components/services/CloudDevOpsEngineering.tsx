@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import SEO from '@/components/seo/SEO';
+import { getSEOData } from '@/components/seo/SEOConfig';
 
 const CloudDevOpsService: React.FC = () => {
     const navigate = useNavigate();
@@ -24,6 +26,8 @@ const CloudDevOpsService: React.FC = () => {
     const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
 
     return (
+        <>
+        <SEO data={getSEOData('cloudDevOps')} />
         <div className="relative w-full overflow-x-hidden">
  {/* Purple gradient background overlay */}
             {isDarkMode &&
@@ -247,6 +251,7 @@ const CloudDevOpsService: React.FC = () => {
                 </div>
             </section>
         </div>
+        </>
     );
 };
 

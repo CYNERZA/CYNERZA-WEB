@@ -5,6 +5,8 @@ import { login, getCurrentUser } from "@/featured/auth/authSlice";
 import { useNavigate } from "react-router-dom";
 import { useToast } from '@/components/ui/use-toast';
 import { RootState, AppDispatch } from '@/app/store';
+import SEO from '@/components/seo/SEO';
+import { getSEOData } from '@/components/seo/SEOConfig';
 
 const Login: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -49,6 +51,8 @@ const Login: React.FC = () => {
     };
 
     return (
+        <>
+        <SEO data={getSEOData('admin')} />
         <section className="bg-white dark:bg-gray-950 flex items-center justify-center min-h-screen w-full py-0 px-4">
             <div className="glass-effect p-6 flex flex-col justify-center items-center rounded-md
         w-full max-w-lg">
@@ -98,7 +102,7 @@ const Login: React.FC = () => {
                 </form>
             </div>
         </section>
-
+        </>
     );
 };
 

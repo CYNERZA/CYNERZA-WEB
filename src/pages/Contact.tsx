@@ -418,6 +418,8 @@ import { AppDispatch, RootState } from "@/app/store";
 import { fetchAllRegions } from "@/featured/region/regionSlice";
 import { sendMessageToAdmin } from "@/featured/auth/authSlice";
 import { useToast } from '@/components/ui/use-toast';
+import SEO from '@/components/seo/SEO';
+import { getSEOData } from '@/components/seo/SEOConfig';
 
 
 
@@ -523,6 +525,8 @@ const Contact: React.FC = () => {
   ];
 
   return (
+    <>
+    <SEO data={getSEOData('contact')} />
     <section className="relative w-full min-h-screen flex flex-col overflow-hidden">
       {/* Background image - Person on phone/customer service */}
         {/* <div
@@ -773,6 +777,7 @@ const Contact: React.FC = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

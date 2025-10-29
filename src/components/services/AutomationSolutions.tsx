@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import SEO from '@/components/seo/SEO';
+import { getSEOData } from '@/components/seo/SEOConfig';
 
 const AutomationSolutionsService: React.FC = () => {
     const navigate = useNavigate();
@@ -23,6 +25,8 @@ const AutomationSolutionsService: React.FC = () => {
 
     const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
     return (
+        <>
+        <SEO data={getSEOData('automationSolutions')} />
         <div className="relative w-full overflow-x-hidden">
  {/* Purple gradient background overlay */}
             {isDarkMode &&
@@ -246,6 +250,7 @@ const AutomationSolutionsService: React.FC = () => {
                 </div>
             </section>
         </div>
+        </>
     );
 };
 

@@ -664,6 +664,8 @@ import { AppDispatch } from '@/app/store';
 import { getAllJobPosts } from '@/featured/jobPost/jobPostSlice';
 import { fetchAllDepartments } from '@/featured/department/departmentSlice';
 import { Linkedin } from 'lucide-react';
+import SEO from '@/components/seo/SEO';
+import { getSEOData } from '@/components/seo/SEOConfig';
 
 // Define types for TypeScript
 interface JobPosition {
@@ -795,6 +797,8 @@ const CareersPage: React.FC = () => {
   const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
 
   return (
+    <>
+    <SEO data={getSEOData('careers')} />
     <div className="relative pt-24 md:pt-28 w-full px-4 sm:px-6 lg:px-8">
       {/* Purple gradient background overlay */}
             {isDarkMode &&
@@ -1189,6 +1193,7 @@ const CareersPage: React.FC = () => {
         </section>
       </div>
     </div>
+    </>
   );
 };
 

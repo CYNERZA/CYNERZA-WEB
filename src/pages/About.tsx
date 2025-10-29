@@ -6,11 +6,10 @@ import { motion } from 'framer-motion';
 import { Fade } from 'react-awesome-reveal';
 import { ScrollTimeline } from '@/components/lightswind/scroll-timeline';
 import { useSelector } from 'react-redux';
+import SEO from '@/components/seo/SEO';
+import { getSEOData } from '@/components/seo/SEOConfig';
 
 const About: React.FC = () => {
-    useEffect(() => {
-        document.title = 'About Us - CYNERZA';
-    }, []);
 
     const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
 
@@ -193,6 +192,8 @@ const About: React.FC = () => {
         //   </div>
         // </div>
 
+        <>
+        <SEO data={getSEOData('about')} />
         <div className="w-full relative pt-24 md:pt-28 px-4 sm:px-6 lg:px-8">
             <ParticleBackground className="opacity-30" />
 
@@ -223,7 +224,7 @@ const About: React.FC = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.4, duration: 0.5 }}
                                 className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                                We're on a mission to revolutionize software development by making advanced AI tools accessible to all developers.
+                                Empowering innovation by making advanced AI and automation accessible, scalable, and customizable — for anyone, anywhere.
                             </motion.p>
                         </motion.div>
                     </div>
@@ -241,19 +242,19 @@ const About: React.FC = () => {
                                 </Fade>
                                 <Fade direction="up" triggerOnce delay={100}>
                                     <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-4">
-                                        Founded in 2025, Cynerza was built on a simple belief:
-                                        developers should spend less time on repetitive work and more time creating meaningful impact.
-                                        With a team of AI researchers and experienced developers,
-                                        we set out to design tools that bring intelligence and efficiency into software development.
+                                        Founded in 2025, CYNERZA was built on a simple belief: technology should empower, not complicate. 
+                                        We're bridging the gap between complex technology and real-world usability by delivering an all-in-one 
+                                        platform that combines web and mobile development, intelligent automation, custom API solutions, 
+                                        and cutting-edge multimodal AI tools.
                                     </p>
                                     <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-4">
-                                        Our journey started with a core focus on AI-powered products for individuals (B2C),
-                                        and over time, we expanded to deliver enterprise-grade solutions including SaaS product development,
-                                        AI/ML integration, custom LLM APIs, IT service management, and Cloud & DevOps engineering.
+                                        Our vision is to become the most unified and intelligent AI ecosystem in the world — enabling creators, 
+                                        businesses, and developers to build smarter, faster, and more efficiently without needing to juggle 
+                                        multiple disconnected platforms.
                                     </p>
                                     <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                                        Today, Cynerza is trusted by over 70 companies and hundreds of individual developers worldwide, all using our
-                                        platform and solutions to build smarter, faster, and more reliable software.
+                                        Today, CYNERZA serves startups, digital agencies, enterprises, and individual developers worldwide —
+                                        all using our unified platform to accelerate innovation and drive real business impact.
                                     </p>
                                 </Fade>
                             </div>
@@ -341,7 +342,7 @@ const About: React.FC = () => {
                 </motion.section>
             </div>
         </div>
-
+        </>
     );
 };
 

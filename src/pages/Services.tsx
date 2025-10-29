@@ -3,45 +3,51 @@ import { motion } from 'framer-motion';
 import { HoverEffect } from "../components/ui/card-hover-effect";
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import SEO from '@/components/seo/SEO';
+import { getSEOData } from '@/components/seo/SEOConfig';
+import { ServiceSchema } from '@/components/seo/SchemaMarkup';
 
 const Services: React.FC = () => {
   const navigate = useNavigate()
   const services = [
     {
-      title: 'SaaS Product Development',
+      title: 'Web Development',
       link: "/services/saas-product-development",
-      description: 'Crafting beautiful, high-performance websites and mobile applications tailored to your brand.',
+      description: 'High-performance, SEO-ready websites, portals, and admin dashboards with scalable architecture and modern frameworks.',
     },
     {
-      title: 'Custom LLM API',
+      title: 'Mobile App Development',
       link: "/services/custom-llm-api",
-      description: 'Designing intuitive and engaging user experiences that captivate your audience and drive results.',
+      description: 'Native Android & iOS apps and Flutter cross-platform solutions with real-time sync, offline support, and optimized performance.',
     },
     {
-      title: 'Automation Solutions',
+      title: 'Business Automation',
       link: "/services/automation-solutions",
-      description: 'Leveraging artificial intelligence to automate processes, enhance efficiency, and unlock new possibilities.',
+      description: 'AI-powered workflow builders, RPA, task automation, CRM integration, and chatbot assistants to streamline operations.',
     },
     {
-      title: 'AI & ML Solution',
+      title: 'Custom API Solutions',
       link: "/services/ai-ml-solution",
-      description: 'Boosting your online presence with data-driven marketing strategies and expert SEO services.',
+      description: 'REST and GraphQL APIs built for scale with JWT/OAuth authentication, secure microservices, and easy integration.',
     },
     {
-      title: 'Cloud & DevOps Engineering',
+      title: 'Digital Marketing & Analytics',
       link: "/services/cloud-devops-engineering",
-      description: 'Building scalable and resilient infrastructure with modern cloud technologies and DevOps practices.',
+      description: 'AI-driven SEO optimization, automated campaigns, real-time analytics dashboards, and AI-generated content marketing.',
     },
     {
-      title: 'IT Service Management',
+      title: 'Multimodal AI Suite',
       link: "/services/it-service-management",
-      description: 'Developing a strong brand identity that resonates with your audience and sets you apart from the competition.',
+      description: 'Text AI, Image AI, Voice AI, and Video AI tools with comprehensive APIs & SDKs for Python, Node.js, and Flutter.',
     },
   ];
 
   const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
 
   return (
+    <>
+    <SEO data={getSEOData('services')} />
+    <ServiceSchema />
     <div className="relative pt-24 md:pt-28 w-full px-4 sm:px-6 lg:px-8">
  {/* Purple gradient background overlay */}
             {isDarkMode &&
@@ -72,14 +78,14 @@ const Services: React.FC = () => {
                     transition={{ delay: 0.3, duration: 0.5 }}
                     className=" text-4xl sm:text-5xl font-bold font-heading mb-6 bg-clip-text
                     text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
-                    Comprehensive <span className='gradient-text'>Digital Solutions</span>
+                    Unified AI Platform <span className='gradient-text'>Services</span>
                 </motion.h2>
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 0.5 }}
                     className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                    Empowering your digital transformation with cutting-edge technologies and innovative solutions tailored to your business needs.
+                    Complete technology stack combining web/mobile development, automation, custom APIs, and multimodal AI — all accessible through one seamless ecosystem.
                 </motion.p>
             </motion.div>
         </div>
@@ -120,25 +126,25 @@ const Services: React.FC = () => {
                     transition={{ delay: 0.3, duration: 0.5 }}
                     className=" text-4xl sm:text-5xl font-bold font-heading mb-6 bg-clip-text
                     text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
-                    Ready to <span className='gradient-text'>transform</span> your business with our services?
+                    Ready to <span className='gradient-text'>accelerate</span> your digital transformation?
                 </motion.h1>
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 0.5 }}
                     className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed">
-                    From SaaS development to AI solutions, cloud engineering to automation - we provide comprehensive digital services tailored to your specific business needs and goals.
+                    From web/mobile apps to AI-powered automation and custom APIs — our unified platform delivers everything you need to build smarter, faster, and better.
                 </motion.p>
                 <button
                     onClick={() => navigate("/contact")}
                     className="px-8 py-3 bg-cynerza-purple hover:bg-cynerza-purple/90 text-white font-medium rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 hover:shadow-lg">
-                    Get Free Consultation
+                    Start Building Today
                 </button>
             </motion.div>
         </div>
     </section>
 </div>
-
+</>
   );
 };
 

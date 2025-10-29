@@ -51,6 +51,7 @@ import EducationPage from './components/industries/Education.js';
 import WhyCynerzaSection from './pages/WhyCyne.js';
 import AdminIndustryPage from './pages/admin/Industry.js';
 import IndustriesPage from './pages/Industries .js';
+import VirtualAssistant from './components/chatbot/VirtualAssistant';
 
 const queryClient = new QueryClient();
 
@@ -81,6 +82,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <ScrollToTop />
+          <VirtualAssistant />
           <Routes>
             <Route path="/" element={
               <PageLayout noPadding>

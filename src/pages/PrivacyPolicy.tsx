@@ -1,11 +1,15 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import SEO from '@/components/seo/SEO';
+import { getSEOData } from '@/components/seo/SEOConfig';
 
 const PrivacyPolicy: React.FC = () => {
 
     const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
     return (
+        <>
+        <SEO data={getSEOData('privacyPolicy')} />
         <div className="relative pt-24 md:pt-28 w-full px-4 sm:px-6 lg:px-8">
             {/* Purple gradient background overlay */}
             {isDarkMode &&
@@ -78,8 +82,9 @@ const PrivacyPolicy: React.FC = () => {
                 </div>
             </div>
         </div>
-    )
-}
+        </>
+    );
+};
 
 
 export default PrivacyPolicy;

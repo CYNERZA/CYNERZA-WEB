@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import TeamMemberCard from '@/components/ui/TeamMemberCard';
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
+import SEO from '@/components/seo/SEO';
+import { getSEOData } from '@/components/seo/SEOConfig';
 
 const Team: React.FC = () => {
-  useEffect(() => {
-    document.title = 'Our Team - CYNERZA';
-  }, []);
 
   type teamDetails = {
     name: string
@@ -99,6 +98,8 @@ const Team: React.FC = () => {
   ]
 
   return (
+    <>
+    <SEO data={getSEOData('team')} />
     <div className="relative pt-24 md:pt-28 w-full px-4 sm:px-6 lg:px-8">
       {/* Purple gradient background overlay */}
       {isDarkMode &&
@@ -244,7 +245,7 @@ const Team: React.FC = () => {
         </section>
       </div>
     </div>
-
+    </>
   );
 };
 

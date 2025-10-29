@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Building2, Shield, Lock, Sparkles, ArrowRight, CheckCircle } from 'lucide-react';
 import { useSelector } from 'react-redux';
+import SEO from '@/components/seo/SEO';
+import { getSEOData } from '@/components/seo/SEOConfig';
 
 const BankingServicesPage: React.FC = () => {
   const navigate = useNavigate();
@@ -48,6 +50,8 @@ const BankingServicesPage: React.FC = () => {
   const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
 
   return (
+    <>
+    <SEO data={getSEOData('banking')} />
     <div className="relative w-full overflow-x-hidden">
  {/* Purple gradient background overlay */}
             {isDarkMode &&
@@ -372,6 +376,7 @@ const BankingServicesPage: React.FC = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

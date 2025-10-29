@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ParticleBackground from '@/components/ui/ParticleBackground';
 import ToolCard from '@/components/tools/ToolCard';
 import { InteractiveGradient } from "@/components/lightswind/interactive-gradient-card"
+import SEO from '@/components/seo/SEO';
+import { getSEOData } from '@/components/seo/SEOConfig';
 
 
 import {
@@ -27,9 +29,6 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const AiTools: React.FC = () => {
-  useEffect(() => {
-    document.title = 'AI Tools - CYNERZA';
-  }, []);
 
   const navigate = useNavigate()
 
@@ -177,6 +176,8 @@ const AiTools: React.FC = () => {
   );
 
   return (
+    <>
+    <SEO data={getSEOData('aiTools')} />
     <div className="w-full relative pt-24 md:pt-28 px-4 sm:px-6 lg:px-8">
       <ParticleBackground />
 
@@ -391,7 +392,7 @@ const AiTools: React.FC = () => {
         </main>
       </div>
     </div>
-
+    </>
   );
 };
 

@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import SEO from '@/components/seo/SEO';
+import { getSEOData } from '@/components/seo/SEOConfig';
 
 const industryData = [
   {
@@ -85,6 +87,8 @@ export default function IndustriesPage() {
   };
 const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
   return (
+    <>
+    <SEO data={getSEOData('industries')} />
     <div className="relative pt-24 md:pt-28 px-4 sm:px-6 lg:px-8 min-h-screen py-8">
  {/* Purple gradient background overlay */}
             {isDarkMode &&
@@ -234,5 +238,6 @@ const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
         </section>
       </div>
     </div>
+    </>
   );
 }

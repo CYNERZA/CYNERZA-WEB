@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Radio, Tv, Wifi, Users, ArrowRight, CheckCircle } from 'lucide-react';
 import { useSelector } from 'react-redux';
+import SEO from '@/components/seo/SEO';
+import { getSEOData } from '@/components/seo/SEOConfig';
 
 const MediaCommunicationsPage: React.FC = () => {
   const navigate = useNavigate();
@@ -48,6 +50,8 @@ const MediaCommunicationsPage: React.FC = () => {
   const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
 
   return (
+    <>
+    <SEO data={getSEOData('mediaCommunications')} />
     <div className="relative w-full overflow-x-hidden">
        {/* Purple gradient background overlay */}
             {isDarkMode &&
@@ -372,6 +376,7 @@ const MediaCommunicationsPage: React.FC = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

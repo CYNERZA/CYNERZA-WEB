@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Building, Users, FileText, Globe, ArrowRight, CheckCircle } from 'lucide-react';
 import { useSelector } from 'react-redux';
+import SEO from '@/components/seo/SEO';
+import { getSEOData } from '@/components/seo/SEOConfig';
 
 const PublicServicesPage: React.FC = () => {
   const navigate = useNavigate();
@@ -47,6 +49,8 @@ const PublicServicesPage: React.FC = () => {
 
   const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
   return (
+    <>
+    <SEO data={getSEOData('publicServices')} />
     <div className="relative w-full overflow-x-hidden">
  {/* Purple gradient background overlay */}
             {isDarkMode &&
@@ -371,6 +375,7 @@ const PublicServicesPage: React.FC = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
