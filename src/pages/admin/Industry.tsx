@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Trash2, Edit2, Plus } from "lucide-react";
 
-const IndustryPage: React.FC = () => {
+const AdminIndustryPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"all" | "create">("all");
   const [editingId, setEditingId] = useState<number | null>(null);
 
@@ -227,4 +227,4 @@ const IndustryPage: React.FC = () => {
   );
 };
 
-export default IndustryPage;
+export default AdminIndustryPage;
