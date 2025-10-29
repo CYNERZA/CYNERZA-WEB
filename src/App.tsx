@@ -39,7 +39,6 @@ import AutomationSolutions from './components/services/AutomationSolutions.js';
 import AIMLSolutions from './components/services/AI&MLSolution.js';
 import CloudDevOpsEngineering from './components/services/CloudDevOpsEngineering.js';
 import ITServiceManagement from './components/services/ITServiceManagement.js';
-import IndustriesPage from './pages/admin/Industry.js';
 import BankingIndustry from './components/industries/banking';
 import CapitalMarketsPage from './components/industries/CapitalMarkets.js';
 import MediaCommunicationsPage from './components/industries/MediaCommunications.js';
@@ -50,6 +49,8 @@ import RetailPage from './components/industries/Retail.js';
 import TravelLogisticsPage from './components/industries/TravelLogistics.js';
 import EducationPage from './components/industries/Education.js';
 import WhyCynerzaSection from './pages/WhyCyne.js';
+import AdminIndustryPage from './pages/admin/Industry.js';
+import IndustriesPage from './pages/Industries .js';
 
 const queryClient = new QueryClient();
 
@@ -109,7 +110,7 @@ const App = () => (
             <Route path='/admin/industry' element={
               <AuthLayout authentication={true}>
                 <Layout>
-                  <IndustriesPage />
+                  <AdminIndustryPage />
                 </Layout>
               </AuthLayout>
             } />
