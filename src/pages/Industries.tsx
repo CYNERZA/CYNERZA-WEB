@@ -11,7 +11,7 @@ const industryData = [
     description:
       "We modernize banking systems and enrich customer experience with innovative digital solutions tailored for financial institutions.",
     image:
-      "./bank.jpg",
+      "/bank.jpg",
   },
   {
     title: "Capital Markets",
@@ -162,7 +162,7 @@ const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
                 <div className="relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-xl transform transition-transform duration-500 group-hover:scale-105">
                   <img
-                    src={"./generated-image (3).png"}
+                    src={"/generated-image (3).png"}
                     alt={"Test"}
                     className="w-full h-full object-cover"
                     loading="lazy"

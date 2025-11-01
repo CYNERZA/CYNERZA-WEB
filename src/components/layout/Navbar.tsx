@@ -903,9 +903,9 @@ function Navbar({ className }: { className?: string }) {
                 transition={{ duration: 0.6, ease: "easeInOut" }}
               >
                 <img
-                  src="./CYNERZA_LOGO_2.jpeg"
-                  alt="Logo"
-                  className="w-12 h-12 rounded-full cursor-pointer"
+                  src="/logo-square-96.png"
+                  alt="CYNERZA Logo"
+                  className="w-12 h-12 object-contain cursor-pointer"
                 />
               </motion.div>
 
@@ -935,9 +935,9 @@ function Navbar({ className }: { className?: string }) {
                 transition={{ duration: 0.6, ease: "easeInOut" }}
               >
                 <img
-                  src="./CYNERZA_LOGO_2.jpeg"
-                  alt="Logo"
-                  className="w-12 h-12 rounded-full cursor-pointer"
+                  src="/logo-square-96.png"
+                  alt="CYNERZA Logo"
+                  className="w-12 h-12 object-contain cursor-pointer"
                   onClick={handleLogoClick}
                 />
               </motion.div>

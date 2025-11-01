@@ -261,7 +261,7 @@ const About: React.FC = () => {
                             <Fade direction="up" triggerOnce delay={20} className='lg:w-1/2 relative'>
                                 <div className="rounded-2xl overflow-hidden shadow-xl purple-glow">
                                     <img
-                                        src="./Picsart_25-10-23_16-01-18-818.png"
+                                        src="/Picsart_25-10-23_16-01-18-818.png"
                                         alt="CYNERZA team working"
                                         className="w-full h-auto"
                                     />
@@ -271,7 +271,6 @@ const About: React.FC = () => {
                     </div>
                 </section>
 
-                {/* Stats Section */}
                 <section className="py-4">
                     <div className="container mx-auto px-4">
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">

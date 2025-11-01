@@ -11,34 +11,34 @@ const Services: React.FC = () => {
   const navigate = useNavigate()
   const services = [
     {
-      title: 'Web Development',
+      title: 'SaaS Product Development',
       link: "/services/saas-product-development",
-      description: 'High-performance, SEO-ready websites, portals, and admin dashboards with scalable architecture and modern frameworks.',
+      description: 'Build scalable SaaS platforms with multi-tenant architecture, subscription billing, API integrations, and enterprise-grade security. From MVP to enterprise scale.',
     },
     {
-      title: 'Mobile App Development',
+      title: 'Custom LLM API Development',
       link: "/services/custom-llm-api",
-      description: 'Native Android & iOS apps and Flutter cross-platform solutions with real-time sync, offline support, and optimized performance.',
+      description: 'Build custom LLM-powered applications with OpenAI, Google Gemini, Claude, and open-source models. API integration, fine-tuning, and RAG implementation.',
     },
     {
-      title: 'Business Automation',
+      title: 'Automation Solutions',
       link: "/services/automation-solutions",
-      description: 'AI-powered workflow builders, RPA, task automation, CRM integration, and chatbot assistants to streamline operations.',
+      description: 'Streamline operations with AI-powered automation: RPA, workflow builders, task automation, CRM integration, and intelligent chatbots.',
     },
     {
-      title: 'Custom API Solutions',
+      title: 'AI & Machine Learning Solutions',
       link: "/services/ai-ml-solution",
-      description: 'REST and GraphQL APIs built for scale with JWT/OAuth authentication, secure microservices, and easy integration.',
+      description: 'End-to-end AI/ML development: Custom model training, computer vision, NLP, predictive analytics, MLOps, and AI integration services.',
     },
     {
-      title: 'Digital Marketing & Analytics',
+      title: 'Cloud & DevOps Engineering',
       link: "/services/cloud-devops-engineering",
-      description: 'AI-driven SEO optimization, automated campaigns, real-time analytics dashboards, and AI-generated content marketing.',
+      description: 'Expert cloud infrastructure and DevOps: CI/CD pipelines, Kubernetes, Docker, Infrastructure as Code, cloud migration, and monitoring solutions.',
     },
     {
-      title: 'Multimodal AI Suite',
+      title: 'IT Service Management',
       link: "/services/it-service-management",
-      description: 'Text AI, Image AI, Voice AI, and Video AI tools with comprehensive APIs & SDKs for Python, Node.js, and Flutter.',
+      description: 'Comprehensive ITSM platforms: Helpdesk systems, ticketing, asset management, change management, and IT service automation.',
     },
   ];
 

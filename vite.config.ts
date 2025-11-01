@@ -29,6 +29,16 @@ export default defineConfig(({ mode }) => {
       assetsDir: 'assets',
       emptyOutDir: true,
       sourcemap: !isProduction,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+            'state': ['react-redux', '@reduxjs/toolkit'],
+            'ui': ['framer-motion', 'lucide-react', 'styled-components'],
+          },
+        },
+      },
+      chunkSizeWarningLimit: 1200,
     },
     plugins: [react()],
     resolve: {

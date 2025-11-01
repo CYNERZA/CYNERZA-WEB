@@ -6,6 +6,7 @@ export interface SEOData {
   keywords: string;
   ogTitle?: string;
   ogDescription?: string;
+  ogImage?: string;
   canonical?: string;
   noindex?: boolean;
 }
@@ -101,18 +102,11 @@ export const seoConfig: Record<string, SEOData> = {
   },
 
   // Service Pages
-  webDevelopment: {
-    title: 'Web Development Services - SEO-Ready Websites | CYNERZA',
-    description: 'Professional web development: High-performance websites, admin dashboards, web portals with React, Next.js. SEO-ready, responsive, scalable architecture.',
-    keywords: 'web development, website development, React development, Next.js, responsive websites, SEO websites, web portals',
+  saasProductDevelopment: {
+    title: 'SaaS Product Development - Enterprise Platform Solutions | CYNERZA',
+    description: 'Build scalable SaaS platforms with multi-tenant architecture, subscription billing, API integrations, and enterprise-grade security. From MVP to enterprise scale.',
+    keywords: 'SaaS development, SaaS platform, multi-tenant architecture, subscription billing, cloud SaaS, enterprise SaaS, SaaS MVP, software as a service',
     canonical: `${baseUrl}/services/saas-product-development`,
-  },
-
-  mobileAppDevelopment: {
-    title: 'Mobile App Development - Android, iOS & Flutter | CYNERZA',
-    description: 'Native Android & iOS app development and Flutter cross-platform solutions. Real-time sync, offline support, optimized performance.',
-    keywords: 'mobile app development, Android app, iOS app, Flutter development, cross-platform apps, native apps',
-    canonical: `${baseUrl}/services/custom-llm-api`,
   },
 
   automationSolutions: {
@@ -122,28 +116,6 @@ export const seoConfig: Record<string, SEOData> = {
     canonical: `${baseUrl}/services/automation-solutions`,
   },
 
-  customAPIs: {
-    title: 'Custom API Development - REST & GraphQL APIs | CYNERZA',
-    description: 'Scalable API solutions: REST and GraphQL APIs with JWT/OAuth authentication, secure microservices, and seamless integration.',
-    keywords: 'custom API development, REST API, GraphQL API, API integration, microservices, secure APIs',
-    canonical: `${baseUrl}/services/ai-ml-solution`,
-  },
-
-  digitalMarketing: {
-    title: 'Digital Marketing & Analytics - AI-Driven SEO | CYNERZA',
-    description: 'AI-powered digital marketing: SEO optimization, automated campaigns, real-time analytics, and AI-generated content marketing.',
-    keywords: 'digital marketing, AI SEO, marketing automation, analytics, content marketing, SEO services',
-    canonical: `${baseUrl}/services/cloud-devops-engineering`,
-  },
-
-  aiSuite: {
-    title: 'Multimodal AI Suite - Text, Image, Voice & Video AI | CYNERZA',
-    description: 'Complete AI toolkit: Text AI, Image generation, Voice cloning, Video creation with Python, Node.js & Flutter APIs/SDKs.',
-    keywords: 'AI suite, text AI, image AI, voice AI, video AI, AI APIs, AI SDKs, multimodal AI',
-    canonical: `${baseUrl}/ai-tools`,
-  },
-
-  // Additional Service Pages
   customLLMAPI: {
     title: 'Custom LLM API Development - OpenAI, Gemini Integration | CYNERZA',
     description: 'Build custom LLM-powered applications with OpenAI, Google Gemini, Claude, and open-source models. API integration, fine-tuning, and RAG implementation.',
@@ -155,7 +127,7 @@ export const seoConfig: Record<string, SEOData> = {
     title: 'AI & Machine Learning Solutions - Custom ML Models | CYNERZA',
     description: 'End-to-end AI/ML development: Custom model training, computer vision, NLP, predictive analytics, MLOps, and AI integration services.',
     keywords: 'AI ML development, machine learning solutions, custom ML models, computer vision, NLP, predictive analytics, MLOps',
-    canonical: `${baseUrl}/services/ai-ml-solutions`,
+    canonical: `${baseUrl}/services/ai-ml-solution`,
   },
 
   cloudDevOps: {

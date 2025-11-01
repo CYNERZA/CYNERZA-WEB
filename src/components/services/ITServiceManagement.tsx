@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import SEO from '@/components/seo/SEO';
 import { getSEOData } from '@/components/seo/SEOConfig';
+import { ServiceSchema } from '@/components/seo/SchemaMarkup';
 
 const ITServiceManagementService: React.FC = () => {
     const navigate = useNavigate();
@@ -27,6 +28,7 @@ const ITServiceManagementService: React.FC = () => {
     return (
         <>
         <SEO data={getSEOData('itServiceManagement')} />
+        <ServiceSchema />
         <div className="relative w-full overflow-x-hidden">
  {/* Purple gradient background overlay */}
             {isDarkMode &&

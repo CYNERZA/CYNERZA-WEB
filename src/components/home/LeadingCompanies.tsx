@@ -8,32 +8,32 @@ const LeadingCompanies: React.FC = () => {
         {
             id: "1",
             content: <img
-                src="./projects/generated-image (3).png"
-                alt="Digitex Technologies"
+                src="/logo-square-256.png"
+                alt="Partner Brand 1"
                 className='h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 object-contain'
             />
         },
         {
             id: "2",
             content: <img
-                src="./projects/generated-image (4).png"
-                alt="V-Store Hub"
+                src="/logo-square-256.png"
+                alt="Partner Brand 2"
                 className='h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 object-contain'
             />
         },
         {
             id: "3",
             content: <img
-                src="./projects/generated-image (5).png"
-                alt="Incognior"
+                src="/logo-square-256.png"
+                alt="Partner Brand 3"
                 className='h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 object-contain'
             />
         },
         {
             id: "4",
             content: <img
-                src="./projects/generated-image (6).png"
-                alt="Ino Bharat Hub"
+                src="/logo-square-256.png"
+                alt="Partner Brand 4"
                 className='h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 object-contain'
             />
         },

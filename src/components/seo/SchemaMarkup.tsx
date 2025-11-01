@@ -9,7 +9,7 @@ export const OrganizationSchema = () => {
     "name": "CYNERZA",
     "alternateName": "Cynerza",
     "url": "https://cynerza.com",
-    "logo": "https://cynerza.com/logo.png",
+    "logo": "https://cynerza.com/logo-square-512.png",
     "description": "Next-generation AI-first platform for web development, mobile apps, automation, custom APIs & multimodal AI. Unified ecosystem for startups, developers & enterprises.",
     "foundingDate": "2025",
     "email": "info@cynerza.com",
@@ -87,48 +87,48 @@ export const ServiceSchema = () => {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Web Development",
-            "description": "High-performance, SEO-ready websites and web applications"
+            "name": "SaaS Product Development",
+            "description": "Multi-tenant SaaS platforms with subscription billing, integrations, and enterprise security"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Mobile App Development",
-            "description": "Native Android & iOS and Flutter cross-platform applications"
+            "name": "Custom LLM API Development",
+            "description": "LLM-powered apps with OpenAI, Gemini, Claude, fine-tuning, and RAG"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Business Automation",
-            "description": "AI-powered RPA and workflow automation solutions"
+            "name": "Automation Solutions",
+            "description": "RPA, workflow automation, CRM integration, and intelligent chatbots"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Custom API Development",
-            "description": "Scalable REST and GraphQL API solutions"
+            "name": "AI & Machine Learning Solutions",
+            "description": "Custom ML, computer vision, NLP, predictive analytics, and MLOps"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Digital Marketing & Analytics",
-            "description": "AI-driven SEO optimization and marketing automation"
+            "name": "Cloud & DevOps Engineering",
+            "description": "CI/CD, Kubernetes, Docker, IaC, cloud migration, and monitoring"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Multimodal AI Suite",
-            "description": "Text, Image, Voice, and Video AI tools with APIs"
+            "name": "IT Service Management",
+            "description": "Helpdesk, ticketing, asset management, change management, and automation"
           }
         }
       ]
@@ -200,7 +200,7 @@ export const SoftwarePlatformSchema = () => {
       "Digital Marketing",
       "AI Tools (Text, Image, Voice, Video)"
     ],
-    "screenshot": "https://cynerza.com/og-image.jpg",
+    "screenshot": "https://cynerza.com/og-image.png",
     "url": "https://cynerza.com"
   };
 

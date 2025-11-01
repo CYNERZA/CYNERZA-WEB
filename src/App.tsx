@@ -24,14 +24,14 @@ import AllBlogs from './pages/admin/AllBlogs';
 import Layout from './components/layout/admin/layout/adminPageLayout';
 import { BlogDetailPage } from './components/admin/blogPost';
 import UpdateBlogPost from "./components/admin/updateBlogPost"
-import SingleBlog from './pages/SingleBlog.js';
-import CareersPage from './pages/Careers.js';
-import PrivacyPolicy from './pages/PrivacyPolicy.js';
-import TermsOfService from './pages/TermsofServic.js';
-import AddDepartment from './pages/admin/AddDepartment.js';
+import SingleBlog from './pages/SingleBlog';
+import CareersPage from './pages/Careers';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+import AddDepartment from './pages/admin/AddDepartment';
 import JobApplicationForm from './components/careers/ApplyForJob.js';
-import JobForm from './pages/admin/JobPostForm.js';
-import AllJobs from './pages/admin/AllJobs.js';
+import JobForm from './pages/admin/JobPostForm';
+import AllJobs from './pages/admin/AllJobs';
 import UpdateJobPosts from './components/admin/updateJobPost.js';
 import SaasProductDevelopment from './components/services/SaasProductDevelopment.js';
 import CustomLLMAPIServices from './components/services/CustomLLMAPI.js';
@@ -48,9 +48,9 @@ import PublicServicesPage from './components/industries/PublicServices.js';
 import RetailPage from './components/industries/Retail.js';
 import TravelLogisticsPage from './components/industries/TravelLogistics.js';
 import EducationPage from './components/industries/Education.js';
-import WhyCynerzaSection from './pages/WhyCyne.js';
-import AdminIndustryPage from './pages/admin/Industry.js';
-import IndustriesPage from './pages/Industries .js';
+import WhyCynerzaSection from './pages/WhyCynerza';
+import AdminIndustryPage from './pages/admin/Industry';
+import IndustriesPage from './pages/Industries';
 import VirtualAssistant from './components/chatbot/VirtualAssistant';
 
 const queryClient = new QueryClient();
@@ -301,8 +301,8 @@ const App = () => (
               </PageLayout>
             }
             />
-            {/*  Terms of Servic */}
-            <Route path='/tos' element={
+            {/*  Terms of Service */}
+            <Route path='/terms-of-service' element={
               <PageLayout noPadding>
                 <TermsOfService />
               </PageLayout>

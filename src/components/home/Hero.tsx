@@ -435,17 +435,17 @@ const HeaderSection: React.FC = () => {
       </div>
       <img
         className="absolute top-0 right-0 w-52 md:w-auto z-20"
-        src="./star-background-header.png"
+        src="/star-background-header.png"
         alt=""
       />
       <img
         className="absolute top-0 right-0 mt-10 mr-10 z-20"
-        src="./light-orange-blue-1.png"
+        src="/light-orange-blue-1.png"
         alt=""
       />
       <img
         className="absolute z-20 top-0 right-0 -mr-10 sm:-mr-0 mt-64 md:mt-125 lg:mt-88 xl:mt-112 h-32 md:h-60 lg:h-88 animate-moveHand"
-        src="./robot-hand-header.png"
+        src="/robot-hand-header.png"
         alt=""
       />
 

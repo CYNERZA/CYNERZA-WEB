@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import SEO from '@/components/seo/SEO';
 
 const NotFound = () => {
   const location = useLocation();
@@ -15,7 +16,14 @@ const NotFound = () => {
   const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
 
   return (
-    <div className="min-h-[60vh] flex items-center justify-center bg-white dark:bg-gray-950">
+    <>
+      <SEO data={{
+        title: '404 - Page Not Found | CYNERZA',
+        description: 'The page you are looking for could not be found. Return to CYNERZA homepage to explore our AI platform and services.',
+        keywords: '404, page not found, CYNERZA',
+        noindex: true,
+      }} />
+      <div className="min-h-[60vh] flex items-center justify-center bg-white dark:bg-gray-950">
        {/* Purple gradient background overlay */}
             {isDarkMode &&
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
@@ -38,6 +46,7 @@ const NotFound = () => {
         </a>
       </div>
     </div>
+    </>
   );
 };
 

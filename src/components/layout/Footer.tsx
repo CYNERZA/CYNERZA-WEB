@@ -182,9 +182,11 @@ const Footer: React.FC = () => {
                 {/* Brand Section */}
                 <div className="lg:col-span-2 flex flex-col items-center">
                     <Link to="/" className="inline-flex items-center">
-                        <span className="text-2xl font-bold font-heading text-cynerza-purple dark:text-cynerza-purple-light">
-                            CYNERZA
-                        </span>
+                        <img
+                          src="/logo-horizontal-256.png"
+                          alt="CYNERZA"
+                          className="h-8 w-auto"
+                        />
                     </Link>
                     <p className="mt-4 text-gray-600 dark:text-gray-400 leading-relaxed text-center sm:text-left">
                         Empowering innovation through cutting-edge AI solutions. We make advanced technology accessible for developers and businesses worldwide.
@@ -346,7 +348,7 @@ const Footer: React.FC = () => {
                     <Link to="/privacy-policy" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors">
                         Privacy Policy
                     </Link>
-                    <Link to="/tos" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors">
+                    <Link to="/terms-of-service" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors">
                         Terms of Service
                     </Link>
                     <Link to="/contact" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors">

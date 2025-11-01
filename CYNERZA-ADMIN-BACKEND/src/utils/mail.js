@@ -9,7 +9,7 @@ const sendMail = async (options) => {
         product: {
             name: "CYNERZA",
             link: "https://cynerza.com",
-            logo: "../../public/android-chrome-512x512.png"
+            logo: "https://cynerza.com/android-chrome-512x512.png"
         }
     })
 
@@ -84,7 +84,7 @@ const sendAdminMailGenContent = (user) => {
     // ============================================
     const headerSection = `
         <div style="padding: 20px; text-align: center; background: linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryDark} 100%); border-radius: 12px 12px 0 0;">
-            <img src="https://cynerza.ai/logo.png" alt="Cynerza Logo" style="height: 40px; filter: brightness(0) invert(1);">
+            <img src="https://cynerza.com/android-chrome-192x192.png" alt="Cynerza Logo" style="height: 40px; filter: brightness(0) invert(1);">
             <div style="margin-top: 10px; font-size: 13px; color: rgba(255,255,255,0.95); font-weight: 500;">
                 🔔 New Service Request • ${currentDate}
             </div>

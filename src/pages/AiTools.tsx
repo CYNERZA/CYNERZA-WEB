@@ -5,6 +5,7 @@ import ToolCard from '@/components/tools/ToolCard';
 import { InteractiveGradient } from "@/components/lightswind/interactive-gradient-card"
 import SEO from '@/components/seo/SEO';
 import { getSEOData } from '@/components/seo/SEOConfig';
+import { SoftwarePlatformSchema } from '@/components/seo/SchemaMarkup';
 
 
 import {
@@ -178,6 +179,7 @@ const AiTools: React.FC = () => {
   return (
     <>
     <SEO data={getSEOData('aiTools')} />
+    <SoftwarePlatformSchema />
     <div className="w-full relative pt-24 md:pt-28 px-4 sm:px-6 lg:px-8">
       <ParticleBackground />
 
