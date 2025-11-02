@@ -280,8 +280,16 @@
     line-height: 1.65;
   }
 
-  section {
+  /* Apply default vertical padding to page sections, but NOT to live regions
+     like the Sonner notifications container which renders as a <section> */
+  section:not([aria-live]) {
     @apply py-16 md:py-24;
+  }
+
+  /* Ensure Sonner's <section class="toaster"> container does not add layout spacing */
+  .toaster {
+    padding: 0 !important;
+    margin: 0 !important;
   }
 }
 

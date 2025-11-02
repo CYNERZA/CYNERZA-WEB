@@ -1,0 +1,26 @@
+# Prevent host artifacts from polluting Docker build context
+node_modules
+npm-debug.log*
+*.log
+
+# Frontend build output
+/dist
+
+# Git and CI
+.git
+.gitignore
+.github/
+
+# OS/editor junk
+.DS_Store
+*.swp
+
+# Backend workspace (built separately)
+CYNERZA-ADMIN-BACKEND/node_modules
+CYNERZA-ADMIN-BACKEND/dist
+CYNERZA-ADMIN-BACKEND/npm-debug.log*
+
+# Coverage and caches
+coverage
+.vite
+.eslintcache

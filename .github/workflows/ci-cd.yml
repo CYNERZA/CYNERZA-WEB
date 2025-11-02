@@ -5,6 +5,19 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Target environment (staging|production)"
+        required: false
+        default: "production"
+      rollback_to:
+        description: "Optional version tag to rollback to (e.g., v123)"
+        required: false
+
+concurrency:
+  group: prod-cicd-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 env:
   DOCKER_REGISTRY: docker.io
@@ -13,6 +26,34 @@ env:
   NODE_VERSION: '20'
 
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      frontend: ${{ steps.filter.outputs.frontend }}
+      backend: ${{ steps.filter.outputs.backend }}
+      ci: ${{ steps.filter.outputs.ci }}
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Paths filter
+      id: filter
+      uses: dorny/paths-filter@v3
+      with:
+        filters: |
+          frontend:
+            - 'src/**'
+            - 'public/**'
+            - 'index.html'
+            - 'vite.config.*'
+            - 'tsconfig*.json'
+            - 'Dockerfile'
+            - 'package.json'
+            - 'package-lock.json'
+          backend:
+            - 'CYNERZA-ADMIN-BACKEND/**'
+          ci:
+            - '.github/**'
+            - 'Dockerfile*'
   security-scan:
     runs-on: ubuntu-latest
     steps:
@@ -134,7 +175,8 @@ jobs:
 
   frontend-build:
     runs-on: ubuntu-latest
-    needs: security-scan
+    needs: [security-scan, changes]
+    if: needs.changes.outputs.frontend == 'true'
     outputs:
       build-success: ${{ steps.build-check.outputs.success }}
     
@@ -149,7 +191,14 @@ jobs:
         cache: 'npm'
 
     - name: Install frontend dependencies
-      run: npm ci
+      run: |
+        if [ -f "package-lock.json" ]; then
+          echo "Using npm ci"
+          npm ci
+        else
+          echo "package-lock.json not found. Falling back to npm install"
+          npm install --no-audit --no-fund
+        fi
 
     - name: Run ESLint
       run: npm run lint
@@ -159,6 +208,14 @@ jobs:
 
     - name: Build frontend
       run: npm run build
+
+    - name: Upload frontend preview (PR)
+      if: github.event_name == 'pull_request'
+      uses: actions/upload-artifact@v4
+      with:
+        name: frontend-dist-${{ github.sha }}
+        path: ./dist
+        retention-days: 7
 
     - name: Test frontend build
       id: build-check
@@ -181,7 +238,8 @@ jobs:
 
   backend-build:
     runs-on: ubuntu-latest
-    needs: security-scan
+    needs: [security-scan, changes]
+    if: needs.changes.outputs.backend == 'true'
     defaults:
       run:
         working-directory: ./CYNERZA-ADMIN-BACKEND
@@ -200,7 +258,14 @@ jobs:
         cache-dependency-path: './CYNERZA-ADMIN-BACKEND/package-lock.json'
 
     - name: Install backend dependencies
-      run: npm ci
+      run: |
+        if [ -f "package-lock.json" ]; then
+          echo "Using npm ci"
+          npm ci
+        else
+          echo "package-lock.json not found. Falling back to npm install"
+          npm install --no-audit --no-fund
+        fi
 
     - name: Validate backend startup
       run: |
@@ -245,7 +310,7 @@ jobs:
 
   docker-build-push:
     runs-on: ubuntu-latest
-    needs: [frontend-build, backend-build]
+    needs: [changes, frontend-build, backend-build]
     if: success() && github.event_name != 'pull_request'
     outputs:
       frontend-image-tag: ${{ env.FRONTEND_IMAGE }}:${{ github.sha }}
@@ -254,21 +319,24 @@ jobs:
       backend-image-digest: ${{ steps.backend-build.outputs.digest }}
     
     steps:
-    - name: Verify both builds succeeded
+    - name: Set up QEMU (multi-arch)
+      uses: docker/setup-qemu-action@v3
+
+    - name: Verify both builds succeeded (consider skipped ok)
       run: |
-        echo "🔍 Verifying both frontend and backend builds succeeded..."
+        echo "🔍 Verifying both frontend and backend builds succeeded (skipped treated as OK)..."
         
-        FRONTEND_SUCCESS="${{ needs.frontend-build.outputs.build-success }}"
-        BACKEND_SUCCESS="${{ needs.backend-build.outputs.build-success }}"
+        FRONTEND_RESULT="${{ needs.frontend-build.result }}"
+        BACKEND_RESULT="${{ needs.backend-build.result }}"
         
-        echo "Frontend build success: $FRONTEND_SUCCESS"
-        echo "Backend build success: $BACKEND_SUCCESS"
+        echo "Frontend job result: $FRONTEND_RESULT"
+        echo "Backend job result: $BACKEND_RESULT"
         
-        if [ "$FRONTEND_SUCCESS" = "true" ] && [ "$BACKEND_SUCCESS" = "true" ]; then
-          echo "✅ Both builds successful - proceeding with Docker push"
+        ok() { [ "$1" = "success" ] || [ "$1" = "skipped" ]; }
+        if ok "$FRONTEND_RESULT" && ok "$BACKEND_RESULT"; then
+          echo "✅ Preconditions met - proceeding with Docker push"
         else
-          echo "❌ One or both builds failed - aborting Docker push"
-          echo "Frontend: $FRONTEND_SUCCESS, Backend: $BACKEND_SUCCESS"
+          echo "❌ One or both preconditions failed - aborting Docker push"
           exit 1
         fi
 
@@ -276,18 +344,20 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Restore frontend dist cache
+      if: needs.frontend-build.result == 'success'
       uses: actions/cache/restore@v3
       with:
         path: ./dist
         key: frontend-dist-${{ github.sha }}
-        fail-on-cache-miss: true
+        fail-on-cache-miss: false
 
     - name: Restore backend src cache
+      if: needs.backend-build.result == 'success'
       uses: actions/cache/restore@v3
       with:
         path: ./CYNERZA-ADMIN-BACKEND/src
         key: backend-src-${{ github.sha }}
-        fail-on-cache-miss: true
+        fail-on-cache-miss: false
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
@@ -354,58 +424,100 @@ jobs:
     - name: Build and push Frontend Docker image
       id: frontend-build
       uses: docker/build-push-action@v5
+      if: needs.changes.outputs.frontend == 'true'
       with:
         context: .
         file: ./Dockerfile
         push: true
         tags: ${{ steps.frontend-meta.outputs.tags }}
         labels: ${{ steps.frontend-meta.outputs.labels }}
+        platforms: linux/amd64,linux/arm64
         cache-from: type=gha
         cache-to: type=gha,mode=max
 
     - name: Build and push Backend Docker image
       id: backend-build
       uses: docker/build-push-action@v5
+      if: needs.changes.outputs.backend == 'true'
       with:
         context: ./CYNERZA-ADMIN-BACKEND
         file: ./CYNERZA-ADMIN-BACKEND/Dockerfile
         push: true
         tags: ${{ steps.backend-meta.outputs.tags }}
         labels: ${{ steps.backend-meta.outputs.labels }}
+        platforms: linux/amd64,linux/arm64
         cache-from: type=gha
         cache-to: type=gha,mode=max
+
+    - name: Trivy scan Frontend image
+      uses: aquasecurity/trivy-action@master
+      if: needs.changes.outputs.frontend == 'true'
+      with:
+        image-ref: ${{ env.FRONTEND_IMAGE }}:main
+        format: 'table'
+        exit-code: '1'
+        ignore-unfixed: true
+        severity: 'CRITICAL,HIGH'
+
+    - name: Trivy scan Backend image
+      uses: aquasecurity/trivy-action@master
+      if: needs.changes.outputs.backend == 'true'
+      with:
+        image-ref: ${{ env.BACKEND_IMAGE }}:main
+        format: 'table'
+        exit-code: '1'
+        ignore-unfixed: true
+        severity: 'CRITICAL,HIGH'
         
     - name: Verify both pushes succeeded
       run: |
-        echo "🔍 Verifying both Docker images were pushed successfully..."
-        
-        FRONTEND_TAG="${{ env.FRONTEND_IMAGE }}:main"
-        BACKEND_TAG="${{ env.BACKEND_IMAGE }}:main"
-        
-        echo "Checking frontend: $FRONTEND_TAG"
-        if docker manifest inspect "$FRONTEND_TAG" >/dev/null 2>&1; then
-          echo "✅ Frontend image successfully pushed: $FRONTEND_TAG"
+        echo "🔍 Verifying Docker image pushes for changed components..."
+
+        VERIFY_OK=true
+
+        if [ "${{ needs.changes.outputs.frontend }}" = "true" ]; then
+          FRONTEND_TAG="${{ env.FRONTEND_IMAGE }}:main"
+          echo "Checking frontend: $FRONTEND_TAG"
+          if docker manifest inspect "$FRONTEND_TAG" >/dev/null 2>&1; then
+            echo "✅ Frontend image successfully pushed: $FRONTEND_TAG"
+          else
+            echo "❌ Failed to verify frontend image push"
+            VERIFY_OK=false
+          fi
         else
-          echo "❌ Failed to verify frontend image push"
+          echo "ℹ️ Frontend unchanged, skipping verify"
+        fi
+
+        if [ "${{ needs.changes.outputs.backend }}" = "true" ]; then
+          BACKEND_TAG="${{ env.BACKEND_IMAGE }}:main"
+          echo "Checking backend: $BACKEND_TAG"
+          if docker manifest inspect "$BACKEND_TAG" >/dev/null 2>&1; then
+            echo "✅ Backend image successfully pushed: $BACKEND_TAG"
+          else
+            echo "❌ Failed to verify backend image push"
+            VERIFY_OK=false
+          fi
+        else
+          echo "ℹ️ Backend unchanged, skipping verify"
+        fi
+
+        if [ "$VERIFY_OK" = true ]; then
+          echo "🎉 Docker image verification completed"
+          exit 0
+        else
           exit 1
         fi
-        
-        echo "Checking backend: $BACKEND_TAG"
-        if docker manifest inspect "$BACKEND_TAG" >/dev/null 2>&1; then
-          echo "✅ Backend image successfully pushed: $BACKEND_TAG"
-        else
-          echo "❌ Failed to verify backend image push"
-          exit 1
-        fi
-        
-        echo "🎉 Both Docker images successfully pushed to Docker Hub!"
 
 
   deploy-production:
     runs-on: self-hosted
-    needs: [docker-build-push]
+    needs: [changes, docker-build-push]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     environment: production
+    outputs:
+      current-version: ${{ steps.set-versions.outputs.current }}
+      previous-version: ${{ steps.set-versions.outputs.previous }}
+      switched: ${{ steps.switch.outputs.switched }}
     
     steps:
     - name: Checkout code
@@ -464,41 +576,73 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Create version backup and deploy
+    - name: Set versions
+      id: set-versions
       run: |
         CURRENT_VERSION="v${{ github.run_number }}"
-        PREVIOUS_VERSION=$(docker images ${{ env.FRONTEND_IMAGE }} --format "{{.Tag}}" | grep "^v[0-9]" | head -1)
-        
+        PREVIOUS_VERSION=$(docker images ${{ env.FRONTEND_IMAGE }} --format "{{.Tag}}" | grep "^v[0-9]" | sort -Vr | sed -n '2p')
+
         echo "CURRENT_VERSION=$CURRENT_VERSION" >> $GITHUB_ENV
         echo "PREVIOUS_VERSION=$PREVIOUS_VERSION" >> $GITHUB_ENV
-        
-        echo "Deploying version: $CURRENT_VERSION"
-        echo "Previous version for rollback: $PREVIOUS_VERSION"
 
-    - name: Pull versioned Docker images
-      run: |
-        docker pull ${{ env.FRONTEND_IMAGE }}:${{ env.CURRENT_VERSION }}
-        docker pull ${{ env.BACKEND_IMAGE }}:${{ env.CURRENT_VERSION }}
-        
-        docker tag ${{ env.FRONTEND_IMAGE }}:${{ env.CURRENT_VERSION }} ${{ env.FRONTEND_IMAGE }}:latest
-        docker tag ${{ env.BACKEND_IMAGE }}:${{ env.CURRENT_VERSION }} ${{ env.BACKEND_IMAGE }}:latest
+        echo "current=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+        echo "previous=$PREVIOUS_VERSION" >> $GITHUB_OUTPUT
 
-    - name: Stop existing containers
-      run: |
-        docker stop cynerza-backend-web-container cynerza-frontend-web-container || true
-        docker rm cynerza-backend-web-container cynerza-frontend-web-container || true
-        sleep 5
+        echo "Deploy candidate version: $CURRENT_VERSION"
+        echo "Detected previous version: $PREVIOUS_VERSION"
 
-    - name: Deploy Backend Container
+    - name: Compute component tags
+      env:
+        CHANGED_FRONTEND: ${{ needs.changes.outputs.frontend }}
+        CHANGED_BACKEND: ${{ needs.changes.outputs.backend }}
       run: |
-        docker run -d \
-          --name cynerza-backend-web-container \
+        if [ "$CHANGED_FRONTEND" = "true" ]; then
+          FRONTEND_TAG="$CURRENT_VERSION"
+        else
+          FRONTEND_TAG="latest"
+        fi
+        if [ "$CHANGED_BACKEND" = "true" ]; then
+          BACKEND_TAG="$CURRENT_VERSION"
+        else
+          BACKEND_TAG="latest"
+        fi
+        echo "Using tags -> FRONTEND_TAG=$FRONTEND_TAG, BACKEND_TAG=$BACKEND_TAG"
+        echo "FRONTEND_TAG=$FRONTEND_TAG" >> $GITHUB_ENV
+        echo "BACKEND_TAG=$BACKEND_TAG" >> $GITHUB_ENV
+
+    - name: Pull Docker images for deployment
+      env:
+        CHANGED_FRONTEND: ${{ needs.changes.outputs.frontend }}
+        CHANGED_BACKEND: ${{ needs.changes.outputs.backend }}
+      run: |
+        if [ "$CHANGED_FRONTEND" = "true" ]; then
+          docker pull ${{ env.FRONTEND_IMAGE }}:$FRONTEND_TAG || { echo "❌ Failed to pull frontend tag $FRONTEND_TAG"; exit 1; }
+          docker tag ${{ env.FRONTEND_IMAGE }}:$FRONTEND_TAG ${{ env.FRONTEND_IMAGE }}:latest
+        else
+          echo "ℹ️ Frontend unchanged, not pulling image"
+        fi
+        if [ "$CHANGED_BACKEND" = "true" ]; then
+          docker pull ${{ env.BACKEND_IMAGE }}:$BACKEND_TAG || { echo "❌ Failed to pull backend tag $BACKEND_TAG"; exit 1; }
+          docker tag ${{ env.BACKEND_IMAGE }}:$BACKEND_TAG ${{ env.BACKEND_IMAGE }}:latest
+        else
+          echo "ℹ️ Backend unchanged, not pulling image"
+        fi
+
+    - name: Start candidate containers (blue/green)
+      env:
+        CHANGED_FRONTEND: ${{ needs.changes.outputs.frontend }}
+        CHANGED_BACKEND: ${{ needs.changes.outputs.backend }}
+      run: |
+        # Backend candidate on port 3777 (only if changed)
+        if [ "$CHANGED_BACKEND" = "true" ]; then
+          docker run -d \
+          --name cynerza-backend-web-container-candidate \
           --restart unless-stopped \
           --memory=512m \
           --cpus=0.5 \
           --read-only \
           --tmpfs /tmp:rw,noexec,nosuid,size=100m \
-          -p 3776:3776 \
+          -p 3777:3776 \
           -e NODE_ENV=production \
           -e PORT=3776 \
           -e MONGODB_ATLAS_URL="${{ secrets.MONGODB_ATLAS_URL }}" \
@@ -510,29 +654,36 @@ jobs:
           --security-opt=no-new-privileges:true \
           --cap-drop=ALL \
           --cap-add=NET_BIND_SERVICE \
-          ${{ env.BACKEND_IMAGE }}:latest
+          ${{ env.BACKEND_IMAGE }}:$BACKEND_TAG
+        fi
 
-    - name: Deploy Frontend Container
-      run: |
-        docker run -d \
-          --name cynerza-frontend-web-container \
+        # Frontend candidate on port 8997 (only if changed)
+        if [ "$CHANGED_FRONTEND" = "true" ]; then
+          docker run -d \
+          --name cynerza-frontend-web-container-candidate \
           --restart unless-stopped \
           --memory=256m \
           --cpus=0.25 \
           --read-only \
           --tmpfs /tmp:rw,noexec,nosuid,size=50m \
-          -p 8996:8996 \
+          -p 8997:8996 \
           --security-opt=no-new-privileges:true \
           --cap-drop=ALL \
           --cap-add=NET_BIND_SERVICE \
-          ${{ env.FRONTEND_IMAGE }}:latest
+          ${{ env.FRONTEND_IMAGE }}:$FRONTEND_TAG
+        fi
 
-    - name: Wait for containers to start
+    
+
+    - name: Wait for candidate containers to start
       run: |
-        echo "Waiting for containers to start..."
+        echo "Waiting for candidate containers to start..."
         sleep 45
 
-    - name: Production Health Check
+    - name: Candidate Health Check
+      env:
+        CHANGED_FRONTEND: ${{ needs.changes.outputs.frontend }}
+        CHANGED_BACKEND: ${{ needs.changes.outputs.backend }}
       run: |
         echo "Starting comprehensive production health checks..."
         
@@ -552,7 +703,11 @@ jobs:
               echo "⏳ $service_name health check failed (attempt $attempt/$max_attempts)"
               if [ $attempt -eq $max_attempts ]; then
                 echo "❌ $service_name failed health check after $max_attempts attempts"
-                docker logs cynerza-${service_name,,}-web-container --tail 50 || true
+                if [ "$service_name" = "Backend" ]; then
+                  docker logs cynerza-backend-web-container-candidate --tail 50 || true
+                else
+                  docker logs cynerza-frontend-web-container-candidate --tail 50 || true
+                fi
                 return 1
               fi
               sleep 15
@@ -561,33 +716,118 @@ jobs:
           done
         }
         
-        check_service_health "http://localhost:3776/health" "Backend"
-        BACKEND_RESULT=$?
+        if [ "$CHANGED_BACKEND" = "true" ]; then
+          check_service_health "http://localhost:3777/health" "Backend"
+          BACKEND_RESULT=$?
+        else
+          # Validate stable backend is healthy if unchanged
+          check_service_health "http://localhost:3776/health" "Backend"
+          BACKEND_RESULT=$?
+        fi
         
-        check_service_health "http://localhost:8996" "Frontend"
-        FRONTEND_RESULT=$?
+        if [ "$CHANGED_FRONTEND" = "true" ]; then
+          check_service_health "http://localhost:8997" "Frontend"
+          FRONTEND_RESULT=$?
+        else
+          # Validate stable frontend is healthy if unchanged
+          check_service_health "http://localhost:8996" "Frontend"
+          FRONTEND_RESULT=$?
+        fi
         
-        if [ $BACKEND_RESULT -eq 0 ]; then
-          echo "Testing additional backend endpoints..."
-          if curl -f -s http://localhost:3776/ >/dev/null; then
-            echo "✅ Backend root endpoint accessible"
+        if [ "$CHANGED_BACKEND" = "true" ] && [ $BACKEND_RESULT -eq 0 ]; then
+          echo "Testing additional backend endpoints on candidate..."
+          if curl -f -s http://localhost:3777/ >/dev/null; then
+            echo "✅ Backend candidate root endpoint accessible"
           else
-            echo "⚠️ Backend root endpoint test failed"
+            echo "⚠️ Backend candidate root endpoint test failed"
           fi
         fi
         
         if [ $BACKEND_RESULT -ne 0 ] || [ $FRONTEND_RESULT -ne 0 ]; then
-          echo "❌ Production health checks failed, triggering rollback"
+          echo "❌ Candidate health checks failed. Keeping existing containers running (if any)."
+          echo "Cleaning up candidate containers..."
+          docker logs cynerza-backend-web-container-candidate --tail 50 || true
+          docker logs cynerza-frontend-web-container-candidate --tail 50 || true
+          docker rm -f cynerza-backend-web-container-candidate cynerza-frontend-web-container-candidate || true
           exit 1
         fi
-        
-        echo "✅ All production health checks passed successfully"
-        
-        echo "Container status:"
-        docker ps | grep cynerza
-        
-        echo "Memory usage:"
-        docker stats --no-stream --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}" cynerza-backend-web-container cynerza-frontend-web-container || true
+        echo "✅ Candidate health checks passed"
+
+    - name: Switch traffic to new version
+      id: switch
+      env:
+        CHANGED_FRONTEND: ${{ needs.changes.outputs.frontend }}
+        CHANGED_BACKEND: ${{ needs.changes.outputs.backend }}
+      run: |
+        echo "Switching traffic to -> FRONTEND:$FRONTEND_TAG BACKEND:$BACKEND_TAG"
+
+        # Stop stable containers only after candidate is healthy
+        if [ "$CHANGED_BACKEND" = "true" ]; then
+          docker stop cynerza-backend-web-container || true
+          docker rm cynerza-backend-web-container || true
+        fi
+        if [ "$CHANGED_FRONTEND" = "true" ]; then
+          docker stop cynerza-frontend-web-container || true
+          docker rm cynerza-frontend-web-container || true
+        fi
+
+        # Start stable containers on standard ports with the selected tags
+        if [ "$CHANGED_BACKEND" = "true" ]; then
+          docker run -d \
+          --name cynerza-backend-web-container \
+          --restart unless-stopped \
+          --memory=512m \
+          --cpus=0.5 \
+          --read-only \
+          --tmpfs /tmp:rw,noexec,nosuid,size=100m \
+          -p 3776:3776 \
+          -e NODE_ENV=production \
+          -e PORT=3776 \
+          -e MONGODB_ATLAS_URL="${{ secrets.MONGODB_ATLAS_URL }}" \
+          -e CLOUDNIRY_CLOUD_NAME="${{ secrets.CLOUDNIRY_CLOUD_NAME }}" \
+          -e CLOUDNIRY_API_KEY="${{ secrets.CLOUDNIRY_API_KEY }}" \
+          -e CLOUDNIRY_API_SECRET="${{ secrets.CLOUDNIRY_API_SECRET }}" \
+          -e ACCESS_TOKEN_SECRET="${{ secrets.ACCESS_TOKEN_SECRET }}" \
+          -e REFRESH_TOKEN_SECRET="${{ secrets.REFRESH_TOKEN_SECRET }}" \
+          --security-opt=no-new-privileges:true \
+          --cap-drop=ALL \
+          --cap-add=NET_BIND_SERVICE \
+          ${{ env.BACKEND_IMAGE }}:$BACKEND_TAG
+        fi
+
+        if [ "$CHANGED_FRONTEND" = "true" ]; then
+          docker run -d \
+          --name cynerza-frontend-web-container \
+          --restart unless-stopped \
+          --memory=256m \
+          --cpus=0.25 \
+          --read-only \
+          --tmpfs /tmp:rw,noexec,nosuid,size=50m \
+          -p 8996:8996 \
+          --security-opt=no-new-privileges:true \
+          --cap-drop=ALL \
+          --cap-add=NET_BIND_SERVICE \
+          ${{ env.FRONTEND_IMAGE }}:$FRONTEND_TAG
+        fi
+
+        # Remove candidate containers
+        [ "$CHANGED_BACKEND" = "true" ] && docker rm -f cynerza-backend-web-container-candidate || true
+        [ "$CHANGED_FRONTEND" = "true" ] && docker rm -f cynerza-frontend-web-container-candidate || true
+
+        echo "switched=true" >> $GITHUB_OUTPUT
+
+    - name: Post-switch Health Check (stable ports)
+      run: |
+        echo "Validating services on stable ports..."
+        for i in {1..12}; do
+          if curl -f -s http://localhost:3776/health >/dev/null && curl -f -s http://localhost:8996 >/dev/null; then
+            echo "✅ Stable services healthy"
+            exit 0
+          fi
+          echo "⏳ Waiting for stable services... ($i/12)" && sleep 10
+        done
+        echo "❌ Stable services failed health check after switch"
+        exit 1
 
     - name: Clean up old versions
       run: |
@@ -601,12 +841,12 @@ jobs:
         echo "Frontend: http://localhost:8996"
         echo "Backend: http://localhost:3776"
         echo "Docker Images:"
-        echo "  - ${{ env.FRONTEND_IMAGE }}:${{ env.CURRENT_VERSION }}"
-        echo "  - ${{ env.BACKEND_IMAGE }}:${{ env.CURRENT_VERSION }}"
+        echo "  - ${{ env.FRONTEND_IMAGE }}:$FRONTEND_TAG"
+        echo "  - ${{ env.BACKEND_IMAGE }}:$BACKEND_TAG"
         echo "  - ${{ env.FRONTEND_IMAGE }}:latest"
         echo "  - ${{ env.BACKEND_IMAGE }}:latest"
-        echo "Deployed version: ${{ env.CURRENT_VERSION }}"
-        echo "Previous version: ${{ env.PREVIOUS_VERSION }}"
+        echo "Deployed current-version id: $CURRENT_VERSION"
+        echo "Previous version id: $PREVIOUS_VERSION"
 
   rollback-production:
     runs-on: self-hosted
@@ -731,6 +971,73 @@ jobs:
           echo "❌ No previous version found for rollback - manual intervention required"
           exit 1
         fi
+
+  manual-rollback:
+    runs-on: self-hosted
+    if: github.event_name == 'workflow_dispatch' && inputs.rollback_to != ''
+    steps:
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        registry: ${{ env.DOCKER_REGISTRY }}
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Rollback to specified version
+      run: |
+        TARGET="${{ inputs.rollback_to }}"
+        echo "Rolling back to specific version: $TARGET"
+
+        docker stop cynerza-backend-web-container cynerza-frontend-web-container 2>/dev/null || true
+        docker rm cynerza-backend-web-container cynerza-frontend-web-container 2>/dev/null || true
+
+        docker pull ${{ env.FRONTEND_IMAGE }}:$TARGET || { echo "❌ Frontend image tag not found: $TARGET"; exit 1; }
+        docker pull ${{ env.BACKEND_IMAGE }}:$TARGET || { echo "❌ Backend image tag not found: $TARGET"; exit 1; }
+
+        docker run -d \
+          --name cynerza-backend-web-container \
+          --restart unless-stopped \
+          --memory=512m \
+          --cpus=0.5 \
+          --read-only \
+          --tmpfs /tmp:rw,noexec,nosuid,size=100m \
+          -p 3776:3776 \
+          -e NODE_ENV=production \
+          -e PORT=3776 \
+          -e MONGODB_ATLAS_URL="${{ secrets.MONGODB_ATLAS_URL }}" \
+          -e CLOUDNIRY_CLOUD_NAME="${{ secrets.CLOUDNIRY_CLOUD_NAME }}" \
+          -e CLOUDNIRY_API_KEY="${{ secrets.CLOUDNIRY_API_KEY }}" \
+          -e CLOUDNIRY_API_SECRET="${{ secrets.CLOUDNIRY_API_SECRET }}" \
+          -e ACCESS_TOKEN_SECRET="${{ secrets.ACCESS_TOKEN_SECRET }}" \
+          -e REFRESH_TOKEN_SECRET="${{ secrets.REFRESH_TOKEN_SECRET }}" \
+          --security-opt=no-new-privileges:true \
+          --cap-drop=ALL \
+          --cap-add=NET_BIND_SERVICE \
+          ${{ env.BACKEND_IMAGE }}:$TARGET
+
+        docker run -d \
+          --name cynerza-frontend-web-container \
+          --restart unless-stopped \
+          --memory=256m \
+          --cpus=0.25 \
+          --read-only \
+          --tmpfs /tmp:rw,noexec,nosuid,size=50m \
+          -p 8996:8996 \
+          --security-opt=no-new-privileges:true \
+          --cap-drop=ALL \
+          --cap-add=NET_BIND_SERVICE \
+          ${{ env.FRONTEND_IMAGE }}:$TARGET
+
+        echo "Validating rollback services..."
+        for i in {1..12}; do
+          if curl -f -s http://localhost:3776/health >/dev/null && curl -f -s http://localhost:8996 >/dev/null; then
+            echo "✅ Rollback to $TARGET healthy"
+            exit 0
+          fi
+          echo "⏳ Waiting for rollback services... ($i/12)" && sleep 10
+        done
+        echo "❌ Rollback to $TARGET failed health check"
+        exit 1
 
   cleanup-on-failure:
     runs-on: self-hosted
