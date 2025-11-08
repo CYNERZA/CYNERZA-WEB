@@ -349,6 +349,12 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r from-cynerza-purple to-cynerza-purple-dark dark:from-cynerza-purple-light dark:to-cynerza-purple;
   }
 
+  /* Brand gradient that matches cynerza.png (deep blue -> cyan) */
+  .brand-gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(90deg, #0b2239 0%, #1f6bb3 55%, #34d3e6 100%);
+  }
+
   .shadow-glow {
     box-shadow: 0 0 15px theme('colors.cynerza.purple.DEFAULT');
   }

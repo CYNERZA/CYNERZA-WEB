@@ -183,9 +183,11 @@ const Footer: React.FC = () => {
                 <div className="lg:col-span-2 flex flex-col items-center">
                     <Link to="/" className="inline-flex items-center">
                         <img
-                          src="/logo-horizontal-256.png"
+                          src="/cynerza.png"
                           alt="CYNERZA"
                           className="h-8 w-auto"
+                          loading="lazy"
+                          decoding="async"
                         />
                     </Link>
                     <p className="mt-4 text-gray-600 dark:text-gray-400 leading-relaxed text-center sm:text-left">

@@ -915,13 +915,13 @@ function Navbar({ className }: { className?: string }) {
                 transition={{ duration: 0.3 }}
                 className="font-bold text-xl tracking-wider"
               >
-                <span className={`relative dark:text-slate-200 text-slate-900 ${isContactUsPage ? 'text-white' : ''}`}>
+                <span className={`relative brand-gradient-text`}>
                   {displayText}
                   {!typingComplete && isHoveringLogo && (
                     <motion.span
                       animate={{ opacity: [0, 1, 0] }}
                       transition={{ repeat: Infinity, duration: 0.8 }}
-                      className="absolute right-0 top-0 h-full w-0.5 dark:bg-slate-200 bg-slate-900"
+                      className="absolute right-0 top-0 h-full w-0.5 bg-cyan-400"
                     />
                   )}
                 </span>
@@ -948,13 +948,13 @@ function Navbar({ className }: { className?: string }) {
                 transition={{ duration: 0.3 }}
                 className="font-bold text-xl tracking-wider"
               >
-                <span className={`relative text-slate-900 dark:text-slate-200 text-sm ${isContactUsPage ? 'text-white' : ''} `}>
+                <span className={`relative brand-gradient-text text-sm`}>
                   {displayText}
                   {!typingComplete && isTappedLogo && (
                     <motion.span
                       animate={{ opacity: [0, 1, 0] }}
                       transition={{ repeat: Infinity, duration: 0.8 }}
-                      className="absolute right-0 top-0 h-full w-0.5 dark:bg-slate-200 bg-slate-900"
+                      className="absolute right-0 top-0 h-full w-0.5 bg-cyan-400"
                     />
                   )}
                 </span>
