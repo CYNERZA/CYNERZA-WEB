@@ -61,7 +61,7 @@ const AiTools: React.FC = () => {
       name: 'Image Tools',
       description: 'Create and enhance images with AI-powered editing',
       icon: <ImageIcon className="w-6 h-6" />,
-      gradient: 'from-purple-400 to-pink-600',
+      gradient: 'from-cyan-400 to-pink-600',
       link: "https://tools.cynerza.com/image-tools-ai-image-generator",
 
       tools: [
@@ -185,7 +185,7 @@ const AiTools: React.FC = () => {
 
  {/* Purple gradient background overlay */}
             {isDarkMode &&
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-blue-800/10 to-indigo-600/20 z-5" />
             }
       <div className="relative z-10">
         <main className="flex-grow pt-0 relative z-10">
@@ -201,8 +201,8 @@ const AiTools: React.FC = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.2, duration: 0.5 }}
-                  className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-cynerza-purple/10 dark:bg-cynerza-purple/20
-                             text-cynerza-purple dark:text-cynerza-purple-light text-sm font-medium mb-6"
+                  className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-cynerza-blue/10 dark:bg-cynerza-blue/20
+                             text-cynerza-blue dark:text-cynerza-cyan-light text-sm font-medium mb-6"
                 >
                   <Zap className="w-4 h-4 mr-2" />
                   <span>AI-Powered Tools</span>
@@ -242,7 +242,7 @@ const AiTools: React.FC = () => {
                   <input
                     type="text"
                     placeholder="Search tools..."
-                    className="block w-full pl-12 pr-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm focus:ring-2 focus:ring-cynerza-purple/50 focus:border-transparent transition-all duration-200"
+                    className="block w-full pl-12 pr-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm focus:ring-2 focus:ring-cynerza-blue/50 focus:border-transparent transition-all duration-200"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
@@ -254,7 +254,7 @@ const AiTools: React.FC = () => {
                     className={cn(
                       'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
                       activeCategory === 'all'
-                        ? 'bg-cynerza-purple text-white shadow-lg shadow-cynerza-purple/20'
+                        ? 'bg-cynerza-blue text-white shadow-lg shadow-cynerza-blue/20'
                         : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                     )}
                   >
@@ -346,7 +346,7 @@ const AiTools: React.FC = () => {
 
           <section className="relative py-12 ">
             {/* Purple gradient background overlay for CTA section */}
-            {/* <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" /> */}
+            {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-blue-800/10 to-indigo-600/20 z-5" /> */}
 
             <div className="container mx-auto px-4 text-center relative z-10">
               <motion.div
@@ -377,7 +377,7 @@ const AiTools: React.FC = () => {
                   className="flex flex-col sm:flex-row justify-center gap-4">
                   <a href="https://tools.cynerza.com" target="_blank" rel="noopener noreferrer">
                     <button
-                      className="px-8 py-3 bg-cynerza-purple hover:bg-cynerza-purple/90 text-white font-medium rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 hover:shadow-lg">
+                      className="px-8 py-3 bg-cynerza-blue hover:bg-cynerza-blue/90 text-white font-medium rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 hover:shadow-lg">
                       Get Started for Free
                     </button>
                   </a>

@@ -104,7 +104,7 @@ const VirtualAssistant: React.FC = () => {
       {/* Floating Chat Button */}
       <motion.button
         onClick={toggleChat}
-        className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full p-4 shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 group"
+        className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-full p-4 shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 group"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         initial={{ scale: 0 }}
@@ -153,7 +153,7 @@ const VirtualAssistant: React.FC = () => {
             className="fixed bottom-24 right-6 z-50 w-[400px] max-w-[calc(100vw-3rem)] h-[600px] max-h-[calc(100vh-8rem)] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-gray-200 dark:border-gray-700"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 flex items-center justify-between">
+            <div className="bg-gradient-to-r from-blue-600 to-blue-600 text-white p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="relative">
                   <Bot className="w-8 h-8" />
@@ -182,7 +182,7 @@ const VirtualAssistant: React.FC = () => {
                   className={`flex gap-3 ${message.isBot ? 'justify-start' : 'justify-end'}`}
                 >
                   {message.isBot && (
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
                       <Bot className="w-5 h-5 text-white" />
                     </div>
                   )}
@@ -192,7 +192,7 @@ const VirtualAssistant: React.FC = () => {
                       className={`rounded-2xl px-4 py-3 ${
                         message.isBot
                           ? 'bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 shadow-md'
-                          : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
+                          : 'bg-gradient-to-r from-blue-600 to-blue-600 text-white'
                       }`}
                     >
                       <div className="text-sm leading-relaxed markdown-content">
@@ -280,7 +280,7 @@ const VirtualAssistant: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   className="flex gap-3"
                 >
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
                     <Bot className="w-5 h-5 text-white" />
                   </div>
                   <div className="bg-white dark:bg-gray-700 rounded-2xl px-4 py-3 shadow-md">
@@ -322,7 +322,7 @@ const VirtualAssistant: React.FC = () => {
                 />
                 <motion.button
                   onClick={handleSendMessage}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-3 rounded-xl hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-gradient-to-r from-blue-600 to-blue-600 text-white p-3 rounded-xl hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   disabled={inputValue.trim() === ''}

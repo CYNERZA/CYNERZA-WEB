@@ -70,7 +70,7 @@ const AllJobs: React.FC = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8">
           <div className="flex items-center gap-3 mb-4 md:mb-0">
-            <div className="bg-gradient-to-br from-indigo-600 to-purple-500 p-3 rounded-xl text-white shadow-lg">
+            <div className="bg-gradient-to-br from-indigo-600 to-cyan-500 p-3 rounded-xl text-white shadow-lg">
               <MdWork size={24} />
             </div>
             <div>

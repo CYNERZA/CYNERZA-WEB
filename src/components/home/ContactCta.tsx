@@ -11,10 +11,10 @@ const ContactCta: React.FC = () => {
     <section className="relative overflow-hidden py-4">
  {/* Purple gradient background overlay */}
             {isDarkMode &&
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-blue-800/10 to-indigo-600/20 z-5" />
             }
       <div className="absolute inset-0 -z-10">
-        {/* <div className="absolute inset-0 bg-gradient-to-br from-cynerza-purple-light/30 to-cynerza-purple/20"></div>
+        {/* <div className="absolute inset-0 bg-gradient-to-br from-cynerza-cyan-light/30 to-cynerza-blue/20"></div>
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_left,rgba(155,135,245,0.15),transparent_50%)]"></div>
         <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_right,rgba(155,135,245,0.15),transparent_50%)]"></div> */}
       </div>
@@ -32,7 +32,7 @@ const ContactCta: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a href="https://tools.cynerza.com" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-cynerza-purple hover:bg-cynerza-purple/90 text-white px-8 py-6 rounded-full text-lg">
+              <Button className="bg-cynerza-blue hover:bg-cynerza-blue/90 text-white px-8 py-6 rounded-full text-lg">
                 Get Started Free
               </Button>
             </a>

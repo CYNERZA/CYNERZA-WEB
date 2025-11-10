@@ -55,7 +55,7 @@ const RetailPage: React.FC = () => {
     <div className="relative w-full overflow-x-hidden">
  {/* Purple gradient background overlay */}
             {isDarkMode &&
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-blue-800/10 to-indigo-600/20 z-5" />
             }
       {/* Hero Section - Responsive Height */}
       <section className="relative z-10 h-[50vh] sm:h-[55vh] md:h-[60vh] min-h-[400px] sm:min-h-[450px] md:min-h-[500px] max-h-[700px] flex items-center justify-center overflow-hidden w-full">
@@ -118,8 +118,8 @@ const RetailPage: React.FC = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="bg-white dark:bg-gray-800 p-5 sm:p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all"
                 >
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-cynerza-purple/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
-                    <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 text-cynerza-purple" />
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-cynerza-blue/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                    <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 text-cynerza-blue" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3">
                     {challenge.title}
@@ -164,9 +164,9 @@ const RetailPage: React.FC = () => {
                 }`}
               >
                 <div className={`order-1 ${index % 2 === 1 ? 'lg:col-start-2 lg:order-2' : 'lg:order-1'}`}>
-                  <div className="inline-flex items-center space-x-2 px-3 sm:px-4 py-2 rounded-full bg-cynerza-purple/10 border border-cynerza-purple/20 text-cynerza-purple text-xs sm:text-sm font-medium mb-4 sm:mb-6">
+                  <div className="inline-flex items-center space-x-2 px-3 sm:px-4 py-2 rounded-full bg-cynerza-blue/10 border border-cynerza-blue/20 text-cynerza-blue text-xs sm:text-sm font-medium mb-4 sm:mb-6">
                     <span>Retail Innovation</span>
-                    <span className="text-cynerza-purple/70">•</span>
+                    <span className="text-cynerza-blue/70">•</span>
                     <span>{highlight.stats}</span>
                   </div>
 
@@ -181,11 +181,11 @@ const RetailPage: React.FC = () => {
                   <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
                     <button
                       onClick={() => navigate("/contact")}
-                      className="bg-cynerza-purple hover:bg-cynerza-purple/90 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all w-full sm:w-auto"
+                      className="bg-cynerza-blue hover:bg-cynerza-blue/90 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all w-full sm:w-auto"
                     >
                       Learn More
                     </button>
-                    <button className="border border-cynerza-purple text-cynerza-purple hover:bg-cynerza-purple/5 px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all w-full sm:w-auto">
+                    <button className="border border-cynerza-blue text-cynerza-blue hover:bg-cynerza-blue/5 px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all w-full sm:w-auto">
                       View Demo
                     </button>
                   </div>
@@ -208,7 +208,7 @@ const RetailPage: React.FC = () => {
 
                   <div className="hidden sm:block absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 bg-white dark:bg-gray-800 rounded-lg sm:rounded-xl p-3 sm:p-4 shadow-lg">
                     <div className="text-center">
-                      <div className="text-xl sm:text-2xl font-bold text-cynerza-purple mb-1">
+                      <div className="text-xl sm:text-2xl font-bold text-cynerza-blue mb-1">
                         {index === 0 ? '24/7' : '98%'}
                       </div>
                       <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
@@ -330,8 +330,8 @@ const RetailPage: React.FC = () => {
               </h2>
               <div className="space-y-5 sm:space-y-6">
                 <div className="flex gap-3 sm:gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-cynerza-purple/10 rounded-lg flex items-center justify-center">
-                    <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-cynerza-purple" />
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-cynerza-blue/10 rounded-lg flex items-center justify-center">
+                    <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-cynerza-blue" />
                   </div>
                   <div>
                     <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">
@@ -344,8 +344,8 @@ const RetailPage: React.FC = () => {
                 </div>
 
                 <div className="flex gap-3 sm:gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-cynerza-purple/10 rounded-lg flex items-center justify-center">
-                    <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-cynerza-purple" />
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-cynerza-blue/10 rounded-lg flex items-center justify-center">
+                    <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-cynerza-blue" />
                   </div>
                   <div>
                     <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">
@@ -358,8 +358,8 @@ const RetailPage: React.FC = () => {
                 </div>
 
                 <div className="flex gap-3 sm:gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-cynerza-purple/10 rounded-lg flex items-center justify-center">
-                    <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-cynerza-purple" />
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-cynerza-blue/10 rounded-lg flex items-center justify-center">
+                    <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-cynerza-blue" />
                   </div>
                   <div>
                     <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">

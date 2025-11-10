@@ -51,7 +51,7 @@ const Services: React.FC = () => {
     <div className="relative pt-24 md:pt-28 w-full px-4 sm:px-6 lg:px-8">
  {/* Purple gradient background overlay */}
             {isDarkMode &&
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-blue-800/10 to-indigo-600/20 z-5" />
             }    
     {/* Content wrapper */}
     <div className="relative z-10">
@@ -65,11 +65,11 @@ const Services: React.FC = () => {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.2, duration: 0.5 }}
-                    className='inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-cynerza-purple/5 dark:bg-cynerza-purple/10 border border-cynerza-purple/10 dark:border-cynerza-purple/20
-                     text-cynerza-purple dark:text-cynerza-purple-light text-sm font-medium mb-6'
+                    className='inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-cynerza-blue/5 dark:bg-cynerza-blue/10 border border-cynerza-blue/10 dark:border-cynerza-blue/20
+                     text-cynerza-blue dark:text-cynerza-cyan-light text-sm font-medium mb-6'
                 >
                     <span>Our Expertise</span>
-                    <span className="text-cynerza-purple/70 dark:text-cynerza-purple-light/70">•</span>
+                    <span className="text-cynerza-blue/70 dark:text-cynerza-cyan-light/70">•</span>
                     <span>Services</span>
                 </motion.div>
                 <motion.h2
@@ -110,7 +110,7 @@ const Services: React.FC = () => {
     {/* CTA section with gradient overlay */}
     <section className="relative pt-0 pb-8 ">
         {/* Purple gradient background overlay for CTA section */}
-        {/* <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20" /> */}
+        {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-blue-800/10 to-indigo-600/20" /> */}
         
         <div className="container mx-auto px-4 text-center relative z-10">
             <motion.div
@@ -137,7 +137,7 @@ const Services: React.FC = () => {
                 </motion.p>
                 <button
                     onClick={() => navigate("/contact")}
-                    className="px-8 py-3 bg-cynerza-purple hover:bg-cynerza-purple/90 text-white font-medium rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 hover:shadow-lg">
+                    className="px-8 py-3 bg-cynerza-blue hover:bg-cynerza-blue/90 text-white font-medium rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 hover:shadow-lg">
                     Start Building Today
                 </button>
             </motion.div>

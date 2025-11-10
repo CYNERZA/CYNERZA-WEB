@@ -54,7 +54,7 @@
 //   if (loading) {
 //     return (
 //       <div className="min-h-screen p-2 flex justify-center items-center">
-//               <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-0" />
+//               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-blue-800/10 to-indigo-600/20 z-0" />
 
 //         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
 //       </div>
@@ -65,7 +65,7 @@
 //     <section className="relative min-h-screen 
 //     pt-24 pb-16 md:pt-28 md:pb-20 w-full px-4 sm:px-6 lg:px-8 text-gray-900 dark:text-gray-100">
 //       {/* Purple gradient background overlay */}
-//       <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-0" />
+//       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-blue-800/10 to-indigo-600/20 z-0" />
 
 //       {/* Content wrapper */}
 //       <div className="relative z-10">
@@ -224,7 +224,7 @@ const BlogLayout: React.FC = () => {
       <div className="relative min-h-screen flex justify-center items-center">
          {/* Purple gradient background overlay */}
             {isDarkMode &&
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-blue-800/10 to-indigo-600/20 z-5" />
             }
         <div className="relative z-10 animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
       </div>
@@ -239,7 +239,7 @@ const BlogLayout: React.FC = () => {
       {/* Purple gradient background overlay */}
       {/* Purple gradient background overlay */}
       {isDarkMode &&
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-blue-800/10 to-indigo-600/20 z-5" />
       }
       {/* Content wrapper */}
       <div className="relative z-10 max-w-7xl mx-auto">

@@ -26,10 +26,10 @@ const NotFound = () => {
       <div className="min-h-[60vh] flex items-center justify-center bg-white dark:bg-gray-950">
        {/* Purple gradient background overlay */}
             {isDarkMode &&
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-blue-800/10 to-indigo-600/20 z-5" />
             }
       <div className="text-center py-16 px-4">
-        <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-cynerza-purple to-cynerza-blue">
+        <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-cynerza-blue to-cynerza-blue">
           404
         </h1>
         <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white mb-4">
@@ -40,7 +40,7 @@ const NotFound = () => {
         </p>
         <a 
           href="/" 
-          className="inline-flex items-center px-6 py-3 bg-cynerza-purple hover:bg-cynerza-purple/90 text-white font-medium rounded-lg transition-all duration-200 transform hover:-translate-y-0.5 hover:shadow-lg"
+          className="inline-flex items-center px-6 py-3 bg-cynerza-blue hover:bg-cynerza-blue/90 text-white font-medium rounded-lg transition-all duration-200 transform hover:-translate-y-0.5 hover:shadow-lg"
         >
           Return to Homepage
         </a>

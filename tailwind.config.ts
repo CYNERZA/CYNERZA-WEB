@@ -63,10 +63,25 @@ export default {
           ring: 'hsl(var(--sidebar-ring))'
         },
         cynerza: {
-          purple: {
-            DEFAULT: '#9b87f5',
-            light: '#E5DEFF',
-            dark: '#7E69AB'
+          blue: {
+            DEFAULT: '#1f6bb3',     // Mid blue - primary brand color
+            light: '#34d3e6',       // Cyan - accent/highlight
+            dark: '#0b2239',        // Deep blue - dark shade
+            50: '#e8f4f8',          // Very light blue for backgrounds
+            100: '#b8dff0',         // Light blue for hover states
+            200: '#88cae8',         // Soft blue
+            300: '#58b5e0',         // Medium blue
+            400: '#2896d0',         // Bright blue
+            500: '#1f6bb3',         // Primary (DEFAULT)
+            600: '#1a5a97',         // Darker blue
+            700: '#15497b',         // Deep blue
+            800: '#10385f',         // Very deep blue
+            900: '#0b2239',         // Darkest (dark)
+          },
+          cyan: {
+            DEFAULT: '#34d3e6',     // Primary cyan
+            light: '#6fe3f7',       // Light cyan
+            dark: '#2ab8cc',        // Dark cyan
           },
           white: '#FFFFFF',
           black: '#080B1A',
@@ -79,9 +94,11 @@ export default {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'purple-gradient': 'linear-gradient(90deg, #E5DEFF 0%, #9b87f5 100%)',
-        'purple-white-gradient': 'linear-gradient(135deg, #9b87f5 0%, #ffffff 100%)',
-        'dark-gradient': 'linear-gradient(to bottom, rgba(13,12,21,0.7) 0%, rgba(13,12,21,0.9) 100%)',
+        'blue-gradient': 'linear-gradient(90deg, #b8dff0 0%, #1f6bb3 100%)',
+        'cyan-gradient': 'linear-gradient(90deg, #34d3e6 0%, #1f6bb3 100%)',
+        'blue-white-gradient': 'linear-gradient(135deg, #1f6bb3 0%, #ffffff 100%)',
+        'brand-gradient': 'linear-gradient(90deg, #0b2239 0%, #1f6bb3 55%, #34d3e6 100%)',
+        'dark-gradient': 'linear-gradient(to bottom, rgba(11,34,57,0.7) 0%, rgba(11,34,57,0.9) 100%)',
       },
       borderRadius: {
         lg: 'var(--radius)',

@@ -87,7 +87,7 @@ const TermsOfService: React.FC = () => {
         <div className="relative pt-24 md:pt-28 w-full px-4 sm:px-6 lg:px-8">
             {/* Purple gradient background overlay */}
             {isDarkMode &&
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-blue-800/10 to-indigo-600/20 z-5" />
             }
             {/* Content wrapper */}
             <div className="relative z-10">

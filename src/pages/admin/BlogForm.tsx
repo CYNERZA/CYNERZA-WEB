@@ -207,7 +207,7 @@ const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
             <input
               type="text"
               className="focus:outline-none w-full px-4 py-2 border
-             border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
+             border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-blue focus:border-cynerza-blue"
               {...register("title", {
                 required: !post ? "Title is required" : false
               })}
@@ -220,7 +220,7 @@ const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
             <label className="text-gray-800 dark:text-gray-400">Blog Description:</label>
             <textarea
               className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2
-           focus:ring-cynerza-purple focus:border-cynerza-purple"
+           focus:ring-cynerza-blue focus:border-cynerza-blue"
               {...register("description", {
                 required: !post ? "Description is required" : false
               })}
@@ -235,7 +235,7 @@ const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
               <input
                 type="text"
                 className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2
-               focus:ring-cynerza-purple focus:border-cynerza-purple"
+               focus:ring-cynerza-blue focus:border-cynerza-blue"
                 {...register("metaTitle")}
                 placeholder="Enter meta title"
               />
@@ -246,7 +246,7 @@ const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
               <input
                 type="text"
                 className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2
-               focus:ring-cynerza-purple focus:border-cynerza-purple"
+               focus:ring-cynerza-blue focus:border-cynerza-blue"
                 {...register("metaDescription")}
                 placeholder="Enter meta description"
               />
@@ -258,7 +258,7 @@ const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
             <input
               type="text"
               className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2
-             focus:ring-cynerza-purple focus:border-cynerza-purple"
+             focus:ring-cynerza-blue focus:border-cynerza-blue"
               {...register("metaKeywords")}
               placeholder="Enter meta keywords (comma separated)"
             />
@@ -269,7 +269,7 @@ const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
             <input
               type="text"
               className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2
-             focus:ring-cynerza-purple focus:border-cynerza-purple"
+             focus:ring-cynerza-blue focus:border-cynerza-blue"
               {...register("tags")}
               placeholder="Enter tags (e.g. JavaScript, React, Frontend)"
             />
@@ -296,7 +296,7 @@ const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
                 required: !post ? "Posting date is required" : false
               })}
               className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2
-             focus:ring-cynerza-purple focus:border-cynerza-purple"
+             focus:ring-cynerza-blue focus:border-cynerza-blue"
             />
             {errors.postingDate && <p className="text-red-500">{errors.postingDate.message}</p>}
           </div>
@@ -322,14 +322,14 @@ const BlogForm: React.FC<BlogFormProps> = ({ post }) => {
             {post && <Button
               type="button"
               onClick={() =>   navigate(`/admin/blogs/${post.slug}`)}
-              className="w-full bg-cynerza-purple hover:bg-cynerza-purple/90"
+              className="w-full bg-cynerza-blue hover:bg-cynerza-blue/90"
             >
               Cancle
             </Button>}
 
             <Button
               type="submit"
-              className="w-full bg-cynerza-purple hover:bg-cynerza-purple/90"
+              className="w-full bg-cynerza-blue hover:bg-cynerza-blue/90"
               disabled={loading}
             >
               {post ?

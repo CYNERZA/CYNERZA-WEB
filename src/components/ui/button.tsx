@@ -9,15 +9,15 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-cynerza-purple text-white hover:bg-cynerza-purple/90 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0",
+        default: "bg-cynerza-blue text-white hover:bg-cynerza-blue/90 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0",
         destructive:
           "bg-red-600 text-white hover:bg-red-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0",
         outline:
-          "border border-cynerza-purple/20 bg-transparent text-cynerza-purple hover:bg-cynerza-purple/10 hover:border-cynerza-purple/40 dark:border-cynerza-purple/30 dark:text-cynerza-purple-light dark:hover:bg-cynerza-purple/10 dark:hover:border-cynerza-purple/50",
+          "border border-cynerza-blue/20 bg-transparent text-cynerza-blue hover:bg-cynerza-blue/10 hover:border-cynerza-blue/40 dark:border-cynerza-blue/30 dark:text-cynerza-cyan-light dark:hover:bg-cynerza-blue/10 dark:hover:border-cynerza-blue/50",
         secondary:
-          "bg-cynerza-purple/10 text-cynerza-purple hover:bg-cynerza-purple/20 dark:bg-cynerza-purple/20 dark:text-cynerza-purple-light dark:hover:bg-cynerza-purple/30 shadow-sm hover:shadow",
+          "bg-cynerza-blue/10 text-cynerza-blue hover:bg-cynerza-blue/20 dark:bg-cynerza-blue/20 dark:text-cynerza-cyan-light dark:hover:bg-cynerza-blue/30 shadow-sm hover:shadow",
         ghost: "text-foreground hover:bg-accent hover:text-accent-foreground",
-        link: "text-cynerza-purple underline-offset-4 hover:underline hover:text-cynerza-purple/80 dark:text-cynerza-purple-light dark:hover:text-cynerza-purple/90",
+        link: "text-cynerza-blue underline-offset-4 hover:underline hover:text-cynerza-blue/80 dark:text-cynerza-cyan-light dark:hover:text-cynerza-blue/90",
       },
       size: {
         default: "h-10 px-4 py-2 text-sm",

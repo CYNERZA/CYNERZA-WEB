@@ -426,10 +426,8 @@ const HeaderSection: React.FC = () => {
       onMouseMove={handleMouseMove}
       className="relative pb-10 sm:pb-6 pt-24 sm:py-40 overflow-hidden transition-colors duration-500">
 
-      {/* Purple gradient background overlay */}
-            {isDarkMode &&
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
-            }
+      {/* Brand gradient background overlay */}
+      <div className="brand-overlay z-5" />
       <div className="absolute inset-0 z-10 pointer-events-none">
         <HexagonBackground isActive={isActive} cursor={cursor} />
       </div>
@@ -484,8 +482,8 @@ const HeaderSection: React.FC = () => {
           <Link
             to={"https://tools.cynerza.com"}
             className="relative group inline-block w-full sm:w-auto py-4 px-6 mb-10
-             text-white font-semibold rounded-md bg-gradient-to-r from-cynerza-purple 
-             to-cynerza-blue overflow-hidden bg-cynerza-purple hover:bg-cynerza-purple/90
+             text-white font-semibold rounded-md bg-gradient-to-r from-cynerza-blue 
+             to-cynerza-blue overflow-hidden bg-cynerza-blue hover:bg-cynerza-blue/90
               
                transition-colors duration-300"
           >

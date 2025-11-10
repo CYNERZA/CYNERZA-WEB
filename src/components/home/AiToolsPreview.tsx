@@ -12,7 +12,7 @@
 //       {
 //         name: "Ad Copy Generator",
 //         description: "Create high-converting ad copy for all your marketing campaigns",
-//         gradient: "from-purple-400 to-pink-600",
+//         gradient: "from-cyan-400 to-pink-600",
 //         icon: <FileType  />,
 //         link: "https://tools.cynerza.com/text-tools-ad-copy-generator"
 //       },
@@ -45,7 +45,7 @@
 //       {
 //         name: "Background Remover",
 //         description: "Instantly remove backgrounds from any image with precision",
-//         gradient: "from-violet-400 to-purple-600",
+//         gradient: "from-blue-400 to-blue-600",
 //         icon: <ImageIcon  />,
 //         link: "https://tools.cynerza.com/image-tools-background-remover"
 //       },
@@ -71,7 +71,7 @@
 //       {
 //         name: "Voice Cloner",
 //         description: "Create realistic voice clones from just a few samples",
-//         gradient: "from-purple-400 to-pink-600",
+//         gradient: "from-cyan-400 to-pink-600",
 //         icon: <Mic  />,
 //         link: "https://tools.cynerza.com/audio-tools-voice-cloner"
 //       },
@@ -123,7 +123,7 @@
 //       {
 //         name: "Social Media Posts",
 //         description: "Generate engaging posts for all social platforms",
-//         gradient: "from-violet-400 to-purple-600",
+//         gradient: "from-blue-400 to-blue-600",
 //         icon: <Share2  />,
 //         link: "https://tools.cynerza.com/social-media-posts"
 //       },
@@ -158,20 +158,20 @@
 //       <div className="absolute inset-0 overflow-hidden">
 //         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(124,58,237,0.03)_0%,transparent_70%)] dark:bg-[radial-gradient(circle_at_center,rgba(124,58,237,0.05)_0%,transparent_70%)]" />
 //         <div className="absolute -top-1/2 -right-1/4 w-[800px] h-[800px] rounded-full bg-cynerza-blue/5 dark:bg-cynerza-blue/10 blur-32xl" />
-//         <div className="absolute -bottom-1/2 -left-1/4 w-[800px] h-[800px] rounded-full bg-cynerza-purple/5 dark:bg-cynerza-purple/10 blur-32xl" />
+//         <div className="absolute -bottom-1/2 -left-1/4 w-[800px] h-[800px] rounded-full bg-cynerza-blue/5 dark:bg-cynerza-blue/10 blur-32xl" />
 //       </div>
 
 //       <div className="container mx-auto px-4 sm:px-6 2xl:px-8 relative">
 //         <div className="text-center max-w-42xl mx-auto mb-6">
 //           <motion.div 
-//             className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-cynerza-purple/5 dark:bg-cynerza-purple/10 border border-cynerza-purple/10 dark:border-cynerza-purple/20 text-cynerza-purple dark:text-cynerza-purple-light text-sm font-medium mb-6"
+//             className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-cynerza-blue/5 dark:bg-cynerza-blue/10 border border-cynerza-blue/10 dark:border-cynerza-blue/20 text-cynerza-blue dark:text-cynerza-cyan-light text-sm font-medium mb-6"
 //             initial={{ opacity: 0, y: 20 }}
 //             whileInView={{ opacity: 1, y: 0 }}
 //             viewport={{ once: true }}
 //             transition={{ duration: 0.5 }}
 //           >
 //             <span>AI-Powered Tools</span>
-//             <span className="text-cynerza-purple/70 dark:text-cynerza-purple-light/70">•</span>
+//             <span className="text-cynerza-blue/70 dark:text-cynerza-cyan-light/70">•</span>
 //             <span>Productivity Suite</span>
 //           </motion.div>
 
@@ -215,9 +215,9 @@
 //           <h3 className="text-22xl md:text-32xl font-bold font-heading text-gray-900 dark:text-white mb-2">
 //             {category.category}
 //           </h3>
-//           <div className="w-16 h-1 bg-gradient-to-r from-cynerza-purple to-cynerza-blue rounded-full"></div>
+//           <div className="w-16 h-1 bg-gradient-to-r from-cynerza-blue to-cynerza-blue rounded-full"></div>
 //         </div>
-//         <span className="mt-3 md:mt-0 inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-cynerza-purple/10 text-cynerza-purple dark:bg-cynerza-purple/20 dark:text-cynerza-purple-light">
+//         <span className="mt-3 md:mt-0 inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-cynerza-blue/10 text-cynerza-blue dark:bg-cynerza-blue/20 dark:text-cynerza-cyan-light">
 //           {category.tools.length} {category.tools.length > 1 ? 'Tools' : 'Tool'}
 //         </span>
 //       </div>
@@ -232,8 +232,8 @@
 //             viewport={{ once: true }}
 //             transition={{ duration: 0.4, delay: toolIndex * 0.1 }}
 //           >
-//             <div className="absolute inset-0.5 bg-gradient-to-r from-cynerza-purple/5 to-cynerza-blue/5 dark:from-cynerza-purple/10 dark:to-cynerza-blue/10 rounded-22xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-//             <div className="relative h-full bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-22xl p-6 border border-gray-100 dark:border-gray-700 group-hover:border-cynerza-purple/20 dark:group-hover:border-cynerza-purple/30 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+//             <div className="absolute inset-0.5 bg-gradient-to-r from-cynerza-blue/5 to-cynerza-blue/5 dark:from-cynerza-blue/10 dark:to-cynerza-blue/10 rounded-22xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+//             <div className="relative h-full bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-22xl p-6 border border-gray-100 dark:border-gray-700 group-hover:border-cynerza-blue/20 dark:group-hover:border-cynerza-blue/30 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
 //               <div className={`inline-flex items-center justify-center w-12 h-12 rounded-2xl mb-6 bg-gradient-to-br ${tool.gradient} text-white shadow-2xl`}>
 //                 {React.cloneElement(tool.icon, { className: 'w-6 h-6' })}
 //               </div>
@@ -245,7 +245,7 @@
 //                 href={tool.link} 
 //                 target="_blank" 
 //                 rel="noopener noreferrer"
-//                 className="inline-flex items-center text-cynerza-purple dark:text-cynerza-purple-light font-medium text-sm group"
+//                 className="inline-flex items-center text-cynerza-blue dark:text-cynerza-cyan-light font-medium text-sm group"
 //               >
 //                 <span className="mr-2">Try Now</span>
 //                 <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -268,12 +268,12 @@
 //           transition={{ duration: 0.5, delay: 0.3 }}
 //         >
 //           <div className="relative inline-flex group">
-//             <div className="absolute -inset-0.5 bg-gradient-to-r from-cynerza-purple to-cynerza-blue rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
+//             <div className="absolute -inset-0.5 bg-gradient-to-r from-cynerza-blue to-cynerza-blue rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
 //             <Link 
 //               to="/ai-tools"
-//               className="relative flex items-center px-5 py-5 bg-gradient-to-r from-cynerza-purple to-cynerza-blue text-white text-2xl font-semibold rounded-2xl transition-all
-//                duration-200 hover:shadow-2xl hover:shadow-cynerza-purple/30
-//                bg-cynerza-purple hover:bg-cynerza-purple/90 h-12 "
+//               className="relative flex items-center px-5 py-5 bg-gradient-to-r from-cynerza-blue to-cynerza-blue text-white text-2xl font-semibold rounded-2xl transition-all
+//                duration-200 hover:shadow-2xl hover:shadow-cynerza-blue/30
+//                bg-cynerza-blue hover:bg-cynerza-blue/90 h-12 "
 //             >
 //               <span>Explore All AI Tools</span>
 //               <svg className="w-5 h-5 ml-2 -mr-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -318,7 +318,7 @@
 // const aiTools = [
 //   {
 //     name: "Ad Copy Generator",
-//     gradient: "from-purple-400 to-pink-600",
+//     gradient: "from-cyan-400 to-pink-600",
 //     icon: <FileType />,
 //     link: "https://tools.cynerza.com/text-tools-ad-copy-generator"
 //   },
@@ -342,7 +342,7 @@
 //   },
 //   {
 //     name: "Background Remover",
-//     gradient: "from-violet-400 to-purple-600",
+//     gradient: "from-blue-400 to-blue-600",
 //     icon: <ImageIcon />,
 //     link: "https://tools.cynerza.com/image-tools-background-remover"
 //   },
@@ -360,7 +360,7 @@
 //   },
 //   {
 //     name: "Voice Cloner",
-//     gradient: "from-purple-400 to-pink-600",
+//     gradient: "from-cyan-400 to-pink-600",
 //     icon: <Mic />,
 //     link: "https://tools.cynerza.com/audio-tools-voice-cloner"
 //   },
@@ -396,7 +396,7 @@
 //   },
 //   {
 //     name: "Social Media Posts",
-//     gradient: "from-violet-400 to-purple-600",
+//     gradient: "from-blue-400 to-blue-600",
 //     icon: <Share2 />,
 //     link: "https://tools.cynerza.com/social-media-posts"
 //   },
@@ -763,7 +763,7 @@
 //     const aiTools = [
 //     {
 //       name: "Ad Copy Generator",
-//       gradient: "from-purple-400 to-pink-600",
+//       gradient: "from-cyan-400 to-pink-600",
 //       icon: <FileType />,
 //       link: "https://tools.cynerza.com/text-tools-ad-copy-generator"
 //     },
@@ -787,7 +787,7 @@
 //     },
 //     {
 //       name: "Background Remover",
-//       gradient: "from-violet-400 to-purple-600",
+//       gradient: "from-blue-400 to-blue-600",
 //       icon: <ImageIcon />,
 //       link: "https://tools.cynerza.com/image-tools-background-remover"
 //     },
@@ -805,7 +805,7 @@
 //     },
 //     {
 //       name: "Voice Cloner",
-//       gradient: "from-purple-400 to-pink-600",
+//       gradient: "from-cyan-400 to-pink-600",
 //       icon: <Mic />,
 //       link: "https://tools.cynerza.com/audio-tools-voice-cloner"
 //     },
@@ -841,7 +841,7 @@
 //     },
 //     {
 //       name: "Social Media Posts",
-//       gradient: "from-violet-400 to-purple-600",
+//       gradient: "from-blue-400 to-blue-600",
 //       icon: <Share2 />,
 //       link: "https://tools.cynerza.com/social-media-posts"
 //     },
@@ -1263,7 +1263,7 @@ const AiToolsPreview: React.FC = () => {
   const aiTools = [
     {
       name: "Ad Copy Generator",
-      gradient: "from-purple-400 to-pink-600",
+      gradient: "from-cyan-400 to-pink-600",
       icon: <FileType />,
       link: "https://tools.cynerza.com/text-tools-ad-copy-generator"
     },
@@ -1287,7 +1287,7 @@ const AiToolsPreview: React.FC = () => {
     },
     {
       name: "Background Remover",
-      gradient: "from-violet-400 to-purple-600",
+      gradient: "from-blue-400 to-blue-600",
       icon: <ImageIcon />,
       link: "https://tools.cynerza.com/image-tools-background-remover"
     },
@@ -1305,7 +1305,7 @@ const AiToolsPreview: React.FC = () => {
     },
     {
       name: "Voice Cloner",
-      gradient: "from-purple-400 to-pink-600",
+      gradient: "from-cyan-400 to-pink-600",
       icon: <Mic />,
       link: "https://tools.cynerza.com/audio-tools-voice-cloner"
     },
@@ -1341,7 +1341,7 @@ const AiToolsPreview: React.FC = () => {
     },
     {
       name: "Social Media Posts",
-      gradient: "from-violet-400 to-purple-600",
+      gradient: "from-blue-400 to-blue-600",
       icon: <Share2 />,
       link: "https://tools.cynerza.com/social-media-posts"
     },
@@ -1550,7 +1550,7 @@ const AiToolsPreview: React.FC = () => {
       className='relative sm:pb-[7rem] xl:pb-[25rem]'>
       {/* Purple gradient background overlay */}
       {isDarkMode &&
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-blue-800/10 to-indigo-600/20 z-5" />
       }
       <div className='text-center flex flex-col flex-wrap items-center justify-center '>
         <div className='absolute top-20 sm:top-[10rem]  xl:top-[19rem] 2xl:top-[20rem]'>

@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
     //       { }
     //       <div className="lg:col-span-2 flex flex-col items-center">
     //         <Link to="/" className="inline-flex items-center">
-    //           <span className="text-2xl font-bold font-heading text-cynerza-purple dark:text-cynerza-purple-light">
+    //           <span className="text-2xl font-bold font-heading text-cynerza-blue dark:text-cynerza-cyan-light">
     //             CYNERZA
     //           </span>
     //         </Link>
@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
     //               href={social.link}
     //               target="_blank"
     //               rel="noopener noreferrer"
-    //               className="text-gray-500 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+    //               className="text-gray-500 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light transition-colors"
     //               aria-label={social.name}
     //             >
     //               <span className="sr-only">{social.name}</span>
@@ -84,7 +84,7 @@ const Footer: React.FC = () => {
     //             <li key={item}>
     //               <Link
     //                 to={`/${item.toLowerCase().replace(/\s/g, '-')}`}
-    //                 className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+    //                 className="text-gray-600 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light transition-colors"
     //               >
     //                 {item}
     //               </Link>
@@ -100,7 +100,7 @@ const Footer: React.FC = () => {
     //             <li key={item}>
     //               <Link
     //                 to={`/${item.toLowerCase().replace(/\s/g, '-')}`}
-    //                 className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+    //                 className="text-gray-600 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light transition-colors"
     //               >
     //                 {item}
     //               </Link>
@@ -115,7 +115,7 @@ const Footer: React.FC = () => {
     //           <li>
     //             <Link
     //               to="/documentation"
-    //               className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+    //               className="text-gray-600 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light transition-colors"
     //             >
     //               Documentation
     //             </Link>
@@ -123,7 +123,7 @@ const Footer: React.FC = () => {
     //           <li>
     //             <Link
     //               to="/tutorials"
-    //               className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+    //               className="text-gray-600 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light transition-colors"
     //             >
     //               Tutorials
     //             </Link>
@@ -131,7 +131,7 @@ const Footer: React.FC = () => {
     //           <li>
     //             <Link
     //               to="/support"
-    //               className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+    //               className="text-gray-600 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light transition-colors"
     //             >
     //               Support Center
     //             </Link>
@@ -145,21 +145,21 @@ const Footer: React.FC = () => {
     //         &copy; {new Date().getFullYear()} CYNERZA Technologies Inc. All rights reserved.
     //       </p>
     //       <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-4 md:mt-0">
-    //         <Link to="/privacy-policy" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors">
+    //         <Link to="/privacy-policy" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light text-sm transition-colors">
     //           Privacy Policy
     //         </Link>
-    //         <Link to="/tos" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors">
+    //         <Link to="/tos" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light text-sm transition-colors">
     //           Terms of Service
     //         </Link>
-    //         <Link to="/cookies" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors">
+    //         <Link to="/cookies" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light text-sm transition-colors">
     //           Cookie Policy
     //         </Link>
-    //         <Link to="/security" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors">
+    //         <Link to="/security" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light text-sm transition-colors">
     //           Security
     //         </Link>
     //         <button
     //           onClick={toggleTheme}
-    //           className="text-gray-500 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors"
+    //           className="text-gray-500 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light text-sm transition-colors"
     //           aria-label="Toggle dark mode"
     //         >
     //           {isDarkMode ? '☀️ Light' : '🌙 Dark'} Mode
@@ -170,10 +170,8 @@ const Footer: React.FC = () => {
     // </footer>
 
     <footer className="relative bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
-    {/* Purple gradient background overlay */}
-    {isDarkMode &&
-    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20" />
-    }
+    {/* Brand gradient background overlay */}
+    <div className="brand-overlay" />
     
     {/* Content wrapper */}
     <div className="relative z-10">
@@ -200,7 +198,7 @@ const Footer: React.FC = () => {
                                 href={social.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-gray-500 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                                className="text-gray-500 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light transition-colors"
                                 aria-label={social.name}
                             >
                                 <span className="sr-only">{social.name}</span>
@@ -219,7 +217,7 @@ const Footer: React.FC = () => {
                         <li>
                             <Link
                                 to="/ai-tools"
-                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light transition-colors"
                             >
                                 AI Tools
                             </Link>
@@ -227,7 +225,7 @@ const Footer: React.FC = () => {
                         <li>
                             <Link
                                 to="/services"
-                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light transition-colors"
                             >
                                 Services
                             </Link>
@@ -235,7 +233,7 @@ const Footer: React.FC = () => {
                         <li>
                             <Link
                                 to="/services/saas-product-development"
-                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light transition-colors"
                             >
                                 SaaS Development
                             </Link>
@@ -243,7 +241,7 @@ const Footer: React.FC = () => {
                         <li>
                             <Link
                                 to="/services/custom-llm-api"
-                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light transition-colors"
                             >
                                 Custom LLM API
                             </Link>
@@ -251,7 +249,7 @@ const Footer: React.FC = () => {
                         <li>
                             <Link
                                 to="/services/automation-solutions"
-                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light transition-colors"
                             >
                                 Automation
                             </Link>
@@ -266,7 +264,7 @@ const Footer: React.FC = () => {
                         <li>
                             <Link
                                 to="/about"
-                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light transition-colors"
                             >
                                 About Us
                             </Link>
@@ -274,7 +272,7 @@ const Footer: React.FC = () => {
                         <li>
                             <Link
                                 to="/team"
-                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light transition-colors"
                             >
                                 Our Team
                             </Link>
@@ -282,7 +280,7 @@ const Footer: React.FC = () => {
                         <li>
                             <Link
                                 to="/careers"
-                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light transition-colors"
                             >
                                 Careers
                             </Link>
@@ -290,7 +288,7 @@ const Footer: React.FC = () => {
                         <li>
                             <Link
                                 to="/contact"
-                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light transition-colors"
                             >
                                 Contact Us
                             </Link>
@@ -305,7 +303,7 @@ const Footer: React.FC = () => {
                         <li>
                             <Link
                                 to="/blogs"
-                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light transition-colors"
                             >
                                 Blog & Insights
                             </Link>
@@ -315,7 +313,7 @@ const Footer: React.FC = () => {
                                 href="https://tools.cynerza.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light transition-colors"
                             >
                                 AI Tools Platform
                             </a>
@@ -323,7 +321,7 @@ const Footer: React.FC = () => {
                         {/* <li>
                             <Link
                                 to="/contact"
-                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light transition-colors"
                             >
                                 Get Support
                             </Link>
@@ -333,7 +331,7 @@ const Footer: React.FC = () => {
                                 href="https://github.com/CYNERZA"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light transition-colors"
+                                className="text-gray-600 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light transition-colors"
                             >
                                 Open Source
                             </a>
@@ -347,18 +345,18 @@ const Footer: React.FC = () => {
                     &copy; {new Date().getFullYear()} CYNERZA Technologies Inc. All rights reserved.
                 </p>
                 <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-4 md:mt-0">
-                    <Link to="/privacy-policy" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors">
+                    <Link to="/privacy-policy" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light text-sm transition-colors">
                         Privacy Policy
                     </Link>
-                    <Link to="/terms-of-service" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors">
+                    <Link to="/terms-of-service" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light text-sm transition-colors">
                         Terms of Service
                     </Link>
-                    <Link to="/contact" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors">
+                    <Link to="/contact" className="text-gray-500 dark:text-gray-400 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light text-sm transition-colors">
                         Contact
                     </Link>
                     <button
                         onClick={toggleTheme}
-                        className="text-gray-500 hover:text-cynerza-purple dark:hover:text-cynerza-purple-light text-sm transition-colors"
+                        className="text-gray-500 hover:text-cynerza-blue dark:hover:text-cynerza-cyan-light text-sm transition-colors"
                         aria-label="Toggle dark mode"
                     >
                         {isDarkMode ? '☀️ Light' : '🌙 Dark'} Mode

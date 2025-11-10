@@ -107,7 +107,7 @@ const About: React.FC = () => {
         //           <Fade direction="up" triggerOnce delay={20} className='lg:w-1/2 relative'>
 
         //             {/* <div className=""> */}
-        //             <div className="rounded-2xl overflow-hidden shadow-xl purple-glow">
+        //             <div className="rounded-2xl overflow-hidden shadow-xl blue-glow">
         //               <img
         //                 src="./cynerza.jpeg"
         //                 alt="CYNERZA team working"
@@ -130,7 +130,7 @@ const About: React.FC = () => {
         //               initial={{ opacity: 0, y: 50 }}
         //               whileInView={{ opacity: 1, y: 0 }}
         //             >
-        //               <div className="text-4xl font-bold text-cynerza-purple dark:text-cynerza-purple-light mb-2">
+        //               <div className="text-4xl font-bold text-cynerza-blue dark:text-cynerza-cyan-light mb-2">
         //                 {stat.display}
         //               </div>
         //               <div className="text-gray-600 dark:text-gray-300">
@@ -175,7 +175,7 @@ const About: React.FC = () => {
 
         //           <div className="flex flex-col sm:flex-row justify-center gap-4">
         //             <a href="https://tools.cynerza.com" target="_blank" rel="noopener noreferrer">
-        //               <Button className="bg-cynerza-purple hover:bg-cynerza-purple/90 text-white">
+        //               <Button className="bg-cynerza-blue hover:bg-cynerza-blue/90 text-white">
         //                 Get Started Free
         //               </Button>
         //             </a>
@@ -199,7 +199,7 @@ const About: React.FC = () => {
 
             {/* Purple gradient background overlay */}
             {isDarkMode &&
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-blue-800/10 to-indigo-600/20 z-5" />
             }
 
             <div className="relative z-10">
@@ -259,7 +259,7 @@ const About: React.FC = () => {
                                 </Fade>
                             </div>
                             <Fade direction="up" triggerOnce delay={20} className='lg:w-1/2 relative'>
-                                <div className="rounded-2xl overflow-hidden shadow-xl purple-glow">
+                                <div className="rounded-2xl overflow-hidden shadow-xl blue-glow">
                                     <img
                                         src="/Picsart_25-10-23_16-01-18-818.png"
                                         alt="CYNERZA team working"
@@ -280,7 +280,7 @@ const About: React.FC = () => {
                                     initial={{ opacity: 0, y: 50 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                 >
-                                    <div className="text-4xl font-bold text-cynerza-purple dark:text-cynerza-purple-light mb-2">
+                                    <div className="text-4xl font-bold text-cynerza-blue dark:text-cynerza-cyan-light mb-2">
                                         {stat.display}
                                     </div>
                                     <div className="text-gray-600 dark:text-gray-300">
@@ -325,7 +325,7 @@ const About: React.FC = () => {
 
                             <div className="flex flex-col sm:flex-row justify-center gap-4">
                                 <a href="https://tools.cynerza.com" target="_blank" rel="noopener noreferrer">
-                                    <Button className="bg-cynerza-purple hover:bg-cynerza-purple/90 text-white">
+                                    <Button className="bg-cynerza-blue hover:bg-cynerza-blue/90 text-white">
                                         Get Started Free
                                     </Button>
                                 </a>

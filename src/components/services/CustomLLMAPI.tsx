@@ -33,7 +33,7 @@ const CustomLLMAPIService: React.FC = () => {
         <div className="relative w-full overflow-x-hidden">
  {/* Purple gradient background overlay */}
             {isDarkMode &&
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-blue-800/10 to-indigo-600/20 z-5" />
             }            
             {/* Hero Video Section - Responsive Height */}
             <section className="relative z-10 h-[50vh] sm:h-[55vh] md:h-[60vh] min-h-[400px] sm:min-h-[450px] md:min-h-[500px] max-h-[700px] flex items-center justify-center overflow-hidden w-full">
@@ -121,9 +121,9 @@ const CustomLLMAPIService: React.FC = () => {
                             >
                                 {/* Text Content */}
                                 <div className={`order-1 ${index % 2 === 1 ? 'lg:col-start-2 lg:order-2' : 'lg:order-1'}`}>
-                                    <div className="inline-flex items-center space-x-2 px-3 sm:px-4 py-2 rounded-full bg-cynerza-purple/10 border border-cynerza-purple/20 text-cynerza-purple text-xs sm:text-sm font-medium mb-4 sm:mb-6">
+                                    <div className="inline-flex items-center space-x-2 px-3 sm:px-4 py-2 rounded-full bg-cynerza-blue/10 border border-cynerza-blue/20 text-cynerza-blue text-xs sm:text-sm font-medium mb-4 sm:mb-6">
                                         <span>AI Innovation</span>
-                                        <span className="text-cynerza-purple/70">•</span>
+                                        <span className="text-cynerza-blue/70">•</span>
                                         <span>{highlight.stats}</span>
                                     </div>
                                     
@@ -136,10 +136,10 @@ const CustomLLMAPIService: React.FC = () => {
                                     </p>
                                     
                                     <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-                                        <button className="bg-cynerza-purple hover:bg-cynerza-purple/90 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all w-full sm:w-auto">
+                                        <button className="bg-cynerza-blue hover:bg-cynerza-blue/90 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all w-full sm:w-auto">
                                             Learn More
                                         </button>
-                                        <button className="border border-cynerza-purple text-cynerza-purple hover:bg-cynerza-purple/5 px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all w-full sm:w-auto">
+                                        <button className="border border-cynerza-blue text-cynerza-blue hover:bg-cynerza-blue/5 px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all w-full sm:w-auto">
                                             Try API
                                         </button>
                                     </div>
@@ -164,7 +164,7 @@ const CustomLLMAPIService: React.FC = () => {
                                     {/* Floating Stats Card - Hidden on very small screens */}
                                     <div className="hidden sm:block absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 bg-white dark:bg-gray-800 rounded-lg sm:rounded-xl p-3 sm:p-4 shadow-lg">
                                         <div className="text-center">
-                                            <div className="text-xl sm:text-2xl font-bold text-cynerza-purple mb-1">
+                                            <div className="text-xl sm:text-2xl font-bold text-cynerza-blue mb-1">
                                                 {index === 0 ? '50M+' : '99.9%'}
                                             </div>
                                             <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">

@@ -20,7 +20,7 @@
 //       title: 'Customizable Workflows',
 //       description: 'Low-code to full-code flexibility with drag-and-drop automation and custom scripting.',
 //       icon: <LayoutDashboard className="w-6 h-6" />,
-//       gradient: 'from-purple-500 to-pink-500'
+//       gradient: 'from-blue-500 to-pink-500'
 //     },
 //     {
 //       title: 'Enterprise-Grade APIs',
@@ -52,7 +52,7 @@
 //     <section className="relative py-8 " id="features">
 
 //       {/* Purple gradient overlay */}
-//       <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20" />
+//       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-blue-800/10 to-indigo-600/20" />
 
 //       {/* Content wrapper with relative positioning */}
 //       <div className="relative z-10">
@@ -113,7 +113,7 @@ const FeaturesSection: React.FC = () => {
       number: '1',
       title: 'UNIFIED AI ECOSYSTEM',
       description: 'One platform for web, mobile, automation, and AI — no more juggling between disconnected services. Experience seamless integration across all digital touchpoints.',
-      dotColor: 'bg-purple-500 dark:bg-purple-400',
+      dotColor: 'bg-cynerza-cyan dark:bg-cynerza-cyan-light',
       position: 'left-top',
       cylinderLayer: 1
     },
@@ -121,7 +121,7 @@ const FeaturesSection: React.FC = () => {
       number: '2',
       title: 'CUSTOMIZABLE WORKFLOWS',
       description: 'Low-code to full-code flexibility with drag-and-drop automation and custom scripting. Build exactly what your business needs without limitations.',
-      dotColor: 'bg-blue-500 dark:bg-blue-400',
+      dotColor: 'bg-cynerza-blue dark:bg-cynerza-blue-400',
       position: 'right-top',
       cylinderLayer: 2
     },
@@ -129,7 +129,7 @@ const FeaturesSection: React.FC = () => {
       number: '3',
       title: 'ENTERPRISE-GRADE APIs',
       description: 'Comprehensive REST & GraphQL APIs with SDKs for Python, Node.js, and Flutter. Developer-first approach ensures seamless integration with existing tech stacks.',
-      dotColor: 'bg-indigo-500 dark:bg-indigo-400',
+      dotColor: 'bg-cynerza-blue-400 dark:bg-cynerza-cyan',
       position: 'left-middle-top',
       cylinderLayer: 3
     },
@@ -137,7 +137,7 @@ const FeaturesSection: React.FC = () => {
       number: '4',
       title: 'AI-POWERED AUTOMATION',
       description: 'Intelligent process automation with RPA, chatbots, and IoT integration capabilities. Reduce manual work by up to 80% with smart automation.',
-      dotColor: 'bg-violet-500 dark:bg-violet-400',
+      dotColor: 'bg-cynerza-cyan dark:bg-cynerza-cyan-light',
       position: 'right-middle-top',
       cylinderLayer: 4
     },
@@ -145,7 +145,7 @@ const FeaturesSection: React.FC = () => {
       number: '5',
       title: 'SCALABLE INFRASTRUCTURE',
       description: 'Cloud-native architecture that grows with your business, from startup to enterprise. Handle millions of requests without compromising performance.',
-      dotColor: 'bg-fuchsia-500 dark:bg-fuchsia-400',
+      dotColor: 'bg-cynerza-blue dark:bg-cynerza-blue-400',
       position: 'left-bottom',
       cylinderLayer: 5
     },
@@ -153,7 +153,7 @@ const FeaturesSection: React.FC = () => {
       number: '6',
       title: 'DATA-DRIVEN INSIGHTS',
       description: 'Real-time analytics and AI-powered recommendations for smarter decisions. Transform raw data into actionable intelligence with advanced visualization.',
-      dotColor: 'bg-pink-500 dark:bg-pink-400',
+      dotColor: 'bg-cynerza-cyan dark:bg-cynerza-cyan-light',
       position: 'right-bottom',
       cylinderLayer: 6
     }
@@ -163,10 +163,8 @@ const FeaturesSection: React.FC = () => {
 
   return (
     <section className="relative py-4 sm:py-6 md:py-8 overflow-hidden" id="features">
-      {/* Purple gradient background overlay */}
-      {isDarkMode &&
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
-      }
+      {/* Brand gradient background overlay */}
+      <div className="brand-overlay z-5" />
 
       {/* Content wrapper */}
       <div className="relative z-10">
@@ -175,7 +173,7 @@ const FeaturesSection: React.FC = () => {
           <div className="text-center max-w-4xl mx-auto mb-6 sm:mb-8 md:mb-10">
             <Fade direction="up" triggerOnce>
               <motion.div
-                className="inline-flex items-center space-x-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-cynerza-purple/5 dark:bg-cynerza-purple/10 border border-cynerza-purple/10 dark:border-cynerza-purple/20 text-cynerza-purple dark:text-cynerza-purple-light text-xs sm:text-sm font-medium mb-4 sm:mb-6"
+                className="inline-flex items-center space-x-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-cynerza-blue/5 dark:bg-cynerza-blue/10 border border-cynerza-blue/10 dark:border-cynerza-blue/20 text-cynerza-blue dark:text-cynerza-cyan-light text-xs sm:text-sm font-medium mb-4 sm:mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -239,9 +237,9 @@ const FeaturesSection: React.FC = () => {
 
               <Link
                 to="/why-cynerza"
-                className="relative flex items-center px-5 py-5 bg-gradient-to-r from-cynerza-purple to-cynerza-blue text-white text-lg font-semibold rounded-xl transition-all
-                                     duration-200 hover:shadow-lg hover:shadow-cynerza-purple/30
-                                     bg-cynerza-purple hover:bg-cynerza-purple/90 h-12 "
+                className="relative flex items-center px-5 py-5 bg-gradient-to-r from-cynerza-blue to-cynerza-blue text-white text-lg font-semibold rounded-xl transition-all
+                                     duration-200 hover:shadow-lg hover:shadow-cynerza-blue/30
+                                     bg-cynerza-blue hover:bg-cynerza-blue/90 h-12 "
               >
                 <span>Learn more about our platform</span>
                 <svg className="w-5 h-5 ml-2 -mr-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -355,16 +353,16 @@ const DiagramWithConnections: React.FC<DiagramWithConnectionsProps> = ({ feature
       >
         <defs>
           <linearGradient id="lineGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#a855f7" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#6366f1" stopOpacity="0.8" />
+            <stop offset="0%" stopColor="#1f6bb3" stopOpacity="0.85" />
+            <stop offset="100%" stopColor="#34d3e6" stopOpacity="0.85" />
           </linearGradient>
           <linearGradient id="lineGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.8" />
+            <stop offset="0%" stopColor="#34d3e6" stopOpacity="0.85" />
+            <stop offset="100%" stopColor="#1f6bb3" stopOpacity="0.85" />
           </linearGradient>
           <linearGradient id="lineGradient3" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#6366f1" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#a855f7" stopOpacity="0.8" />
+            <stop offset="0%" stopColor="#1f6bb3" stopOpacity="0.85" />
+            <stop offset="100%" stopColor="#34d3e6" stopOpacity="0.85" />
           </linearGradient>
 
           <filter id="glow">
@@ -451,12 +449,12 @@ const DiagramWithConnections: React.FC<DiagramWithConnectionsProps> = ({ feature
           <svg viewBox="0 0 300 650" className="w-full h-auto drop-shadow-2xl">
             <defs>
               <linearGradient id="layerGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#a855f7" stopOpacity="0.1" />
-                <stop offset="100%" stopColor="#6366f1" stopOpacity="0.05" />
+                <stop offset="0%" stopColor="#1f6bb3" stopOpacity="0.12" />
+                <stop offset="100%" stopColor="#34d3e6" stopOpacity="0.06" />
               </linearGradient>
               <linearGradient id="layerGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.1" />
-                <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.05" />
+                <stop offset="0%" stopColor="#34d3e6" stopOpacity="0.12" />
+                <stop offset="100%" stopColor="#1f6bb3" stopOpacity="0.06" />
               </linearGradient>
             </defs>
 
@@ -625,9 +623,9 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ feature, delay, direction }) 
       // initial={{ opacity: 0, x: direction === 'left' ? -30 : 30 }}
       animate={isInView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.6, delay }}
-      className="group relative bg-white dark:bg-gray-800 p-1.5 sm:p-2.5 md:p-4 lg:p-5 rounded-md sm:rounded-lg md:rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-600 h-full flex flex-col max-w-[200px] lg:max-w-[240px]"
+      className="group relative bg-white dark:bg-gray-800 p-1.5 sm:p-2.5 md:p-4 lg:p-5 rounded-md sm:rounded-lg md:rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-cynerza-blue/40 dark:hover:border-cynerza-blue/50 h-full flex flex-col max-w-[200px] lg:max-w-[240px]"
     >
-      <div className="absolute inset-0 rounded-md sm:rounded-lg md:rounded-xl bg-gradient-to-br from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/10 group-hover:to-blue-500/10 transition-all duration-300" />
+      <div className="absolute inset-0 rounded-md sm:rounded-lg md:rounded-xl bg-gradient-to-br from-cynerza-cyan/0 to-cynerza-blue/0 group-hover:from-cynerza-cyan/15 group-hover:to-cynerza-blue/15 transition-all duration-300" />
 
       <div className="relative z-10 flex-1 flex flex-col">
         <div className="flex items-start gap-1 sm:gap-1.5 md:gap-2 mb-0.5 sm:mb-1 md:mb-2">
@@ -646,7 +644,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ feature, delay, direction }) 
         </p>
       </div>
 
-      <div className="absolute top-0 right-0 w-5 h-5 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/20 group-hover:to-blue-500/20 rounded-bl-2xl sm:rounded-bl-3xl rounded-tr-md sm:rounded-tr-lg md:rounded-tr-xl transition-all duration-300" />
+      <div className="absolute top-0 right-0 w-5 h-5 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-cynerza-cyan/0 to-cynerza-blue/0 group-hover:from-cynerza-cyan/20 group-hover:to-cynerza-blue/20 rounded-bl-2xl sm:rounded-bl-3xl rounded-tr-md sm:rounded-tr-lg md:rounded-tr-xl transition-all duration-300" />
     </motion.div>
   );
 };
@@ -673,7 +671,7 @@ const CylinderLayer: React.FC<CylinderLayerProps> = ({ y, label, gradient, delay
         width="190"
         height="95"
         fill={`url(#${gradient})`}
-        stroke="#8b5cf6"
+        stroke="#1f6bb3"
         strokeWidth="1.5"
         opacity="0.7"
       />
@@ -683,7 +681,7 @@ const CylinderLayer: React.FC<CylinderLayerProps> = ({ y, label, gradient, delay
         rx="95"
         ry="28"
         fill={`url(#${gradient})`}
-        stroke="#8b5cf6"
+        stroke="#1f6bb3"
         strokeWidth="1.5"
         opacity="0.7"
         initial={{ scale: 0.8 }}
@@ -695,7 +693,7 @@ const CylinderLayer: React.FC<CylinderLayerProps> = ({ y, label, gradient, delay
         x="150"
         y={y + 55}
         textAnchor="middle"
-        fill="#8b5cf6"
+        fill="#1f6bb3"
         fontSize="11"
         fontWeight="600"
         opacity="0.9"
