@@ -449,7 +449,7 @@ const HeaderSection: React.FC = () => {
 
       <div className="relative container px-4 mx-auto z-20">
         <div className="max-w-xl xl:max-w-4xl">
-          <h1 className="font-heading text-2xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-8 sm:mb-14 leading-tight">
+          <h1 className="mt-10 sm:mt-10 md:mt-4 font-heading text-2xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-8 sm:mb-14 leading-tight">
             <span className="gradient-text">Unified AI</span>
             <span>, Simplified Tech</span>
             <br />

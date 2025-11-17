@@ -157,11 +157,13 @@ import React from 'react';
 import { Globe, Layers, Smartphone, Server, FileText } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { HoverEffect } from '../ui/card-hover-effect';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 
 const ServicesSection: React.FC = () => {
+
+  const navigate = useNavigate()
 
 
   //   {
@@ -196,38 +198,46 @@ const ServicesSection: React.FC = () => {
   //   },
   // ];
 
-  const services = [
-    {
-      title: 'SaaS Product Development',
-      link: "services/saas-product-development",
-      description: 'Crafting beautiful, high-performance websites and mobile applications tailored to your brand.',
-    },
-    {
-      title: 'Custom LLM API',
-      link: "services/custom-llm-api",
-      description: 'Designing intuitive and engaging user experiences that captivate your audience and drive results.',
-    },
-    {
-      title: 'Automation Solutions',
-      link: "services/automation-solutions",
-      description: 'Leveraging artificial intelligence to automate processes, enhance efficiency, and unlock new possibilities.',
-    },
-    {
-      title: 'AI & ML Solution',
-      link: "services/ai-ml-solution",
-      description: 'Boosting your online presence with data-driven marketing strategies and expert SEO services.',
-    },
-    {
-      title: 'Cloud & DevOps Engineering',
-      link: "services/cloud-devops-engineering",
-      description: 'Building scalable and resilient infrastructure with modern cloud technologies and DevOps practices.',
-    },
-    {
-      title: 'IT Service Management',
-      link: "services/it-service-management",
-      description: 'Developing a strong brand identity that resonates with your audience and sets you apart from the competition.',
-    },
-  ];
+
+  // Service data with public image URLs for reliable display
+const services = [
+  {
+    title: 'SaaS Product Development',
+    link: "/services/saas-product-development",
+    description: 'Build scalable SaaS platforms with multi-tenant architecture, subscription billing, API integrations, and enterprise-grade security. From MVP to enterprise scale.',
+    imageUrl: "https://img.freepik.com/free-photo/saas-concept-collage_23-2149399293.jpg?semt=ais_hybrid&w=740&q=80",
+  },
+  {
+    title: 'Custom LLM API Development',
+    link: "/services/custom-llm-api",
+    description: 'Build custom LLM-powered applications with OpenAI, Google Gemini, Claude, and open-source models. API integration, fine-tuning, and RAG implementation.',
+    imageUrl: "https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    title: 'Automation Solutions',
+    link: "/services/automation-solutions",
+    description: 'Streamline operations with AI-powered automation: RPA, workflow builders, task automation, CRM integration, and intelligent chatbots.',
+    imageUrl: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    title: 'AI & Machine Learning Solutions',
+    link: "/services/ai-ml-solution",
+    description: 'End-to-end AI/ML development: Custom model training, computer vision, NLP, predictive analytics, MLOps, and AI integration services.',
+    imageUrl: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    title: 'Cloud & DevOps Engineering',
+    link: "/services/cloud-devops-engineering",
+    description: 'Expert cloud infrastructure and DevOps: CI/CD pipelines, Kubernetes, Docker, Infrastructure as Code, cloud migration, and monitoring solutions.',
+    imageUrl: "https://images.unsplash.com/photo-1504386106331-3e4e71712b38?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    title: 'IT Service Management',
+    link: "/services/it-service-management",
+    description: 'Comprehensive ITSM platforms: Helpdesk systems, ticketing, asset management, change management, and IT service automation.',
+    imageUrl: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
+  },
+];
 
   const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
 
@@ -278,19 +288,36 @@ const ServicesSection: React.FC = () => {
             Empowering your digital transformation with cutting-edge technologies and innovative solutions tailored to your business needs.
           </motion.p>
         </div>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0.3, delay: 1 * 0.05 }}
-          layout
-          className="rounded-lg">
-          <HoverEffect
-            items={services}
-            isLink
-            className=''
-          />
-        </motion.div>
+        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.1, duration: 0.5 }}
+              onClick={() => navigate(service.link)}
+              className="relative cursor-pointer rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-72 sm:h-80 md:h-96"
+            >
+              {/* Full-cover image */}
+              <img
+                src={service.imageUrl}
+                alt={service.title}
+                className="absolute inset-0 w-full h-full object-cover object-center"
+                loading="lazy"
+                draggable={false}
+              />
+
+              {/* Overlay with dark transparent layer for text readability */}
+              <div className="absolute inset-0 bg-black bg-opacity-50 z-10" />
+
+              {/* Text over image */}
+              <div className="absolute inset-0 z-20 flex flex-col justify-center items-center p-6 text-center">
+                <h3 className="text-white text-2xl sm:text-3xl font-bold mb-2 drop-shadow-lg">{service.title}</h3>
+                <p className="text-white text-sm sm:text-base max-w-md drop-shadow-lg">{service.description}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
         <motion.div
           className="mt-5 text-center"
           initial={{ opacity: 0, y: 20 }}
