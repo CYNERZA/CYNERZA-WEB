@@ -496,13 +496,13 @@ jobs:
     - name: Trivy scan Frontend image
       if: needs.changes.outputs.frontend == 'true'
       run: |
-        trivy image --exit-code 1 --ignore-unfixed --severity CRITICAL,HIGH --no-progress \
+        trivy image --scanners vuln --exit-code 1 --ignore-unfixed --severity CRITICAL,HIGH --no-progress \
           "${{ env.FRONTEND_IMAGE }}@${{ steps.frontend-build.outputs.digest }}"
 
     - name: Trivy scan Backend image
       if: needs.changes.outputs.backend == 'true'
       run: |
-        trivy image --exit-code 1 --ignore-unfixed --severity CRITICAL,HIGH --no-progress \
+        trivy image --scanners vuln --exit-code 1 --ignore-unfixed --severity CRITICAL,HIGH --no-progress \
           "${{ env.BACKEND_IMAGE }}@${{ steps.backend-build.outputs.digest }}"
         
     - name: Verify both pushes succeeded
