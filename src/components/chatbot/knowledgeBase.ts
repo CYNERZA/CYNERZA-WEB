@@ -74,7 +74,7 @@ export const knowledgeBase: KnowledgeItem[] = [
   },
   {
     keywords: ['contact', 'reach', 'get in touch', 'email', 'phone', 'talk to sales'],
-    response: "I'd love to connect you with our team! 📧\n\nYou can reach us through:\n\n📧 **Email**: Contact us through our contact page\n📞 **Phone**: Available on our website\n💬 **Contact Form**: Quick response guaranteed\n\nWould you like me to direct you to our contact page?",
+    response: "I'd love to connect you with our team! 📧\n\nYou can reach us through:\n\n📧 **Email**: [hello@cynerza.com](mailto:hello@cynerza.com)\n📞 **Phone**: [+91 7609019765](tel:+917609019765)\n📍 **Address**: PLOT NO. 1184/1573, TOP FLOOR, JAGANNATH NAGAR, ROAD NO.14, GGP COLONY, BHUBANESWAR -751025\n\nFor fastest replies, use our contact form. Would you like me to take you there?",
     quickActions: ['Contact Page', 'Schedule Call', 'Send Message']
   },
   {
@@ -181,4 +181,158 @@ export function findBestMatch(userMessage: string): KnowledgeItem {
   }
   
   return bestMatch && maxMatches > 0 ? bestMatch : defaultResponse;
+}
+
+// Route-specific page summaries to show inside the assistant when navigating
+export const routeSummaries: Record<string, KnowledgeItem> = {
+  '/why-cynerza': {
+    keywords: [],
+    response:
+      "## Why CYNERZA\n\n- Unified AI-first platform\n- Customizable workflows (low/no-code & full-code)\n- Developer-first APIs & SDKs\n- Cloud-native, scalable, cost-effective\n\nExplore our mission, vision, and the unified approach that powers your transformation.",
+    quickActions: ['Get Started', 'Contact Sales', 'AI Tools']
+  },
+  '/ai-tools': {
+    keywords: [],
+    response:
+      "## Multimodal AI Suite\n\n- Text AI, Image AI, Voice AI, Video AI (Beta)\n- APIs & SDKs (Python, Node.js, Flutter)\n- Use cases: content, analytics, automation, assistants\n\nPick a capability to explore.",
+    quickActions: ['Text AI', 'Image AI', 'Voice AI', 'Request Demo']
+  },
+  '/services': {
+    keywords: [],
+    response:
+      "## Services Overview\n\n- SaaS Product Development\n- Custom LLM API\n- AI & ML Solutions\n- Cloud & DevOps Engineering\n- IT Service Management\n- Automation Solutions\n\nChoose a service to dive deeper.",
+    quickActions: ['SaaS Development', 'Custom LLM API', 'AI & ML', 'Cloud DevOps', 'ITSM', 'Automation']
+  },
+  '/services/saas-product-development': {
+    keywords: [],
+    response:
+      "## SaaS Product Development\n\n- Full-stack dev, multi-tenant, APIs\n- CI/CD, security & compliance\n- Cloud-native scalability\n\nWe turn ideas into market-ready SaaS.",
+    quickActions: ['Request Quote', 'Contact Sales', 'View Case Studies']
+  },
+  '/services/custom-llm-api': {
+    keywords: [],
+    response:
+      "## Custom LLM API\n\n- Domain-tuned models\n- Secure deployment\n- High-performance inference\n\nBuild intelligent apps with tailored models.",
+    quickActions: ['Request Demo', 'Technical Details', 'Pricing']
+  },
+  '/services/ai-ml-solution': {
+    keywords: [],
+    response:
+      "## AI & ML Solutions\n\n- ML models, NLP, CV, recommendations\n- Predictive analytics\n- Data science consulting\n\nInnovate with AI-driven outcomes.",
+    quickActions: ['AI Consultation', 'View Projects', 'Get Started']
+  },
+  '/services/cloud-devops-engineering': {
+    keywords: [],
+    response:
+      "## Cloud & DevOps Engineering\n\n- Cloud migration & architecture\n- CI/CD pipelines\n- Kubernetes, IaC, security\n\nReliability and scale for modern infra.",
+    quickActions: ['Cloud Assessment', 'Migration Services', 'DevOps Consulting']
+  },
+  '/services/it-service-management': {
+    keywords: [],
+    response:
+      "## IT Service Management (ITSM)\n\n- 24/7 support, incident, service desk\n- Asset mgmt, ITIL-aligned processes\n- Security management\n\nKeep operations smooth and supported.",
+    quickActions: ['Support Plans', 'Contact Support', 'Learn More']
+  },
+  '/services/automation-solutions': {
+    keywords: [],
+    response:
+      "## Automation Solutions\n\n- RPA & workflow automation\n- Analytics & optimization\n- Custom integrations\n\nAutomate repetitive tasks and scale.",
+    quickActions: ['Schedule Consultation', 'Case Studies', 'ROI Calculator']
+  },
+  '/industries': {
+    keywords: [],
+    response:
+      "## Industries We Serve\n\nBanking, Capital Markets, Healthcare, Education, Retail, Media, Public Services, Travel & Logistics.\n\nPick an industry to see tailored solutions.",
+    quickActions: ['Banking', 'Healthcare', 'Education', 'Retail']
+  },
+  '/industries/banking': {
+    keywords: [],
+    response:
+      "## Banking & Financial Services\n\n- Digital banking, fraud detection, risk mgmt\n- AI trading, payments, mobile banking\n\nInnovate securely with compliant solutions.",
+    quickActions: ['Financial Solutions', 'Security Features', 'Contact Us']
+  },
+  '/industries/healthcare': {
+    keywords: [],
+    response:
+      "## Healthcare & Life Sciences\n\n- EHR, imaging analysis, patient mgmt\n- Analytics, diagnostics, telemedicine\n\nImprove outcomes with data-driven care.",
+    quickActions: ['Healthcare Demo', 'Compliance Info', 'Case Studies']
+  },
+  '/industries/education': {
+    keywords: [],
+    response:
+      "## Education\n\n- LMS, virtual classroom, analytics\n- AI tutoring, personalization, mobile apps\n\nTransform learning experiences.",
+    quickActions: ['Education Platform', 'Demo Request', 'Pricing']
+  },
+  '/industries/retail': {
+    keywords: [],
+    response:
+      "## Retail & E-commerce\n\n- Ecommerce, inventory, personalization\n- Payments, mobile commerce, sales analytics\n\nThrive with data-backed retail systems.",
+    quickActions: ['Retail Solutions', 'Request Demo', 'Success Stories']
+  },
+  '/industries/public-services': {
+    keywords: [],
+    response: "## Public Services\n\nDigital citizen services, secure infra, analytics.\n\nModernize public platforms with trust.",
+    quickActions: ['Contact Us', 'Case Studies', 'Learn More']
+  },
+  '/industries/media-communications': {
+    keywords: [],
+    response: "## Media & Communications\n\nContent workflows, personalization, insights.\n\nEmpower creators and publishers.",
+    quickActions: ['Get Started', 'View Projects', 'Contact Sales']
+  },
+  '/industries/capital-markets': {
+    keywords: [],
+    response: "## Capital Markets\n\nTrading platforms, risk & compliance, analytics.\n\nScale securely with speed.",
+    quickActions: ['Security Details', 'Contact Sales', 'Case Studies']
+  },
+  '/industries/travel-logistics': {
+    keywords: [],
+    response: "## Travel & Logistics\n\nOperations optimization, tracking, automation.\n\nDeliver efficiency at scale.",
+    quickActions: ['Schedule Consultation', 'View Projects', 'Get Quote']
+  },
+  '/about': {
+    keywords: [],
+    response: "## About CYNERZA\n\nMission, vision, and the team behind the unified AI platform.",
+    quickActions: ['Team', 'Careers', 'Contact Us']
+  },
+  '/team': {
+    keywords: [],
+    response: "## The Team\n\nAI researchers, engineers, designers, and builders focused on impact.",
+    quickActions: ['Careers', 'Contact Us', 'Why CYNERZA']
+  },
+  '/blogs': {
+    keywords: [],
+    response: "## Insights & Case Studies\n\nStories, guides, and results from our work across industries and tech.",
+    quickActions: ['Case Studies', 'Success Stories', 'Get Updates']
+  },
+  '/privacy-policy': {
+    keywords: [],
+    response: "## Privacy Policy\n\nLearn how we protect your data and respect your privacy.",
+    quickActions: ['Security Details', 'Compliance Info', 'Contact Support']
+  },
+  '/terms-of-service': {
+    keywords: [],
+    response: "## Terms of Service\n\nUnderstand the terms that govern your use of CYNERZA services.",
+    quickActions: ['Contact Support', 'Privacy Policy']
+  },
+  '/careers': {
+    keywords: [],
+    response: "## Careers at CYNERZA\n\nOpen roles across engineering, AI/ML, design, product, and more.",
+    quickActions: ['View Jobs', 'Submit Resume', 'Learn About Culture']
+  },
+  '/contact': {
+    keywords: [],
+    response:
+      "## Contact Us\n\nEmail: hello@cynerza.com\nPhone: +91 7609019765\nAddress: PLOT NO. 1184/1573, TOP FLOOR, JAGANNATH NAGAR, ROAD NO.14, GGP COLONY, BHUBANESWAR -751025\n\nUse the form to reach the right team fast.",
+    quickActions: ['Send Message', 'Schedule Call', 'Request Quote']
+  },
+};
+
+export function getRouteSummary(path: string): KnowledgeItem | null {
+  if (!path) return null;
+  // Exact match first
+  if (routeSummaries[path]) return routeSummaries[path];
+  // Fallback patterns
+  if (path.startsWith('/services/')) return routeSummaries['/services'];
+  if (path.startsWith('/industries/')) return routeSummaries['/industries'];
+  return null;
 }

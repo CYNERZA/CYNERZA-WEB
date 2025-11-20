@@ -31,7 +31,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
     style={{ aspectRatio: '1 / 1' }}
   />
   <h3 className="text-lg font-bold font-heading text-center mt-1 mb-0">{name}</h3>
-  <p className="text-sm text-cynerza-purple text-center m-0 my-1">{role}</p>
+  <p className="text-sm text-cynerza-blue text-center m-0 my-1">{role}</p>
   <p className="text-xs text-gray-600 text-center mt-1 mb-0 px-2">{bio}</p>
 </div>
   );

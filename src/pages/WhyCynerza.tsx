@@ -109,7 +109,7 @@ const WhyCynerzaSection: React.FC = () => {
                 {/* Image Side */}
                 <div className="w-full lg:w-1/2">
                   <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl md:rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl md:rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
 
                     <div className="relative h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl overflow-hidden shadow-xl transform transition-transform duration-500 group-hover:scale-105">
                       <img
@@ -120,7 +120,7 @@ const WhyCynerzaSection: React.FC = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-purple-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
-                    <div className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-xl md:rounded-2xl flex items-center justify-center text-white text-base sm:text-lg md:text-xl lg:text-2xl font-bold shadow-lg">
+                    <div className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl md:rounded-2xl flex items-center justify-center text-white text-base sm:text-lg md:text-xl lg:text-2xl font-bold shadow-lg">
                       {index + 1}
                     </div>
                   </div>
@@ -137,7 +137,7 @@ const WhyCynerzaSection: React.FC = () => {
                     <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 font-heading">
                       {feature.title}
                     </h3>
-                    <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full mb-4 sm:mb-6" />
+                    <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full mb-4 sm:mb-6" />
                     <p className="text-sm sm:text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                       {feature.description}
                     </p>

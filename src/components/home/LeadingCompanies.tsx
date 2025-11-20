@@ -43,7 +43,7 @@ const LeadingCompanies: React.FC = () => {
         <section className="relative w-full py-12 sm:py-16 md:py-20 overflow-hidden">
             {/* Purple gradient background overlay */}
             {isDarkMode &&
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-blue-800/10 to-indigo-600/20 z-5" />
             }
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header Section */}
@@ -106,7 +106,7 @@ const LeadingCompanies: React.FC = () => {
                             key={index}
                             className="text-center p-4 sm:p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow"
                         >
-                            <div className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-1 sm:mb-2">
+                            <div className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-600 bg-clip-text text-transparent mb-1 sm:mb-2">
                                 {stat.value}
                             </div>
                             <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium">

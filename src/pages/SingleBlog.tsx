@@ -217,7 +217,7 @@
 
 //                         <motion.div className="text-center mt-12 sm:mt-16 lg:mt-20" variants={itemVariants}>
 //                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-//                                 <Button size="lg" className="w-full sm:w-auto px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-5 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 dark:from-purple-500 dark:to-blue-500 dark:hover:from-purple-600 dark:hover:to-blue-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all text-sm sm:text-base lg:text-lg" onClick={() => navigate('/blogs')}>
+//                                 <Button size="lg" className="w-full sm:w-auto px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-5 bg-gradient-to-r from-blue-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 dark:from-blue-500 dark:to-blue-500 dark:hover:from-blue-600 dark:hover:to-blue-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all text-sm sm:text-base lg:text-lg" onClick={() => navigate('/blogs')}>
 //                                     <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 mr-2" /> Discover More Stories
 //                                 </Button>
 //                             </motion.div>
@@ -370,7 +370,7 @@ const SingleBlog: React.FC = () => {
         <div className="min-h-screen transition-colors relative">
  {/* Purple gradient background overlay */}
             {isDarkMode &&
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-blue-800/10 to-indigo-600/20 z-5" />
             }
             {/* Floating Action Buttons */}
             <div className="fixed right-4 sm:right-6 bottom-4 sm:bottom-6 flex flex-col gap-3 z-40">
@@ -456,7 +456,7 @@ const SingleBlog: React.FC = () => {
 
                         <motion.div className="text-center mt-12 sm:mt-16 lg:mt-20" variants={itemVariants}>
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                                <Button size="lg" className="w-full sm:w-auto px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-5 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 dark:from-purple-500 dark:to-blue-500 dark:hover:from-purple-600 dark:hover:to-blue-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all text-sm sm:text-base lg:text-lg" onClick={() => navigate('/blogs')}>
+                                <Button size="lg" className="w-full sm:w-auto px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-5 bg-gradient-to-r from-blue-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 dark:from-blue-500 dark:to-blue-500 dark:hover:from-blue-600 dark:hover:to-blue-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all text-sm sm:text-base lg:text-lg" onClick={() => navigate('/blogs')}>
                                     <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 mr-2" /> Discover More Stories
                                 </Button>
                             </motion.div>

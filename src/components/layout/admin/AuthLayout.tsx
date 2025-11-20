@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentUser } from "../../../featured/auth/authSlice";
 import LogoLoader from '../../admin/loader';
 import { AppDispatch } from '@/app/store';
+import { HelmetProvider } from 'react-helmet-async';
 
 interface AuthLayoutProps {
   children: React.ReactNode;
@@ -52,7 +53,9 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({
       <LogoLoader />
     </div>
   ) : (
-    children
+    <HelmetProvider>
+      {children}
+    </HelmetProvider>
   );
 };
 

@@ -29,7 +29,7 @@ const ExploreToolsPopup = () => {
               Oops! You forgot to explore our tools.
             </p>
             <Button 
-              className="w-full bg-cynerza-purple hover:bg-cynerza-purple/90 glow-button dark:bg-cynerza-purple-dark dark:hover:bg-cynerza-purple-dark/90"
+              className="w-full bg-cynerza-blue hover:bg-cynerza-blue/90 glow-button dark:bg-cynerza-blue-dark dark:hover:bg-cynerza-blue-dark/90"
               onClick={() => setIsVisible(false)}
             >
               Explore Tools

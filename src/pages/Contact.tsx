@@ -127,7 +127,7 @@
 //     //               target={item.title === 'Visit Us' ? '_blank' : undefined}
 //     //               rel={item.title === 'Visit Us' ? 'noopener noreferrer' : undefined}
 //     //             >
-//     //               <div className="flex items-center justify-center w-12 h-12 mx-auto mb-4 rounded-full bg-cynerza-purple/10 text-cynerza-purple">
+//     //               <div className="flex items-center justify-center w-12 h-12 mx-auto mb-4 rounded-full bg-cynerza-blue/10 text-cynerza-blue">
 //     //                 {item.icon}
 //     //               </div>
 //     //               <h3 className="text-lg font-bold mb-2">{item.title}</h3>
@@ -156,7 +156,7 @@
 //     //                       value={formData.name}
 //     //                       onChange={handleChange}
 //     //                       required
-//     //                       className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
+//     //                       className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-blue focus:border-cynerza-blue"
 //     //                     />
 //     //                   </div>
 //     //                   <div>
@@ -170,7 +170,7 @@
 //     //                       value={formData.email}
 //     //                       onChange={handleChange}
 //     //                       required
-//     //                       className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
+//     //                       className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-blue focus:border-cynerza-blue"
 //     //                     />
 //     //                   </div>
 //     //                 </div>
@@ -185,7 +185,7 @@
 //     //                     name="company"
 //     //                     value={formData.company}
 //     //                     onChange={handleChange}
-//     //                     className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
+//     //                     className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-blue focus:border-cynerza-blue"
 //     //                   />
 //     //                 </div>
 
@@ -200,13 +200,13 @@
 //     //                     value={formData.message}
 //     //                     onChange={handleChange}
 //     //                     required
-//     //                     className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
+//     //                     className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-blue focus:border-cynerza-blue"
 //     //                   ></textarea>
 //     //                 </div>
 
 //     //                 <Button
 //     //                   type="submit"
-//     //                   className="w-full bg-cynerza-purple hover:bg-cynerza-purple/90"
+//     //                   className="w-full bg-cynerza-blue hover:bg-cynerza-blue/90"
 //     //                   disabled={isSubmitting}
 //     //                 >
 //     //                   {isSubmitting ? 'Sending...' : 'Send Message'}
@@ -248,7 +248,7 @@
 //     <div className="w-full relative pt-24 md:pt-28 px-4 sm:px-6 lg:px-8">
 //       {/* Purple gradient background overlay */}
 //       {isDarkMode &&
-//         <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+//         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-blue-800/10 to-indigo-600/20 z-5" />
 //       }
 //       {/* Content wrapper */}
 //       <div className="relative z-10">
@@ -277,7 +277,7 @@
 //                     target={item.title === 'Visit Us' ? '_blank' : undefined}
 //                     rel={item.title === 'Visit Us' ? 'noopener noreferrer' : undefined}
 //                   >
-//                     <div className="flex items-center justify-center w-12 h-12 mx-auto mb-4 rounded-full bg-cynerza-purple/10 text-cynerza-purple">
+//                     <div className="flex items-center justify-center w-12 h-12 mx-auto mb-4 rounded-full bg-cynerza-blue/10 text-cynerza-blue">
 //                       {item.icon}
 //                     </div>
 //                     <h3 className="text-lg font-bold mb-2">{item.title}</h3>
@@ -307,7 +307,7 @@
 //                             value={formData.name}
 //                             onChange={handleChange}
 //                             required
-//                             className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
+//                             className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-blue focus:border-cynerza-blue"
 //                           />
 //                         </div>
 //                         <div>
@@ -321,7 +321,7 @@
 //                             value={formData.email}
 //                             onChange={handleChange}
 //                             required
-//                             className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
+//                             className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-blue focus:border-cynerza-blue"
 //                           />
 //                         </div>
 //                       </div>
@@ -336,7 +336,7 @@
 //                           name="company"
 //                           value={formData.company}
 //                           onChange={handleChange}
-//                           className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
+//                           className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-blue focus:border-cynerza-blue"
 //                         />
 //                       </div>
 
@@ -351,13 +351,13 @@
 //                           value={formData.message}
 //                           onChange={handleChange}
 //                           required
-//                           className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-purple focus:border-cynerza-purple"
+//                           className="focus:outline-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cynerza-blue focus:border-cynerza-blue"
 //                         ></textarea>
 //                       </div>
 
 //                       <Button
 //                         type="submit"
-//                         className="w-full bg-cynerza-purple hover:bg-cynerza-purple/90"
+//                         className="w-full bg-cynerza-blue hover:bg-cynerza-blue/90"
 //                         disabled={isSubmitting}
 //                       >
 //                         {isSubmitting ? 'Sending...' : 'Send Message'}
@@ -371,7 +371,7 @@
 
 //           <section className="relative py-8 glass-effect-light mt-6">
 //             {/* Purple gradient background overlay for FAQ section */}
-//             {/* <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20" /> */}
+//             {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-blue-800/10 to-indigo-600/20" /> */}
 
 //             <div className="container mx-auto px-4 text-center relative z-10">
 //               <motion.h2 {...fadeUp(0)} className="text-4xl md:text-5xl font-bold font-heading mb-6 bg-clip-text 
@@ -728,9 +728,9 @@ const Contact: React.FC = () => {
               <div className="flex items-center justify-center">
                 <Button
                   type="submit"
-                  className="relative flex items-center px-5 py-5 bg-gradient-to-r from-cynerza-purple to-cynerza-blue text-white text-lg font-semibold rounded-xl transition-all
-                                   duration-200 hover:shadow-lg hover:shadow-cynerza-purple/30
-                                   bg-cynerza-purple hover:bg-cynerza-purple/90 h-12 "
+                  className="relative flex items-center px-5 py-5 bg-gradient-to-r from-cynerza-blue to-cynerza-blue text-white text-lg font-semibold rounded-xl transition-all
+                                   duration-200 hover:shadow-lg hover:shadow-cynerza-blue/30
+                                   bg-cynerza-blue hover:bg-cynerza-blue/90 h-12 "
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>

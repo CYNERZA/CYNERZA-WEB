@@ -37,7 +37,7 @@ export const MenuItem = ({
                 className={`
           relative z-10 font-semibold transition-colors duration-300
           text-sm sm:text-base px-1 py-2 rounded-md text-slate-900 dark:text-slate-200 
-          hover:text-white hover:bg-cynerza-purple/80 hover:shadow-md dark:hover:bg-cynerza-purple/80 dark:hover:text-white
+          hover:text-white hover:bg-cynerza-blue/80 hover:shadow-md dark:hover:bg-cynerza-blue/80 dark:hover:text-white
         ${location.pathname === "/contact" ?  "text-white" : ""}`}
             >
                 {item}
@@ -128,12 +128,12 @@ export const HoveredLink = ({ children, to, className }: any) => {
         <NavLink
             to={to}
             className={
-                ({ isActive }) => `${isActive && "  border-b-2 border-cynerza-purple"} ${className} py-1
+                ({ isActive }) => `${isActive && "  border-b-2 border-cynerza-blue"} ${className} py-1
                 `}
         >
             <span className=" text-center text-neutral-200 
      cursor-pointer font-semibold transition-all duration-300
-    text-sm sm:font-medium px-3 py-2  rounded-md   hover:text-white hover:bg-cynerza-purple/80 hover:shadow-md dark:hover:bg-cynerza-purple/80 dark:hover:text-white`}
+    text-sm sm:font-medium px-3 py-2  rounded-md   hover:text-white hover:bg-cynerza-blue/80 hover:shadow-md dark:hover:bg-cynerza-blue/80 dark:hover:text-white`}
 ">
                 {children}
             </span>

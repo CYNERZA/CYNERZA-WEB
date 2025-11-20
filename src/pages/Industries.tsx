@@ -92,7 +92,7 @@ const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
     <div className="relative pt-24 md:pt-28 px-4 sm:px-6 lg:px-8 min-h-screen py-8">
  {/* Purple gradient background overlay */}
             {isDarkMode &&
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-blue-800/10 to-indigo-600/20 z-5" />
             }
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Hero title */}
@@ -159,7 +159,7 @@ const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
             {/* Image Side */}
             <div className="w-full lg:w-1/2">
               <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
                 <div className="relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-xl transform transition-transform duration-500 group-hover:scale-105">
                   <img
                     src={"/generated-image (3).png"}

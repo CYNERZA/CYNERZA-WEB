@@ -33,7 +33,7 @@ const Index: React.FC = () => {
       <CyneCLIShowcase/>
       <FeaturesSection />
       <ServicesSection />
-      <AiToolsPreview />
+      {/* <AiToolsPreview /> */}
       <LeadingCompanies />
       <ContactCta />
       </motion.div>

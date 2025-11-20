@@ -32,7 +32,7 @@ const CyneCLISection: React.FC = () => {
         <section className="relative py-8 sm:py-12 lg:py-16 px-4 sm:px-6">
             {/* Purple gradient background overlay */}
             {isDarkMode &&
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-blue-800/10 to-indigo-600/20 z-5" />
             }
             {/* Content wrapper */}
             <div className="relative z-10">
@@ -52,10 +52,10 @@ const CyneCLISection: React.FC = () => {
                                 className="flex items-center gap-3 mb-4 sm:mb-6"
                                 variants={fadeIn}
                             >
-                                <div className="inline-flex items-center justify-center bg-cynerza-purple w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-cynerza-purple to-cynerza-blue rounded-xl flex-shrink-0">
+                                <div className="inline-flex items-center justify-center bg-cynerza-blue w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-cynerza-blue to-cynerza-blue rounded-xl flex-shrink-0">
                                     <IoTerminal className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                                 </div>
-                                <span className="text-xs sm:text-sm font-medium text-cynerza-purple bg-cynerza-purple/10 px-2 py-1 sm:px-3 sm:py-1 rounded-full whitespace-nowrap">
+                                <span className="text-xs sm:text-sm font-medium text-cynerza-blue bg-cynerza-blue/10 px-2 py-1 sm:px-3 sm:py-1 rounded-full whitespace-nowrap">
                                     Developer Tools
                                 </span>
                             </motion.div>
@@ -67,7 +67,7 @@ const CyneCLISection: React.FC = () => {
                             >
                                 Professional CLI Tools
                                 <br />
-                                <span className="text-cynerza-purple">for Developers</span>
+                                <span className="text-cynerza-blue">for Developers</span>
                             </motion.h2>
 
                             {/* Description */}
@@ -135,10 +135,10 @@ const CyneCLISection: React.FC = () => {
                             {/* CTA Button */}
                             <motion.button
                                 onClick={handleNavigateToTools}
-                                className="group relative px-6 py-3 sm:px-8 sm:py-4 bg-cynerza-purple bg-gradient-to-r from-cynerza-purple to-cynerza-blue text-white
+                                className="group relative px-6 py-3 sm:px-8 sm:py-4 bg-cynerza-blue bg-gradient-to-r from-cynerza-blue to-cynerza-blue text-white
                          text-base sm:text-lg font-semibold rounded-xl transition-all duration-300
-                         hover:shadow-lg hover:shadow-cynerza-purple/30 inline-flex items-center justify-center space-x-2 sm:space-x-3 
-                         focus:outline-none focus:ring-4 focus:ring-cynerza-purple/20 w-full sm:w-auto min-w-max"
+                         hover:shadow-lg hover:shadow-cynerza-blue/30 inline-flex items-center justify-center space-x-2 sm:space-x-3 
+                         focus:outline-none focus:ring-4 focus:ring-cynerza-blue/20 w-full sm:w-auto min-w-max"
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                             >

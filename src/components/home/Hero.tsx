@@ -426,10 +426,8 @@ const HeaderSection: React.FC = () => {
       onMouseMove={handleMouseMove}
       className="relative pb-10 sm:pb-6 pt-24 sm:py-40 overflow-hidden transition-colors duration-500">
 
-      {/* Purple gradient background overlay */}
-            {isDarkMode &&
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-indigo-600/20 z-5" />
-            }
+      {/* Brand gradient background overlay */}
+      <div className="brand-overlay z-5" />
       <div className="absolute inset-0 z-10 pointer-events-none">
         <HexagonBackground isActive={isActive} cursor={cursor} />
       </div>
@@ -451,7 +449,7 @@ const HeaderSection: React.FC = () => {
 
       <div className="relative container px-4 mx-auto z-20">
         <div className="max-w-xl xl:max-w-4xl">
-          <h1 className="font-heading text-2xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-8 sm:mb-14 leading-tight">
+          <h1 className="mt-10 sm:mt-10 md:mt-4 font-heading text-2xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-8 sm:mb-14 leading-tight">
             <span className="gradient-text">Unified AI</span>
             <span>, Simplified Tech</span>
             <br />
@@ -484,8 +482,8 @@ const HeaderSection: React.FC = () => {
           <Link
             to={"https://tools.cynerza.com"}
             className="relative group inline-block w-full sm:w-auto py-4 px-6 mb-10
-             text-white font-semibold rounded-md bg-gradient-to-r from-cynerza-purple 
-             to-cynerza-blue overflow-hidden bg-cynerza-purple hover:bg-cynerza-purple/90
+             text-white font-semibold rounded-md bg-gradient-to-r from-cynerza-blue 
+             to-cynerza-blue overflow-hidden bg-cynerza-blue hover:bg-cynerza-blue/90
               
                transition-colors duration-300"
           >

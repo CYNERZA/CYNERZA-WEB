@@ -51,7 +51,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
             <span className="mx-2">•</span>
             <span>{author}</span>
           </div>
-          <h3 className="text-xl font-bold mb-2 group-hover:text-cynerza-purple transition-colors duration-300">
+          <h3 className="text-xl font-bold mb-2 group-hover:text-cynerza-blue transition-colors duration-300">
             {title}
           </h3>
           <p className="text-gray-600 line-clamp-2">{excerpt}</p>

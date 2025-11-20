@@ -233,17 +233,17 @@
 
 //           <div className="hidden sm:flex space-x-4 md:space-x-6">
 //             <NavLink to="/" className={
-//               ({ isActive }) => `${isActive && "border-b-2 border-cynerza-purple"}`
+//               ({ isActive }) => `${isActive && "border-b-2 border-cynerza-blue"}`
 //             }>
 //               <MenuItem setActive={setActive} active={active} item="Home" />
 //             </NavLink>
 //             <NavLink to="/ai-tools" className={
-//               ({ isActive }) => `${isActive && "border-b-2 border-cynerza-purple"}`
+//               ({ isActive }) => `${isActive && "border-b-2 border-cynerza-blue"}`
 //             }>
 //               <MenuItem setActive={setActive} active={active} item="AI Tools" />
 //             </NavLink>
 //             <NavLink to={"/services"} className={
-//               ({ isActive }) => `${isActive && "border-b-2 border-cynerza-purple"}`
+//               ({ isActive }) => `${isActive && "border-b-2 border-cynerza-blue"}`
 //             }>
 //               <MenuItem setActive={setActive} active={active} item="Services">
 //                 <div className="text-sm lg:grid grid-cols-2 md:p-2 p-1">
@@ -259,7 +259,7 @@
 //               </MenuItem>
 //             </NavLink>
 //             <NavLink to={"/blogs"} className={
-//               ({ isActive }) => `${isActive && "border-b-2 border-cynerza-purple"}`
+//               ({ isActive }) => `${isActive && "border-b-2 border-cynerza-blue"}`
 //             }>
 //               <MenuItem setActive={setActive} active={active} item="Blog"
 //                 className={`hidden ${!loading && "sm:block"}`}>
@@ -328,13 +328,13 @@
 //                         to={item.path}
 //                         onClick={() => setMobileMenuOpen(false)}
 //                         className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${location.pathname === item.path
-//                           ? 'text-cynerza-purple dark:text-cynerza-purple bg-cynerza-purple/10 dark:bg-cynerza-purple/20 font-bold'
-//                           : 'text-gray-700 dark:text-gray-300 hover:text-cynerza-purple dark:hover:text-cynerza-purple hover:bg-gray-100/50 dark:hover:bg-gray-800/50'
+//                           ? 'text-cynerza-blue dark:text-cynerza-blue bg-cynerza-blue/10 dark:bg-cynerza-blue/20 font-bold'
+//                           : 'text-gray-700 dark:text-gray-300 hover:text-cynerza-blue dark:hover:text-cynerza-blue hover:bg-gray-100/50 dark:hover:bg-gray-800/50'
 //                           }`}
 //                       >
 //                         <div className="flex items-center">
 //                           {location.pathname === item.path && (
-//                             <div className="w-1.5 h-4 bg-cynerza-purple rounded-full mr-3"></div>
+//                             <div className="w-1.5 h-4 bg-cynerza-blue rounded-full mr-3"></div>
 //                           )}
 //                           <span>{item.name}</span>
 //                         </div>
@@ -572,12 +572,12 @@
 
 //           <div className="hidden sm:flex space-x-4 md:space-x-6">
 //             <NavLink to="/" className={
-//               ({ isActive }) => `${isActive && "border-b-2 border-cynerza-purple"}`
+//               ({ isActive }) => `${isActive && "border-b-2 border-cynerza-blue"}`
 //             }>
 //               <MenuItem setActive={setActive} active={active} item="Home" />
 //             </NavLink>
 //             <NavLink to="/ai-tools" className={
-//               ({ isActive }) => `${isActive && "border-b-2 border-cynerza-purple"}`
+//               ({ isActive }) => `${isActive && "border-b-2 border-cynerza-blue"}`
 //             }>
 //               <MenuItem setActive={setActive} active={active} item="AI Tools" />
 //             </NavLink>
@@ -588,7 +588,7 @@
 //                 onClick={() => setWhatWeDoOpen(!whatWeDoOpen)}
 //                 className="relative z-10 font-semibold transition-colors duration-300
 //                   text-sm sm:text-base px-1 py-2 rounded-md text-slate-900 dark:text-slate-200 
-//                   hover:text-white hover:bg-cynerza-purple/80 hover:shadow-md dark:hover:bg-cynerza-purple/80 dark:hover:text-white
+//                   hover:text-white hover:bg-cynerza-blue/80 hover:shadow-md dark:hover:bg-cynerza-blue/80 dark:hover:text-white
 //                   flex items-center gap-1"
 //               >
 //                 What We Do
@@ -616,7 +616,7 @@
 //                       <Link
 //                         to="/industries"
 //                         onClick={() => setWhatWeDoOpen(false)}
-//                         className="block px-4 py-3 text-white hover:bg-cynerza-purple/80 
+//                         className="block px-4 py-3 text-white hover:bg-cynerza-blue/80 
 //                           transition-colors duration-200 font-medium hover:rounded-md"
 //                       >
 //                         Industries
@@ -624,7 +624,7 @@
 //                       <Link
 //                         to="/services"
 //                         onClick={() => setWhatWeDoOpen(false)}
-//                         className="block px-4 py-3 text-white hover:bg-cynerza-purple/80 
+//                         className="block px-4 py-3 text-white hover:bg-cynerza-blue/80 
 //                           transition-colors duration-200 font-medium hover:rounded-md"
 //                       >
 //                         Services
@@ -636,7 +636,7 @@
 //             </div>
 
 //             <NavLink to={"/blogs"} className={
-//               ({ isActive }) => `${isActive && "border-b-2 border-cynerza-purple"}`
+//               ({ isActive }) => `${isActive && "border-b-2 border-cynerza-blue"}`
 //             }>
 //               <MenuItem setActive={setActive} active={active} item="Blog"
 //                 className={`hidden ${!loading && "sm:block"}`}>
@@ -705,13 +705,13 @@
 //                         to={item.path}
 //                         onClick={() => setMobileMenuOpen(false)}
 //                         className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${location.pathname === item.path
-//                           ? 'text-cynerza-purple dark:text-cynerza-purple bg-cynerza-purple/10 dark:bg-cynerza-purple/20 font-bold'
-//                           : 'text-gray-700 dark:text-gray-300 hover:text-cynerza-purple dark:hover:text-cynerza-purple hover:bg-gray-100/50 dark:hover:bg-gray-800/50'
+//                           ? 'text-cynerza-blue dark:text-cynerza-blue bg-cynerza-blue/10 dark:bg-cynerza-blue/20 font-bold'
+//                           : 'text-gray-700 dark:text-gray-300 hover:text-cynerza-blue dark:hover:text-cynerza-blue hover:bg-gray-100/50 dark:hover:bg-gray-800/50'
 //                           }`}
 //                       >
 //                         <div className="flex items-center">
 //                           {location.pathname === item.path && (
-//                             <div className="w-1.5 h-4 bg-cynerza-purple rounded-full mr-3"></div>
+//                             <div className="w-1.5 h-4 bg-cynerza-blue rounded-full mr-3"></div>
 //                           )}
 //                           <span>{item.name}</span>
 //                         </div>
@@ -964,12 +964,12 @@ function Navbar({ className }: { className?: string }) {
 
           <div className="hidden sm:flex space-x-4 md:space-x-6">
             <NavLink to="/" className={
-              ({ isActive }) => `${isActive && "border-b-2 border-cynerza-purple"}`
+              ({ isActive }) => `${isActive && "border-b-2 border-cynerza-blue"}`
             }>
               <MenuItem setActive={setActive} active={active} item="Home" />
             </NavLink>
             <NavLink to="/ai-tools" className={
-              ({ isActive }) => `${isActive && "border-b-2 border-cynerza-purple"}`
+              ({ isActive }) => `${isActive && "border-b-2 border-cynerza-blue"}`
             }>
               <MenuItem setActive={setActive} active={active} item="AI Tools" />
             </NavLink>
@@ -980,7 +980,7 @@ function Navbar({ className }: { className?: string }) {
                 onClick={() => setWhatWeDoOpen(!whatWeDoOpen)}
                 className={`relative z-10 font-semibold transition-colors duration-300
                   text-sm sm:text-base px-1 py-2 rounded-md text-slate-900 dark:text-slate-200 
-                  hover:text-white hover:bg-cynerza-purple/80 hover:shadow-md dark:hover:bg-cynerza-purple/80 dark:hover:text-white
+                  hover:text-white hover:bg-cynerza-blue/80 hover:shadow-md dark:hover:bg-cynerza-blue/80 dark:hover:text-white
                   flex items-center gap-1 ${isContactUsPage ? 'text-white' : ''}`}
               >
                 What We Do
@@ -1009,8 +1009,8 @@ function Navbar({ className }: { className?: string }) {
                         to="/industries"
                         onClick={() => setWhatWeDoOpen(false)}
                         className={`block px-4 py-1 font-medium transition-colors duration-200 ${isIndustriesActive
-                          ? 'border-b-2 border-cynerza-purple text-white'
-                          : 'text-white hover:bg-cynerza-purple/80 hover:rounded-md'
+                          ? 'border-b-2 border-cynerza-blue text-white'
+                          : 'text-white hover:bg-cynerza-blue/80 hover:rounded-md'
                           }`}
                       >
                         Industries
@@ -1019,8 +1019,8 @@ function Navbar({ className }: { className?: string }) {
                         to="/services"
                         onClick={() => setWhatWeDoOpen(false)}
                         className={`block px-4 py-1 font-medium transition-colors duration-200 ${isServicesActive
-                          ? 'border-b-2 border-cynerza-purple text-white'
-                          : 'text-white hover:bg-cynerza-purple/80 hover:rounded-md'
+                          ? 'border-b-2 border-cynerza-blue text-white'
+                          : 'text-white hover:bg-cynerza-blue/80 hover:rounded-md'
                           }`}
                       >
                         Services
@@ -1032,7 +1032,7 @@ function Navbar({ className }: { className?: string }) {
             </div>
 
             <NavLink to={"/blogs"} className={
-              ({ isActive }) => `${isActive && "border-b-2 border-cynerza-purple"}`
+              ({ isActive }) => `${isActive && "border-b-2 border-cynerza-blue"}`
             }>
               <MenuItem setActive={setActive} active={active} item="Blog"
                 className={`hidden ${!loading && "sm:block"}`}>
@@ -1065,7 +1065,7 @@ function Navbar({ className }: { className?: string }) {
                 onClick={() => setMoreOpen(!moreOpen)}
                 className={`relative z-10 font-semibold transition-colors duration-300
                   text-sm sm:text-base px-1 py-2 rounded-md text-slate-900 dark:text-slate-200 
-                  hover:text-white hover:bg-cynerza-purple/80 hover:shadow-md dark:hover:bg-cynerza-purple/80 dark:hover:text-white
+                  hover:text-white hover:bg-cynerza-blue/80 hover:shadow-md dark:hover:bg-cynerza-blue/80 dark:hover:text-white
                   flex items-center gap-1 ${isContactUsPage ? 'text-white' : ''}`}
               >
                 More
@@ -1094,8 +1094,8 @@ function Navbar({ className }: { className?: string }) {
                         to="/team"
                         onClick={() => setMoreOpen(false)}
                         className={`block px-4 py-1 font-medium transition-colors duration-200 ${isTeamActive
-                          ? 'border-b-2 border-cynerza-purple text-white'
-                          : 'text-white hover:bg-cynerza-purple/80 hover:rounded-md'
+                          ? 'border-b-2 border-cynerza-blue text-white'
+                          : 'text-white hover:bg-cynerza-blue/80 hover:rounded-md'
                           }`}
                       >
                         Team
@@ -1104,8 +1104,8 @@ function Navbar({ className }: { className?: string }) {
                         to="/about"
                         onClick={() => setMoreOpen(false)}
                         className={`block px-4 py-1 font-medium transition-colors duration-200 ${isAboutActive
-                          ? 'border-b-2 border-cynerza-purple text-white'
-                          : 'text-white hover:bg-cynerza-purple/80 hover:rounded-md'
+                          ? 'border-b-2 border-cynerza-blue text-white'
+                          : 'text-white hover:bg-cynerza-blue/80 hover:rounded-md'
                           }`}
                       >
                         About
@@ -1114,8 +1114,8 @@ function Navbar({ className }: { className?: string }) {
                         to="/contact"
                         onClick={() => setMoreOpen(false)}
                         className={`block px-4 py-1 font-medium transition-colors duration-200 ${isContactActive
-                          ? 'border-b-2 border-cynerza-purple text-white'
-                          : 'text-white hover:bg-cynerza-purple/80 hover:rounded-md'
+                          ? 'border-b-2 border-cynerza-blue text-white'
+                          : 'text-white hover:bg-cynerza-blue/80 hover:rounded-md'
                           }`}
                       >
                         Contact
@@ -1171,7 +1171,7 @@ function Navbar({ className }: { className?: string }) {
                           <button
                             onClick={() => setMobileWhatWeDoOpen(!mobileWhatWeDoOpen)}
                             className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium transition-colors
-                              text-gray-700 dark:text-gray-300 hover:text-cynerza-purple dark:hover:text-cynerza-purple hover:bg-gray-100/50 dark:hover:bg-gray-800/50"
+                              text-gray-700 dark:text-gray-300 hover:text-cynerza-blue dark:hover:text-cynerza-blue hover:bg-gray-100/50 dark:hover:bg-gray-800/50"
                           >
                             <div className="flex items-center">
                               <span>{item.name}</span>
@@ -1202,8 +1202,8 @@ function Navbar({ className }: { className?: string }) {
                                       setMobileWhatWeDoOpen(false);
                                     }}
                                     className={`block px-4 py-2 text-sm font-medium rounded-md transition-colors ${isIndustriesActive
-                                      ? 'text-cynerza-purple dark:text-cynerza-purple bg-cynerza-purple/10 dark:bg-cynerza-purple/20 font-bold'
-                                      : 'text-gray-700 dark:text-gray-300 hover:text-cynerza-purple dark:hover:text-cynerza-purple hover:bg-gray-100/50 dark:hover:bg-gray-800/50'
+                                      ? 'text-cynerza-blue dark:text-cynerza-blue bg-cynerza-blue/10 dark:bg-cynerza-blue/20 font-bold'
+                                      : 'text-gray-700 dark:text-gray-300 hover:text-cynerza-blue dark:hover:text-cynerza-blue hover:bg-gray-100/50 dark:hover:bg-gray-800/50'
                                       }`}
                                   >
                                     Industries
@@ -1215,8 +1215,8 @@ function Navbar({ className }: { className?: string }) {
                                       setMobileWhatWeDoOpen(false);
                                     }}
                                     className={`block px-4 py-2 text-sm font-medium rounded-md transition-colors mt-1 ${isServicesActive
-                                      ? 'text-cynerza-purple dark:text-cynerza-purple bg-cynerza-purple/10 dark:bg-cynerza-purple/20 font-bold'
-                                      : 'text-gray-700 dark:text-gray-300 hover:text-cynerza-purple dark:hover:text-cynerza-purple hover:bg-gray-100/50 dark:hover:bg-gray-800/50'
+                                      ? 'text-cynerza-blue dark:text-cynerza-blue bg-cynerza-blue/10 dark:bg-cynerza-blue/20 font-bold'
+                                      : 'text-gray-700 dark:text-gray-300 hover:text-cynerza-blue dark:hover:text-cynerza-blue hover:bg-gray-100/50 dark:hover:bg-gray-800/50'
                                       }`}
                                   >
                                     Services
@@ -1232,13 +1232,13 @@ function Navbar({ className }: { className?: string }) {
                           to={item.path}
                           onClick={() => setMobileMenuOpen(false)}
                           className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${location.pathname === item.path
-                            ? 'text-cynerza-purple dark:text-cynerza-purple bg-cynerza-purple/10 dark:bg-cynerza-purple/20 font-bold'
-                            : 'text-gray-700 dark:text-gray-300 hover:text-cynerza-purple dark:hover:text-cynerza-purple hover:bg-gray-100/50 dark:hover:bg-gray-800/50'
+                            ? 'text-cynerza-blue dark:text-cynerza-blue bg-cynerza-blue/10 dark:bg-cynerza-blue/20 font-bold'
+                            : 'text-gray-700 dark:text-gray-300 hover:text-cynerza-blue dark:hover:text-cynerza-blue hover:bg-gray-100/50 dark:hover:bg-gray-800/50'
                             }`}
                         >
                           <div className="flex items-center">
                             {location.pathname === item.path && (
-                              <div className="w-1.5 h-4 bg-cynerza-purple rounded-full mr-3"></div>
+                              <div className="w-1.5 h-4 bg-cynerza-blue rounded-full mr-3"></div>
                             )}
                             <span>{item.name}</span>
                           </div>

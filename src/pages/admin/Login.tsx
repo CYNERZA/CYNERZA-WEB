@@ -94,7 +94,7 @@ const Login: React.FC = () => {
 
                     <Button
                         type="submit"
-                        className="w-full bg-cynerza-purple hover:bg-cynerza-purple/90"
+                        className="w-full bg-cynerza-blue hover:bg-cynerza-blue/90"
                         disabled={loading}
                     >
                         {loading ? 'Login...' : 'Login'}

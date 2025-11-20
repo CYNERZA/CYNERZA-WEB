@@ -186,7 +186,7 @@
   .dark {
     --sidebar: oklch(0.205 0 0);
     --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary: oklch(0.52 0.14 240);
     --sidebar-primary-foreground: oklch(0.985 0 0);
     --sidebar-accent: oklch(0.269 0 0);
     --sidebar-accent-foreground: oklch(0.985 0 0);
@@ -206,11 +206,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 253 84% 74%;
+    --primary: 207 70% 41%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 260 100% 97%;
-    --secondary-foreground: 253 84% 74%;
+    --secondary: 207 85% 85%;
+    --secondary-foreground: 207 70% 41%;
 
     --muted: 0 0% 96.1%;
     --muted-foreground: 0 0% 45.1%;
@@ -223,7 +223,7 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 252 84% 74%;
+    --ring: 207 70% 41%;
 
     --radius: 0.75rem;
 
@@ -235,7 +235,7 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 207 70% 41%;
 
     
     .dark {
@@ -245,10 +245,10 @@
       --card-foreground: 0 0% 98%;
       --popover: 240 10% 5%;
       --popover-foreground: 0 0% 98%;
-      --primary: 253 84% 74%;
+      --primary: 187 75% 55%;
       --primary-foreground: 0 0% 100%;
       --secondary: 240 3.7% 16%;
-      --secondary-foreground: 253 84% 74%;
+      --secondary-foreground: 187 75% 55%;
       --muted: 240 3.7% 16%;
       --muted-foreground: 240 5% 64.9%;
       --accent: 240 3.7% 16%;
@@ -257,7 +257,7 @@
       --destructive-foreground: 0 0% 100%;
       --border: 240 3.7% 25%;
       --input: 240 3.7% 25%;
-      --ring: 253 84% 74%;
+      --ring: 187 75% 55%;
     }
   }
 
@@ -304,28 +304,28 @@
   
   
   .btn-primary {
-    @apply bg-cynerza-purple hover:bg-cynerza-purple/90 text-white font-medium rounded-lg px-5 py-2.5 text-sm transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0;
+    @apply bg-cynerza-blue hover:bg-cynerza-blue/90 text-white font-medium rounded-lg px-5 py-2.5 text-sm transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0;
   }
   
   .btn-secondary {
-    @apply bg-cynerza-purple/10 hover:bg-cynerza-purple/20 text-cynerza-purple dark:text-cynerza-purple-light dark:bg-cynerza-purple/20 dark:hover:bg-cynerza-purple/30 font-medium rounded-lg px-5 py-2.5 text-sm transition-all duration-200 shadow-sm hover:shadow;
+    @apply bg-cynerza-blue/10 hover:bg-cynerza-blue/20 text-cynerza-blue dark:text-cynerza-cyan-light dark:bg-cynerza-blue/20 dark:hover:bg-cynerza-blue/30 font-medium rounded-lg px-5 py-2.5 text-sm transition-all duration-200 shadow-sm hover:shadow;
   }
   
   .btn-outline {
-    @apply border border-cynerza-purple/20 hover:border-cynerza-purple/40 text-cynerza-purple dark:text-cynerza-purple-light dark:border-cynerza-purple/30 dark:hover:border-cynerza-purple/50 hover:bg-cynerza-purple/5 font-medium rounded-lg px-5 py-2.5 text-sm transition-all duration-200;
+    @apply border border-cynerza-blue/20 hover:border-cynerza-blue/40 text-cynerza-blue dark:text-cynerza-cyan-light dark:border-cynerza-blue/30 dark:hover:border-cynerza-blue/50 hover:bg-cynerza-blue/5 font-medium rounded-lg px-5 py-2.5 text-sm transition-all duration-200;
   }
   
   .btn-destructive {
     @apply bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg px-5 py-2.5 text-sm transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0;
   }
 
-  .purple-glow {
+  .blue-glow {
     @apply relative;
   }
   
-  .purple-glow::before {
+  .blue-glow::before {
     content: '';
-    @apply absolute -inset-1 rounded-lg bg-cynerza-purple/30 blur-lg opacity-70 -z-10;
+    @apply absolute -inset-1 rounded-lg bg-cynerza-cyan/30 blur-lg opacity-70 -z-10;
   }
   
   .typing-container {
@@ -333,11 +333,11 @@
   }
   
   .typing-text {
-    @apply overflow-hidden whitespace-nowrap border-r-2 border-cynerza-purple animate-typing;
+    @apply overflow-hidden whitespace-nowrap border-r-2 border-cynerza-cyan animate-typing;
   }
   
   .typing-cursor {
-    @apply border-r-2 border-cynerza-purple animate-blink;
+    @apply border-r-2 border-cynerza-cyan animate-blink;
   }
   
   .section-heading {
@@ -346,7 +346,7 @@
   }
   
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-cynerza-purple to-cynerza-purple-dark dark:from-cynerza-purple-light dark:to-cynerza-purple;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-cynerza-blue to-cynerza-blue-dark dark:from-cynerza-cyan-light dark:to-cynerza-blue-light;
   }
 
   /* Brand gradient that matches cynerza.png (deep blue -> cyan) */
@@ -355,8 +355,13 @@
     background-image: linear-gradient(90deg, #0b2239 0%, #1f6bb3 55%, #34d3e6 100%);
   }
 
+  /* Reusable brand overlay (absolute inset gradient for sections) */
+  .brand-overlay {
+    @apply absolute inset-0 bg-gradient-to-br from-cynerza-blue/20 via-cynerza-blue/10 to-cynerza-cyan/20 dark:from-cynerza-blue/30 dark:via-cynerza-blue/20 dark:to-cynerza-cyan/25;
+  }
+
   .shadow-glow {
-    box-shadow: 0 0 15px theme('colors.cynerza.purple.DEFAULT');
+    box-shadow: 0 0 15px theme('colors.cynerza.cyan.DEFAULT');
   }
 
   .glow-button {
@@ -392,28 +397,28 @@
   }
 
   .glow-sm {
-    box-shadow: 0 0 5px theme('colors.cynerza.purple.DEFAULT'),
-      0 0 10px theme('colors.cynerza.purple.DEFAULT'),
-      0 0 15px theme('colors.cynerza.purple.DEFAULT');
+    box-shadow: 0 0 5px theme('colors.cynerza.cyan.DEFAULT'),
+      0 0 10px theme('colors.cynerza.blue.DEFAULT'),
+      0 0 15px theme('colors.cynerza.cyan.light');
   }
 
   .glow-md {
-    box-shadow: 0 0 10px theme('colors.cynerza.purple.DEFAULT'),
-      0 0 20px theme('colors.cynerza.purple.DEFAULT'),
-      0 0 30px theme('colors.cynerza.purple.DEFAULT');
+    box-shadow: 0 0 10px theme('colors.cynerza.cyan.DEFAULT'),
+      0 0 20px theme('colors.cynerza.blue.DEFAULT'),
+      0 0 30px theme('colors.cynerza.cyan.light');
   }
 }
 
 @keyframes glow {
   from {
-    box-shadow: 0 0 5px theme('colors.cynerza.purple.DEFAULT'),
-                0 0 10px theme('colors.cynerza.purple.DEFAULT'),
-                0 0 15px theme('colors.cynerza.purple.DEFAULT');
+    box-shadow: 0 0 5px theme('colors.cynerza.cyan.DEFAULT'),
+                0 0 10px theme('colors.cynerza.blue.DEFAULT'),
+                0 0 15px theme('colors.cynerza.cyan.light');
   }
   to {
-    box-shadow: 0 0 10px theme('colors.cynerza.purple.DEFAULT'),
-                0 0 20px theme('colors.cynerza.purple.DEFAULT'),
-                0 0 30px theme('colors.cynerza.purple.DEFAULT');
+    box-shadow: 0 0 10px theme('colors.cynerza.cyan.DEFAULT'),
+                0 0 20px theme('colors.cynerza.blue.DEFAULT'),
+                0 0 30px theme('colors.cynerza.cyan.light');
   }
 }
 

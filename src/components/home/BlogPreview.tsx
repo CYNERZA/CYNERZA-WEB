@@ -70,7 +70,7 @@ const BlogPreview: React.FC = () => {
 
         <div className="text-center mt-12">
           <Link to="/blog">
-            <Button className="bg-cynerza-purple hover:bg-cynerza-purple/90">
+            <Button className="bg-cynerza-blue hover:bg-cynerza-blue/90">
               Read All Articles
             </Button>
           </Link>

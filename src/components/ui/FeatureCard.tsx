@@ -34,8 +34,8 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       <div
         className={`
         flex items-center justify-center w-14 h-14 mb-4 rounded-lg
-        bg-cynerza-purple/10 text-cynerza-purple
-        dark:bg-cynerza-purple/20 dark:text-cynerza-purple
+        bg-cynerza-blue/10 text-cynerza-blue
+        dark:bg-cynerza-blue/20 dark:text-cynerza-blue
         transition-all duration-300
       `}
       >
