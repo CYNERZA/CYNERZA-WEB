@@ -8,12 +8,11 @@ RUN npm ci || npm install --no-audit --no-fund
 COPY . .
 RUN npm run build
 
-# Minimal, non-root runtime: NGINX (unprivileged) static server
-FROM nginxinc/nginx-unprivileged:1.27-alpine AS runner
+# Non-root Nginx runtime to serve static SPA
+FROM nginx:1.27-alpine AS runner
 WORKDIR /usr/share/nginx/html
-COPY --from=builder /app/dist ./
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-# Explicitly set non-root user to satisfy checks
-USER 101
+COPY --from=builder --chown=nginx:nginx /app/dist ./
+COPY nginx.conf /etc/nginx/nginx.conf
+USER nginx
 EXPOSE 8996
-CMD ["nginx", "-g", "daemon off;"]
+# Default CMD from image runs nginx in foreground; config sets pid path suitable for non-root
