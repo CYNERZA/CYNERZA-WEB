@@ -8,18 +8,11 @@ RUN npm ci || npm install --no-audit --no-fund
 COPY . .
 RUN npm run build
 
-FROM node:20-alpine AS runner
-WORKDIR /app
-RUN npm install -g serve \
-    && npm cache clean --force \
-    && rm -rf /usr/local/lib/node_modules/npm \
-    && rm -f /usr/local/bin/npm /usr/local/bin/npx \
-    && rm -rf /opt/yarn-v* /usr/local/lib/node_modules/corepack \
-    && rm -f /usr/local/bin/corepack
-COPY --from=builder /app/dist ./dist
-ENV NODE_ENV=production
-# Run as non-root for better container security
-RUN addgroup -S appgroup && adduser -S appuser -G appgroup
-USER appuser
+# Minimal, non-root runtime: Caddy static file server
+FROM caddy:2-alpine AS runner
+WORKDIR /usr/share/caddy
+COPY --from=builder /app/dist ./
+COPY Caddyfile /etc/caddy/Caddyfile
+USER caddy
 EXPOSE 8996
-CMD ["serve", "-s", "dist", "-l", "8996"]
+CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]

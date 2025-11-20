@@ -1,0 +1,13 @@
+:8996 {
+  root * /usr/share/caddy
+  encode zstd gzip
+
+  @notFile {
+    not file
+  }
+  handle @notFile {
+    rewrite * /index.html
+  }
+
+  file_server
+}
