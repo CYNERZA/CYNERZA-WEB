@@ -495,15 +495,19 @@ jobs:
 
     - name: Trivy scan Frontend image
       if: needs.changes.outputs.frontend == 'true'
+      env:
+        TRIVY_DISABLE_VEX_NOTICE: "true"
       run: |
-        trivy image --scanners vuln --exit-code 1 --ignore-unfixed --severity CRITICAL,HIGH --no-progress \
-          "${{ env.FRONTEND_IMAGE }}@${{ steps.frontend-build.outputs.digest }}"
+        trivy image --exit-code 1 --ignore-unfixed --severity CRITICAL,HIGH --no-progress \
+          --scanners vuln "${{ env.FRONTEND_IMAGE }}@${{ steps.frontend-build.outputs.digest }}"
 
     - name: Trivy scan Backend image
       if: needs.changes.outputs.backend == 'true'
+      env:
+        TRIVY_DISABLE_VEX_NOTICE: "true"
       run: |
-        trivy image --scanners vuln --exit-code 1 --ignore-unfixed --severity CRITICAL,HIGH --no-progress \
-          "${{ env.BACKEND_IMAGE }}@${{ steps.backend-build.outputs.digest }}"
+        trivy image --exit-code 1 --ignore-unfixed --severity CRITICAL,HIGH --no-progress \
+          --scanners vuln "${{ env.BACKEND_IMAGE }}@${{ steps.backend-build.outputs.digest }}"
         
     - name: Verify both pushes succeeded
       run: |
