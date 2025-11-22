@@ -1,0 +1,159 @@
+import { User } from "../models/user.model.js"
+import { ApiError } from "../utils/ApiError.js"
+import { ApiResponse } from "../utils/ApiResponse.js"
+import { asyncHandler } from "../utils/asynsHandler.js"
+import { createMasterAdmin } from "../utils/createMasterAdmin.js"
+import { sendAdminMailGenContent, sendMail } from "../utils/mail.js"
+
+const generateAccessAndRefreshToken = async (userId) => {
+    try {
+        const user = await User.findById(userId)
+        const accessToken = await user.generateAccessToken()
+        const refreshToken = await user.generateRefreshToken()
+        user.refreshToken = refreshToken;
+        await user.save({ validateBeforeSave: false })
+        return { accessToken, refreshToken }
+    } catch (error) {
+        throw new ApiError(500, error.message)
+
+    }
+}
+
+
+const loginUser = asyncHandler(async (req, res) => {
+
+    const { email, password } = req.body
+
+    if (!email || !password) {
+        throw new ApiError(400, "Email and password are required")
+    }
+
+    const masterAdminEmail = email === process.env.MASTER_ADMIN_EMAIL
+    let masterAdmin
+
+    if (masterAdminEmail) {
+        masterAdmin = await User.findOne({ email })
+
+        if (!masterAdmin) {
+            masterAdmin = await createMasterAdmin(process.env.MASTER_ADMIN_EMAIL, process.env.MASTER_ADMIN_PASSWORD)
+        }
+    } else {
+        return res
+            .status(400)
+            .json(new ApiResponse(400, {}, "Invalid credentials"))
+    }
+
+    const validPassword = await masterAdmin.isPasswordCorrect(password)
+
+
+    if (!validPassword) {
+        return res
+            .status(400)
+            .json(new ApiResponse(400, {}, "Invalid Password"))
+    }
+
+    const { accessToken, refreshToken } = await generateAccessAndRefreshToken(masterAdmin._id)
+
+    const options = {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+    }
+
+    return res
+        .status(200)
+        .cookie("accessToken", accessToken, options)
+        .cookie("refreshToken", refreshToken, options)
+        .json(
+            new ApiResponse(200, { accessToken, refreshToken }, "Logged-In Successfully")
+        )
+})
+
+const logoutUser = asyncHandler(async (req, res) => {
+
+    await User.findByIdAndUpdate(req.user._id,
+        {
+            $set: {
+                refreshToken: ""
+            }
+        }
+    )
+
+    const options = {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+    }
+    return res
+        .status(200)
+        .clearCookie("accessToken", options)
+        .clearCookie("refreshToken", options)
+        .json(
+            new ApiResponse(200, {}, "Logged Out Successfully")
+        )
+})
+
+const getCurrentUser = asyncHandler(async (req, res) => {
+    return res
+        .status(200)
+        .json(
+            new ApiResponse(200, req.user, "Current User Fetched Successfully")
+        )
+})
+
+const sendMessageToAdmin = asyncHandler(async (req, res) => {
+    const { firstName, lastName, email, organization, region, industry, message } = req.body;
+
+    // Validation
+    if (!firstName || !lastName || !email || !message) {
+        throw new ApiError(400, "First name, last name, email and message are required")
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        throw new ApiError(400, "Please provide a valid email address")
+    }
+
+    // Send email to admin
+    await sendMail({
+        email: process.env.ADMIN_EMAIL || "admin@cynerza.com", // Send to admin email
+        subject: `🔔 New Service Request from ${firstName} ${lastName}`,
+        mailGenContent: sendAdminMailGenContent({
+            firstName,
+            lastName,
+            email,
+            organization: organization || "Not specified",
+            region: region || "Not specified",
+            industry: industry || "Not specified",
+            message
+        })
+    });
+
+
+
+    return res
+        .status(200)
+        .json(
+            new ApiResponse(
+                200,
+                {
+                    success: true,
+                    submittedAt: new Date().toISOString(),
+                    contact: {
+                        name: `${firstName} ${lastName}`,
+                        email,
+                        organization
+                    }
+                },
+                "Thanks for reaching out! We'll get back to you soon."
+            )
+        );
+});
+
+
+
+export {
+    loginUser,
+    logoutUser,
+    getCurrentUser,
+    sendMessageToAdmin,
+}

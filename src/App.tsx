@@ -1,0 +1,324 @@
+
+import React, { useEffect } from 'react';
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import PageLayout from "@/components/layout/PageLayout";
+import Index from "./pages/Index";
+import AiTools from './pages/AiTools';
+import Services from './pages/Services';
+import Team from "./pages/Team";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
+import BlogLayout from './pages/Blog';
+import Admin from './pages/admin/Admin';
+import Login from './pages/admin/Login';
+import AuthLayout from "./components/layout/admin/AuthLayout"
+import { store } from './app/store.js';
+import { Provider } from 'react-redux';
+import BlogForm from './pages/admin/BlogForm';
+import AllBlogs from './pages/admin/AllBlogs';
+import Layout from './components/layout/admin/layout/adminPageLayout';
+import { BlogDetailPage } from './components/admin/blogPost';
+import UpdateBlogPost from "./components/admin/updateBlogPost"
+import SingleBlog from './pages/SingleBlog';
+import CareersPage from './pages/Careers';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+import AddDepartment from './pages/admin/AddDepartment';
+import JobApplicationForm from './components/careers/ApplyForJob.js';
+import JobForm from './pages/admin/JobPostForm';
+import AllJobs from './pages/admin/AllJobs';
+import UpdateJobPosts from './components/admin/updateJobPost.js';
+import SaasProductDevelopment from './components/services/SaasProductDevelopment.js';
+import CustomLLMAPIServices from './components/services/CustomLLMAPI.js';
+import AutomationSolutions from './components/services/AutomationSolutions.js';
+import AIMLSolutions from './components/services/AI&MLSolution.js';
+import CloudDevOpsEngineering from './components/services/CloudDevOpsEngineering.js';
+import ITServiceManagement from './components/services/ITServiceManagement.js';
+import BankingIndustry from './components/industries/banking';
+import CapitalMarketsPage from './components/industries/CapitalMarkets.js';
+import MediaCommunicationsPage from './components/industries/MediaCommunications.js';
+// import EducationPage from './components/industries/Education.js';
+import HealthcarePage from './components/industries/Healthcare.js';
+import PublicServicesPage from './components/industries/PublicServices.js';
+import RetailPage from './components/industries/Retail.js';
+import TravelLogisticsPage from './components/industries/TravelLogistics.js';
+import EducationPage from './components/industries/Education.js';
+import WhyCynerzaSection from './pages/WhyCynerza';
+import AdminIndustryPage from './pages/admin/Industry';
+import IndustriesPage from './pages/Industries';
+import VirtualAssistant from './components/chatbot/VirtualAssistant';
+
+const queryClient = new QueryClient();
+
+const mode = localStorage.getItem("theme")
+if (mode) {
+  document.documentElement.classList.add(mode);
+} else {
+  // Default to light mode if no theme is set
+  localStorage.setItem("theme", "light");
+}
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // This makes it smooth animation
+    });
+  }, [pathname]);
+
+  return null;
+};
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <Provider store={store}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <VirtualAssistant />
+          <Routes>
+            <Route path="/" element={
+              <PageLayout noPadding>
+                <Index />
+              </PageLayout>
+            } />
+            {/* Admin Route */}
+            <Route path="/admin/login" element={
+              <AuthLayout authentication={false}>
+                <Login />
+              </AuthLayout>
+            } />
+            <Route path="/admin" element={
+              <AuthLayout authentication={true}>
+                <Layout>
+                  <Admin />
+                </Layout>
+              </AuthLayout>
+            } />
+            <Route path="/admin/create-blog" element={
+              <AuthLayout authentication={true}>
+                <Layout>
+                  <BlogForm />
+                </Layout>
+              </AuthLayout>
+            } />
+            <Route path='/admin/industry' element={
+              <AuthLayout authentication={true}>
+                <Layout>
+                  <AdminIndustryPage />
+                </Layout>
+              </AuthLayout>
+            } />
+            <Route path="/admin/blogs" element={
+              <AuthLayout authentication={true}>
+                <Layout>
+                  <AllBlogs />
+                </Layout>
+              </AuthLayout>
+            } />
+            <Route path="/admin/blogs/:slug" element={
+              <AuthLayout authentication={true}>
+                <Layout>
+                  <BlogDetailPage />
+                </Layout>
+              </AuthLayout>
+            } />
+            <Route path="/admin/update-blog/:id" element={
+              <AuthLayout authentication={true}>
+                <Layout>
+                  <UpdateBlogPost />
+                </Layout>
+              </AuthLayout>
+            } />
+            <Route path="/admin/department" element={
+              <AuthLayout authentication={true}>
+                <Layout>
+                  <AddDepartment />
+                </Layout>
+              </AuthLayout>
+            } />
+            <Route path="/admin/jobs/create" element={
+              <AuthLayout authentication={true}>
+                <Layout>
+                  <JobForm />
+                </Layout>
+              </AuthLayout>
+            } />
+            <Route path="/admin/jobs" element={
+              <AuthLayout authentication={true}>
+                <Layout>
+                  <AllJobs />
+                </Layout>
+              </AuthLayout>
+            } />
+            <Route path="/admin/jobs/:jobId" element={
+              <AuthLayout authentication={true}>
+                <Layout>
+                  <UpdateJobPosts />
+                </Layout>
+              </AuthLayout>
+            } />
+            {/* End Admin Routes */}
+            <Route path="/ai-tools" element={
+              <PageLayout noPadding>
+                <AiTools />
+              </PageLayout>
+            } />
+            
+            <Route path="/services" element={
+              <PageLayout noPadding>
+                <Services />
+              </PageLayout>
+            } />
+            <Route path="/industries" element={
+              <PageLayout noPadding>
+                <IndustriesPage />
+              </PageLayout>
+            } />
+            <Route path="/blogs" element={
+              <PageLayout noPadding>
+                <BlogLayout />
+              </PageLayout>
+            } >
+            </Route>
+            <Route path="/blogs/:slug" element={
+              <PageLayout noPadding>
+                <SingleBlog />
+              </PageLayout>
+            }             >
+            </Route>
+            <Route path="/team" element={
+              <PageLayout noPadding>
+                <Team />
+              </PageLayout>
+            } />
+            <Route path="/about" element={
+              <PageLayout noPadding>
+                <About />
+              </PageLayout>
+            } />
+            <Route path="/contact" element={
+              <PageLayout noPadding>
+                <Contact />
+              </PageLayout>
+            } />
+            {/* services */}
+            <Route path="/services/saas-product-development" element={
+              <PageLayout noPadding>
+                <SaasProductDevelopment />
+              </PageLayout>
+            } />
+            <Route path="/services/custom-llm-api" element={
+              <PageLayout noPadding>
+                <CustomLLMAPIServices />
+              </PageLayout>
+            } />
+            <Route path="/services/automation-solutions" element={
+              <PageLayout noPadding>
+                <AutomationSolutions />
+              </PageLayout>
+            } />
+            <Route path="/services/ai-ml-solution" element={
+              <PageLayout noPadding>
+                <AIMLSolutions />
+              </PageLayout>
+            } />
+            <Route path="/services/cloud-devops-engineering" element={
+              <PageLayout noPadding>
+                <CloudDevOpsEngineering />
+              </PageLayout>
+            } />
+            <Route path="/services/it-service-management" element={
+              <PageLayout noPadding>
+                <ITServiceManagement />
+              </PageLayout>
+            } />
+            {/* industries */}
+            <Route path="/industries/banking" element={
+              <PageLayout noPadding>
+                <BankingIndustry />
+              </PageLayout>
+            } />
+            <Route path="/industries/capital-markets" element={
+              <PageLayout noPadding>
+                <CapitalMarketsPage />
+              </PageLayout>
+            } />
+            <Route path="/industries/media-communications" element={
+              <PageLayout noPadding>
+                <MediaCommunicationsPage />
+              </PageLayout>
+            } />
+            <Route path="/industries/education" element={
+              <PageLayout noPadding>
+                <EducationPage />
+              </PageLayout>
+            } />
+            <Route path="/industries/healthcare" element={
+              <PageLayout noPadding>
+                <HealthcarePage />
+              </PageLayout>
+            } />
+            // public services, retail, travel and logistics can be added similarly
+            <Route path="/industries/public-services" element={
+              <PageLayout noPadding>
+                 <PublicServicesPage />
+              </PageLayout>
+            } />
+            <Route path="/industries/retail" element={
+              <PageLayout noPadding>
+                <RetailPage />
+              </PageLayout>
+            } />
+            <Route path="/industries/travel-logistics" element={
+              <PageLayout noPadding>
+               <TravelLogisticsPage />
+              </PageLayout>
+            } />
+
+            <Route path='/why-cynerza' element={
+              <PageLayout noPadding>
+                <WhyCynerzaSection />
+              </PageLayout>
+            } />
+            {/* Careers Page */}
+            <Route path='/careers' element={
+              <PageLayout noPadding>
+                <CareersPage />
+              </PageLayout>
+            }
+            />
+            {/*  Privacy Policy */}
+            <Route path='/privacy-policy' element={
+              <PageLayout noPadding>
+                <PrivacyPolicy />
+              </PageLayout>
+            }
+            />
+            {/*  Terms of Service */}
+            <Route path='/terms-of-service' element={
+              <PageLayout noPadding>
+                <TermsOfService />
+              </PageLayout>
+            }
+            />
+            <Route path="*" element={
+              <PageLayout>
+                <NotFound />
+              </PageLayout>
+            } />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </Provider>
+  </QueryClientProvider>
+);
+
+export default App;

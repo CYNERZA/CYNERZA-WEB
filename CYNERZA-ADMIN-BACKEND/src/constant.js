@@ -1,0 +1,1 @@
+export const DB_NAME = "cynerza_admin"
